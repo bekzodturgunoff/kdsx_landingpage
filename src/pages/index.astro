@@ -1,0 +1,26 @@
+---
+import Hero from '../components/Hero.astro';
+import ThreePillars from '../components/ThreePillars.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import PricingTable from '../components/PricingTable.astro';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KDSX POS | Total Restaurant Control</title>
+    <meta name="description" content="KDSX is the only POS that unifies your Back Office, Front of House, and Kitchen into one profit-driving ecosystem." />
+  <link rel="icon" href="/logo.png" />
+  </head>
+  <body class="bg-[#0a2239] text-white font-sans">
+    <main>
+      <Hero />
+      <ThreePillars />
+      <FeatureGrid />
+      <PricingTable />
+      <!-- Final CTA and Footer will be included in PricingTable or as a separate component if needed -->
+    </main>
+  </body>
+</html>
