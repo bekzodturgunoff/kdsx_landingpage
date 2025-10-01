@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KDSX POS | Total Restaurant Control</title>
+    <meta name="description" content="KDSX is the only POS that unifies your Back Office, Front of House, and Kitchen into one profit-driving ecosystem." />
+    <link rel="icon" href="/logo.png" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      // Initialize theme before paint to prevent flash
+      (function () {
+        try {
+          const stored = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const useDark = stored ? stored === 'dark' : prefersDark;
+          if (useDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
+    <slot />
+  </body>
+</html>
