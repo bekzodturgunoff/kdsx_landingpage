@@ -1,48 +1,40 @@
 ---
 ---
-<header class="w-full sticky top-0 z-50 bg-brand-bg dark:bg-brand-bg-dark supports-[backdrop-filter]:bg-brand-bg/80 supports-[backdrop-filter]:dark:bg-brand-bg-dark/80 backdrop-blur-sm border-b border-brand-cta-text dark:border-brand-cta-text-dark">
-  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+<header class="w-full sticky top-0 z-50 bg-brand-bg dark:bg-brand-bg-dark supports-[backdrop-filter]:bg-brand-bg/80 supports-[backdrop-filter]:dark:bg-brand-bg-dark/80 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-2 text-2xl font-bold text-brand-text dark:text-brand-text-dark">
       <span>KDSX</span>
       <img src="/logo.png" alt="KDSX Logo" class="w-8 h-8 rounded-full" />
     </div>
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-6 text-brand-text dark:text-brand-text-dark">
-      <a href="#pricing" class="transition-colors duration-300 hover:underline">Pricing</a>
-      <a href="#contact" class="px-4 py-2 rounded-lg border border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text-dark bg-transparent font-semibold transition-transform duration-300 hover:scale-105">Contact</a>
-      <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-brand-text dark:text-brand-text-dark bg-transparent flex items-center justify-center transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark">
-        <span class="sr-only">Toggle theme</span>
-        <svg data-theme-icon class="w-6 h-6 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
-          <g id="sun-rays">
-            <path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 5.66l-.71-.71M4.05 4.05l-.71-.71" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-        </svg>
-      </button>
+    <nav class="hidden md:flex items-center gap-8 text-lg font-medium text-brand-text dark:text-brand-text-dark">
+      <a href="#features" class="transition-colors duration-300 hover:text-brand-cta">Features</a>
+      <a href="#pricing" class="transition-colors duration-300 hover:text-brand-cta">Pricing</a>
+      <a href="#faq" class="transition-colors duration-300 hover:text-brand-cta">FAQ</a>
     </nav>
-    <!-- Mobile controls -->
-    <div class="flex md:hidden items-center gap-2">
-      <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-brand-text dark:text-brand-text-dark bg-transparent flex items-center justify-center transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark">
-        <span class="sr-only">Toggle theme</span>
-        <svg data-theme-icon class="w-5 h-5 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
-          <g id="sun-rays">
-            <path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 5.66l-.71-.71M4.05 4.05l-.71-.71" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-        </svg>
-      </button>
-      <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" class="p-2 rounded-lg border-2 border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text dark:text-brand-text-dark bg-transparent focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark transition-colors duration-300">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
+    <!-- Theme toggle -->
+    <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-brand-text dark:text-brand-text-dark bg-transparent flex items-center justify-center transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark">
+      <span class="sr-only">Toggle theme</span>
+      <svg data-theme-icon class="w-6 h-6 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+        <g id="sun-rays">
+          <path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 5.66l-.71-.71M4.05 4.05l-.71-.71" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </button>
+    <!-- Mobile hamburger -->
+    <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" class="md:hidden p-2 rounded-lg text-brand-text dark:text-brand-text-dark bg-transparent focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark transition-colors duration-300">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
   <!-- Mobile dropdown -->
-  <div id="mobile-menu" class="md:hidden hidden border-t border-brand-cta-text dark:border-brand-cta-text-dark bg-brand-bg dark:bg-brand-bg-dark">
-    <nav class="max-w-6xl mx-auto px-6 py-3 flex flex-col gap-3">
-      <a href="#pricing" class="py-2 text-brand-text dark:text-brand-text-dark transition-colors duration-300">Pricing</a>
-      <a href="#contact" class="py-2 px-4 w-fit rounded-lg border border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text-dark bg-transparent font-semibold transition-colors duration-300">Contact</a>
+  <div id="mobile-menu" class="md:hidden hidden bg-brand-bg dark:bg-brand-bg-dark">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4 text-lg font-medium text-brand-text dark:text-brand-text-dark">
+      <a href="#features" class="py-2 transition-colors duration-300 hover:text-brand-cta">Features</a>
+      <a href="#pricing" class="py-2 transition-colors duration-300 hover:text-brand-cta">Pricing</a>
+      <a href="#faq" class="py-2 transition-colors duration-300 hover:text-brand-cta">FAQ</a>
     </nav>
   </div>
 </header>

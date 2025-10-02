@@ -1,0 +1,62 @@
+---
+---
+<section class="w-full py-16 bg-brand-bg dark:bg-brand-bg-dark">
+  <div class="max-w-6xl mx-auto px-4 text-center mb-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-text dark:text-brand-text-dark">Preferred by the Best</h2>
+  </div>
+  <div class="max-w-4xl mx-auto relative overflow-hidden">
+    <!-- Left fade -->
+    <div class="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-brand-bg dark:from-brand-bg-dark to-transparent z-10 pointer-events-none"></div>
+    <!-- Right fade -->
+    <div class="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-brand-bg dark:from-brand-bg-dark to-transparent z-10 pointer-events-none"></div>
+    
+    <div class="flex animate-marquee">
+      <!-- First set of 7 logos -->
+      <div class="flex items-center gap-12 shrink-0">
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+      </div>
+      <!-- Second set of 7 logos for seamless loop -->
+      <div class="flex items-center gap-12 shrink-0 ml-12">
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+      </div>
+      <!-- Third set of 7 logos for extra smoothness -->
+      <div class="flex items-center gap-12 shrink-0 ml-12">
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+        <img src="/logo.png" alt="Company Logo" class="h-12 w-auto opacity-60 grayscale" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+    display: flex;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+</style>

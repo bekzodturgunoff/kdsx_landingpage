@@ -2,8 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import ThreePillars from '../components/ThreePillars.astro';
-import FeatureGrid from '../components/FeatureGrid.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import BusinessSection from '../components/BusinessSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Testimonials from '../components/Testimonials.astro';
 import PricingTable from '../components/PricingTable.astro';
 ---
 
@@ -11,8 +14,11 @@ import PricingTable from '../components/PricingTable.astro';
   <Header />
   <main class="space-y-0">
     <Hero />
-    <ThreePillars />
-    <FeatureGrid />
+    <LogoMarquee />
+    <BusinessSection />
+    <FeaturesSection />
+    <HowItWorks />
+    <Testimonials />
     <PricingTable />
 </main>
 
@@ -24,7 +30,7 @@ import PricingTable from '../components/PricingTable.astro';
     <input type="text" name="name" required placeholder="Your Name" class="px-4 py-3 rounded-lg border border-brand-cta-text dark:border-brand-cta-text-dark bg-transparent text-brand-text dark:text-brand-text-dark focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark" />
     <input type="email" name="email" required placeholder="Your Email" class="px-4 py-3 rounded-lg border border-brand-cta-text dark:border-brand-cta-text-dark bg-transparent text-brand-text dark:text-brand-text-dark focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark" />
     <textarea name="message" required placeholder="How can we help you?" rows="4" class="px-4 py-3 rounded-lg border border-brand-cta-text dark:border-brand-cta-text-dark bg-transparent text-brand-text dark:text-brand-text-dark focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark"></textarea>
-    <button type="submit" class="mt-2 px-8 py-4 rounded-full text-lg font-semibold bg-brand-cta dark:bg-brand-cta-dark text-brand-cta-text dark:text-brand-cta-text-dark shadow-lg hover:brightness-110 transition-all">Send Message</button>
+    <button type="submit" class="mt-2 px-8 py-4 rounded-full text-lg font-semibold bg-brand-cta text-brand-cta-text shadow-lg hover:brightness-110 transition-all">Send Message</button>
   </form>
 </section>
 </Layout>
