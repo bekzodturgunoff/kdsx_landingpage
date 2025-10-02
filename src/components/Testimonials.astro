@@ -50,16 +50,21 @@
         </div>
       </div>
       
-      <!-- Arrow button positioned outside -->
-      <button 
-        id="next-testimonial" 
-        class="absolute -right-16 top-1/2 -translate-y-1/2 p-3 rounded-full bg-brand-cta text-brand-cta-text shadow-lg transition-transform duration-300 hover:scale-105"
-        aria-label="Next testimonial"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+      <!-- Button OUTSIDE overflow-hidden -->
+  <button 
+    id="next-testimonial"
+    class="absolute top-1/1 -translate-y-1/1 
+           right-4 md:-right-16
+           w-12 h-12 rounded-full 
+           bg-brand-cta text-brand-cta-text shadow-lg 
+           z-50 transition-transform duration-300 
+           active:scale-95"
+    aria-label="Next testimonial"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
     </div>
   </div>
 </section>
