@@ -23,19 +23,25 @@ footer {
     border-color 0.3s ease;
 }
 
-/* Tailwind v4 tokens: define light and dark palettes */
+/* Tailwind v4 theme tokens */
 @theme {
-  --color-brand-bg: #fefefe;
-  --color-brand-text: #2a2a2a;
+  --color-brand-bg: #ffffff;
+  --color-brand-bg-dark: #121212;
+  --color-brand-text: #1a1a1a;
+  --color-brand-text-dark: #ffffff;
   --color-brand-cta: oklch(85.7% 0.17 134.56);
+  --color-brand-cta-dark: oklch(85.7% 0.17 134.56);
   --color-brand-cta-text: #1a4d1a;
-  --color-neutral-bg: #f8f8f8;
+  --color-brand-cta-text-dark: #1a4d1a;
+  --color-neutral-bg: #f5f5f5;
+  --color-neutral-bg-dark: #1e1e1e;
 }
 
-@theme .dark {
-  --color-brand-bg: #1a1a1a;
-  --color-brand-text: #f5f5f0;
-  --color-brand-cta: oklch(85.7% 0.17 134.56);
-  --color-brand-cta-text: #1a4d1a;
-  --color-neutral-bg: #242424;
+/* Dark mode class-based overrides */
+.dark {
+  --color-brand-bg: var(--color-brand-bg-dark);
+  --color-brand-text: var(--color-brand-text-dark);
+  --color-brand-cta: var(--color-brand-cta-dark);
+  --color-brand-cta-text: var(--color-brand-cta-text-dark);
+  --color-neutral-bg: var(--color-neutral-bg-dark);
 }

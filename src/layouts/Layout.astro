@@ -16,6 +16,7 @@ import '../styles/global.css';
           const stored = localStorage.getItem('theme');
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           const useDark = stored ? stored === 'dark' : prefersDark;
+          
           if (useDark) {
             document.documentElement.classList.add('dark');
           } else {
@@ -27,5 +28,14 @@ import '../styles/global.css';
   </head>
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
     <slot />
+    <script is:inline>
+      // Ensure page starts at top on refresh
+      if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+      }
+      window.addEventListener('beforeunload', function() {
+        window.scrollTo(0, 0);
+      });
+    </script>
   </body>
 </html>
