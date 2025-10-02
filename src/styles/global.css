@@ -25,17 +25,17 @@ footer {
 
 /* Tailwind v4 tokens: define light and dark palettes */
 @theme {
-  --color-brand-bg: #ffffff;
-  --color-brand-text: #1a1a1a;
+  --color-brand-bg: #fefefe;
+  --color-brand-text: #2a2a2a;
   --color-brand-cta: oklch(85.7% 0.17 134.56);
   --color-brand-cta-text: #1a4d1a;
-  --color-neutral-bg: #f5f5f5;
+  --color-neutral-bg: #f8f8f8;
 }
 
 @theme .dark {
-  --color-brand-bg: #121212;
-  --color-brand-text: #ffffff;
+  --color-brand-bg: #1a1a1a;
+  --color-brand-text: #f5f5f0;
   --color-brand-cta: oklch(85.7% 0.17 134.56);
   --color-brand-cta-text: #1a4d1a;
-  --color-neutral-bg: #1e1e1e;
+  --color-neutral-bg: #242424;
 }
