@@ -157,6 +157,25 @@ export const en = {
   footerQuickLinkPrivacy: "Privacy",
   footerRightsReserved: "All rights reserved.",
   footerAccessibility: "Mobile Responsive & Accessible",
+  faqBadge: "FAQ",
+  faqHeading: "Answers to common questions",
+  faqBody:
+    "Everything you need to know about getting started, devices, pricing, and support.",
+  faqQ1: "How fast can we go live?",
+  faqA1:
+    "Most teams launch over a weekend. We guide setup, device linking, and a quick staff run‑through so you can show results by Monday.",
+  faqQ2: "Can this run on any device?",
+  faqA2:
+    "Yes. KDSX works on modern tablets and smartphones with an internet connection. Use iOS, Android, or the web—no special hardware required.",
+  faqQ3: "What does onboarding include?",
+  faqA3:
+    "We help import menus, configure stations, connect printers, and train staff. You’ll get a clear rollout plan tailored to each location.",
+  faqQ4: "How is pricing structured?",
+  faqA4:
+    "Start with our free month on the Starter plan. Upgrade to Pro for automation and multi‑location controls. Enterprise options are available for complex rollouts.",
+  faqQ5: "What support is available?",
+  faqA5:
+    "All customers receive responsive support and rollout guidance. Pro adds priority chat and phone support, and Enterprise includes white‑glove assistance.",
 } as const;
 
 export type TranslationKey = keyof typeof en;

@@ -13,13 +13,13 @@ export const uz = {
   heroSecondaryCta: "Demo soʻrash",
   heroMetricDowntimeTitle: "Kamroq kechikish",
   heroMetricDowntimeCopy:
-    "Ko‘p filialli jamoalar KDSXning ilk oyidayoq tiket vaqtlarini qisqartiradi.",
+    "Ko‘p filialli jamoalar KDSXning ilk oyidayoq tiket (chek) vaqtlarini qisqartiradi.",
   heroMetricInventoryTitle: "Inventar aniq",
   heroMetricInventoryCopy:
-    "Jonli hisoblar tayyorlov, ombor va zal o‘rtasida uyg‘un bo‘lib turadi.",
+    "Jonli hisoblar tayyorlov, oshxona va zal o‘rtasida uyg‘un bo‘lib turadi.",
   heroMetricRoiTitle: "Tez ROI",
   heroMetricRoiCopy:
-    "Ko‘pchilik jamoalar investitsiyasini birinchi chorak yakunida qoplaydi.",
+    "Ko‘pchilik jamoalar investitsiyasini birinchi oy yakunida qoplaydi.",
   logosBadge: "Ishongan jamoalar",
   logosHeading: "Samarali restoran tarmoqlari tanlovi",
   logosBody:
@@ -159,4 +159,23 @@ export const uz = {
   footerQuickLinkPrivacy: "Maxfiylik",
   footerRightsReserved: "Barcha huquqlar himoyalangan.",
   footerAccessibility: "Mobilga mos va kirish mumkin",
+  faqBadge: "Savol-javob",
+  faqHeading: "Ko‘p so‘raladigan savollarga javoblar",
+  faqBody:
+    "Boshlash, qurilmalar, narxlar va qo‘llab-quvvatlash haqida bilishingiz kerak bo‘lgan hamma narsa.",
+  faqQ1: "Qancha vaqtda ishga tushamiz?",
+  faqA1:
+    "Ko‘pchilik jamoalar dam olish kunlarida ishga tushiradi. Sozlash, qurilmalarni ulash va tezkor trening orqali dushanbagacha natija ko‘rsatasiz.",
+  faqQ2: "Bu istalgan qurilmada ishlaydimi?",
+  faqA2:
+    "Ha. KDSX internetga ulangan zamonaviy planshet va smartfonlarda ishlaydi. iOS, Android yoki veb — maxsus uskuna shart emas.",
+  faqQ3: "Onboarding nimalarni o‘z ichiga oladi?",
+  faqA3:
+    "Menyularni import qilamiz, stansiyalarni sozlaymiz, printerlarni ulang va xodimlarni o‘qitamiz. Har lokatsiya uchun aniq rollout rejasi beriladi.",
+  faqQ4: "Narxlash qanday tuzilgan?",
+  faqA4:
+    "Starter tarifida bir oy bepul. Avtomatlashtirish va ko‘p filial nazorati uchun Pro ga o‘ting. Murakkab joriy etishlar uchun Enterprise mavjud.",
+  faqQ5: "Qanday yordam bor?",
+  faqA5:
+    "Barcha mijozlarga tezkor yordam va joriy etish bo‘yicha yo‘riqnoma beriladi. Pro — ustuvor chat va telefon, Enterprise — to‘liq hamrohlikni qo‘shadi.",
 } as const;
