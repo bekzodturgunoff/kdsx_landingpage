@@ -89,17 +89,37 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       <a href="#features" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="nav.features">Features</a>
       <a href="#pricing" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="nav.pricing">Pricing</a>
       <a href="#faq" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="nav.faq">FAQ</a>
+
+      <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
+        <button data-theme-toggle aria-label="Toggle theme" class="flex w-full items-center justify-between gap-3 rounded-xl bg-brand-cta/10 px-4 py-3 text-sm font-semibold text-brand-text transition-transform duration-300 hover:translate-x-1 dark:bg-brand-cta-text-dark/15 dark:text-brand-text-dark">
+          <span class="inline-flex items-center gap-3">
+            <svg data-theme-icon class="h-5 w-5 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+              <g id="sun-rays">
+                <path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 5.66l-.71-.71M4.05 4.05l-.71-.71" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+            <span class="uppercase tracking-[0.25em]" data-i18n="nav.themeToggle">Toggle theme</span>
+          </span>
+          <span class="text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text">⇄</span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
-<script type="application/json" id="translations-data" set:html={translationsJSON}></script>
+<script type="application/json" id="translations-data" data-fallback={fallbackLanguage} set:html={translationsJSON}></script>
 <script is:inline>
   (function setupHeader() {
-    const TRANSLATION_FALLBACK = {JSON.stringify(fallbackLanguage)};
     const LANGUAGE_STORAGE_KEY = "preferred-lang";
-
     const translationsNode = document.getElementById("translations-data");
-    const translations = translationsNode ? JSON.parse(translationsNode.textContent || "{}") : {};
+    const TRANSLATION_FALLBACK = (translationsNode?.dataset?.fallback) || "en";
+    let translations = {};
+    try {
+      translations = translationsNode ? JSON.parse(translationsNode.textContent || "{}") : {};
+    } catch (error) {
+      console.error("Failed to parse translations", error);
+      translations = {};
+    }
 
     const applyTranslations = (lang) => {
       const dictionary = translations[lang] || translations[TRANSLATION_FALLBACK] || {};
@@ -117,7 +137,9 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
     const applyLanguage = (lang) => {
       const html = document.documentElement;
       html.setAttribute("lang", lang);
-      localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      } catch (_) {}
       document.querySelectorAll(".lang-select").forEach((select) => {
         if (select.value !== lang) {
           select.value = lang;
@@ -143,7 +165,12 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
         (select)._boundLang = true;
       });
 
-      const storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      let storedLang;
+      try {
+        storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      } catch (_) {
+        storedLang = undefined;
+      }
       const initialLang = storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
       applyLanguage(initialLang);
     };
@@ -159,10 +186,14 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
           
           if (isDark) {
             html.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+            try {
+              localStorage.setItem('theme', 'light');
+            } catch (_) {}
           } else {
             html.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
+            try {
+              localStorage.setItem('theme', 'dark');
+            } catch (_) {}
           }
           
           icons.forEach((icon) => {

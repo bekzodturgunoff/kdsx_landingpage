@@ -25,19 +25,43 @@ footer {
 
 body {
   background-color: var(--color-brand-bg);
-  background-image:
-    radial-gradient(1200px 1200px at -10% -20%, color-mix(in oklch, var(--color-brand-cta) 20%, transparent) 0%, transparent 60%),
-    radial-gradient(900px 900px at 110% 10%, color-mix(in oklch, var(--color-brand-cta) 15%, transparent) 0%, transparent 55%),
-    linear-gradient(180deg, color-mix(in srgb, var(--color-brand-bg) 94%, var(--color-brand-cta) 6%) 0%, var(--color-brand-bg) 40%, var(--color-brand-bg) 100%);
+  background-image: radial-gradient(
+      1200px 1200px at -10% -20%,
+      color-mix(in oklch, var(--color-brand-cta) 20%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 900px at 110% 10%,
+      color-mix(in oklch, var(--color-brand-cta) 15%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-brand-bg) 94%, var(--color-brand-cta) 6%)
+        0%,
+      var(--color-brand-bg) 40%,
+      var(--color-brand-bg) 100%
+    );
   background-attachment: fixed;
 }
 
 .dark body {
   background-color: var(--color-brand-bg);
-  background-image:
-    radial-gradient(1200px 1200px at -15% -10%, color-mix(in oklch, var(--color-brand-cta) 25%, transparent) 0%, transparent 60%),
-    radial-gradient(900px 900px at 110% 5%, color-mix(in oklch, var(--color-brand-cta) 22%, transparent) 0%, transparent 55%),
-    linear-gradient(180deg, color-mix(in srgb, #0b1a0f 70%, var(--color-brand-cta) 30%) 0%, #060b08 100%);
+  background-image: radial-gradient(
+      1200px 1200px at -15% -10%,
+      color-mix(in oklch, var(--color-brand-cta) 25%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 900px at 110% 5%,
+      color-mix(in oklch, var(--color-brand-cta) 22%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #0b1a0f 70%, var(--color-brand-cta) 30%) 0%,
+      #060b08 100%
+    );
 }
 
 /* Tailwind v4 theme tokens */
@@ -113,13 +137,15 @@ body {
     text-transform: uppercase;
     color: var(--color-brand-text);
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+      background 0.2s ease;
   }
 
   .lang-select:focus {
     outline: none;
     border-color: color-mix(in srgb, var(--color-brand-cta) 60%, black 10%);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-cta) 25%, transparent 75%);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-brand-cta) 25%, transparent 75%);
   }
 
   .lang-select:hover {
@@ -138,7 +164,8 @@ body {
 
   .dark .lang-select:focus {
     border-color: rgba(255, 255, 255, 0.32);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-cta) 30%, transparent 70%);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-brand-cta) 30%, transparent 70%);
   }
 
   .pro-card {
@@ -147,7 +174,11 @@ body {
     border-radius: 32px;
     padding: 1px;
     border: 1px solid rgba(26, 77, 26, 0.3);
-    background: linear-gradient(140deg, color-mix(in srgb, var(--color-brand-cta) 35%, white 65%) 0%, rgba(255, 255, 255, 0.95) 100%);
+    background: linear-gradient(
+      140deg,
+      color-mix(in srgb, var(--color-brand-cta) 35%, white 65%) 0%,
+      rgba(255, 255, 255, 0.95) 100%
+    );
     box-shadow: 0 40px 120px -60px rgba(26, 77, 26, 0.6);
   }
 
@@ -162,7 +193,11 @@ body {
 
   .dark .pro-card {
     border-color: rgba(255, 255, 255, 0.08);
-    background: linear-gradient(160deg, color-mix(in srgb, var(--color-brand-cta) 25%, #060b08 75%) 0%, rgba(8, 13, 9, 0.85) 100%);
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--color-brand-cta) 25%, #060b08 75%) 0%,
+      rgba(8, 13, 9, 0.85) 100%
+    );
     box-shadow: 0 40px 120px -60px rgba(0, 0, 0, 0.65);
   }
 
@@ -189,7 +224,11 @@ body {
     inset: -45% 12% auto;
     height: 68%;
     border-radius: 1000px;
-    background: radial-gradient(circle, color-mix(in oklch, var(--color-brand-cta) 60%, transparent) 0%, transparent 65%);
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--color-brand-cta) 60%, transparent) 0%,
+      transparent 65%
+    );
     opacity: 0.24;
     filter: blur(22px);
     pointer-events: none;
@@ -202,7 +241,11 @@ body {
     width: 55%;
     height: 55%;
     border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--color-brand-cta) 42%, transparent) 0%, transparent 72%);
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-brand-cta) 42%, transparent) 0%,
+      transparent 72%
+    );
     opacity: 0.2;
     filter: blur(34px);
     pointer-events: none;
