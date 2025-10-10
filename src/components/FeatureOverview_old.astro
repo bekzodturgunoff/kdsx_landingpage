@@ -1,0 +1,33 @@
+---
+---
+<section id="features" class="w-full py-20 sm:py-24 bg-brand-bg dark:bg-brand-bg-dark" aria-labelledby="features-heading">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 id="features-heading" class="text-3xl sm:text-4xl md:text-[48px] font-bold text-brand-text dark:text-brand-text-dark mb-4 leading-tight">
+        Cutting-Edge Features
+      </h2>
+      <p class="text-lg sm:text-xl text-brand-text dark:text-brand-text-dark opacity-75 leading-relaxed">
+        Easily track spending, manage budgets, and reach financial goals.
+      </p>
+    </div>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { title: 'Goal Setting', img: '/app_images/dash_app.png', desc: 'Define, track, and celebrate milestones.' },
+        { title: 'Financial Reports', img: '/app_images/kitchen_app.png', desc: 'Clear visual insights to guide decisions.' },
+        { title: 'Expense Tracking', img: '/app_images/pos_app_2.png', desc: 'Centralize transactions with precision.' },
+        { title: 'Budget Managing', img: '/app_images/pos_app_3.png', desc: 'Stay in control of every category.' },
+        { title: 'Total Profits', img: '/app_images/pos_app_1.png', desc: 'Understand what drives growth.' },
+        { title: 'Smart Alerts', img: '/app_images/table_show_2.png', desc: 'Timely nudges to keep you focused.' }
+      ].map(f => (
+        <div class="group flex flex-col rounded-2xl bg-neutral-bg dark:bg-neutral-bg-dark p-6 sm:p-8 shadow-lg transition-transform duration-300 hover:-translate-y-1">
+          <div class="aspect-[4/3] w-full mb-6 overflow-hidden rounded-lg bg-brand-bg dark:bg-brand-bg-dark">
+            <img src={f.img} alt={f.title + ' screenshot'} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <h3 class="text-xl font-bold text-brand-text dark:text-brand-text-dark mb-2">{f.title}</h3>
+          <p class="text-brand-text dark:text-brand-text-dark opacity-75 text-sm leading-relaxed">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

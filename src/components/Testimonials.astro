@@ -1,89 +1,135 @@
 ---
 ---
-<section class="w-full py-20 bg-brand-bg dark:bg-brand-bg-dark">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-[48px] font-normal tracking-tight mb-4 text-brand-text dark:text-brand-text-dark leading-tight">From our users</h2>
-    <p class="text-xl text-brand-text dark:text-brand-text-dark opacity-75 mb-16 leading-relaxed">What our users are saying</p>
-    
-    <div class="relative max-w-2xl mx-auto">
-      <div class="testimonial-container overflow-hidden">
-        <div class="testimonial-slider flex transition-transform duration-500 ease-in-out" id="testimonial-slider">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-slide w-full flex-shrink-0 text-left">
-            <blockquote class="text-[28px] font-bold text-brand-text dark:text-brand-text-dark mb-8 leading-relaxed">
-              "KDSX has completely transformed how I handle my finances. It's intuitive, powerful, and efficient. KDSX became a lifesaver for me."
-            </blockquote>
-            <p class="text-base text-brand-text dark:text-brand-text-dark opacity-60">By Farida Orujova</p>
-          </div>
-          
-          <!-- Testimonial 2 -->
-          <div class="testimonial-slide w-full flex-shrink-0 text-left">
-            <blockquote class="text-[28px] font-bold text-brand-text dark:text-brand-text-dark mb-8 leading-relaxed">
-              "The best financial management tool I've ever used. Simple, clean, and incredibly effective for tracking expenses."
-            </blockquote>
-            <p class="text-base text-brand-text dark:text-brand-text-dark opacity-60">By Ahmed Hassan</p>
-          </div>
-          
-          <!-- Testimonial 3 -->
-          <div class="testimonial-slide w-full flex-shrink-0 text-left">
-            <blockquote class="text-[28px] font-bold text-brand-text dark:text-brand-text-dark mb-8 leading-relaxed">
-              "KDSX streamlined our entire restaurant operation. From inventory to sales tracking, everything is now seamless."
-            </blockquote>
-            <p class="text-base text-brand-text dark:text-brand-text-dark opacity-60">By Maria Rodriguez</p>
-          </div>
-          
-          <!-- Testimonial 4 -->
-          <div class="testimonial-slide w-full flex-shrink-0 text-left">
-            <blockquote class="text-[28px] font-bold text-brand-text dark:text-brand-text-dark mb-8 leading-relaxed">
-              "Finally, a POS system that actually makes sense. Our staff learned it in minutes, not hours."
-            </blockquote>
-            <p class="text-base text-brand-text dark:text-brand-text-dark opacity-60">By David Chen</p>
-          </div>
-          
-          <!-- Testimonial 5 -->
-          <div class="testimonial-slide w-full flex-shrink-0 text-left">
-            <blockquote class="text-[28px] font-bold text-brand-text dark:text-brand-text-dark mb-8 leading-relaxed">
-              "The reporting features are incredible. I can see exactly where my money goes and make better business decisions."
-            </blockquote>
-            <p class="text-base text-brand-text dark:text-brand-text-dark opacity-60">By Sarah Johnson</p>
+<section class="w-full px-4 sm:px-6 pb-24">
+  <div class="max-w-6xl mx-auto section-shell px-6 sm:px-10 py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <span class="badge-pill" data-i18n="testimonials.badge">From our users</span>
+      <h2 class="mt-6 text-3xl sm:text-4xl md:text-[46px] font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="testimonials.heading">
+        Hospitality leaders share what changed with KDSX
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="testimonials.subheading">
+        What our users are saying
+      </p>
+
+      <div class="relative mx-auto mt-14 max-w-3xl">
+        <div class="testimonial-container overflow-hidden rounded-[32px] border border-white/20 bg-white/70 p-10 text-left shadow-[0_40px_120px_-70px_rgba(26,77,26,0.55)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/10">
+          <div class="testimonial-slider flex transition-transform duration-500 ease-in-out" id="testimonial-slider" style="transform: translateX(0%);">
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonials.card1.quote">
+                “KDSX let us retire four separate tools. Ticket visibility jumped overnight and waste dropped by 28%.”
+              </blockquote>
+              <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonials.card1.author">
+                Farida Orujova · Operations Director
+              </p>
+            </div>
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonials.card2.quote">
+                “Our managers finally have one source of truth. Prep boards, POS, and analytics update as fast as service moves.”
+              </blockquote>
+              <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonials.card2.author">
+                Ahmed Hassan · Multi-unit Owner
+              </p>
+            </div>
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonials.card3.quote">
+                “Inventory recounts went from nightly chaos to a 10-minute spot check. The finance sync is magic.”
+              </blockquote>
+              <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonials.card3.author">
+                Maria Rodriguez · Beverage Lead
+              </p>
+            </div>
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonials.card4.quote">
+                “Because KDSX automates routing and reporting, we redeployed two full-time ops roles to guest experience.”
+              </blockquote>
+              <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonials.card4.author">
+                David Chen · Founder
+              </p>
+            </div>
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonials.card5.quote">
+                “The reporting features are incredible. I can see exactly where my money goes and make better business decisions.”
+              </blockquote>
+              <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonials.card5.author">
+                Sarah Johnson · Finance Lead
+              </p>
+            </div>
           </div>
         </div>
+
+        <div class="mt-6 flex items-center justify-between">
+          <button id="prev-testimonial" class="flex h-12 w-12 items-center justify-center rounded-full border border-brand-cta/40 bg-white/80 text-brand-text shadow-lg transition-transform duration-300 hover:-translate-x-1 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-brand-text-dark" aria-label="Previous testimonial">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <div class="flex items-center gap-2" aria-hidden="true">
+            <span class="h-2 w-2 rounded-full bg-brand-cta/70" data-slider-dot="0"></span>
+            <span class="h-2 w-2 rounded-full bg-brand-cta/20" data-slider-dot="1"></span>
+            <span class="h-2 w-2 rounded-full bg-brand-cta/20" data-slider-dot="2"></span>
+            <span class="h-2 w-2 rounded-full bg-brand-cta/20" data-slider-dot="3"></span>
+            <span class="h-2 w-2 rounded-full bg-brand-cta/20" data-slider-dot="4"></span>
+          </div>
+          <button id="next-testimonial" class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text shadow-lg transition-transform duration-300 hover:translate-x-1 active:scale-95" aria-label="Next testimonial">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      
-      <!-- Arrow button positioned outside -->
-      <button 
-        id="next-testimonial" 
-        class="absolute -right-16 top-1/2 -translate-y-1/2 p-3 rounded-full bg-brand-cta text-brand-cta-text shadow-lg transition-transform duration-300 hover:scale-105"
-        aria-label="Next testimonial"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
     </div>
   </div>
 </section>
 
 <script is:inline>
-  (function setupTestimonials() {
+  (function initTestimonialSlider() {
     const slider = document.getElementById('testimonial-slider');
     const nextBtn = document.getElementById('next-testimonial');
-    let currentIndex = 0;
-    const totalSlides = 5;
-    
-    if (!slider || !nextBtn) return;
-    
-    function showTestimonial(index) {
-      const translateX = -index * 100;
-      slider.style.transform = `translateX(${translateX}%)`;
-    }
-    
+    const prevBtn = document.getElementById('prev-testimonial');
+    if (!slider || !nextBtn || !prevBtn) return;
+
+    const slides = Array.from(slider.querySelectorAll('.testimonial-slide'));
+    const dots = Array.from(document.querySelectorAll('[data-slider-dot]'));
+    let index = 0;
+    let autoRotate;
+
+    const setIndex = (newIndex) => {
+      index = (newIndex + slides.length) % slides.length;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, dotIndex) => {
+        if (dotIndex === index) {
+          dot.classList.remove('bg-brand-cta/20');
+          dot.classList.add('bg-brand-cta/70');
+        } else {
+          dot.classList.remove('bg-brand-cta/70');
+          dot.classList.add('bg-brand-cta/20');
+        }
+      });
+    };
+
+    const next = () => setIndex(index + 1);
+    const prev = () => setIndex(index - 1);
+
+    const startAutoRotate = () => {
+      clearInterval(autoRotate);
+      autoRotate = setInterval(next, 7000);
+    };
+
+    const stopAutoRotate = () => clearInterval(autoRotate);
+
     nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      showTestimonial(currentIndex);
+      next();
+      startAutoRotate();
     });
-    
-    // Initialize
-    showTestimonial(0);
+    prevBtn.addEventListener('click', () => {
+      prev();
+      startAutoRotate();
+    });
+
+    slider.addEventListener('mouseenter', stopAutoRotate);
+    slider.addEventListener('mouseleave', startAutoRotate);
+
+    setIndex(0);
+    startAutoRotate();
   })();
 </script>
