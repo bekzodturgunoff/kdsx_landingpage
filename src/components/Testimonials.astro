@@ -12,52 +12,48 @@
       </p>
 
       <div class="relative mx-auto mt-14 max-w-3xl">
-        <div class="testimonial-container overflow-hidden rounded-[32px] border border-white/20 bg-white/70 p-10 text-left shadow-[0_40px_120px_-70px_rgba(26,77,26,0.55)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/10">
-          <div class="testimonial-slider flex transition-transform duration-500 ease-in-out w-full" id="testimonial-slider" style="transform: translateX(0%);">
-              <div class="testimonial-slide w-full min-w-full max-w-full flex-shrink-0">
+        <div class="testimonial-container relative overflow-hidden rounded-[32px] border border-white/20 bg-white/70 p-10 text-left shadow-[0_40px_120px_-70px_rgba(26,77,26,0.55)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/10">
+              <div class="testimonial-slide" data-slide="0">
               <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonialsCard1Quote">
-                “KDSX let us retire four separate tools. Ticket visibility jumped overnight and waste dropped by 28%.”
+                "KDSX let us retire four separate tools. Ticket visibility jumped overnight and waste dropped by 28%."
               </blockquote>
               <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard1Author">
                 Farida Orujova · Operations Director
               </p>
             </div>
-            <div class="testimonial-slide w-full min-w-full max-w-full flex-shrink-0">
+            <div class="testimonial-slide absolute inset-0 p-10 opacity-0 pointer-events-none transition-opacity duration-500" data-slide="1">
                 <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonialsCard2Quote">
-                “Our managers finally have one source of truth. Prep boards, POS, and analytics update as fast as service moves.”
+                "Our managers finally have one source of truth. Prep boards, POS, and analytics update as fast as service moves."
               </blockquote>
               <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard2Author">
                 Ahmed Hassan · Multi-unit Owner
               </p>
             </div>
-            <div class="testimonial-slide w-full min-w-full max-w-full flex-shrink-0">
+            <div class="testimonial-slide absolute inset-0 p-10 opacity-0 pointer-events-none transition-opacity duration-500" data-slide="2">
                 <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonialsCard3Quote">
-                “Inventory recounts went from nightly chaos to a 10-minute spot check. The finance sync is magic.”
+                "Inventory recounts went from nightly chaos to a 10-minute spot check. The finance sync is magic."
               </blockquote>
               <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard3Author">
                 Maria Rodriguez · Beverage Lead
               </p>
             </div>
-            <div class="testimonial-slide w-full min-w-full max-w-full flex-shrink-0">
+            <div class="testimonial-slide absolute inset-0 p-10 opacity-0 pointer-events-none transition-opacity duration-500" data-slide="3">
                 <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonialsCard4Quote">
-                “Because KDSX automates routing and reporting, we redeployed two full-time ops roles to guest experience.”
+                "Because KDSX automates routing and reporting, we redeployed two full-time ops roles to guest experience."
               </blockquote>
               <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard4Author">
                 David Chen · Founder
               </p>
             </div>
-            <div class="testimonial-slide w-full min-w-full max-w-full flex-shrink-0">
+            <div class="testimonial-slide absolute inset-0 p-10 opacity-0 pointer-events-none transition-opacity duration-500" data-slide="4">
                 <blockquote class="text-2xl sm:text-[28px] font-semibold text-brand-text dark:text-brand-text-dark leading-relaxed" data-i18n="testimonialsCard5Quote">
-                “The reporting features are incredible. I can see exactly where my money goes and make better business decisions.”
+                "The reporting features are incredible. I can see exactly where my money goes and make better business decisions."
               </blockquote>
               <p class="mt-6 text-sm uppercase tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard5Author">
                 Sarah Johnson · Finance Lead
               </p>
             </div>
-          </div>
-        </div>
-
-        <div class="mt-6 flex items-center justify-between">
+        </div>        <div class="mt-6 flex items-center justify-between">
           <button id="prev-testimonial" class="flex h-12 w-12 items-center justify-center rounded-full border border-brand-cta/40 bg-white/80 text-brand-text shadow-lg transition-transform duration-300 hover:-translate-x-1 hover:bg-white dark:border-white/20 dark:bg-white/10 dark:text-brand-text-dark" aria-label="Previous testimonial">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -83,19 +79,28 @@
 
 <script is:inline>
   (function initTestimonialSlider() {
-    const slider = document.getElementById('testimonial-slider');
     const nextBtn = document.getElementById('next-testimonial');
     const prevBtn = document.getElementById('prev-testimonial');
-    if (!slider || !nextBtn || !prevBtn) return;
+    if (!nextBtn || !prevBtn) return;
 
-    const slides = Array.from(slider.querySelectorAll('.testimonial-slide'));
+    const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
     const dots = Array.from(document.querySelectorAll('[data-slider-dot]'));
     let index = 0;
     let autoRotate;
 
     const setIndex = (newIndex) => {
       index = (newIndex + slides.length) % slides.length;
-      slider.style.transform = `translateX(-${index * 100}%)`;
+      
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          slide.classList.add('opacity-100');
+        } else {
+          slide.classList.remove('opacity-100');
+          slide.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+        }
+      });
+      
       dots.forEach((dot, dotIndex) => {
         if (dotIndex === index) {
           dot.classList.remove('bg-brand-cta/20');
@@ -126,8 +131,11 @@
       startAutoRotate();
     });
 
-    slider.addEventListener('mouseenter', stopAutoRotate);
-    slider.addEventListener('mouseleave', startAutoRotate);
+    const container = document.querySelector('.testimonial-container');
+    if (container) {
+      container.addEventListener('mouseenter', stopAutoRotate);
+      container.addEventListener('mouseleave', startAutoRotate);
+    }
 
     setIndex(0);
     startAutoRotate();

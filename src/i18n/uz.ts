@@ -148,4 +148,15 @@ export const uz = {
   pricingImplementB3: "Mavsumiy menyu va promo yordami",
   pricingFinalHeading: "Har bir smenani kamroq stress bilan boshqaring",
   pricingFinalCta: "Boshlash",
+  footerBrandDescription:
+    "Restoran ustidan to‘liq nazorat. Integratsiyalashgan POS ekotizimi bilan jarayonlarni birlashtiring.",
+  footerContactTitle: "Bog‘lanish",
+  footerFollowTitle: "Ijtimoiy tarmoqlar",
+  footerQuickLinksTitle: "Tezkor havolalar",
+  footerQuickLinkFeatures: "Imkoniyatlar",
+  footerQuickLinkPricing: "Narxlar",
+  footerQuickLinkTerms: "Shartlar",
+  footerQuickLinkPrivacy: "Maxfiylik",
+  footerRightsReserved: "Barcha huquqlar himoyalangan.",
+  footerAccessibility: "Mobilga mos va kirish mumkin",
 } as const;

@@ -146,4 +146,15 @@ export const ru = {
   pricingImplementB3: "Поддержка сезонных меню и промо",
   pricingFinalHeading: "Каждая смена — без лишнего напряжения",
   pricingFinalCta: "Начать развёртывание",
+  footerBrandDescription:
+    "Полный контроль над рестораном. Объедините процессы в единой POS‑системе.",
+  footerContactTitle: "Контакты",
+  footerFollowTitle: "Мы в соцсетях",
+  footerQuickLinksTitle: "Быстрые ссылки",
+  footerQuickLinkFeatures: "Возможности",
+  footerQuickLinkPricing: "Тарифы",
+  footerQuickLinkTerms: "Условия",
+  footerQuickLinkPrivacy: "Конфиденциальность",
+  footerRightsReserved: "Все права защищены.",
+  footerAccessibility: "Адаптивный и доступный интерфейс",
 } as const;

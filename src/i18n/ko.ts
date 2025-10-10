@@ -144,4 +144,15 @@ export const ko = {
   pricingImplementB3: "시즌 메뉴 · 프로모션 지원",
   pricingFinalHeading: "모든 근무를 더 여유 있게",
   pricingFinalCta: "지금 배포 시작",
+  footerBrandDescription:
+    "레스토랑 운영을 완전히 통합하세요. 하나의 POS 생태계로 연결합니다.",
+  footerContactTitle: "연락처",
+  footerFollowTitle: "팔로우",
+  footerQuickLinksTitle: "바로가기",
+  footerQuickLinkFeatures: "기능",
+  footerQuickLinkPricing: "요금제",
+  footerQuickLinkTerms: "이용 약관",
+  footerQuickLinkPrivacy: "개인정보 처리방침",
+  footerRightsReserved: "모든 권리 보유.",
+  footerAccessibility: "모바일 대응 · 접근성 고려",
 } as const;

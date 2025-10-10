@@ -146,6 +146,17 @@ export const en = {
   pricingImplementB3: "Seasonal menu + promo support",
   pricingFinalHeading: "Ready to run every shift with less stress?",
   pricingFinalCta: "Start my rollout",
+  footerBrandDescription:
+    "Total restaurant control. Unify your operations with our integrated POS ecosystem.",
+  footerContactTitle: "Contact Info",
+  footerFollowTitle: "Follow Us",
+  footerQuickLinksTitle: "Quick Links",
+  footerQuickLinkFeatures: "Features",
+  footerQuickLinkPricing: "Pricing",
+  footerQuickLinkTerms: "Terms",
+  footerQuickLinkPrivacy: "Privacy",
+  footerRightsReserved: "All rights reserved.",
+  footerAccessibility: "Mobile Responsive & Accessible",
 } as const;
 
 export type TranslationKey = keyof typeof en;
