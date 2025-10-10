@@ -1,151 +1,151 @@
 export const uz = {
-  "brand.tagline": "Restoraningiz ustidan toʻliq nazorat",
-  "nav.features": "Imkoniyatlar",
-  "nav.pricing": "Narxlar",
-  "nav.faq": "Savollar",
-  "nav.themeToggle": "Mavzuni almashtirish",
-  "hero.badge": "Restoran POS tizimi",
-  "hero.heading":
+  brandTagline: "Restoranningizga kerak hammasi — bir joyda",
+  navFeatures: "Imkoniyatlar",
+  navPricing: "Narxlar",
+  navFaq: "Savol-javob",
+  navThemeToggle: "Mavzuni almashtirish",
+  heroBadge: "Restoran POS tizimi",
+  heroHeading:
     "KDSX orqali moliya va operatsiyalarni yagona markazdan boshqaring",
-  "hero.body":
-    "Buyurtmalarni avtomatlashtiring, xarajatlarni jonli kuzating va mehmonlarga xizmat bilan oshxonani bir ritmda ushlang.",
-  "hero.primaryCta": "Bepul sinovni boshlash",
-  "hero.secondaryCta": "Demo soʻrash",
-  "hero.metric.downtime.title": "Vaqtni tejang",
-  "hero.metric.downtime.copy":
-    "Bir necha filialli jamoalar KDSXning ilk oyidayoq tiket vaqtlarini qisqartiradi.",
-  "hero.metric.inventory.title": "Inventar aniqligi",
-  "hero.metric.inventory.copy":
-    "Jonli hisoblar tayyorlash, ombor va zal orasida uygʻunlashib turadi.",
-  "hero.metric.roi.title": "Qaytim muddati",
-  "hero.metric.roi.copy":
-    "Koʻpchilik jamoalar xarajatlarini birinchi chorak yakunida qoplaydi.",
-  "logos.badge": "Ishongan jamoalar",
-  "logos.heading": "Eng samarali restoran tarmoqlari tanlovi",
-  "logos.body":
-    "Uch qit’adagi hamkorlar KDSX yordamida har bir xizmat oynasini muvofiqlikda ushlab turadi.",
-  "business.badge": "Nega oʻtishadi",
-  "business.heading": "Har bir xizmat oynasiga mos boshqaruv markazi",
-  "business.body":
-    "KDSX buyurtma oqimini, xodimlarni va inventarni bir joyga toʻplaydi — chalkash jadval va ilovalarga ehtiyoj qolmaydi.",
-  "business.card1.title": "Analitik ogohlantirishlar",
-  "business.card1.heading": "Har bir smena ma’lumotiga tayaning",
-  "business.card1.body":
-    "Gʻayrioddiy xarajat yoki tayyorgarlik hajmi zudlik bilan ogohlantiriladi, shunday qilib navbatchilarni tez o‘zgartirasiz.",
-  "business.card2.title": "Yagona boshqaruv",
-  "business.card2.heading": "Hammasi bitta maydonda",
-  "business.card2.body":
-    "Menyuni yangilang, hisoblarni tenglashtiring va tayyorlov doskalarini ilovalar orasida yugurmasdan kuzating.",
-  "business.card3.title": "Jamoa tajribasi",
-  "business.card3.heading": "Xodimlar vaqtdan yutadi",
-  "business.card3.body":
-    "Oʻrgatish daqiqa oladi, yangilanishlar darhol tarqaladi va buyurtmalar koʻpayganida ham xizmat xotirjam qoladi.",
-  "features.badge": "Zamonaviy majmua",
-  "features.heading": "Har nuqtani bir zumda ko‘rsatuvchi operatsion panel",
-  "features.body":
-    "KDSX buyurtmalar, tayyorlov va rentabellikni jonli ko‘rinishda birlashtiradi. Muammolarni tezroq ko‘rib, xizmat tezligini oshiring.",
-  "features.card1.tag": "Boshqaruv markazi",
-  "features.card1.title": "Muhim signallarning yagona paneli",
-  "features.card1.body":
-    "Daromad tendensiyasi, tayyorlov sur’ati va mehmon fikrini bitta oynada ko‘rib, keyingi qarorni ishonch bilan qabul qiling.",
-  "features.card1.pill1": "Navbat prognozlari",
-  "features.card1.pill2": "Jonli KPIlar",
-  "features.card1.pill3": "Xizmat ogohlantirishlari",
-  "features.card2.tag": "Zal xizmati",
-  "features.card2.title": "Har bir mehmon uchun mos menyu",
-  "features.card2.body":
-    "Upsell, modifikator va toʻlovlar stol, kassa yoki onlayn buyurtma bo‘lishidan qat’i nazar silliq ishlaydi.",
-  "features.card3.tag": "Oshxona displeyi",
-  "features.card3.title": "Har stansiya bir ritmda",
-  "features.card3.body":
-    "Buyurtmalar taymerlar, allergen eslatmalari va ustuvorliklar bilan keladi — navbatdagi qadam aniq.",
-  "features.card4.tag": "Mobil xizmat",
-  "features.card4.title": "Zal jamoasi uchun cho‘ntak boshqaruvi",
-  "features.card4.body":
-    "Xodimlar zalni tark etmasdan buyurtma qiladi, chegira qoʻyadi va toʻlov oladi — hammasi displeylarda darhol yangilanadi.",
-  "how.badge": "Qanday ishlaydi",
-  "how.heading": "Bir hafta oxirida ishga tushiring — dushanbaga natija bering",
-  "how.body": "KDSX oz sonli jamoalar uchun ham joriy etishni soddalashtiradi.",
-  "how.step1.tag": "Sozlash",
-  "how.step1.title": "Ish maydonini yarating",
-  "how.step1.body":
-    "Menyularni import qiling, stansiyalarni sozlang va roldan kelib chiqib kirish bering.",
-  "how.step2.tag": "Sinxron",
-  "how.step2.title": "Qurilmalar va maʼlumotlarni ulang",
-  "how.step2.body":
+  heroBody:
+    "Buyurtmalarni avtomatlashtiring, xarajatlarni jonli kuzating va zal bilan oshxonani har bir smenada uyg‘un tuting.",
+  heroPrimaryCta: "Bepul sinovni boshlash",
+  heroSecondaryCta: "Demo soʻrash",
+  heroMetricDowntimeTitle: "Kamroq kechikish",
+  heroMetricDowntimeCopy:
+    "Ko‘p filialli jamoalar KDSXning ilk oyidayoq tiket vaqtlarini qisqartiradi.",
+  heroMetricInventoryTitle: "Inventar aniq",
+  heroMetricInventoryCopy:
+    "Jonli hisoblar tayyorlov, ombor va zal o‘rtasida uyg‘un bo‘lib turadi.",
+  heroMetricRoiTitle: "Tez ROI",
+  heroMetricRoiCopy:
+    "Ko‘pchilik jamoalar investitsiyasini birinchi chorak yakunida qoplaydi.",
+  logosBadge: "Ishongan jamoalar",
+  logosHeading: "Samarali restoran tarmoqlari tanlovi",
+  logosBody:
+    "Uch qit’adagi hamkorlar KDSX yordamida har bir smenani barqaror boshqaradi.",
+  businessBadge: "Nega KDSXni tanlashadi",
+  businessHeading: "Har bir smena uchun boshqaruv markazi",
+  businessBody:
+    "KDSX buyurtmalar, xodimlar va inventarni bir joyga jamlaydi — chalkash jadval va ilovalardan voz keching.",
+  businessCard1Title: "Amaliy tahlillar",
+  businessCard1Heading: "Har bir smenada ma’lumotga tayaning",
+  businessCard1Body:
+    "Noodatiy xarajat yoki tayyorgarlik darajasi bo‘yicha ogohlantirishlar tezda xodimlarni moslashtirishga yordam beradi.",
+  businessCard2Title: "Yagona boshqaruv",
+  businessCard2Heading: "Hammasi bitta ish maydonida",
+  businessCard2Body:
+    "Menyuni yangilang, hisoblarni tenglashtiring va oshxona doskalarini ilovalar orasida yugurmasdan kuzating.",
+  businessCard3Title: "Jamoa tajribasi",
+  businessCard3Heading: "Xodimlar vaqtdan yutadi",
+  businessCard3Body:
+    "O‘qitish daqiqa oladi, yangilanishlar darhol sinxronlashadi va buyurtmalar ko‘payganda ham xizmat xotirjam qoladi.",
+  featuresBadge: "Zamonaviy majmua",
+  featuresHeading: "Har nuqta uchun jonli operatsion panel",
+  featuresBody:
+    "KDSX buyurtmalar, tayyorlov va rentabellikni jonli ko‘rinishda bog‘laydi. Muammolarni erta ko‘rib, tezroq harakat qiling.",
+  featuresCard1Tag: "Boshqaruv markazi",
+  featuresCard1Title: "Muhim signallar uchun yagona panel",
+  featuresCard1Body:
+    "Daromad tendensiyasi, tayyorlov sur’ati va mehmon fikrini bitta jonli ko‘rinishda ko‘rib, ishonch bilan qaror qabul qiling.",
+  featuresCard1Pill1: "Navbat prognozlari",
+  featuresCard1Pill2: "Jonli KPIlar",
+  featuresCard1Pill3: "Xizmat ogohlantirishlari",
+  featuresCard2Tag: "Zal xizmati",
+  featuresCard2Title: "Har bir mehmon uchun mos menyu",
+  featuresCard2Body:
+    "Upsell, modifikator va to‘lovlar stol, kassa yoki onlayn bo‘lishidan qat’i nazar silliq ishlaydi.",
+  featuresCard3Tag: "Oshxona displeyi",
+  featuresCard3Title: "Har stansiya bir tempda",
+  featuresCard3Body:
+    "Buyurtmalar taymer, allergen eslatmalari va ustuvorliklar bilan keladi — keyingi qadam aniq.",
+  featuresCard4Tag: "Mobil xizmat",
+  featuresCard4Title: "Zal jamoasi uchun cho‘ntak boshqaruvi",
+  featuresCard4Body:
+    "Xodimlar zaldan chiqmasdan buyurtma qiladi, chegirmalar beradi va to‘lov oladi — hammasi displeylarda darhol yangilanadi.",
+  howBadge: "Qanday ishlaydi",
+  howHeading: "Bir hafta oxirida ishga tushiring — dushanbadan natija",
+  howBody: "KDSX kichik jamoalar uchun ham joriy etishni soddalashtiradi.",
+  howStep1Tag: "Sozlash",
+  howStep1Title: "Ish maydonini yarating",
+  howStep1Body:
+    "Menyularni import qiling, stansiyalarni sozlang va rolga qarab kirish bering.",
+  howStep2Tag: "Sinxron",
+  howStep2Title: "Qurilmalar va ma’lumotlarni ulang",
+  howStep2Body:
     "Planshet, telefon va printerlarni ulang, KDSX esa inventar va tarixiy savdoni moslaydi.",
-  "how.step3.tag": "Optimallashtirish",
-  "how.step3.title": "Tez ishga tushirib moslashing",
-  "how.step3.body":
-    "Ko‘rsatkichlarni jonli kuzating, tayyorlovni sozlang va natijalarni zudlik bilan bo‘lishing.",
-  "testimonials.badge": "Mijozlar fikri",
-  "testimonials.heading":
-    "Restoran rahbarlari KDSX qanday o‘zgarish berganini aytadi",
-  "testimonials.body":
-    "Biz ish jarayonini soddalashtiramiz, ular esa mehmonlarga eʼtibor beradi.",
-  "testimonials.subheading": "Foydalanuvchilarimiz nimalar deyapti",
-  "testimonials.card1.tag": "Mukammal restoran guruhi",
-  "testimonials.card1.quote":
-    '"KDSX toʻrtta alohida vositadan voz kechishimizga yordam berdi. Buyurtma ko‘rinishi darhol yaxshilandi va isrof 28% ga kamaydi."',
-  "testimonials.card1.author": "Farida O‘rujova · Operatsiyalar direktori",
-  "testimonials.card2.tag": "Fast casual tarmog‘i",
-  "testimonials.card2.quote":
-    '"Menejerlar nihoyat yagona haqiqat manbaiga ega. Tayyorlov, POS va analitika xizmat tezligida yangilanadi."',
-  "testimonials.card2.author": "Ahmed Hassan · Ko‘p filial egasi",
-  "testimonials.card3.tag": "Ko‘p filialli bistro",
-  "testimonials.card3.quote":
-    '"Inventar qayta hisobi tungi tanazzuldan 10 daqiqalik tekshiruvga aylandi. Moliya sinxi ajoyib."',
-  "testimonials.card3.author": "Maria Rodriges · Ichimliklar yetakchisi",
-  "testimonials.card4.tag": "Cloud Kitchen jamoasi",
-  "testimonials.card4.quote":
+  howStep3Tag: "Optimallashtirish",
+  howStep3Title: "Tez ishga tushirib takomillashtiring",
+  howStep3Body:
+    "Ko‘rsatkichlarni jonli kuzating, tayyorlovni moslang va natijalarni zudlik bilan bo‘lishing.",
+  testimonialsBadge: "Mijozlar fikri",
+  testimonialsHeading:
+    "Restoran rahbarlari KDSX ta’sirini bo‘lishadi",
+  testimonialsBody:
+    "Biz jarayonlarni soddalashtiramiz — jamoalar mehmonlarga e’tibor qaratadi.",
+  testimonialsSubheading: "Foydalanuvchilarimiz fikrlari",
+  testimonialsCard1Tag: "Mukammal restoran guruhi",
+  testimonialsCard1Quote:
+    '"KDSX to‘rtta alohida vositadan voz kechishimizga yordam berdi. Buyurtma ko‘rinishi darhol yaxshilandi va isrof 28% ga kamaydi."',
+  testimonialsCard1Author: "Farida O‘rujova · Operatsiyalar direktori",
+  testimonialsCard2Tag: "Fast casual tarmog‘i",
+  testimonialsCard2Quote:
+    '"Menejerlar endi yagona haqiqat manbaiga ega. Tayyorlov, POS va analitika xizmat tezligida yangilanadi."',
+  testimonialsCard2Author: "Ahmed Hassan · Ko‘p filial egasi",
+  testimonialsCard3Tag: "Ko‘p filialli bistro",
+  testimonialsCard3Quote:
+    '"Inventar qayta hisobi tungi tanglikdan 10 daqiqalik tekshiruvga aylandi. Moliya sinxi ajoyib."',
+  testimonialsCard3Author: "Maria Rodriges · Ichimliklar yetakchisi",
+  testimonialsCard4Tag: "Cloud Kitchen jamoasi",
+  testimonialsCard4Quote:
     '"KDSX marshrutlash va hisobotlarni avtomatlashtirgani uchun ikkita to‘liq stavkali operatorni mehmon tajribasiga yo‘naltirdik."',
-  "testimonials.card4.author": "Devid Chen · Asoschi",
-  "testimonials.card5.tag": "Moliya yetakchisi",
-  "testimonials.card5.quote":
-    '"Hisobot imkoniyatlari zoʻr. Mablagʻ qayerga ketayotganini aniq koʻrishim va toʻgʻri qaror qilishim mumkin."',
-  "testimonials.card5.author": "Sara Jonson · Moliya yetakchisi",
-  "pricing.badge": "Narxlar",
-  "pricing.heading": "Har qanday xizmatga moslashadigan rejalar",
-  "pricing.body":
-    "Kerak bo‘lsa boshlang va tayyor bo‘lgach kengaytiring. Har bir tarifda KDSX jamoasidan qo‘llab-quvvatlash bor.",
-  "pricing.starter.label": "Starter",
-  "pricing.starter.ribbon": "Yangi jamoalar uchun",
-  "pricing.starter.price": "Bepul",
-  "pricing.starter.subtitle": "Birinchi oy bizdan",
-  "pricing.starter.body":
-    "Bir lokatsiyani ishonch bilan ishga tushiring — birinchi oy butunlay bepul.",
-  "pricing.starter.b1": "1 kassa/stansiya, cheksiz foydalanuvchi",
-  "pricing.starter.b2": "Buyurtma, stol va mehmon kuzatuvi",
-  "pricing.starter.b3": "Asosiy panel va kechki eʼlonlar",
-  "pricing.starter.b4": "Qoʻlda inventar + ogohlantirishlar",
-  "pricing.starter.b5": "Ikkinchi oydan oyiga atigi $15",
-  "pricing.starter.b6": "24 soatda javob beriladigan e-pochta yordami",
-  "pricing.starter.cta": "Bepul oyni faollashtirish",
-  "pricing.pro.label": "Pro",
-  "pricing.pro.ribbon": "Eng ommabop",
-  "pricing.pro.price": "$30",
-  "pricing.pro.period": "/oy",
-  "pricing.pro.body":
-    "Avtomatlashtirish, ko‘p filialli boshqaruv va faol maslahatlarni qo‘shing.",
-  "pricing.pro.b1": "Cheksiz kassalar va rollar bo‘yicha nazorat",
-  "pricing.pro.b2": "Avtomatik inventar va yetkazib beruvchi sinxroni",
-  "pricing.pro.b3": "Kengaytirilgan analitika va foyda paneli",
-  "pricing.pro.b4": "Ustuvor chat va telefon yordami",
-  "pricing.pro.b5": "Shaxsiy mijoz muvaffaqiyati menejeri",
-  "pricing.pro.cta": "Boshlash — $30/oy",
-  "pricing.enterprise.title": "Enterprise",
-  "pricing.enterprise.ribbon": "Maxsus",
-  "pricing.enterprise.heading": "Hududlar boʻyicha ishonch bilan kengayish",
-  "pricing.enterprise.body":
-    "Murakkab joriy etishlar uchun API, ombor boshqaruvi va toʻliq qoʻllab-quvvatlashni oling.",
-  "pricing.enterprise.cta": "Savdo bilan bogʻlanish",
-  "pricing.implement.tag": "Maxsus joriy etish kerakmi?",
-  "pricing.implement.heading": "Bizning joriy etish jamoamiz bilan ishlang",
-  "pricing.implement.body":
-    "Operatsiyangizni tahlil qilamiz, jihozlarni tayyorlaymiz va har lokatsiyada xodimlarni oʻqitamiz.",
-  "pricing.implement.b1": "Har filial uchun moslangan start rejasi",
-  "pricing.implement.b2": "Joyida va masofaviy trening dasturi",
-  "pricing.implement.b3": "Mavsumiy menyu va promo yordami",
-  "pricing.final.heading": "Har bir smenani kamroq stress bilan yuring",
-  "pricing.final.cta": "Roll-outni boshlash",
+  testimonialsCard4Author: "Devid Chen · Asoschi",
+  testimonialsCard5Tag: "Moliya yetakchisi",
+  testimonialsCard5Quote:
+    '"Hisobot imkoniyatlari zo‘r. Mablag‘ qayerga ketayotganini aniq ko‘rib, ishonch bilan qaror qilaman."',
+  testimonialsCard5Author: "Sara Jonson · Moliya yetakchisi",
+  pricingBadge: "Narxlar",
+  pricingHeading: "Xizmat ritmiga moslashadigan rejalar",
+  pricingBody:
+    "Keraklisidan boshlang, tayyor bo‘lganda kengaytiring. Har tarifda KDSX jamoasining amaliy ko‘magi bor.",
+  pricingStarterLabel: "Starter",
+  pricingStarterRibbon: "",
+  pricingStarterPrice: "Bepul",
+  pricingStarterSubtitle: "Birinchi oy bizdan",
+  pricingStarterBody:
+    "Bir lokatsiyani ishonch bilan ishga tushiring — birinchi oy to‘liq bepul.",
+  pricingStarterB1: "1 kassa/stansiya, cheksiz foydalanuvchi",
+  pricingStarterB2: "Buyurtma, stol va mehmon kuzatuvi",
+  pricingStarterB3: "Asosiy panel va kechki e’lonlar",
+  pricingStarterB4: "Qo‘lda inventar + ogohlantirishlar",
+  pricingStarterB5: "Keyingi oylar — atigi $15/oy",
+  pricingStarterB6: "24 soat ichida javob beriladigan e-pochta yordami",
+  pricingStarterCta: "Bepul oyni faollashtirish",
+  pricingProLabel: "Pro",
+  pricingProRibbon: "Eng ommabop",
+  pricingProPrice: "$30",
+  pricingProPeriod: "/oy",
+  pricingProBody:
+    "Avtomatlashtirish, ko‘p filialli boshqaruv va faol tavsiyalarni qo‘shing.",
+  pricingProB1: "Cheksiz kassalar va rollar bo‘yicha nazorat",
+  pricingProB2: "Avtomatik inventar va yetkazib beruvchi sinxroni",
+  pricingProB3: "Kengaytirilgan analitika va foyda paneli",
+  pricingProB4: "Ustuvor chat va telefon yordami",
+  pricingProB5: "Shaxsiy mijoz muvaffaqiyati menejeri",
+  pricingProCta: "Boshlash — $30/oy",
+  pricingEnterpriseTitle: "Enterprise",
+  pricingEnterpriseRibbon: "Maxsus",
+  pricingEnterpriseHeading: "Hududlar bo‘yicha ishonch bilan kengayish",
+  pricingEnterpriseBody:
+    "Murakkab joriy etishlar uchun API, ombor orkestratsiyasi va to‘liq hamrohlikni oling.",
+  pricingEnterpriseCta: "Savdo bilan bog‘lanish",
+  pricingImplementTag: "Maxsus joriy etish kerakmi?",
+  pricingImplementHeading: "Bizning joriy etish jamoamiz bilan ishlang",
+  pricingImplementBody:
+    "Operatsiyangizni tahlil qilamiz, jihozlarni tayyorlaymiz va har lokatsiyada xodimlarni o‘qitamiz.",
+  pricingImplementB1: "Har filial uchun moslangan start rejasi",
+  pricingImplementB2: "Joyida va masofaviy trening dasturi",
+  pricingImplementB3: "Mavsumiy menyu va promo yordami",
+  pricingFinalHeading: "Har bir smenani kamroq stress bilan boshqaring",
+  pricingFinalCta: "Boshlash",
 } as const;

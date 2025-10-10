@@ -124,10 +124,20 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
     const applyTranslations = (lang) => {
       const dictionary = translations[lang] || translations[TRANSLATION_FALLBACK] || {};
       const fallbackDictionary = translations[TRANSLATION_FALLBACK] || {};
+      const toCamel = (k) => k.replace(/\.[a-z]/g, (m) => m[1].toUpperCase()).replace(/\./g, "");
+      const toSnake = (k) => k.replace(/\./g, "_");
       document.querySelectorAll("[data-i18n]").forEach((node) => {
         const key = node.getAttribute("data-i18n");
         if (!key) return;
-        const value = dictionary[key] ?? fallbackDictionary[key];
+        const camelKey = toCamel(key);
+        const snakeKey = toSnake(key);
+        const value =
+          dictionary[key] ??
+          dictionary[camelKey] ??
+          dictionary[snakeKey] ??
+          fallbackDictionary[key] ??
+          fallbackDictionary[camelKey] ??
+          fallbackDictionary[snakeKey];
         if (value !== undefined) {
           node.textContent = value;
         }

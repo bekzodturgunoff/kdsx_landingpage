@@ -1,149 +1,149 @@
 export const ru = {
-  "brand.tagline": "Полный контроль над рестораном",
-  "nav.features": "Возможности",
-  "nav.pricing": "Тарифы",
-  "nav.faq": "FAQ",
-  "nav.themeToggle": "Сменить тему",
-  "hero.badge": "Ресторанная POS-платформа",
-  "hero.heading": "Управляйте финансами и операциями в одном окне с KDSX",
-  "hero.body":
-    "Автоматизируйте заказы, отслеживайте расходы в реальном времени и держите гостевой зал и кухню в едином ритме.",
-  "hero.primaryCta": "Начать бесплатный период",
-  "hero.secondaryCta": "Запросить демо",
-  "hero.metric.downtime.title": "Экономия времени",
-  "hero.metric.downtime.copy":
-    "Команды с несколькими площадками сокращают задержки уже в первый месяц с KDSX.",
-  "hero.metric.inventory.title": "Точность запасов",
-  "hero.metric.inventory.copy":
-    "Живые цифры делают учёт складов и зала синхронным.",
-  "hero.metric.roi.title": "Окупаемость",
-  "hero.metric.roi.copy":
-    "Большинство клиентов окупают инвестиции к концу первого квартала.",
-  "logos.badge": "Нам доверяют",
-  "logos.heading": "Выбор эффективных ресторанных сетей",
-  "logos.body":
-    "Партнёры на трёх континентах используют KDSX, чтобы держать каждую смену в строю.",
-  "business.badge": "Почему выбирают",
-  "business.heading": "Операционный центр для каждой смены",
-  "business.body":
-    "KDSX объединяет потоки заказов, персонал и запасы — забудьте про разрозненные таблицы и приложения.",
-  "business.card1.title": "Аналитика",
-  "business.card1.heading": "Опирайтесь на данные каждую смену",
-  "business.card1.body":
-    "Аномальные расходы или подготовка выделяются моментально, чтобы вы могли перенастроиться.",
-  "business.card2.title": "Центральное управление",
-  "business.card2.heading": "Все процессы, единый экран",
-  "business.card2.body":
-    "Обновляйте меню, балансируйте счета и отслеживайте кухню без гонок между системами.",
-  "business.card3.title": "Опыт команды",
-  "business.card3.heading": "Персонал выигрывает время",
-  "business.card3.body":
-    "Обучение занимает минуты, обновления расходятся мгновенно, а сервис стабилен даже в час пик.",
-  "features.badge": "Современный набор",
-  "features.heading": "Операционная панель с полным обзором",
-  "features.body":
-    "KDSX объединяет заказы, кухню и финансы в реальном времени. Видите узкие места заранее и ускоряете обслуживание.",
-  "features.card1.tag": "Центр управления",
-  "features.card1.title": "Критичные сигналы в одном окне",
-  "features.card1.body":
-    "Продажи, скорость кухни и отзывы гостей на одном дашборде — принимайте решения осознанно.",
-  "features.card1.pill1": "Прогноз очереди",
-  "features.card1.pill2": "Живые KPI",
-  "features.card1.pill3": "Оповещения сервиса",
-  "features.card2.tag": "Фронт-офис",
-  "features.card2.title": "Меню под гостя на любой точке",
-  "features.card2.body":
-    "Апселлы, модификаторы и оплата идут гладко — за столом, у стойки или онлайн.",
-  "features.card3.tag": "Кухонный экран",
-  "features.card3.title": "Каждый пост в ритме",
-  "features.card3.body":
+  brandTagline: "Полный контроль над рестораном",
+  navFeatures: "Возможности",
+  navPricing: "Тарифы",
+  navFaq: "FAQ",
+  navThemeToggle: "Сменить тему",
+  heroBadge: "POS‑платформа для ресторанов",
+  heroHeading: "Финансы и операционка — в одном центре KDSX",
+  heroBody:
+    "Автоматизируйте заказы, следите за расходами в реальном времени и держите зал и кухню в едином ритме.",
+  heroPrimaryCta: "Бесплатный старт",
+  heroSecondaryCta: "Запросить демо",
+  heroMetricDowntimeTitle: "Меньше задержек",
+  heroMetricDowntimeCopy:
+    "Сети сокращают простои уже в первый месяц на KDSX.",
+  heroMetricInventoryTitle: "Точный инвентарь",
+  heroMetricInventoryCopy:
+    "Живые остатки синхронизируют кухню, склад и зал.",
+  heroMetricRoiTitle: "Быстрая окупаемость",
+  heroMetricRoiCopy:
+    "Большинство окупают вложения до конца первого квартала.",
+  logosBadge: "Нам доверяют",
+  logosHeading: "Выбор эффективных ресторанных групп",
+  logosBody:
+    "Команды на трёх континентах полагаются на KDSX, чтобы смены проходили спокойно.",
+  businessBadge: "Почему KDSX",
+  businessHeading: "Операционный центр для каждой смены",
+  businessBody:
+    "KDSX объединяет заказы, персонал и запасы — забудьте про разрозненные таблицы и приложения.",
+  businessCard1Title: "Прикладная аналитика",
+  businessCard1Heading: "Решения на основе живых данных",
+  businessCard1Body:
+    "Точечные оповещения подсветят лишние траты или подготовку — скорректируйте смену сразу.",
+  businessCard2Title: "Единое управление",
+  businessCard2Heading: "Все процессы — в одном рабочем месте",
+  businessCard2Body:
+    "Обновляйте меню, сверяйте счета и наблюдайте за кухней без скачков между системами.",
+  businessCard3Title: "Опыт команды",
+  businessCard3Heading: "Команда выигрывает часы",
+  businessCard3Body:
+    "Обучение — минуты, обновления — мгновенно, сервис стабилен даже в пик.",
+  featuresBadge: "Единый набор",
+  featuresHeading: "Живая панель управления по всем локациям",
+  featuresBody:
+    "KDSX связывает заказы, производство и прибыльность — находите узкие места заранее и ускоряйтесь.",
+  featuresCard1Tag: "Центр управления",
+  featuresCard1Title: "Ключевые сигналы на одном дашборде",
+  featuresCard1Body:
+    "Выручка, скорость линии и отзывы гостей — в одном окне, чтобы решать уверенно.",
+  featuresCard1Pill1: "Прогноз смен",
+  featuresCard1Pill2: "Живые KPI",
+  featuresCard1Pill3: "Сервис‑алерты",
+  featuresCard2Tag: "Фронт",
+  featuresCard2Title: "Меню под каждого гостя",
+  featuresCard2Body:
+    "Апселлы, модификаторы и оплаты работают плавно — за столом, у стойки и онлайн.",
+  featuresCard3Tag: "Кухонный экран",
+  featuresCard3Title: "Каждый пост держит темп",
+  featuresCard3Body:
     "Заказы приходят с таймерами, аллергенами и приоритетами — следующий шаг очевиден.",
-  "features.card4.tag": "Мобильный сервис",
-  "features.card4.title": "Карманный помощник для зала",
-  "features.card4.body":
-    "Сотрудники принимают заказы, делают скидки и принимают оплату, не покидая гостей — кухня видит всё мгновенно.",
-  "how.badge": "Как мы запускаем",
-  "how.heading": "Запуститесь к выходным — и будьте готовы к понедельнику",
-  "how.body": "KDSX делает внедрение быстрым даже для компактных команд.",
-  "how.step1.tag": "Настройка",
-  "how.step1.title": "Создаём рабочую среду",
-  "how.step1.body":
-    "Импортируем меню, настраиваем станции и выдаём доступы по ролям.",
-  "how.step2.tag": "Синхронизация",
-  "how.step2.title": "Подключаем устройства и данные",
-  "how.step2.body":
-    "Планшеты, телефоны и принтеры объединяются, а KDSX синхронизирует запасы и историю продаж.",
-  "how.step3.tag": "Оптимизация",
-  "how.step3.title": "Выходим в эфир и масштабируем",
-  "how.step3.body":
-    "Следите за метриками в реальном времени, корректируйте кухню и делитесь результатами сразу.",
-  "testimonials.badge": "Отзывы",
-  "testimonials.heading": "Руководители ресторанов о трансформации с KDSX",
-  "testimonials.body":
-    "Мы упрощаем операционку, чтобы команды сосредоточились на гостях.",
-  "testimonials.subheading": "Вот что говорят наши пользователи",
-  "testimonials.card1.tag": "Premium dining",
-  "testimonials.card1.quote":
-    '"KDSX позволил отказаться от четырёх отдельных инструментов. Видимость заказов выросла сразу, а списания упали на 28%."',
-  "testimonials.card1.author": "Фарида Оруджова · Операционный директор",
-  "testimonials.card2.tag": "Fast casual сеть",
-  "testimonials.card2.quote":
-    '"У менеджеров наконец один источник правды. Кухня, POS и аналитика обновляются с оперативностью фронта."',
-  "testimonials.card2.author": "Ахмед Хассан · Владелец мульти-точек",
-  "testimonials.card3.tag": "Сеть бистро",
-  "testimonials.card3.quote":
-    '"Учёт запасов теперь занимает 10 минут в конце дня. Финансы синхронизированы идеально."',
-  "testimonials.card3.author": "Мария Родригес · Руководитель бара",
-  "testimonials.card4.tag": "Команда облачной кухни",
-  "testimonials.card4.quote":
-    '"Автоматизация маршрутизации и отчётов высвободила двух операторов — мы перенаправили их на гостевой опыт."',
-  "testimonials.card4.author": "Дэвид Чен · Основатель",
-  "testimonials.card5.tag": "Финансовый лидер",
-  "testimonials.card5.quote":
-    '"Отчётность на высоте. Я вижу, куда уходят деньги, и принимаю решения без догадок."',
-  "testimonials.card5.author": "Сара Джонсон · Финансовый директор",
-  "pricing.badge": "Тарифы",
-  "pricing.heading": "Планы для любой операционной модели",
-  "pricing.body":
-    "Начните с нужного и расширяйтесь, когда будете готовы. Все тарифы включают поддержку команды KDSX.",
-  "pricing.starter.label": "Starter",
-  "pricing.starter.ribbon": "Для старта",
-  "pricing.starter.price": "Бесплатно",
-  "pricing.starter.subtitle": "Первый месяц за наш счёт",
-  "pricing.starter.body":
-    "Запустите одну точку уверенно — первый месяц полностью бесплатный.",
-  "pricing.starter.b1": "1 POS/станция, без ограничений по пользователям",
-  "pricing.starter.b2": "Учёт заказов, столов и гостей",
-  "pricing.starter.b3": "Базовая панель и вечерние дайджесты",
-  "pricing.starter.b4": "Ручной инвентарь с оповещениями",
-  "pricing.starter.b5": "После месяца — всего $15/мес",
-  "pricing.starter.b6": "Поддержка по почте с ответом за 24 часа",
-  "pricing.starter.cta": "Активировать бесплатный месяц",
-  "pricing.pro.label": "Pro",
-  "pricing.pro.ribbon": "Хит",
-  "pricing.pro.price": "$30",
-  "pricing.pro.period": "/мес",
-  "pricing.pro.body":
-    "Добавьте автоматизацию, мультисайтовое управление и активные рекомендации.",
-  "pricing.pro.b1": "Безлимитные терминалы и контроль ролей",
-  "pricing.pro.b2": "Авто-инвентарь и синхронизация поставщиков",
-  "pricing.pro.b3": "Расширенная аналитика и прибыльный дашборд",
-  "pricing.pro.b4": "Приоритетный чат и телефон",
-  "pricing.pro.b5": "Выделенный Customer Success-менеджер",
-  "pricing.pro.cta": "Подключить за $30/мес",
-  "pricing.enterprise.title": "Enterprise",
-  "pricing.enterprise.ribbon": "Индивидуально",
-  "pricing.enterprise.heading": "Масштабируйтесь по регионам уверенно",
-  "pricing.enterprise.body":
-    "Получите API, управление складами и полное сопровождение для сложных внедрений.",
-  "pricing.enterprise.cta": "Связаться с продажами",
-  "pricing.implement.tag": "Нужен кастомный запуск?",
-  "pricing.implement.heading": "Работайте с нашей командой внедрения",
-  "pricing.implement.body":
-    "Проанализируем процессы, настроим оборудование и обучим персонал на каждой площадке.",
-  "pricing.implement.b1": "Стартовый план под каждую локацию",
-  "pricing.implement.b2": "Онбординг на месте и удалённо",
-  "pricing.implement.b3": "Поддержка сезонных меню и акций",
-  "pricing.final.heading": "Проходите каждую смену без стресса",
-  "pricing.final.cta": "Начать развёртывание",
+  featuresCard4Tag: "Мобильный сервис",
+  featuresCard4Title: "Карманный контроль для зала",
+  featuresCard4Body:
+    "Сотрудники принимают заказы и оплаты, не уходя от гостей; кухня обновляется мгновенно.",
+  howBadge: "Как это работает",
+  howHeading: "Запуск за выходные — результаты в понедельник",
+  howBody: "Даже небольшие команды запускаются быстро с KDSX.",
+  howStep1Tag: "Настройка",
+  howStep1Title: "Создайте рабочую среду",
+  howStep1Body:
+    "Импортируйте меню, настройте посты и выдайте доступы по ролям за минуты.",
+  howStep2Tag: "Синхронизация",
+  howStep2Title: "Свяжите устройства и данные",
+  howStep2Body:
+    "Подключите планшеты, телефоны и принтеры, пока KDSX синхронизирует запасы и историю продаж.",
+  howStep3Tag: "Оптимизация",
+  howStep3Title: "Запускайте и улучшайте быстро",
+  howStep3Body:
+    "Следите за панелями в реальном времени, корректируйте подготовку и делитесь выводами сразу.",
+  testimonialsBadge: "Отзывы",
+  testimonialsHeading: "Лидеры отрасли — о переменах с KDSX",
+  testimonialsBody:
+    "Мы убираем трение, чтобы вы думали о гостях, а не о софте.",
+  testimonialsSubheading: "Что говорят наши пользователи",
+  testimonialsCard1Tag: "Премиальная сеть",
+  testimonialsCard1Quote:
+    '"KDSX позволил отказаться от четырёх инструментов. Видимость заказов выросла сразу, а списания упали на 28%."',
+  testimonialsCard1Author: "Фарида Оруджова · Операционный директор",
+  testimonialsCard2Tag: "Fast casual сеть",
+  testimonialsCard2Quote:
+    '"У менеджеров появился единый источник правды. Кухня, POS и аналитика обновляются с тем же темпом, что и сервис."',
+  testimonialsCard2Author: "Ахмед Хассан · Владелец сети",
+  testimonialsCard3Tag: "Сеть бистро",
+  testimonialsCard3Quote:
+    '"Инвентаризация — больше не ночной хаос, а 10 минут проверки. Финансы синхронизируются идеально."',
+  testimonialsCard3Author: "Мария Родригес · Руководитель бара",
+  testimonialsCard4Tag: "Cloud Kitchen",
+  testimonialsCard4Quote:
+    '"Автоматизация маршрутов и отчётности освободила двух операторов — направили их на гостевой опыт."',
+  testimonialsCard4Author: "Дэвид Чен · Основатель",
+  testimonialsCard5Tag: "Финансы",
+  testimonialsCard5Quote:
+    '"Отчётность сильная. Я вижу движение денег и принимаю решения уверенно."',
+  testimonialsCard5Author: "Сара Джонсон · Финансовый директор",
+  pricingBadge: "Тарифы",
+  pricingHeading: "Гибкие планы под ваш сервис",
+  pricingBody:
+    "Начните компактно и расширяйтесь, когда будете готовы. Во всех планах — практическая поддержка KDSX.",
+  pricingStarterLabel: "Starter",
+  pricingStarterRibbon: "",
+  pricingStarterPrice: "Бесплатно",
+  pricingStarterSubtitle: "Первый месяц за наш счёт",
+  pricingStarterBody:
+    "Уверенно запускайте одну точку — первый месяц полностью бесплатный.",
+  pricingStarterB1: "1 POS/станция, пользователи без ограничений",
+  pricingStarterB2: "Учёт заказов, столов и гостей",
+  pricingStarterB3: "Базовая панель и вечерние дайджесты",
+  pricingStarterB4: "Ручной инвентарь + оповещения",
+  pricingStarterB5: "Далее — всего $15/мес",
+  pricingStarterB6: "Поддержка по почте в течение 24 часов",
+  pricingStarterCta: "Активировать бесплатный месяц",
+  pricingProLabel: "Pro",
+  pricingProRibbon: "Самый популярный",
+  pricingProPrice: "$30",
+  pricingProPeriod: "/мес",
+  pricingProBody:
+    "Добавьте автоматизацию, мульти‑локации и проактивные подсказки команды.",
+  pricingProB1: "Безлим терминалы и контроль ролей",
+  pricingProB2: "Авто‑инвентарь и синхронизация поставщиков",
+  pricingProB3: "Расширенная аналитика и дашборд прибыльности",
+  pricingProB4: "Приоритетный чат и телефон",
+  pricingProB5: "Выделенный Customer Success Manager",
+  pricingProCta: "Старт — $30/мес",
+  pricingEnterpriseTitle: "Enterprise",
+  pricingEnterpriseRibbon: "Индивидуально",
+  pricingEnterpriseHeading: "Масштаб по регионам без стресса",
+  pricingEnterpriseBody:
+    "API, оркестрация складов и полное сопровождение для сложных запусков.",
+  pricingEnterpriseCta: "Связаться с продажами",
+  pricingImplementTag: "Нужен кастомный rollout?",
+  pricingImplementHeading: "Подключайтесь к нашей команде внедрения",
+  pricingImplementBody:
+    "Разберём процессы, подготовим оборудование и обучим персонал на каждой локации.",
+  pricingImplementB1: "Старт под каждую площадку",
+  pricingImplementB2: "Онбординг на месте и удалённо",
+  pricingImplementB3: "Поддержка сезонных меню и промо",
+  pricingFinalHeading: "Каждая смена — без лишнего напряжения",
+  pricingFinalCta: "Начать развёртывание",
 } as const;
