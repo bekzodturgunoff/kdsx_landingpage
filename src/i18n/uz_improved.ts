@@ -118,7 +118,7 @@ export const uz = {
   pricingStarterB2: "Buyurtma, stol va mijoz kuzatuvi",
   pricingStarterB3: "Asosiy panel va kechki hisobot",
   pricingStarterB4: "Qo'lda inventar + ogohlantirish",
-  pricingStarterB5: "Keyingi oylar faqat $15/oy",
+  pricingStarterB5: "Birinchi oydan so‘ng Pro tarifida davom eting",
   pricingStarterB6: "24 soat ichida javob beradigan email yordam",
   pricingStarterCta: "Bepul oyni boshlash",
   pricingProLabel: "Pro",
