@@ -25,6 +25,24 @@ footer {
 
 body {
   background-color: var(--color-brand-bg);
+  /* Fallback for browsers without color-mix support */
+  background-image: radial-gradient(
+      1200px 1200px at -10% -20%,
+      rgba(173, 219, 173, 0.15) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 900px at 110% 10%,
+      rgba(173, 219, 173, 0.1) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #f8fdf8 0%,
+      var(--color-brand-bg) 40%,
+      var(--color-brand-bg) 100%
+    );
+  /* Enhanced version with color-mix for supporting browsers */
   background-image: radial-gradient(
       1200px 1200px at -10% -20%,
       color-mix(in oklch, var(--color-brand-cta) 20%, transparent) 0%,
@@ -42,7 +60,15 @@ body {
       var(--color-brand-bg) 40%,
       var(--color-brand-bg) 100%
     );
-  background-attachment: fixed;
+  /* Use scroll instead of fixed for better mobile performance */
+  background-attachment: scroll;
+}
+
+/* Fixed attachment only on larger screens where performance is better */
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 .dark body {
@@ -93,12 +119,24 @@ body {
     isolation: isolate;
     overflow: hidden;
     border-radius: 1.75rem;
+    /* Fallback for browsers without backdrop-filter */
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    background: rgba(250, 250, 250, 0.95);
+    box-shadow: 0 24px 48px -28px rgba(26, 77, 26, 0.4);
+    /* Enhanced version with backdrop-filter for supporting browsers */
     border: 1px solid rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(32px);
-    box-shadow: 0 24px 48px -28px rgba(26, 77, 26, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: var(--color-brand-text);
+  }
+
+  /* Feature query for browsers that don't support backdrop-filter */
+  @supports not (backdrop-filter: blur(32px)) {
+    .surface-card {
+      background: rgba(250, 250, 250, 0.98);
+      border: 1px solid rgba(200, 200, 200, 0.5);
+    }
   }
 
   .surface-card:hover {
@@ -129,6 +167,9 @@ body {
     appearance: none;
     border-radius: 999px;
     border: 1px solid rgba(26, 77, 26, 0.18);
+    /* Solid fallback */
+    background: rgba(248, 248, 248, 0.98);
+    /* Enhanced version */
     background: rgba(255, 255, 255, 0.78);
     padding: 0.55rem 2.6rem 0.55rem 1.1rem;
     font-size: 0.78rem;
@@ -143,13 +184,17 @@ body {
 
   .lang-select:focus {
     outline: none;
+    /* Fallback without color-mix */
+    border-color: rgba(26, 77, 26, 0.5);
+    box-shadow: 0 0 0 3px rgba(173, 219, 173, 0.3);
+    /* Enhanced with color-mix */
     border-color: color-mix(in srgb, var(--color-brand-cta) 60%, black 10%);
     box-shadow: 0 0 0 3px
       color-mix(in srgb, var(--color-brand-cta) 25%, transparent 75%);
   }
 
   .lang-select:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 1);
   }
 
   .dark .lang-select {
@@ -211,11 +256,23 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 40px;
+    /* Solid fallback for browsers without backdrop-filter */
+    border: 1px solid rgba(220, 220, 220, 0.6);
+    background: rgba(252, 252, 252, 0.96);
+    box-shadow: 0 48px 160px -80px rgba(26, 77, 26, 0.45);
+    /* Enhanced version with backdrop-filter for supporting browsers */
     border: 1px solid rgba(255, 255, 255, 0.25);
     background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(30px);
-    box-shadow: 0 48px 160px -80px rgba(26, 77, 26, 0.45);
     color: var(--color-brand-text);
+  }
+
+  /* Better fallback for browsers without backdrop-filter */
+  @supports not (backdrop-filter: blur(30px)) {
+    .section-shell {
+      background: rgba(252, 252, 252, 0.98);
+      border: 1px solid rgba(220, 220, 220, 0.7);
+    }
   }
 
   .section-shell::before {
@@ -263,6 +320,10 @@ body {
     align-items: center;
     gap: 0.5rem;
     border-radius: 999px;
+    /* Solid fallback */
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    background: rgba(250, 250, 250, 0.96);
+    /* Enhanced version for supporting browsers */
     border: 1px solid rgba(255, 255, 255, 0.44);
     background: rgba(255, 255, 255, 0.82);
     padding: 0.5rem 1.25rem;
@@ -272,6 +333,14 @@ body {
     text-transform: uppercase;
     color: var(--color-brand-cta-text);
     box-shadow: 0 16px 40px -26px rgba(26, 77, 26, 0.55);
+  }
+
+  /* Improved contrast for browsers without advanced features */
+  @supports not (backdrop-filter: blur(10px)) {
+    .badge-pill {
+      background: rgba(245, 245, 245, 1);
+      border: 1px solid rgba(200, 200, 200, 0.9);
+    }
   }
 
   .dark .badge-pill {
