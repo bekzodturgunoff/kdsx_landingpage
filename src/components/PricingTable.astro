@@ -194,7 +194,7 @@
         </button>
       </div>
       <div class="mt-4 flex items-center gap-2 text-xs font-medium text-brand-text/70 dark:text-brand-text-dark/70">
-        <span id="wizard-step-label">Step 1 of 5</span>
+  <span id="wizard-step-label">Step 1 of 7</span>
         <span class="mx-2 h-1 w-1 rounded-full bg-brand-text/40 dark:bg-brand-text-dark/40"></span>
         <span id="wizard-plan-label" class="truncate" data-i18n="wizardPlanPrefix">Plan:</span>
       </div>
@@ -203,19 +203,19 @@
         <!-- Step 1: Name -->
         <div data-step="0" class="step-panel">
           <label for="fullName" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardNameLabel">What’s your name?</label>
-          <input id="fullName" name="fullName" type="text" required data-i18n-placeholder="wizardNamePlaceholder" placeholder="e.g., Alex Kim" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+          <input id="fullName" name="fullName" type="text" required data-i18n-placeholder="wizardNamePlaceholder" placeholder="e.g., Alex Kim" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
         </div>
 
         <!-- Step 2: Business name -->
         <div data-step="1" class="step-panel hidden">
           <label for="businessName" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardBusinessLabel">What’s your restaurant’s or market’s name?</label>
-          <input id="businessName" name="businessName" type="text" required data-i18n-placeholder="wizardBusinessPlaceholder" placeholder="e.g., Green Leaf Bistro" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+          <input id="businessName" name="businessName" type="text" required data-i18n-placeholder="wizardBusinessPlaceholder" placeholder="e.g., Green Leaf Bistro" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
         </div>
 
         <!-- Step 3: Locations -->
         <div data-step="2" class="step-panel hidden">
           <label for="locations" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardLocationsLabel">How many locations do you operate?</label>
-          <select id="locations" name="locations" required class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark">
+          <select id="locations" name="locations" required class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark">
             <option value="1" data-i18n="wizardLocationsOption1">1 location</option>
             <option value="2-5" data-i18n="wizardLocationsOption2">2–5 locations</option>
             <option value="6-10" data-i18n="wizardLocationsOption3">6–10 locations</option>
@@ -226,7 +226,7 @@
         <!-- Step 4: Service style / industry -->
         <div data-step="3" class="step-panel hidden">
           <label for="serviceStyle" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardServiceStyleLabel">What best describes your service style?</label>
-          <select id="serviceStyle" name="serviceStyle" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark">
+          <select id="serviceStyle" name="serviceStyle" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark">
             <option value="" data-i18n="wizardServiceStyleOption0">Select one…</option>
             <option value="cafe" data-i18n="wizardServiceStyleOptionCafe">Cafe</option>
             <option value="bistro" data-i18n="wizardServiceStyleOptionBistro">Bistro</option>
@@ -241,34 +241,48 @@
         <!-- Step 5: Current POS -->
         <div data-step="4" class="step-panel hidden">
           <label for="currentPos" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardCurrentPosLabel">Which POS or systems are you using today?</label>
-          <input id="currentPos" name="currentPos" type="text" data-i18n-placeholder="wizardCurrentPosPlaceholder" placeholder="e.g., Toast, Square, custom" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+          <input id="currentPos" name="currentPos" type="text" data-i18n-placeholder="wizardCurrentPosPlaceholder" placeholder="e.g., Toast, Square, custom" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
         </div>
 
-        <!-- Step 6: Contact details -->
+        <!-- Step 6: Credentials -->
         <div data-step="5" class="step-panel hidden">
           <div class="grid gap-4">
             <div>
+              <label for="desiredUsername" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardUsernameLabel">Preferred username</label>
+              <input id="desiredUsername" name="desiredUsername" type="text" required pattern="^[a-zA-Z0-9._-]{3,20}$" data-i18n-placeholder="wizardUsernamePlaceholder" placeholder="e.g., alex.kim" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+            <div>
+              <label for="desiredPassword" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardPasswordLabel">Preferred password</label>
+              <input id="desiredPassword" name="desiredPassword" type="password" required minlength="8" data-i18n-placeholder="wizardPasswordPlaceholder" placeholder="At least 8 characters" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7: Contact details -->
+        <div data-step="6" class="step-panel hidden">
+          <div class="grid gap-4">
+            <div>
               <label for="phone" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark"><span data-i18n="wizardPhoneLabel">Your phone number</span><span class="text-brand-cta"> *</span></label>
-              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="wizardPhonePlaceholder" placeholder="e.g., +82 10-1234-5678" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="wizardPhonePlaceholder" placeholder="e.g., +82 10-1234-5678" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
             </div>
             <div>
               <label for="email" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardEmailLabel">Your email address (optional)</label>
-              <input id="email" name="email" type="email" data-i18n-placeholder="wizardEmailPlaceholder" placeholder="e.g., you@company.com" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+              <input id="email" name="email" type="email" data-i18n-placeholder="wizardEmailPlaceholder" placeholder="e.g., you@company.com" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
             </div>
             <div>
               <label for="telegram" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardTelegramLabel">Telegram (optional)</label>
-              <input id="telegram" name="telegram" type="text" data-i18n-placeholder="wizardTelegramPlaceholder" placeholder="@yourhandle" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+              <input id="telegram" name="telegram" type="text" data-i18n-placeholder="wizardTelegramPlaceholder" placeholder="@yourhandle" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
             </div>
             <div>
               <label for="kakaotalk" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardKakaoLabel">KakaoTalk (optional)</label>
-              <input id="kakaotalk" name="kakaotalk" type="text" data-i18n-placeholder="wizardKakaoPlaceholder" placeholder="ID or phone" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white/80 px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark" />
+              <input id="kakaotalk" name="kakaotalk" type="text" data-i18n-placeholder="wizardKakaoPlaceholder" placeholder="ID or phone" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
             </div>
           </div>
         </div>
 
         <!-- Controls -->
         <div class="flex items-center justify-between">
-          <button type="button" id="wizard-back" class="rounded-full border border-brand-cta/30 bg-white/70 px-5 py-2.5 text-sm font-semibold text-brand-text shadow-sm transition hover:bg-white dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark disabled:opacity-60" disabled data-i18n="wizardBack">Back</button>
+          <button type="button" id="wizard-back" class="rounded-full border border-brand-cta/30 bg-white px-5 py-2.5 text-sm font-semibold text-brand-text shadow-sm transition hover:bg-white dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark disabled:opacity-60" disabled data-i18n="wizardBack">Back</button>
           <div class="flex items-center gap-3">
             <button type="button" id="wizard-next" class="rounded-full bg-brand-cta px-6 py-2.5 text-sm font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_16px_40px_-20px_rgba(26,77,26,0.55)] transition hover:scale-[1.02] disabled:opacity-60" data-i18n="wizardNext">Next</button>
             <button type="submit" id="wizard-submit" class="hidden rounded-full bg-brand-cta px-6 py-2.5 text-sm font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_16px_40px_-20px_rgba(26,77,26,0.55)] transition hover:scale-[1.02] disabled:opacity-60" data-i18n="wizardSubmit">Request demo</button>
@@ -315,7 +329,7 @@
     };
 
     // i18n wiring
-    const translationsNode = document.getElementById('translations-data');
+  const translationsNode = document.getElementById('translations-data');
     const fallbackLang = translationsNode?.dataset?.fallback || 'en';
     let dictionaries = {};
     try { dictionaries = translationsNode ? JSON.parse(translationsNode.textContent || '{}') : {}; } catch(_) { dictionaries = {}; }
@@ -428,6 +442,7 @@
           form.businessName && (form.businessName.value = saved.businessName || '');
           form.locations && (form.locations.value = saved.locations || '');
           form.currentPos && (form.currentPos.value = saved.currentPos || '');
+          form.desiredUsername && (form.desiredUsername.value = saved.desiredUsername || '');
           form.serviceStyle && (form.serviceStyle.value = saved.serviceStyle || '');
           form.phone && (form.phone.value = saved.phone || '');
           form.email && (form.email.value = saved.email || '');
@@ -466,7 +481,7 @@
 
     back?.addEventListener('click', () => showStep(step - 1));
   next?.addEventListener('click', () => {
-      // simple validation for required inputs on current step
+      // required inputs on current step
       const currentPanel = panels[step];
       const requiredInputs = Array.from(currentPanel.querySelectorAll('input[required]'));
       for (const input of requiredInputs) {
@@ -476,7 +491,7 @@
       for (const sel of requiredSelects) {
         if (!sel.value) { sel.focus(); return; }
       }
-      // persist partial state
+      // save partial state
       try {
         const state = {
           plan,
@@ -484,6 +499,7 @@
           businessName: form.businessName?.value || '',
           locations: form.locations?.value || '',
           currentPos: form.currentPos?.value || '',
+          desiredUsername: form.desiredUsername?.value || '',
           serviceStyle: form.serviceStyle?.value || '',
           phone: form.phone?.value || '',
           email: form.email?.value || '',
@@ -498,7 +514,7 @@
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // Validate final step required phone
+  // final step: phone is required
       const phone = form.querySelector('#phone');
       if (phone && !phone.value.trim()) { phone.focus(); return; }
 
@@ -509,6 +525,8 @@
         locations: form.locations?.value || '',
         serviceStyle: form.serviceStyle?.value || '',
         currentPos: form.currentPos?.value || '',
+        desiredUsername: form.desiredUsername?.value || '',
+        desiredPassword: form.desiredPassword?.value || '',
         phone: form.phone?.value || '',
         email: form.email?.value || '',
         telegram: form.telegram?.value || '',
@@ -518,12 +536,12 @@
 
       try {
         analytics('wizard_submit', { plan });
-        // Loading state
+        // loading
         submitBtn.disabled = true;
         next.disabled = true;
         back.disabled = true;
         submitBtn.textContent = t('wizardSubmitting') || 'Submitting…';
-        // POST to backend if configured; otherwise simulate success for now.
+        // POST to backend if configured; otherwise simulate
         if (CONFIG_ENDPOINT) {
           await fetch(CONFIG_ENDPOINT, {
             method: 'POST',
@@ -538,7 +556,7 @@
         form.classList.add('hidden');
         const success = document.getElementById('wizard-success');
         success?.classList.remove('hidden');
-        // Clear saved state
+        // clear saved state
         try { localStorage.removeItem(LS_KEY); } catch(_) {}
       } catch (err) {
         console.error('Failed to submit lead', err);
@@ -549,11 +567,11 @@
 
     document.getElementById('wizard-success-close')?.addEventListener('click', close);
 
-    // Re-apply placeholders when language changes via selectors
+    // re-apply placeholders when language changes
     document.querySelectorAll('.lang-select')?.forEach((sel) => {
       sel.addEventListener('change', () => setTimeout(() => { applyPlaceholders(); applyAriaLabels(); }, 50));
     });
-    // Initial placeholder application
+    // initial
     applyPlaceholders();
     applyAriaLabels();
   })();
