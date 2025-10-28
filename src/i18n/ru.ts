@@ -8,7 +8,7 @@ export const ru = {
   heroHeading: "Управляйте финансами и операциями из единого центра KDSX",
   heroBody:
     "Автоматизируйте заказы, отслеживайте расходы в реальном времени и синхронизируйте работу зала и кухни каждую смену.",
-  heroPrimaryCta: "Попробовать бесплатно",
+  heroPrimaryCta: "Активировать бесплатный месяц",
   heroSecondaryCta: "Заказать демо",
   heroMetricDowntimeTitle: "Меньше простоев",
   heroMetricDowntimeCopy:

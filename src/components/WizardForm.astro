@@ -1,7 +1,7 @@
 ---
 ---
 <!-- Plan Signup Wizard Modal -->
-<div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-endpoint="">
+<div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-endpoint="/api/lead" data-email="info@kdsx.uz,bekzodturgunoff@gmail.com">
   <div class="absolute inset-0 bg-black/40 backdrop-blur-sm dark:bg-black/70"></div>
   <div class="relative mx-auto my-10 max-w-lg px-4">
     <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" aria-describedby="wizard-subtitle" class="rounded-3xl border bg-[var(--color-brand-bg)] p-6 sm:p-7 md:p-8 shadow-2xl dark:border-white/20">
@@ -146,6 +146,30 @@
     const analytics = (event, data={}) => {
       try { window.dispatchEvent(new CustomEvent('kdsx.analytics', { detail: { event, ...data } })); } catch(_) {}
       try { console.info('[analytics]', event, data); } catch(_) {}
+    };
+
+    const sendMailFallback = (payload) => {
+      try {
+        const to = modal?.getAttribute('data-email') || 'info@kdsx.uz';
+        const subject = encodeURIComponent(`KDSX Lead — ${payload.plan || 'N/A'}`);
+        const bodyLines = [
+          `Plan: ${payload.plan}`,
+          `Name: ${payload.fullName}`,
+          `Business: ${payload.businessName}`,
+          `Locations: ${payload.locations}`,
+          `Service style: ${payload.serviceStyle}`,
+          `Current POS: ${payload.currentPos}`,
+          `Username: ${payload.desiredUsername}`,
+          `Phone: ${payload.phone}`,
+          `Email: ${payload.email}`,
+          `Telegram: ${payload.telegram}`,
+          `KakaoTalk: ${payload.kakaotalk}`,
+          `Submitted: ${payload.timestamp}`,
+        ];
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+        window.location.href = mailto;
+      } catch (_) {}
     };
 
     const translationsNode = document.getElementById('translations-data');
@@ -354,13 +378,20 @@
         back.disabled = true;
         submitBtn.textContent = t('wizardSubmitting') || 'Submitting…';
         if (CONFIG_ENDPOINT) {
-          await fetch(CONFIG_ENDPOINT, {
+          const response = await fetch(CONFIG_ENDPOINT, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(payload),
           });
+          if (!response.ok) {
+            const err = new Error(`Lead endpoint returned ${response.status}`);
+            err.status = response.status;
+            throw err;
+          }
         } else {
           console.warn('[wizard] No lead endpoint configured. Set data-endpoint on #plan-wizard. Payload:', payload);
+          // Fallback: compose an email with the submission so you still receive the lead.
+          sendMailFallback(payload);
           await new Promise((res)=> setTimeout(res, 400));
         }
 
@@ -370,8 +401,13 @@
         try { localStorage.removeItem(LS_KEY); } catch(_) {}
       } catch (err) {
         console.error('Failed to submit lead', err);
-        analytics('wizard_submit_error', { plan });
-        alert(t('wizardError') || 'Something went wrong. Please try again.');
+        analytics('wizard_submit_error', { plan, status: err?.status || null });
+        sendMailFallback(payload);
+        submitBtn.disabled = false;
+        next.disabled = false;
+        back.disabled = step === 0;
+        submitBtn.textContent = t('wizardSubmit') || 'Request demo';
+        alert(t('wizardError') || 'Something went wrong. Please try again. We opened your email client so you can send the request manually.');
       }
     });
 

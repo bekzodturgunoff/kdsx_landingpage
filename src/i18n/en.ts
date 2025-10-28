@@ -8,8 +8,8 @@ export const en = {
   heroHeading: "Manage your finances and operations from one KDSX hub",
   heroBody:
     "Automate orders, track spend in real time, and keep the floor and kitchen in sync—every shift.",
-  heroPrimaryCta: "Start free trial",
-  heroSecondaryCta: "Request demo",
+  heroPrimaryCta: "Activate Free Month",
+  heroSecondaryCta: "Book a walkthrough",
   heroMetricDowntimeTitle: "Fewer delays",
   heroMetricDowntimeCopy:
     "Multi-location teams cut ticket delays in their first month on KDSX.",

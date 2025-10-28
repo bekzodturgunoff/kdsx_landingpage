@@ -9,8 +9,8 @@ export const uz = {
     "Moliya va operatsiyalarni KDSX yagona markazidan boshqaring",
   heroBody:
     "Buyurtmalarni avtomatlashtiring, xarajatlarni real vaqtda kuzating, zal va oshxonani har smenada sinxronlashtirib turing.",
-  heroPrimaryCta: "Bepul sinab ko'rish",
-  heroSecondaryCta: "Demo so'rash",
+  heroPrimaryCta: "Bepul oyni faollashtirish",
+  heroSecondaryCta: "Demo bron qilish",
   heroMetricDowntimeTitle: "Kamroq kechikishlar",
   heroMetricDowntimeCopy:
     "Ko'p filialli jamoalar KDSX bilan birinchi oyning o'zida chek vaqtlarini qisqartiradi.",

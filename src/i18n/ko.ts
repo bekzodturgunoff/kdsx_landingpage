@@ -8,8 +8,8 @@ export const ko = {
   heroHeading: "KDSX 하나로 재무와 운영을 관리하세요",
   heroBody:
     "주문을 자동화하고 실시간으로 지출을 추적하며, 매 근무마다 홀과 주방을 완벽하게 동기화하세요.",
-  heroPrimaryCta: "무료로 시작하기",
-  heroSecondaryCta: "데모 요청하기",
+  heroPrimaryCta: "무료 한 달 활성화",
+  heroSecondaryCta: "데모 예약하기",
   heroMetricDowntimeTitle: "대기시간 단축",
   heroMetricDowntimeCopy:
     "다점포 운영팀도 KDSX 도입 첫 달에 주문 지연을 줄입니다.",
