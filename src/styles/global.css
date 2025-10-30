@@ -23,19 +23,352 @@ footer {
     border-color 0.3s ease;
 }
 
-/* Tailwind v4 tokens: define light and dark palettes */
-@theme {
-  --color-brand-bg: #fefefe;
-  --color-brand-text: #2a2a2a;
-  --color-brand-cta: oklch(85.7% 0.17 134.56);
-  --color-brand-cta-text: #1a4d1a;
-  --color-neutral-bg: #f8f8f8;
+body {
+  background-color: var(--color-brand-bg);
+  /* Fallback for browsers without color-mix support */
+  background-image: radial-gradient(
+      1200px 1200px at -10% -20%,
+      rgba(173, 219, 173, 0.15) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 900px at 110% 10%,
+      rgba(173, 219, 173, 0.1) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #f8fdf8 0%,
+      var(--color-brand-bg) 40%,
+      var(--color-brand-bg) 100%
+    );
+  /* Enhanced version with color-mix for supporting browsers */
+  background-image: radial-gradient(
+      1200px 1200px at -10% -20%,
+      color-mix(in oklch, var(--color-brand-cta) 20%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 900px at 110% 10%,
+      color-mix(in oklch, var(--color-brand-cta) 15%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-brand-bg) 94%, var(--color-brand-cta) 6%)
+        0%,
+      var(--color-brand-bg) 40%,
+      var(--color-brand-bg) 100%
+    );
+  /* Use scroll instead of fixed for better mobile performance */
+  background-attachment: scroll;
 }
 
-@theme .dark {
-  --color-brand-bg: #1a1a1a;
-  --color-brand-text: #f5f5f0;
+/* Fixed attachment only on larger screens where performance is better */
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+.dark body {
+  background-color: var(--color-brand-bg);
+  background-image: radial-gradient(
+      1200px 1200px at -15% -10%,
+      color-mix(in oklch, var(--color-brand-cta) 25%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 900px at 110% 5%,
+      color-mix(in oklch, var(--color-brand-cta) 22%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, #0b1a0f 70%, var(--color-brand-cta) 30%) 0%,
+      #060b08 100%
+    );
+}
+
+/* Tailwind v4 theme tokens */
+@theme {
+  --color-brand-bg: #ffffff;
+  --color-brand-bg-dark: #121212;
+  --color-brand-text: #1a1a1a;
+  --color-brand-text-dark: #ffffff;
   --color-brand-cta: oklch(85.7% 0.17 134.56);
+  --color-brand-cta-dark: oklch(85.7% 0.17 134.56);
   --color-brand-cta-text: #1a4d1a;
-  --color-neutral-bg: #242424;
+  --color-brand-cta-text-dark: #f1fff0;
+  --color-neutral-bg: #f5f5f5;
+  --color-neutral-bg-dark: #1e1e1e;
+}
+
+/* Dark mode class-based overrides */
+.dark {
+  --color-brand-bg: var(--color-brand-bg-dark);
+  --color-brand-text: var(--color-brand-text-dark);
+  --color-brand-cta: var(--color-brand-cta-dark);
+  --color-brand-cta-text: var(--color-brand-cta-text-dark);
+  --color-neutral-bg: var(--color-neutral-bg-dark);
+}
+
+@layer utilities {
+  /* Unified typography scale */
+  .t-h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight;
+  }
+  .t-h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight;
+  }
+  .t-h3 {
+    @apply text-xl sm:text-2xl font-semibold;
+  }
+  .t-body {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+  .t-quote {
+    @apply text-lg sm:text-2xl font-semibold leading-relaxed;
+  }
+  .t-small {
+    @apply text-sm;
+  }
+  .t-caption {
+    @apply text-xs;
+  }
+
+  .surface-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 1.75rem;
+    /* Fallback for browsers without backdrop-filter */
+    border: 1px solid rgba(200, 200, 200, 0.4);
+    background: rgba(250, 250, 250, 0.95);
+    box-shadow: 0 24px 48px -28px rgba(26, 77, 26, 0.4);
+    /* Enhanced version with backdrop-filter for supporting browsers */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(32px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--color-brand-text);
+  }
+
+  /* Feature query for browsers that don't support backdrop-filter */
+  @supports not (backdrop-filter: blur(32px)) {
+    .surface-card {
+      background: rgba(250, 250, 250, 0.98);
+      border: 1px solid rgba(200, 200, 200, 0.5);
+    }
+  }
+
+  .surface-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 64px -32px rgba(26, 77, 26, 0.5);
+  }
+
+  .dark .surface-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(6, 11, 8, 0.6);
+    box-shadow: 0 32px 80px -40px rgba(0, 0, 0, 0.85);
+    color: var(--color-brand-text-dark);
+  }
+
+  .feature-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.75rem;
+    background: transparent;
+  }
+
+  .dark .feature-panel {
+    background: transparent;
+    color: var(--color-brand-text-dark);
+  }
+
+  .lang-select {
+    appearance: none;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 77, 26, 0.18);
+    /* Solid fallback */
+    background: rgba(248, 248, 248, 0.98);
+    /* Enhanced version */
+    background: rgba(255, 255, 255, 0.78);
+    padding: 0.55rem 2.6rem 0.55rem 1.1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-brand-text);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .lang-select:focus {
+    outline: none;
+    /* Fallback without color-mix */
+    border-color: rgba(26, 77, 26, 0.5);
+    box-shadow: 0 0 0 3px rgba(173, 219, 173, 0.3);
+    /* Enhanced with color-mix */
+    border-color: color-mix(in srgb, var(--color-brand-cta) 60%, black 10%);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-brand-cta) 25%, transparent 75%);
+  }
+
+  .lang-select:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+
+  .dark .lang-select {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-brand-text-dark);
+  }
+
+  .dark .lang-select:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .dark .lang-select:focus {
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-brand-cta) 30%, transparent 70%);
+  }
+
+  .pro-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    padding: 1px;
+    border: 1px solid rgba(26, 77, 26, 0.3);
+    background: linear-gradient(
+      140deg,
+      color-mix(in srgb, var(--color-brand-cta) 35%, white 65%) 0%,
+      rgba(255, 255, 255, 0.95) 100%
+    );
+    box-shadow: 0 40px 120px -60px rgba(26, 77, 26, 0.6);
+  }
+
+  .pro-card__inner {
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(22px);
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--color-brand-text);
+  }
+
+  .dark .pro-card {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--color-brand-cta) 25%, #060b08 75%) 0%,
+      rgba(8, 13, 9, 0.85) 100%
+    );
+    box-shadow: 0 40px 120px -60px rgba(0, 0, 0, 0.65);
+  }
+
+  .dark .pro-card__inner {
+    background: rgba(12, 18, 14, 0.9);
+    color: var(--color-brand-text-dark);
+    backdrop-filter: blur(18px);
+  }
+
+  .section-shell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    /* Solid fallback for browsers without backdrop-filter */
+    border: 1px solid rgba(220, 220, 220, 0.6);
+    background: rgba(252, 252, 252, 0.96);
+    box-shadow: 0 48px 160px -80px rgba(26, 77, 26, 0.45);
+    /* Enhanced version with backdrop-filter for supporting browsers */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(30px);
+    color: var(--color-brand-text);
+  }
+
+  /* Better fallback for browsers without backdrop-filter */
+  @supports not (backdrop-filter: blur(30px)) {
+    .section-shell {
+      background: rgba(252, 252, 252, 0.98);
+      border: 1px solid rgba(220, 220, 220, 0.7);
+    }
+  }
+
+  .section-shell::before {
+    content: "";
+    position: absolute;
+    inset: -45% 12% auto;
+    height: 68%;
+    border-radius: 1000px;
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--color-brand-cta) 60%, transparent) 0%,
+      transparent 65%
+    );
+    opacity: 0.24;
+    filter: blur(22px);
+    pointer-events: none;
+  }
+
+  .section-shell::after {
+    content: "";
+    position: absolute;
+    inset: auto -28% -55% auto;
+    width: 55%;
+    height: 55%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-brand-cta) 42%, transparent) 0%,
+      transparent 72%
+    );
+    opacity: 0.2;
+    filter: blur(34px);
+    pointer-events: none;
+  }
+
+  .dark .section-shell {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(6, 11, 8, 0.35);
+    box-shadow: 0 60px 180px -90px rgba(0, 0, 0, 0.65);
+    color: var(--color-brand-text-dark);
+  }
+
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    /* Solid fallback */
+    border: 1px solid rgba(220, 220, 220, 0.8);
+    background: rgba(250, 250, 250, 0.96);
+    /* Enhanced version for supporting browsers */
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-brand-cta-text);
+    box-shadow: 0 16px 40px -26px rgba(26, 77, 26, 0.55);
+  }
+
+  /* Improved contrast for browsers without advanced features */
+  @supports not (backdrop-filter: blur(10px)) {
+    .badge-pill {
+      background: rgba(245, 245, 245, 1);
+      border: 1px solid rgba(200, 200, 200, 0.9);
+    }
+  }
+
+  .dark .badge-pill {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.12);
+    color: color-mix(in srgb, var(--color-brand-cta) 85%, white 15%);
+  }
 }

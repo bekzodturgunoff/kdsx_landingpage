@@ -12,7 +12,7 @@ module.exports = {
         "brand-cta": "oklch(85.7% .17 134.56)",
         "brand-cta-dark": "oklch(85.7% .17 134.56)",
         "brand-cta-text": "#1A4D1A",
-        "brand-cta-text-dark": "#1A4D1A",
+        "brand-cta-text-dark": "#F1FFF0",
         "neutral-bg": "#F5F5F5",
         "neutral-bg-dark": "#1E1E1E",
       },

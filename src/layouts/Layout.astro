@@ -5,21 +5,46 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KDSX POS | Total Restaurant Control</title>
-    <meta name="description" content="KDSX is the only POS that unifies your Back Office, Front of House, and Kitchen into one profit-driving ecosystem." />
+  <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
+  <title>KDSX POS | Run every shift in sync</title>
+  <meta name="description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KDSX POS | Run every shift in sync" />
+  <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
+  <meta property="og:url" content="https://kdsx-7xa05cei2-bekzods-projects-a2170551.vercel.app" />
+  <meta property="og:image" content="/logo.png" />
+  <meta property="og:image:alt" content="KDSX logo" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KDSX POS | Run every shift in sync" />
+  <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
+  <meta name="twitter:image" content="/logo.png" />
     <link rel="icon" href="/logo.png" />
     <meta name="color-scheme" content="light dark" />
     <script is:inline>
       // Initialize theme before paint to prevent flash
       (function () {
         try {
-          const stored = localStorage.getItem('theme');
+          const THEME_KEY = 'theme';
+          const DARK_COLOR = '#121212';
+          const LIGHT_COLOR = '#ffffff';
+          const stored = localStorage.getItem(THEME_KEY);
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const useDark = stored ? stored === 'dark' : prefersDark;
-          if (useDark) {
+          const resolved = !stored || stored === 'system'
+            ? (prefersDark ? 'dark' : 'light')
+            : stored;
+
+          if (resolved === 'dark') {
             document.documentElement.classList.add('dark');
           } else {
             document.documentElement.classList.remove('dark');
+          }
+          document.documentElement.setAttribute('data-theme', resolved);
+
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) {
+            meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
           }
         } catch (_) {}
       })();
@@ -27,5 +52,14 @@ import '../styles/global.css';
   </head>
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
     <slot />
+    <script is:inline>
+      // Ensure page starts at top on refresh
+      if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+      }
+      window.addEventListener('beforeunload', function() {
+        window.scrollTo(0, 0);
+      });
+    </script>
   </body>
 </html>

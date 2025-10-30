@@ -1,0 +1,578 @@
+---
+---
+<section id="pricing" class="w-full px-2 sm:px-6 py-12 sm:pt-20 sm:pb-16">
+  <div class="max-w-6xl mx-auto section-shell px-4 sm:px-10 py-16">
+    <div class="flex flex-col items-center text-cente          <label for="fullName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardNameLabel">What's your name?</label> gap-6">
+  <span class="badge-pill" data-i18n="pricingBadge">Pricing</span>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="pricingHeading">
+        Flexible plans that scale with every service shift
+      </h2>
+  <p class="max-w-3xl text-base sm:text-lg text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingBody">
+        Start lean and grow when you’re ready. Every plan comes with hands-on onboarding from the KDSX crew.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="surface-card p-10 text-center text-brand-text dark:text-brand-text-dark">
+        <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
+          <span data-i18n="pricingStarterLabel">Starter</span>
+        </div>
+  <div class="mt-6 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">Free</div>
+  <div class="mt-2 text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">First month on us</div>
+  <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">Everything you need to launch a single location with confidence—your first month is completely free.</p>
+        <ul class="mt-8 space-y-3 text-left text-sm leading-relaxed">
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB1">1 register/station, unlimited logins</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB2">Order, table, and guest tracking</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB3">Core dashboards and nightly summary emails</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB4">Manual inventory counts + alerts</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB5">Keep rolling after month one for only $15/month</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">Email support with 24-hour response</span></li>
+        </ul>
+        <div class="mt-10">
+          <a href="mailto:info@kdsx.uz?subject=KDSX%20Starter%20Plan%20Inquiry" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/40 bg-white/70 px-8 py-4 text-base font-semibold text-brand-text shadow-[0_20px_40px_-25px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-text-dark">
+            <span data-i18n="pricingStarterCta">Activate Free Month</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-card__inner">
+          <div class="flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
+            <span data-i18n="pricingProLabel">Pro</span>
+            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-lg" data-i18n="pricingProRibbon">Most popular</span>
+          </div>
+          <div class="mt-6 text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
+            <span data-i18n="pricingProPrice">$30</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">/mo</span>
+          </div>
+          <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">Add automation, multi-location controls, and proactive guidance from our team.</p>
+          <ul class="mt-8 space-y-3 text-left text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB1">Unlimited registers with role-based controls</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB2">Automated inventory + supplier syncing</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB3">Advanced analytics & profitability dashboards</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">Priority chat & phone support</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">Dedicated Customer Success Manager</span></li>
+          </ul>
+          <div class="mt-10">
+            <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Inquiry" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-10 py-4 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_30px_60px_-30px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
+              <span data-i18n="pricingProCta">Get Started — $30/mo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="surface-card p-4 text-left text-brand-text dark:text-brand-text-dark">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">Enterprise</div>
+          <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">Custom</span>
+        </div>
+    <h3 class="mt-4 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">Scale with confidence across regions</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.</p>
+        <a href="mailto:info@kdsx.uz?subject=KDSX%20Enterprise%20Plan%20Inquiry" data-plan-trigger="enterprise" class="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-cta/40 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark">
+          <span data-i18n="pricingEnterpriseCta">Contact Sales</span>
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="surface-card p-4 text-left text-brand-text dark:text-brand-text-dark">
+    <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingImplementTag">Need a tailored roll-out?</div>
+    <h3 class="mt-4 text-2xl font-semibold" data-i18n="pricingImplementHeading">Partner with our implementation team</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingImplementBody">We’ll audit your operations, stage the hardware, and train staff across every location.</p>
+        <ul class="mt-4 space-y-2 text-sm text-brand-text/70 dark:text-brand-text-dark/70">
+          <li>✔ <span data-i18n="pricingImplementB1">Launch playbook customized to each venue</span></li>
+          <li>✔ <span data-i18n="pricingImplementB2">On-site and remote training programs</span></li>
+          <li>✔ <span data-i18n="pricingImplementB3">Seasonal menu + promo support</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center">
+  <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-6 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">Ready to run every shift with less stress?</h3>
+  <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Free%20Trial" data-plan-trigger="cta" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-10 py-4 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_30px_60px_-30px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
+  <span data-i18n="pricingFinalCta">Start my rollout</span>
+      </a>
+    </div>
+
+    <!-- FAQ placed before footer -->
+    <div class="mt-20">
+      <slot name="faq"></slot>
+    </div>
+
+    <footer class="mt-16 pt-12 border-t border-white/20 text-brand-text dark:text-brand-text-dark">
+      <!-- Main Footer Content -->
+      <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
+        <!-- Brand Section -->
+        <div class="flex flex-col items-start">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-bold text-2xl text-brand-text dark:text-brand-text-dark">KDSX</span>
+            <img src="/logo.png" alt="KDSX Logo" class="w-8 h-8" />
+          </div>
+          <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">Total restaurant control. Unify your operations with our integrated POS ecosystem.</p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="flex flex-col items-start">
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">Contact Info</h4>
+          <div class="space-y-3">
+            <a href="tel:+998941500330" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <span class="text-sm">+998941500330</span>
+            </a>
+            <a href="tel:+821079328573" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <span class="text-sm">+821079328573</span>
+            </a>
+            <a href="mailto:support@kdsx.uz" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <span class="text-sm">support@kdsx.uz</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="flex flex-col items-start">
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">Follow Us</h4>
+          <div class="flex gap-4">
+            <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+            </a>
+            <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="YouTube">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="flex flex-col items-start">
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="#features" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkFeatures">Features</a>
+            <a href="#pricing" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPricing">Pricing</a>
+            <a href="#" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">Terms</a>
+            <a href="#" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">Privacy</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Footer -->
+      <div class="pt-6 border-t border-brand-cta-text/20 dark:border-brand-cta-text-dark/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-75">
+        <span>&copy; 2025 KDSX. <span data-i18n="footerRightsReserved">All rights reserved.</span></span>
+        <span data-i18n="footerAccessibility">Mobile Responsive &amp; Accessible</span>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<!-- Plan Signup Wizard Modal -->
+<div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-endpoint="">
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+  <div class="relative mx-auto my-10 max-w-lg px-4">
+    <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" aria-describedby="wizard-subtitle" class="rounded-3xl border border-black/10 bg-white p-6 sm:p-7 md:p-8 shadow-2xl ring-1 ring-black/5 dark:border-white/10 dark:bg-neutral-900 dark:ring-white/5">
+      <div class="flex items-start justify-between">
+        <div>
+          <h3 id="wizard-title" class="text-xl font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="wizardTitle">Get your free demo account</h3>
+          <p id="wizard-subtitle" class="mt-1 text-sm text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="wizardSubtitle">Answer a couple of quick questions — we’ll set up a demo and share credentials.</p>
+        </div>
+        <button type="button" id="wizard-close" aria-label="Close" data-i18n-aria-label="wizardSuccessCta" class="ml-4 rounded-full p-2 text-brand-text/60 hover:bg-brand-cta/10 hover:text-brand-text dark:text-brand-text-dark/70">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="mt-4 flex items-center gap-2 text-xs font-medium text-brand-text/70 dark:text-brand-text-dark/70">
+  <span id="wizard-step-label">Step 1 of 7</span>
+        <span class="mx-2 h-1 w-1 rounded-full bg-brand-text/40 dark:bg-brand-text-dark/40"></span>
+        <span id="wizard-plan-label" class="truncate" data-i18n="wizardPlanPrefix">Plan:</span>
+      </div>
+
+      <form id="wizard-form" class="mt-6 space-y-6">
+        <!-- Step 1: Name -->
+        <div data-step="0" class="step-panel">
+          <label for="fullName" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardNameLabel">What’s your name?</label>
+          <input id="fullName" name="fullName" type="text" required data-i18n-placeholder="wizardNamePlaceholder" placeholder="e.g., Alex Kim" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+        </div>
+
+        <!-- Step 2: Business name -->
+        <div data-step="1" class="step-panel hidden">
+          <label for="businessName" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardBusinessLabel">What’s your restaurant’s or market’s name?</label>
+          <input id="businessName" name="businessName" type="text" required data-i18n-placeholder="wizardBusinessPlaceholder" placeholder="e.g., Green Leaf Bistro" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+        </div>
+
+        <!-- Step 3: Locations -->
+        <div data-step="2" class="step-panel hidden">
+          <label for="locations" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardLocationsLabel">How many locations do you operate?</label>
+          <select id="locations" name="locations" required class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark">
+            <option value="1" data-i18n="wizardLocationsOption1">1 location</option>
+            <option value="2-5" data-i18n="wizardLocationsOption2">2–5 locations</option>
+            <option value="6-10" data-i18n="wizardLocationsOption3">6–10 locations</option>
+            <option value="11+" data-i18n="wizardLocationsOption4">11+ locations</option>
+          </select>
+        </div>
+
+        <!-- Step 4: Service style / industry -->
+        <div data-step="3" class="step-panel hidden">
+          <label for="serviceStyle" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardServiceStyleLabel">What best describes your service style?</label>
+          <select id="serviceStyle" name="serviceStyle" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark">
+            <option value="" data-i18n="wizardServiceStyleOption0">Select one…</option>
+            <option value="cafe" data-i18n="wizardServiceStyleOptionCafe">Cafe</option>
+            <option value="bistro" data-i18n="wizardServiceStyleOptionBistro">Bistro</option>
+            <option value="quick" data-i18n="wizardServiceStyleOptionQuick">Quick‑service</option>
+            <option value="full" data-i18n="wizardServiceStyleOptionFull">Full‑service</option>
+            <option value="bar" data-i18n="wizardServiceStyleOptionBar">Bar</option>
+            <option value="market" data-i18n="wizardServiceStyleOptionMarket">Market</option>
+            <option value="other" data-i18n="wizardServiceStyleOptionOther">Other</option>
+          </select>
+        </div>
+
+        <!-- Step 5: Current POS -->
+        <div data-step="4" class="step-panel hidden">
+          <label for="currentPos" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardCurrentPosLabel">Which POS or systems are you using today?</label>
+          <input id="currentPos" name="currentPos" type="text" data-i18n-placeholder="wizardCurrentPosPlaceholder" placeholder="e.g., Toast, Square, custom" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+        </div>
+
+        <!-- Step 6: Credentials -->
+        <div data-step="5" class="step-panel hidden">
+          <div class="grid gap-4">
+            <div>
+              <label for="desiredUsername" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardUsernameLabel">Preferred username</label>
+              <input id="desiredUsername" name="desiredUsername" type="text" required pattern="^[a-zA-Z0-9._-]{3,20}$" data-i18n-placeholder="wizardUsernamePlaceholder" placeholder="e.g., alex.kim" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+            <div>
+              <label for="desiredPassword" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardPasswordLabel">Preferred password</label>
+              <input id="desiredPassword" name="desiredPassword" type="password" required minlength="8" data-i18n-placeholder="wizardPasswordPlaceholder" placeholder="At least 8 characters" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7: Contact details -->
+        <div data-step="6" class="step-panel hidden">
+          <div class="grid gap-4">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark"><span data-i18n="wizardPhoneLabel">Your phone number</span><span class="text-brand-cta"> *</span></label>
+              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="wizardPhonePlaceholder" placeholder="e.g., +82 10-1234-5678" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardEmailLabel">Your email address (optional)</label>
+              <input id="email" name="email" type="email" data-i18n-placeholder="wizardEmailPlaceholder" placeholder="e.g., you@company.com" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+            <div>
+              <label for="telegram" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardTelegramLabel">Telegram (optional)</label>
+              <input id="telegram" name="telegram" type="text" data-i18n-placeholder="wizardTelegramPlaceholder" placeholder="@yourhandle" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+            <div>
+              <label for="kakaotalk" class="block text-sm font-medium text-brand-text dark:text-brand-text-dark" data-i18n="wizardKakaoLabel">KakaoTalk (optional)</label>
+              <input id="kakaotalk" name="kakaotalk" type="text" data-i18n-placeholder="wizardKakaoPlaceholder" placeholder="ID or phone" class="mt-2 w-full rounded-xl border border-brand-cta-text/25 bg-white px-4 py-3 text-brand-text shadow-sm outline-none transition focus:border-brand-cta focus:ring-2 focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-between">
+          <button type="button" id="wizard-back" class="rounded-full border border-brand-cta/30 bg-white px-5 py-2.5 text-sm font-semibold text-brand-text shadow-sm transition hover:bg-white dark:border-white/20 dark:bg-neutral-800 dark:text-brand-text-dark disabled:opacity-60" disabled data-i18n="wizardBack">Back</button>
+          <div class="flex items-center gap-3">
+            <button type="button" id="wizard-next" class="rounded-full bg-brand-cta px-6 py-2.5 text-sm font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_16px_40px_-20px_rgba(26,77,26,0.55)] transition hover:scale-[1.02] disabled:opacity-60" data-i18n="wizardNext">Next</button>
+            <button type="submit" id="wizard-submit" class="hidden rounded-full bg-brand-cta px-6 py-2.5 text-sm font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_16px_40px_-20px_rgba(26,77,26,0.55)] transition hover:scale-[1.02] disabled:opacity-60" data-i18n="wizardSubmit">Request demo</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="wizard-success" class="mt-6 hidden rounded-xl border bg-[var(--color-brand-bg)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-5 w-5 text-brand-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p data-i18n="wizardSuccessMessage">Thanks — we’ve received your request. A demo account with username and password will be shared via your preferred contact. To continue beyond the demo, you can switch to the Pro plan at any time.</p>
+        </div>
+        <div class="mt-4 flex justify-end">
+          <button type="button" id="wizard-success-close" class="rounded-full bg-brand-cta px-5 py-2 text-sm font-semibold text-brand-cta-text" data-i18n="wizardSuccessCta">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function planWizard(){
+    const modal = document.getElementById('plan-wizard');
+    const form = document.getElementById('wizard-form');
+    const back = document.getElementById('wizard-back');
+    const next = document.getElementById('wizard-next');
+    const submitBtn = document.getElementById('wizard-submit');
+    const closeBtn = document.getElementById('wizard-close');
+    const stepLabel = document.getElementById('wizard-step-label');
+    const planLabel = document.getElementById('wizard-plan-label');
+    const titleEl = document.getElementById('wizard-title');
+    const dialog = modal?.querySelector('[role="dialog"]');
+    const panels = Array.from(form?.querySelectorAll('.step-panel') || []);
+    let step = 0;
+    let plan = '';
+    const LS_KEY = 'kdsx-wizard-state';
+    // Backend endpoint wiring: set data-endpoint on #plan-wizard, or override here.
+    const CONFIG_ENDPOINT = modal?.getAttribute('data-endpoint') || '';
+    let lastActive = null;
+    let keydownHandler = null;
+    const analytics = (event, data={}) => {
+      try { window.dispatchEvent(new CustomEvent('kdsx.analytics', { detail: { event, ...data } })); } catch(_) {}
+      try { console.info('[analytics]', event, data); } catch(_) {}
+    };
+
+    // i18n wiring
+  const translationsNode = document.getElementById('translations-data');
+    const fallbackLang = translationsNode?.dataset?.fallback || 'en';
+    let dictionaries = {};
+    try { dictionaries = translationsNode ? JSON.parse(translationsNode.textContent || '{}') : {}; } catch(_) { dictionaries = {}; }
+    const currentLang = document.documentElement.getAttribute('lang') || fallbackLang;
+    const t = (key) => {
+      const dict = dictionaries[currentLang] || dictionaries[fallbackLang] || {};
+      return (dict[key] ?? '');
+    };
+
+    const applyPlaceholders = () => {
+      document.querySelectorAll('[data-i18n-placeholder]')?.forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (!key) return;
+        const val = t(key);
+        if (val) el.setAttribute('placeholder', val);
+      });
+    };
+
+    const applyAriaLabels = () => {
+      document.querySelectorAll('[data-i18n-aria-label]')?.forEach((el) => {
+        const key = el.getAttribute('data-i18n-aria-label');
+        if (!key) return;
+        const val = t(key);
+        if (val) el.setAttribute('aria-label', val);
+      });
+    };
+
+    const setBodyScroll = (lock) => {
+      const html = document.documentElement;
+      if (lock) html.classList.add('overflow-hidden'); else html.classList.remove('overflow-hidden');
+    };
+
+    const showStep = (idx) => {
+      step = Math.max(0, Math.min(idx, panels.length - 1));
+      panels.forEach((p, i) => p.classList.toggle('hidden', i !== step));
+      back.disabled = step === 0;
+      next.classList.toggle('hidden', step === panels.length - 1);
+      submitBtn.classList.toggle('hidden', step !== panels.length - 1);
+      const template = t('wizardStepTemplate') || 'Step {current} of {total}';
+      stepLabel.textContent = template.replace('{current}', String(step + 1)).replace('{total}', String(panels.length));
+      analytics('wizard_step_view', { step });
+    };
+
+    const getFocusable = () => {
+      if (!dialog) return [];
+      return Array.from(dialog.querySelectorAll(
+        'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      ));
+    };
+
+    const trapFocus = (e) => {
+      if (e.key !== 'Tab') return;
+      const f = getFocusable();
+      if (!f.length) return;
+      const first = f[0];
+      const last = f[f.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    const open = (planName) => {
+      lastActive = document.activeElement;
+      plan = planName;
+      const planDisplay = (() => {
+        if (planName === 'starter') return t('pricingStarterLabel') || 'Starter';
+        if (planName === 'pro') return t('pricingProLabel') || 'Pro';
+        if (planName === 'enterprise') return t('pricingEnterpriseTitle') || 'Enterprise';
+        return t('pricingProLabel') || (planName[0]?.toUpperCase() + planName.slice(1));
+      })();
+      if (planLabel) planLabel.textContent = `${t('wizardPlanPrefix') || 'Plan:'} ${planDisplay}`;
+      if (titleEl) {
+        const titleMap = {
+          starter: t('wizardTitleStarter') || 'Get your free month — Starter',
+          pro: t('wizardTitlePro') || 'Get started with Pro',
+          enterprise: t('wizardTitleEnterprise') || 'Talk to sales — Enterprise',
+          cta: t('wizardTitleGeneric') || 'Request a demo',
+        };
+        titleEl.textContent = titleMap[planName] || (t('wizardTitleGeneric') || 'Request a demo');
+      }
+      modal.classList.remove('hidden');
+      showStep(0);
+      setBodyScroll(true);
+      // focus first input
+      requestAnimationFrame(() => {
+        const first = panels[0].querySelector('input');
+        first && first.focus && first.focus();
+      });
+      applyPlaceholders();
+      applyAriaLabels();
+      // focus trap + esc close
+      keydownHandler = (e) => {
+        if (e.key === 'Escape') { close(); return; }
+        trapFocus(e);
+      };
+      document.addEventListener('keydown', keydownHandler);
+      // restore state if present
+      try {
+        const saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+        if (saved && saved.plan === planName) {
+          form.fullName && (form.fullName.value = saved.fullName || '');
+          form.businessName && (form.businessName.value = saved.businessName || '');
+          form.locations && (form.locations.value = saved.locations || '');
+          form.currentPos && (form.currentPos.value = saved.currentPos || '');
+          form.desiredUsername && (form.desiredUsername.value = saved.desiredUsername || '');
+          form.serviceStyle && (form.serviceStyle.value = saved.serviceStyle || '');
+          form.phone && (form.phone.value = saved.phone || '');
+          form.email && (form.email.value = saved.email || '');
+          form.telegram && (form.telegram.value = saved.telegram || '');
+          form.kakaotalk && (form.kakaotalk.value = saved.kakaotalk || '');
+        }
+      } catch(_) {}
+      analytics('wizard_open', { plan: planName });
+    };
+
+    const close = () => {
+      modal.classList.add('hidden');
+      setBodyScroll(false);
+      form?.reset();
+      const success = document.getElementById('wizard-success');
+      success?.classList.add('hidden');
+      if (keydownHandler) { document.removeEventListener('keydown', keydownHandler); keydownHandler = null; }
+      if (lastActive && lastActive.focus) {
+        try { lastActive.focus(); } catch(_) {}
+      }
+      analytics('wizard_close', { plan });
+    };
+
+    document.querySelectorAll('[data-plan-trigger]')?.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const planName = el.getAttribute('data-plan-trigger') || 'starter';
+        open(planName);
+      });
+    });
+
+    closeBtn?.addEventListener('click', close);
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) close();
+    });
+
+    back?.addEventListener('click', () => showStep(step - 1));
+  next?.addEventListener('click', () => {
+      // required inputs on current step
+      const currentPanel = panels[step];
+      const requiredInputs = Array.from(currentPanel.querySelectorAll('input[required]'));
+      for (const input of requiredInputs) {
+        if (!input.value.trim()) { input.focus(); return; }
+      }
+      const requiredSelects = Array.from(currentPanel.querySelectorAll('select[required]'));
+      for (const sel of requiredSelects) {
+        if (!sel.value) { sel.focus(); return; }
+      }
+      // save partial state
+      try {
+        const state = {
+          plan,
+          fullName: form.fullName?.value || '',
+          businessName: form.businessName?.value || '',
+          locations: form.locations?.value || '',
+          currentPos: form.currentPos?.value || '',
+          desiredUsername: form.desiredUsername?.value || '',
+          serviceStyle: form.serviceStyle?.value || '',
+          phone: form.phone?.value || '',
+          email: form.email?.value || '',
+          telegram: form.telegram?.value || '',
+          kakaotalk: form.kakaotalk?.value || '',
+        };
+        localStorage.setItem(LS_KEY, JSON.stringify(state));
+      } catch(_) {}
+      analytics('wizard_step_next', { step });
+      showStep(step + 1);
+    });
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  // final step: phone is required
+      const phone = form.querySelector('#phone');
+      if (phone && !phone.value.trim()) { phone.focus(); return; }
+
+      const payload = {
+        plan,
+        fullName: form.fullName?.value || '',
+        businessName: form.businessName?.value || '',
+        locations: form.locations?.value || '',
+        serviceStyle: form.serviceStyle?.value || '',
+        currentPos: form.currentPos?.value || '',
+        desiredUsername: form.desiredUsername?.value || '',
+        desiredPassword: form.desiredPassword?.value || '',
+        phone: form.phone?.value || '',
+        email: form.email?.value || '',
+        telegram: form.telegram?.value || '',
+        kakaotalk: form.kakaotalk?.value || '',
+        timestamp: new Date().toISOString(),
+      };
+
+      try {
+        analytics('wizard_submit', { plan });
+        // loading
+        submitBtn.disabled = true;
+        next.disabled = true;
+        back.disabled = true;
+        submitBtn.textContent = t('wizardSubmitting') || 'Submitting…';
+        // POST to backend if configured; otherwise simulate
+        if (CONFIG_ENDPOINT) {
+          await fetch(CONFIG_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        } else {
+          console.warn('[wizard] No lead endpoint configured. Set data-endpoint on #plan-wizard. Payload:', payload);
+          await new Promise((res)=> setTimeout(res, 400));
+        }
+
+        form.classList.add('hidden');
+        const success = document.getElementById('wizard-success');
+        success?.classList.remove('hidden');
+        // clear saved state
+        try { localStorage.removeItem(LS_KEY); } catch(_) {}
+      } catch (err) {
+        console.error('Failed to submit lead', err);
+        analytics('wizard_submit_error', { plan });
+        alert(t('wizardError') || 'Something went wrong. Please try again.');
+      }
+    });
+
+    document.getElementById('wizard-success-close')?.addEventListener('click', close);
+
+    // re-apply placeholders when language changes
+    document.querySelectorAll('.lang-select')?.forEach((sel) => {
+      sel.addEventListener('change', () => setTimeout(() => { applyPlaceholders(); applyAriaLabels(); }, 50));
+    });
+    // initial
+    applyPlaceholders();
+    applyAriaLabels();
+  })();
+</script>

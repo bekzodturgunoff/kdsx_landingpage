@@ -1,62 +1,281 @@
 ---
+import { translations, LANGUAGE_OPTIONS, DEFAULT_LANGUAGE } from "../i18n";
+
+const languageOptions = LANGUAGE_OPTIONS;
+const translationsJSON = JSON.stringify(translations);
+const fallbackLanguage = DEFAULT_LANGUAGE;
 ---
-<header class="w-full sticky top-0 z-50 bg-brand-bg dark:bg-brand-bg-dark supports-[backdrop-filter]:bg-brand-bg/80 supports-[backdrop-filter]:dark:bg-brand-bg-dark/80 backdrop-blur-sm">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2 text-2xl font-bold text-brand-text dark:text-brand-text-dark">
-      <span>KDSX</span>
-      <img src="/logo.png" alt="KDSX Logo" class="w-8 h-8 rounded-full" />
+<header class="sticky top-0 z-50 px-2 sm:px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="mt-6 flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
+      <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
+        <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs sm:text-sm uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text">KDSX</span>
+      </div>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70">
+  <a href="#features" class="group relative transition-colors duration-300 hover:text-brand-cta" data-i18n="navFeatures">
+          Features
+          <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+  <a href="#pricing" class="group relative transition-colors duration-300 hover:text-brand-cta" data-i18n="navPricing">
+          Pricing
+          <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+  <a href="#faq" class="group relative transition-colors duration-300 hover:text-brand-cta" data-i18n="navFaq">
+          FAQ
+          <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
+        </a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3 text-xs font-semibold text-brand-text/80 dark:text-brand-text-dark/80">
+        <label class="sr-only" for="desktop-lang-select">Language</label>
+        <div class="relative">
+          <select id="desktop-lang-select" class="lang-select appearance-none rounded-full border border-brand-cta-text/25 dark:border-brand-cta-text-dark/30 bg-white/70 px-4 py-2 pr-10 text-xs font-semibold uppercase tracking-[0.25em] text-brand-text shadow-sm transition focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-white/10 dark:text-brand-text-dark" aria-label="Language switcher">
+            {languageOptions.map(({ value, label }) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-brand-text/60 dark:text-brand-text-dark/60" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <!-- Segmented Theme Switcher (Desktop) -->
+        <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
+          <button data-theme-option="light" type="button" aria-label="Use light theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
+            <span>Light</span>
+          </button>
+          <button data-theme-option="system" type="button" aria-label="Match system theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17h10"/></svg>
+            <span>System</span>
+          </button>
+          <button data-theme-option="dark" type="button" aria-label="Use dark theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <span>Dark</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile controls -->
+      <div class="flex items-center gap-2 md:hidden">
+        <label class="sr-only" for="mobile-lang-select">Language</label>
+        <div class="relative">
+          <select id="mobile-lang-select" class="lang-select appearance-none rounded-full border border-brand-cta-text/20 bg-white/80 px-3 py-2 pr-9 text-xs font-semibold uppercase tracking-[0.25em] text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-white/10 dark:text-brand-text-dark" aria-label="Language switcher">
+            {languageOptions.map(({ value, label }) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-brand-text/60 dark:text-brand-text-dark/60" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <!-- Compact Theme Cycle Button (Mobile) -->
+        <button
+          type="button"
+          data-theme-cycle
+          aria-label="Theme"
+          class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-cta-text/25 bg-white/70 text-brand-text shadow-sm transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark"
+        >
+          <span data-icon="light" class="block">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
+          </span>
+          <span data-icon="system" class="hidden">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17h10"/></svg>
+          </span>
+          <span data-icon="dark" class="hidden">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+        <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-cta/15 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-brand-cta-text-dark/20 dark:text-brand-text-dark">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
-    <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-8 text-lg font-normal text-brand-text dark:text-brand-text-dark">
-      <a href="#features" class="transition-colors duration-300 hover:text-brand-cta">Features</a>
-      <a href="#pricing" class="transition-colors duration-300 hover:text-brand-cta">Pricing</a>
-      <a href="#faq" class="transition-colors duration-300 hover:text-brand-cta">FAQ</a>
-    </nav>
-    <!-- Theme toggle -->
-    <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-brand-text dark:text-brand-text-dark bg-transparent flex items-center justify-center transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark">
-      <span class="sr-only">Toggle theme</span>
-      <svg data-theme-icon class="w-6 h-6 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
-        <g id="sun-rays">
-          <path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 5.66l-.71-.71M4.05 4.05l-.71-.71" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-      </svg>
-    </button>
-    <!-- Mobile hamburger -->
-    <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" class="md:hidden p-2 rounded-lg text-brand-text dark:text-brand-text-dark bg-transparent focus:outline-none focus:ring-2 focus:ring-brand-cta dark:focus:ring-brand-cta-dark transition-colors duration-300">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
   </div>
+
   <!-- Mobile dropdown -->
-  <div id="mobile-menu" class="md:hidden hidden bg-brand-bg dark:bg-brand-bg-dark">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4 text-lg font-normal text-brand-text dark:text-brand-text-dark">
-      <a href="#features" class="py-2 transition-colors duration-300 hover:text-brand-cta">Features</a>
-      <a href="#pricing" class="py-2 transition-colors duration-300 hover:text-brand-cta">Pricing</a>
-      <a href="#faq" class="py-2 transition-colors duration-300 hover:text-brand-cta">FAQ</a>
+  <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
+    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-4 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-6 text-sm font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
+  <a href="#features" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFeatures">Features</a>
+  <a href="#pricing" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navPricing">Pricing</a>
+  <a href="#faq" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFaq">FAQ</a>
+
+      <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
+        <div class="flex items-center justify-between gap-3">
+          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">Theme</span>
+          <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
+            <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
+            </button>
+            <button data-theme-option="system" type="button" aria-label="System" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17h10"/></svg>
+            </button>
+            <button data-theme-option="dark" type="button" aria-label="Dark" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
+<script type="application/json" id="translations-data" data-fallback={fallbackLanguage} set:html={translationsJSON}></script>
 <script is:inline>
   (function setupHeader() {
-    const bindTheme = () => {
-      const buttons = document.querySelectorAll('[data-theme-toggle]');
-      const icons = document.querySelectorAll('[data-theme-icon]');
-      buttons.forEach((btn) => {
-        if ((btn)._boundTheme) return;
-        btn.addEventListener('click', () => {
-          const html = document.documentElement;
-          const isDark = html.classList.contains('dark');
-          html.classList.toggle('dark', !isDark);
-          localStorage.setItem('theme', isDark ? 'light' : 'dark');
-          icons.forEach((icon) => {
-            icon.classList.add('rotate-180');
-            setTimeout(() => icon.classList.remove('rotate-180'), 400);
-          });
-        });
-        (btn)._boundTheme = true;
+    const LANGUAGE_STORAGE_KEY = "preferred-lang";
+    const translationsNode = document.getElementById("translations-data");
+    const TRANSLATION_FALLBACK = (translationsNode?.dataset?.fallback) || "en";
+    let translations = {};
+    try {
+      translations = translationsNode ? JSON.parse(translationsNode.textContent || "{}") : {};
+    } catch (error) {
+      console.error("Failed to parse translations", error);
+      translations = {};
+    }
+
+    const applyTranslations = (lang) => {
+      const dictionary = translations[lang] || translations[TRANSLATION_FALLBACK] || {};
+      const fallbackDictionary = translations[TRANSLATION_FALLBACK] || {};
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        if (!key) return;
+        // Keys are standardized to camelCase across the codebase; look up directly with a simple fallback.
+        const value = dictionary[key] ?? fallbackDictionary[key];
+        if (value !== undefined) {
+          node.textContent = value;
+        }
       });
+    };
+
+    const applyLanguage = (lang) => {
+      const html = document.documentElement;
+      html.setAttribute("lang", lang);
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      } catch (_) {}
+      document.querySelectorAll(".lang-select").forEach((select) => {
+        if (select.value !== lang) {
+          select.value = lang;
+        }
+      });
+      applyTranslations(lang);
+    };
+
+    const bindLanguage = () => {
+      const selects = document.querySelectorAll(".lang-select");
+      if (!selects.length) {
+        applyTranslations(document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK);
+        return;
+      }
+
+      selects.forEach((select) => {
+        if ((select)._boundLang) return;
+        select.addEventListener("change", (event) => {
+          const target = event.target;
+          const lang = target.value || TRANSLATION_FALLBACK;
+          applyLanguage(lang);
+        });
+        (select)._boundLang = true;
+      });
+
+      let storedLang;
+      try {
+        storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      } catch (_) {
+        storedLang = undefined;
+      }
+      const initialLang = storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
+      applyLanguage(initialLang);
+    };
+
+    const bindTheme = () => {
+      const html = document.documentElement;
+      const THEME_KEY = 'theme'; // 'light' | 'dark' | 'system'
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const DARK_COLOR = '#121212';
+      const LIGHT_COLOR = '#ffffff';
+
+      const getStoredTheme = () => {
+        try { return localStorage.getItem(THEME_KEY) || 'system'; } catch (_) { return 'system'; }
+      };
+      const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
+
+      const syncThemeArtifacts = (effective) => {
+        html.setAttribute('data-theme', effective);
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', effective === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+        }
+      };
+
+      const applyTheme = (mode) => {
+        const effective = mode === 'system' ? (prefersDark.matches ? 'dark' : 'light') : mode;
+        if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+        syncThemeArtifacts(effective);
+        updateThemeUI(mode);
+      };
+
+      const updateThemeUI = (mode) => {
+        document.querySelectorAll('[data-theme-option]').forEach((btn) => {
+          const val = btn.getAttribute('data-theme-option');
+          const active = val === mode;
+          btn.classList.toggle('bg-brand-cta', active);
+          btn.classList.toggle('text-brand-cta-text', active);
+          btn.classList.toggle('shadow', active);
+        });
+
+        // Update compact cycle button icon and aria-label
+        const cycleBtn = document.querySelector('[data-theme-cycle]');
+        if (cycleBtn) {
+          cycleBtn.setAttribute('aria-label', `Theme: ${mode}`);
+          cycleBtn.querySelectorAll('[data-icon]')?.forEach((el) => {
+            const show = el.getAttribute('data-icon') === mode;
+            el.classList.toggle('hidden', !show);
+            el.classList.toggle('block', show);
+          });
+        }
+      };
+
+      const current = getStoredTheme();
+      applyTheme(current);
+
+      // Respond to system changes when in system mode
+      if (!(bindTheme._boundMatch)) {
+        prefersDark.addEventListener('change', () => {
+          if (getStoredTheme() === 'system') applyTheme('system');
+        });
+        bindTheme._boundMatch = true;
+      }
+
+      // Bind segmented controls
+      document.querySelectorAll('[data-theme-group]').forEach((group) => {
+        if (group._boundTheme) return;
+        group.addEventListener('click', (e) => {
+          const target = e.target.closest('[data-theme-option]');
+          if (!target) return;
+          const val = target.getAttribute('data-theme-option');
+          setStoredTheme(val);
+          applyTheme(val);
+        });
+        group._boundTheme = true;
+      });
+
+      // Bind cycle button (mobile navbar)
+      const cycleBtn = document.querySelector('[data-theme-cycle]');
+      if (cycleBtn && !cycleBtn._boundThemeCycle) {
+        cycleBtn.addEventListener('click', () => {
+          const order = ['light', 'system', 'dark'];
+          const current = getStoredTheme();
+          const idx = Math.max(0, order.indexOf(current));
+          const next = order[(idx + 1) % order.length];
+          setStoredTheme(next);
+          applyTheme(next);
+        });
+        cycleBtn._boundThemeCycle = true;
+      }
     };
 
     const bindMenu = () => {
@@ -82,9 +301,11 @@
     // Run immediately and on pageshow (for bfcache)
     bindTheme();
     bindMenu();
+    bindLanguage();
     window.addEventListener('pageshow', () => {
       bindTheme();
       bindMenu();
+      bindLanguage();
     });
   })();
 </script>

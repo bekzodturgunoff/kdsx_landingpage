@@ -1,57 +1,106 @@
 ---
+import WizardForm from './WizardForm.astro';
 ---
-<section id="pricing" class="w-full py-24 bg-brand-bg dark:bg-brand-bg-dark">
-  <div class="max-w-6xl mx-auto px-4">
-  <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-center text-brand-text dark:text-brand-text-dark mb-12 leading-tight">Simple, Transparent Pricing</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Starter Plan -->
-      <div class="bg-neutral-bg dark:bg-neutral-bg-dark rounded-2xl shadow-lg p-8 flex flex-col items-center border border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text dark:text-brand-text-dark">
-        <h3 class="text-xl font-bold text-brand-text dark:text-brand-text-dark mb-2">Starter</h3>
-        <div class="text-3xl font-bold text-brand-text dark:text-brand-text-dark mb-2">$15<span class="text-lg font-normal">/mo</span></div>
-        <ul class="text-brand-text dark:text-brand-text-dark text-base mb-6 space-y-2 leading-relaxed">
-          <li>1 Register/Station (Limited)</li>
-          <li>Order/Table Management</li>
-          <li>Basic Dashboard</li>
-          <li>Manual Inventory Count Only</li>
-          <li>Basic Sales Reporting</li>
-          <li>Email Support</li>
+<section id="pricing" class="w-full px-2 sm:px-6 py-12 sm:pt-20 sm:pb-16">
+  <div class="max-w-6xl mx-auto section-shell px-4 sm:px-10 py-16">
+    <div class="flex flex-col items-center text-center gap-6">
+  <span class="badge-pill" data-i18n="pricingBadge">Pricing</span>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="pricingHeading">
+        Flexible plans that scale with every service shift
+      </h2>
+  <p class="max-w-3xl text-base sm:text-lg text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingBody">
+        Start lean and grow when you’re ready. Every plan comes with hands-on onboarding from the KDSX crew.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="surface-card p-10 text-center text-brand-text dark:text-brand-text-dark">
+        <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
+          <span data-i18n="pricingStarterLabel">Starter</span>
+        </div>
+  <div class="mt-6 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">Free</div>
+  <div class="mt-2 text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">First month on us</div>
+  <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">Everything you need to launch a single location with confidence—your first month is completely free.</p>
+        <ul class="mt-8 space-y-3 text-left text-sm leading-relaxed">
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB1">1 register/station, unlimited logins</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB2">Order, table, and guest tracking</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB3">Core dashboards and nightly summary emails</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB4">Manual inventory counts + alerts</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB5">Keep rolling after month one for only $15/month</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">Email support with 24-hour response</span></li>
         </ul>
-  <a href="mailto:info@kdsx.uz?subject=KDSX%20Starter%20Plan%20Inquiry" class="inline-block px-6 py-3 rounded-full text-base font-semibold border border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text-dark bg-transparent transition" aria-label="Contact for Starter Plan">Start Free Trial</a>
+        <div class="mt-10">
+          <a href="mailto:info@kdsx.uz?subject=KDSX%20Starter%20Plan%20Inquiry" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/40 bg-white/70 px-8 py-4 text-base font-semibold text-brand-text shadow-[0_20px_40px_-25px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-cta-text">
+            <span data-i18n="pricingStarterCta">Activate Free Month</span>
+          </a>
+        </div>
       </div>
-      <!-- Pro Plan (Target) -->
-      <div class="bg-brand-bg dark:bg-brand-bg-dark rounded-2xl shadow-2xl p-10 flex flex-col items-center border-4 border-brand-cta dark:border-brand-cta-dark relative scale-105 z-10">
-        <h3 class="text-2xl font-bold text-brand-cta dark:text-brand-cta-dark mb-2">Pro</h3>
-        <div class="text-4xl font-bold text-brand-cta dark:text-brand-cta-dark mb-2">$30<span class="text-lg font-normal text-brand-text dark:text-brand-text-dark">/mo</span></div>
-        <ul class="text-brand-text dark:text-brand-text-dark text-base mb-6 space-y-2 leading-relaxed">
-          <li><span class="text-brand-cta dark:text-brand-cta-dark font-bold">✔</span> Unlimited Registers/Stations</li>
-          <li><span class="text-brand-cta dark:text-brand-cta-dark font-bold">✔</span> Order/Table Management</li>
-          <li><span class="text-brand-cta dark:text-brand-cta-dark font-bold">✔</span> Full Inventory Management</li>
-          <li><span class="text-brand-cta dark:text-brand-cta-dark font-bold">✔</span> All Reports (Item, Category, Employee)</li>
-          <li><span class="text-brand-cta dark:text-brand-cta-dark font-bold">✔</span> Priority Email & Chat Support</li>
-        </ul>
-  <a href="#contact" class="inline-block px-8 py-4 rounded-full text-lg font-semibold bg-brand-cta dark:bg-brand-cta-dark text-brand-cta-text dark:text-brand-cta-text-dark shadow-lg hover:brightness-110 transition scroll-smooth" aria-label="Scroll to Contact for Pro Plan">Get Started - $30/mo</a>
-      </div>
-      <!-- Enterprise Plan -->
-      <div class="bg-neutral-bg dark:bg-neutral-bg-dark rounded-2xl shadow-lg p-8 flex flex-col items-center border border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text dark:text-brand-text-dark">
-        <h3 class="text-xl font-bold text-brand-text dark:text-brand-text-dark mb-2">Enterprise</h3>
-        <div class="text-3xl font-bold text-brand-text dark:text-brand-text-dark mb-2">$75<span class="text-lg font-normal">/mo</span></div>
-        <ul class="text-brand-text dark:text-brand-text-dark text-base mb-6 space-y-2 leading-relaxed">
-          <li>Unlimited Registers/Stations</li>
-          <li>Order/Table Management</li>
-          <li>Full + Multi-Warehouse Inventory</li>
-          <li>All Reports + Custom API</li>
-          <li>Dedicated Account Manager</li>
-        </ul>
-  <a href="mailto:info@kdsx.uz?subject=KDSX%20Enterprise%20Plan%20Inquiry" class="inline-block px-6 py-3 rounded-full text-base font-semibold border border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text-dark bg-transparent transition" aria-label="Contact for Enterprise Plan">Contact Sales</a>
+
+      <div class="pro-card">
+        <div class="pro-card__inner">
+          <div class="flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
+            <span data-i18n="pricingProLabel">Pro</span>
+            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-lg" data-i18n="pricingProRibbon">Most popular</span>
+          </div>
+          <div class="mt-6 text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
+            <span data-i18n="pricingProPrice">$30</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">/mo</span>
+          </div>
+          <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">Add automation, multi-location controls, and proactive guidance from our team.</p>
+          <ul class="mt-8 space-y-3 text-left text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB1">Unlimited registers with role-based controls</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB2">Automated inventory + supplier syncing</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB3">Advanced analytics & profitability dashboards</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">Priority chat & phone support</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">Dedicated Customer Success Manager</span></li>
+          </ul>
+          <div class="mt-10">
+            <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Inquiry" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-10 py-4 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_30px_60px_-30px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
+              <span data-i18n="pricingProCta">Get Started — $30/mo</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Final CTA -->
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="surface-card p-4 text-left text-brand-text dark:text-brand-text-dark">
+        <div class="flex items-center justify-between">
+          <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">Enterprise</div>
+          <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">Custom</span>
+        </div>
+    <h3 class="mt-4 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">Scale with confidence across regions</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.</p>
+        <a href="mailto:info@kdsx.uz?subject=KDSX%20Enterprise%20Plan%20Inquiry" data-plan-trigger="enterprise" class="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-cta/40 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark">
+          <span data-i18n="pricingEnterpriseCta">Contact Sales</span>
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="surface-card p-4 text-left text-brand-text dark:text-brand-text-dark">
+    <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingImplementTag">Need a tailored roll-out?</div>
+    <h3 class="mt-4 text-2xl font-semibold" data-i18n="pricingImplementHeading">Partner with our implementation team</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingImplementBody">We’ll audit your operations, stage the hardware, and train staff across every location.</p>
+        <ul class="mt-4 space-y-2 text-sm text-brand-text/70 dark:text-brand-text-dark/70">
+          <li>✔ <span data-i18n="pricingImplementB1">Launch playbook customized to each venue</span></li>
+          <li>✔ <span data-i18n="pricingImplementB2">On-site and remote training programs</span></li>
+          <li>✔ <span data-i18n="pricingImplementB3">Seasonal menu + promo support</span></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="mt-16 text-center">
-      <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-6 max-w-3xl mx-auto leading-relaxed">Ready to get serious about restaurant efficiency? Choose the plan that gives you true control.</h3>
-  <a href="#contact" class="inline-block px-10 py-4 rounded-full text-lg font-semibold bg-brand-cta dark:bg-brand-cta-dark text-brand-cta-text dark:text-brand-cta-text-dark shadow-lg hover:brightness-110 transition" aria-label="Scroll to Contact for Pro Plan">Choose the Pro Plan - Start Free Trial</a>
+  <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-6 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">Ready to run every shift with less stress?</h3>
+  <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Free%20Trial" data-plan-trigger="cta" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-10 py-4 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_30px_60px_-30px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
+  <span data-i18n="pricingFinalCta">Start my rollout</span>
+      </a>
     </div>
-    <!-- Footer -->
-  <footer class="mt-16 pt-12 border-t border-brand-cta-text dark:border-brand-cta-text-dark text-brand-text dark:text-brand-text-dark">
+
+    <!-- FAQ placed before footer -->
+    <div class="mt-20">
+      <slot name="faq"></slot>
+    </div>
+
+    <footer class="mt-16 pt-12 border-t border-white/20 text-brand-text dark:text-brand-text-dark">
       <!-- Main Footer Content -->
       <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
         <!-- Brand Section -->
@@ -60,37 +109,37 @@
             <span class="font-bold text-2xl text-brand-text dark:text-brand-text-dark">KDSX</span>
             <img src="/logo.png" alt="KDSX Logo" class="w-8 h-8" />
           </div>
-          <p class="text-sm opacity-75 max-w-xs">Total restaurant control. Unify your operations with our integrated POS ecosystem.</p>
+          <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">Total restaurant control. Unify your operations with our integrated POS ecosystem.</p>
         </div>
 
         <!-- Contact Information -->
         <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4">Contact Info</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">Contact Info</h4>
           <div class="space-y-3">
-            <a href="tel:+998901234567" class="flex items-center gap-3 text-brand-cta hover:brightness-110 transition-all">
+            <a href="tel:+998941500330" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <span class="text-sm">+998 90 123 45 67</span>
+              <span class="text-sm">+998941500330</span>
             </a>
-            <a href="tel:+998901234568" class="flex items-center gap-3 text-brand-cta hover:brightness-110 transition-all">
+            <a href="tel:+821079328573" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <span class="text-sm">+998 90 123 45 68</span>
+              <span class="text-sm">+821079328573</span>
             </a>
-            <a href="mailto:info@kdsx.uz" class="flex items-center gap-3 text-brand-cta hover:brightness-110 transition-all">
+            <a href="mailto:support@kdsx.uz" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
-              <span class="text-sm">info@kdsx.uz</span>
+              <span class="text-sm">support@kdsx.uz</span>
             </a>
           </div>
         </div>
 
         <!-- Social Media -->
         <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4">Follow Us</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">Follow Us</h4>
           <div class="flex gap-4">
             <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -112,21 +161,23 @@
 
         <!-- Quick Links -->
         <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4">Quick Links</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">Quick Links</h4>
           <div class="space-y-2">
-            <a href="#features" class="text-sm hover:text-brand-cta transition-colors">Features</a>
-            <a href="#pricing" class="text-sm hover:text-brand-cta transition-colors">Pricing</a>
-            <a href="#" class="text-sm hover:text-brand-cta transition-colors">Terms</a>
-            <a href="#" class="text-sm hover:text-brand-cta transition-colors">Privacy</a>
+            <a href="#features" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkFeatures">Features</a>
+            <a href="#pricing" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPricing">Pricing</a>
+            <a href="#" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">Terms</a>
+            <a href="#" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">Privacy</a>
           </div>
         </div>
       </div>
 
       <!-- Bottom Footer -->
       <div class="pt-6 border-t border-brand-cta-text/20 dark:border-brand-cta-text-dark/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-75">
-        <span>&copy; 2025 KDSX. All rights reserved.</span>
-        <span>Mobile Responsive &amp; Accessible</span>
+        <span>&copy; 2025 KDSX. <span data-i18n="footerRightsReserved">All rights reserved.</span></span>
+        <span data-i18n="footerAccessibility">Mobile Responsive &amp; Accessible</span>
       </div>
     </footer>
   </div>
 </section>
+
+<WizardForm />
