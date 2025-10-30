@@ -5,8 +5,7 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
   <title>KDSX POS | Run every shift in sync</title>
   <meta name="description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <!-- Open Graph -->
@@ -27,14 +26,25 @@ import '../styles/global.css';
       // Initialize theme before paint to prevent flash
       (function () {
         try {
-          const stored = localStorage.getItem('theme');
+          const THEME_KEY = 'theme';
+          const DARK_COLOR = '#121212';
+          const LIGHT_COLOR = '#ffffff';
+          const stored = localStorage.getItem(THEME_KEY);
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const useDark = stored ? stored === 'dark' : prefersDark;
-          
-          if (useDark) {
+          const resolved = !stored || stored === 'system'
+            ? (prefersDark ? 'dark' : 'light')
+            : stored;
+
+          if (resolved === 'dark') {
             document.documentElement.classList.add('dark');
           } else {
             document.documentElement.classList.remove('dark');
+          }
+          document.documentElement.setAttribute('data-theme', resolved);
+
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) {
+            meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
           }
         } catch (_) {}
       })();

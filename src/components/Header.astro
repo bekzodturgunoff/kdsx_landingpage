@@ -195,15 +195,26 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       const html = document.documentElement;
       const THEME_KEY = 'theme'; // 'light' | 'dark' | 'system'
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const DARK_COLOR = '#121212';
+      const LIGHT_COLOR = '#ffffff';
 
       const getStoredTheme = () => {
         try { return localStorage.getItem(THEME_KEY) || 'system'; } catch (_) { return 'system'; }
       };
       const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
 
+      const syncThemeArtifacts = (effective) => {
+        html.setAttribute('data-theme', effective);
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', effective === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+        }
+      };
+
       const applyTheme = (mode) => {
         const effective = mode === 'system' ? (prefersDark.matches ? 'dark' : 'light') : mode;
         if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+        syncThemeArtifacts(effective);
         updateThemeUI(mode);
       };
 

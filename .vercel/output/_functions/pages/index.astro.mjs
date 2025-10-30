@@ -9,18 +9,29 @@ var __defProp$3 = Object.defineProperty;
 var __template$3 = (cooked, raw) => __freeze$3(__defProp$3(cooked, "raw", { value: __freeze$3(cooked.slice()) }));
 var _a$3;
 const $$Layout = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate(_a$3 || (_a$3 = __template$3([`<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)"><title>KDSX POS | Run every shift in sync</title><meta name="description" content="All\u2011in\u2011one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together\u2014every shift."><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:title" content="KDSX POS | Run every shift in sync"><meta property="og:description" content="All\u2011in\u2011one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together\u2014every shift."><meta property="og:url" content="https://kdsx-7xa05cei2-bekzods-projects-a2170551.vercel.app"><meta property="og:image" content="/logo.png"><meta property="og:image:alt" content="KDSX logo"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="KDSX POS | Run every shift in sync"><meta name="twitter:description" content="All\u2011in\u2011one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together\u2014every shift."><meta name="twitter:image" content="/logo.png"><link rel="icon" href="/logo.png"><meta name="color-scheme" content="light dark"><script>
+  return renderTemplate(_a$3 || (_a$3 = __template$3([`<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ffffff" id="theme-color-meta"><title>KDSX POS | Run every shift in sync</title><meta name="description" content="All\u2011in\u2011one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together\u2014every shift."><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:title" content="KDSX POS | Run every shift in sync"><meta property="og:description" content="All\u2011in\u2011one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together\u2014every shift."><meta property="og:url" content="https://kdsx-7xa05cei2-bekzods-projects-a2170551.vercel.app"><meta property="og:image" content="/logo.png"><meta property="og:image:alt" content="KDSX logo"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="KDSX POS | Run every shift in sync"><meta name="twitter:description" content="All\u2011in\u2011one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together\u2014every shift."><meta name="twitter:image" content="/logo.png"><link rel="icon" href="/logo.png"><meta name="color-scheme" content="light dark"><script>
       // Initialize theme before paint to prevent flash
       (function () {
         try {
-          const stored = localStorage.getItem('theme');
+          const THEME_KEY = 'theme';
+          const DARK_COLOR = '#121212';
+          const LIGHT_COLOR = '#ffffff';
+          const stored = localStorage.getItem(THEME_KEY);
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const useDark = stored ? stored === 'dark' : prefersDark;
-          
-          if (useDark) {
+          const resolved = !stored || stored === 'system'
+            ? (prefersDark ? 'dark' : 'light')
+            : stored;
+
+          if (resolved === 'dark') {
             document.documentElement.classList.add('dark');
           } else {
             document.documentElement.classList.remove('dark');
+          }
+          document.documentElement.setAttribute('data-theme', resolved);
+
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) {
+            meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
           }
         } catch (_) {}
       })();
@@ -889,15 +900,26 @@ const $$Header = createComponent(($$result, $$props, $$slots) => {
       const html = document.documentElement;
       const THEME_KEY = 'theme'; // 'light' | 'dark' | 'system'
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const DARK_COLOR = '#121212';
+      const LIGHT_COLOR = '#ffffff';
 
       const getStoredTheme = () => {
         try { return localStorage.getItem(THEME_KEY) || 'system'; } catch (_) { return 'system'; }
       };
       const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
 
+      const syncThemeArtifacts = (effective) => {
+        html.setAttribute('data-theme', effective);
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', effective === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+        }
+      };
+
       const applyTheme = (mode) => {
         const effective = mode === 'system' ? (prefersDark.matches ? 'dark' : 'light') : mode;
         if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+        syncThemeArtifacts(effective);
         updateThemeUI(mode);
       };
 
@@ -1063,15 +1085,26 @@ const $$Header = createComponent(($$result, $$props, $$slots) => {
       const html = document.documentElement;
       const THEME_KEY = 'theme'; // 'light' | 'dark' | 'system'
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      const DARK_COLOR = '#121212';
+      const LIGHT_COLOR = '#ffffff';
 
       const getStoredTheme = () => {
         try { return localStorage.getItem(THEME_KEY) || 'system'; } catch (_) { return 'system'; }
       };
       const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
 
+      const syncThemeArtifacts = (effective) => {
+        html.setAttribute('data-theme', effective);
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', effective === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+        }
+      };
+
       const applyTheme = (mode) => {
         const effective = mode === 'system' ? (prefersDark.matches ? 'dark' : 'light') : mode;
         if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
+        syncThemeArtifacts(effective);
         updateThemeUI(mode);
       };
 
