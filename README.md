@@ -27,7 +27,7 @@ The signup wizard posts JSON to an endpoint defined on the modal container.
 - File: `src/components/WizardForm.astro`
 - Attribute: `data-endpoint="/api/lead"`
 
-If the endpoint is missing or returns a non‑OK status, the wizard automatically opens the visitor’s email client with a prefilled message to `data-email` (supports comma‑separated addresses; defaults to `info@kdsx.uz`).
+If the endpoint is missing or returns a non‑OK status, the wizard automatically opens the visitor’s email client with a prefilled message to `data-email` (supports comma‑separated addresses; defaults to `bekzodturgunoff@gmail.com`).
 
 ### Serverless API
 
@@ -43,11 +43,13 @@ If the endpoint is missing or returns a non‑OK status, the wizard automaticall
 
 1) Ensure the project is connected to Vercel.
 2) In Vercel → Project → Settings → Environment Variables, add as needed:
-	 - `RESEND_API_KEY` — Resend API key (optional but recommended)
+	 - `RESEND_API_KEY` — Resend API key (store securely, never commit it)
 	 - `FROM_EMAIL` — Verified sender in Resend (e.g., `leads@yourdomain.com`)
-		- `TO_EMAIL` — Recipient(s). You can provide a comma‑separated list, e.g., `info@kdsx.uz,bekzodturgunoff@gmail.com`.
+		- `TO_EMAIL` — Recipient(s). Set to `bekzodturgunoff@gmail.com` (or a comma‑separated list if you need multiple inboxes).
 	 - `SLACK_WEBHOOK_URL` — Slack Incoming Webhook (optional)
 3) Redeploy the project to ship the serverless function.
+
+For local development, copy `.env.example` to `.env` (or `.env.local`) and provide the same values so the Astro dev server can call the API with your credentials.
 
 ### Store leads in Supabase (optional)
 

@@ -40,7 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Delivery options via env vars
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
   const FROM_EMAIL = process.env.FROM_EMAIL || 'leads@kdsx.app';
-  const TO_EMAIL = process.env.TO_EMAIL || 'info@kdsx.uz';
+  const TO_EMAIL = process.env.TO_EMAIL || 'bekzodturgunoff@gmail.com';
   const TO_EMAILS = TO_EMAIL.split(',').map((s) => s.trim()).filter(Boolean);
     const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
     // Optional storage in Supabase (recommended to use SERVICE_ROLE key)
