@@ -197,11 +197,33 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
       const DARK_COLOR = '#121212';
       const LIGHT_COLOR = '#ffffff';
+      const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+
+      const getCookieTheme = () => {
+        const match = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : null;
+      };
 
       const getStoredTheme = () => {
-        try { return localStorage.getItem(THEME_KEY) || 'system'; } catch (_) { return 'system'; }
+        let value;
+        try {
+          value = localStorage.getItem(THEME_KEY);
+        } catch (_) {
+          value = undefined;
+        }
+        if (!value) {
+          const cookieValue = getCookieTheme();
+          if (cookieValue) return cookieValue;
+        }
+        return value || 'system';
       };
-      const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
+
+      const setStoredTheme = (value) => {
+        try {
+          localStorage.setItem(THEME_KEY, value);
+        } catch (_) {}
+        document.cookie = `theme=${encodeURIComponent(value)}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+      };
 
       const syncThemeArtifacts = (effective) => {
         // Update document chrome so mobile browsers respect the chosen theme

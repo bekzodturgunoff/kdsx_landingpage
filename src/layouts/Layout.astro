@@ -23,13 +23,26 @@ import '../styles/global.css';
     <link rel="icon" href="/logo.png" />
   <meta name="color-scheme" content="light" />
     <script is:inline>
-  // Initialize theme before paint to prevent flash and keep mobile chrome in sync
+      // Initialize theme before paint to prevent flash and keep mobile chrome in sync
       (function () {
         try {
           const THEME_KEY = 'theme';
           const DARK_COLOR = '#121212';
           const LIGHT_COLOR = '#ffffff';
-          const stored = localStorage.getItem(THEME_KEY);
+          const getCookieTheme = () => {
+            const match = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+            return match ? decodeURIComponent(match[1]) : null;
+          };
+
+          let stored;
+          try {
+            stored = localStorage.getItem(THEME_KEY);
+          } catch (_) {
+            stored = undefined;
+          }
+          if (!stored) {
+            stored = getCookieTheme();
+          }
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           const resolved = !stored || stored === 'system'
             ? (prefersDark ? 'dark' : 'light')
@@ -52,6 +65,9 @@ import '../styles/global.css';
           if (colorSchemeMeta) {
             colorSchemeMeta.setAttribute('content', resolved === 'dark' ? 'dark' : 'light');
           }
+
+          const persistedValue = stored || 'system';
+          document.cookie = `theme=${encodeURIComponent(persistedValue)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
         } catch (_) {}
       })();
     </script>
