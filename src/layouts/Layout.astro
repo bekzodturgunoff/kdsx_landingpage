@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import WizardForm from '../components/WizardForm.astro';
 ---
 <html lang="en">
   <head>
@@ -13,14 +14,14 @@ import '../styles/global.css';
   <meta property="og:title" content="KDSX POS | Run every shift in sync" />
   <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <meta property="og:url" content="https://kdsx-7xa05cei2-bekzods-projects-a2170551.vercel.app" />
-  <meta property="og:image" content="/logo.png" />
+  <meta property="og:image" content="/logo.svg" />
   <meta property="og:image:alt" content="KDSX logo" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="KDSX POS | Run every shift in sync" />
   <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta name="twitter:image" content="/logo.png" />
-    <link rel="icon" href="/logo.png" />
+  <meta name="twitter:image" content="/logo.svg" />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
   <meta name="color-scheme" content="light" />
     <script is:inline>
       // Initialize theme before paint to prevent flash and keep mobile chrome in sync
@@ -74,6 +75,7 @@ import '../styles/global.css';
   </head>
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
     <slot />
+    <WizardForm />
     <script is:inline>
       // Ensure page starts at top on refresh
       if (history.scrollRestoration) {

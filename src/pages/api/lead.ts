@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Delivery options via env vars
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const FROM_EMAIL = process.env.FROM_EMAIL || 'leads@kdsx.app';
+  const FROM_EMAIL = process.env.FROM_EMAIL || 'support@kdsx.uz';
   const TO_EMAIL = process.env.TO_EMAIL || 'bekzodturgunoff@gmail.com';
   const TO_EMAILS = TO_EMAIL.split(',').map((s) => s.trim()).filter(Boolean);
     const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
@@ -83,19 +83,29 @@ export const POST: APIRoute = async ({ request }) => {
     }
     // Try email via Resend if configured
     if (RESEND_API_KEY && FROM_EMAIL) {
-      await fetch('https://api.resend.com/emails', {
+      const resendPayload: Record<string, unknown> = {
+        from: FROM_EMAIL,
+        to: TO_EMAILS,
+        subject: `KDSX Lead — ${payload.plan || 'N/A'}`,
+        text: lines.join('\n'),
+      };
+      if (payload.email) {
+        resendPayload.reply_to = [payload.email];
+      }
+
+      const resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${RESEND_API_KEY}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          from: FROM_EMAIL,
-          to: TO_EMAILS,
-          subject: `KDSX Lead — ${payload.plan || 'N/A'}`,
-          text: lines.join('\n'),
-        }),
+        body: JSON.stringify(resendPayload),
       });
+
+      if (!resendResponse.ok) {
+        const errorText = await resendResponse.text();
+        throw new Error(`Resend request failed (${resendResponse.status}): ${errorText}`);
+      }
       delivered = true;
     }
 
