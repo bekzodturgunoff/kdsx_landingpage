@@ -12,6 +12,10 @@ html {
   font-family: "Inter", system-ui, sans-serif;
 }
 
+:root {
+  color-scheme: light;
+}
+
 /* Smooth color transitions site-wide */
 body,
 html,
@@ -111,6 +115,7 @@ body {
   --color-brand-cta: var(--color-brand-cta-dark);
   --color-brand-cta-text: var(--color-brand-cta-text-dark);
   --color-neutral-bg: var(--color-neutral-bg-dark);
+  color-scheme: dark;
 }
 
 @layer utilities {

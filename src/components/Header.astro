@@ -204,10 +204,18 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
 
       const syncThemeArtifacts = (effective) => {
+        // Update document chrome so mobile browsers respect the chosen theme
         html.setAttribute('data-theme', effective);
+        html.style.colorScheme = effective === 'dark' ? 'dark' : 'light';
+
         const meta = document.querySelector('meta[name="theme-color"]');
         if (meta) {
           meta.setAttribute('content', effective === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+        }
+
+        const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+        if (colorSchemeMeta) {
+          colorSchemeMeta.setAttribute('content', effective === 'dark' ? 'dark' : 'light');
         }
       };
 

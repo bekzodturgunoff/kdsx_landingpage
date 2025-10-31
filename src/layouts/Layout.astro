@@ -21,9 +21,9 @@ import '../styles/global.css';
   <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <meta name="twitter:image" content="/logo.png" />
     <link rel="icon" href="/logo.png" />
-    <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
     <script is:inline>
-      // Initialize theme before paint to prevent flash
+  // Initialize theme before paint to prevent flash and keep mobile chrome in sync
       (function () {
         try {
           const THEME_KEY = 'theme';
@@ -41,10 +41,16 @@ import '../styles/global.css';
             document.documentElement.classList.remove('dark');
           }
           document.documentElement.setAttribute('data-theme', resolved);
+          document.documentElement.style.colorScheme = resolved === 'dark' ? 'dark' : 'light';
 
           const meta = document.querySelector('meta[name="theme-color"]');
           if (meta) {
             meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+          }
+
+          const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+          if (colorSchemeMeta) {
+            colorSchemeMeta.setAttribute('content', resolved === 'dark' ? 'dark' : 'light');
           }
         } catch (_) {}
       })();
