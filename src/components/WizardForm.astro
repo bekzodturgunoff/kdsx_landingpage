@@ -176,9 +176,10 @@
     const fallbackLang = translationsNode?.dataset?.fallback || 'en';
     let dictionaries = {};
     try { dictionaries = translationsNode ? JSON.parse(translationsNode.textContent || '{}') : {}; } catch(_) { dictionaries = {}; }
-    const currentLang = document.documentElement.getAttribute('lang') || fallbackLang;
+    const getCurrentLang = () => document.documentElement.getAttribute('lang') || fallbackLang;
     const t = (key) => {
-      const dict = dictionaries[currentLang] || dictionaries[fallbackLang] || {};
+      const lang = getCurrentLang();
+      const dict = dictionaries[lang] || dictionaries[fallbackLang] || {};
       return (dict[key] ?? '');
     };
 
@@ -253,13 +254,13 @@
       })();
       if (planLabel) planLabel.textContent = `${t('wizardPlanPrefix') || 'Plan:'} ${planDisplay}`;
       if (titleEl) {
-        const titleMap = {
-          starter: t('wizardTitleStarter') || 'Get your free month — Starter',
-          pro: t('wizardTitlePro') || 'Get started with Pro',
-          enterprise: t('wizardTitleEnterprise') || 'Talk to sales — Enterprise',
-          cta: t('wizardTitleGeneric') || 'Request a demo',
+        const titleCopyByPlan = {
+          starter: t('pricingStarterCta') || t('wizardTitleStarter') || t('wizardTitle'),
+          pro: t('pricingProCta') || t('wizardTitlePro') || t('wizardTitle'),
+          enterprise: t('pricingEnterpriseCta') || t('wizardTitleEnterprise') || t('wizardTitle'),
+          cta: t('wizardTitle') || t('wizardTitleGeneric') || 'Request a demo',
         };
-        titleEl.textContent = titleMap[planName] || (t('wizardTitleGeneric') || 'Request a demo');
+        titleEl.textContent = titleCopyByPlan[planName] || titleCopyByPlan.cta;
       }
       modal.classList.remove('hidden');
       showStep(0);
