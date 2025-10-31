@@ -51,6 +51,8 @@ If the endpoint is missing or returns a non‑OK status, the wizard automaticall
 
 For local development, copy `.env.example` to `.env` (or `.env.local`) and provide the same values so the Astro dev server can call the API with your credentials.
 
+_All legacy or archived components have been removed to keep the repository lean._
+
 ### Store leads in Supabase (optional)
 
 You can persist each submission to Supabase in addition to sending notifications.
