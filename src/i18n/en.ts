@@ -62,6 +62,26 @@ export const en = {
   featuresCard4Title: "Pocket-ready control for floor teams",
   featuresCard4Body:
     "Staff take orders, comps, and payments without leaving guests; prep screens update instantly.",
+  mobileHighlightsBadge: "Quick overview",
+  mobileHighlightsHeading: "Everything you need, trimmed for the go",
+  mobileHighlightsBody:
+    "Get the headline of KDSX in under a minute. Tap into the sections that matter most, or dive deeper when you have time.",
+  mobileHighlightsFeaturesTag: "Features",
+  mobileHighlightsFeaturesTitle: "Operations, POS, and analytics in sync",
+  mobileHighlightsFeaturesBody:
+    "See how KDSX unifies the floor, kitchen, and back office with live dashboards and mobile tools.",
+  mobileHighlightsPricingTag: "Pricing",
+  mobileHighlightsPricingTitle: "Simple plans built around each shift",
+  mobileHighlightsPricingBody:
+    "Compare starter and pro bundles, understand what’s included, and book a walkthrough if you need more.",
+  mobileHighlightsFaqTag: "FAQ",
+  mobileHighlightsFaqTitle: "Answers when you need them",
+  mobileHighlightsFaqBody:
+    "Browse setup, integrations, and rollout guidance without scrolling through the entire landing page.",
+  mobileHighlightsCtaHeading: "Ready to see KDSX in action?",
+  mobileHighlightsCtaBody:
+    "Open the quick wizard to tell us about your concept and get a tailored walkthrough in your inbox.",
+  mobileHighlightsCtaButton: "Launch wizard",
   howBadge: "How it works",
   howHeading: "Launch over a weekend—show results Monday",
   howBody: "KDSX streamlines rollout for lean teams.",
@@ -146,6 +166,18 @@ export const en = {
   pricingImplementB3: "Seasonal menu + promo support",
   pricingFinalHeading: "Ready to run every shift with less stress?",
   pricingFinalCta: "Start my rollout",
+  featuresPageBadge: "Deep dive",
+  featuresPageHeading: "Explore how KDSX keeps every shift aligned",
+  featuresPageLead:
+    "Walk through the modules that connect your dining room, kitchen, and back office. See what’s included across dashboards, handhelds, and automations.",
+  pricingPageBadge: "Plans",
+  pricingPageHeading: "Pricing shaped around the way your team runs",
+  pricingPageLead:
+    "Compare bundles, add-ons, and rollout support. Every tier includes onboarding, 24/7 coverage, and full access to the wizard for tailored setups.",
+  faqPageBadge: "Answers",
+  faqPageHeading: "Frequently asked questions about KDSX",
+  faqPageLead:
+    "Deployment, integrations, rollouts, and day-to-day support—everything we get asked is captured here.",
   footerBrandDescription:
     "Total restaurant control. Unify your operations with our integrated POS ecosystem.",
   footerContactTitle: "Contact Info",

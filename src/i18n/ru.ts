@@ -62,6 +62,26 @@ export const ru = {
   featuresCard4Title: "Управление прямо в кармане официанта",
   featuresCard4Body:
     "Персонал принимает заказы и платежи, не отходя от гостей; экраны кухни обновляются мгновенно.",
+  mobileHighlightsBadge: "Краткий обзор",
+  mobileHighlightsHeading: "Всё главное — в мобильном формате",
+  mobileHighlightsBody:
+    "Получите представление о KDSX за минуту. Переходите к нужным разделам или изучайте подробнее, когда будет время.",
+  mobileHighlightsFeaturesTag: "Возможности",
+  mobileHighlightsFeaturesTitle: "Операции, POS и аналитика — в связке",
+  mobileHighlightsFeaturesBody:
+    "Узнайте, как KDSX объединяет зал, кухню и бэк-офис с помощью живых дашбордов и мобильных инструментов.",
+  mobileHighlightsPricingTag: "Тарифы",
+  mobileHighlightsPricingTitle: "Простые планы под каждую смену",
+  mobileHighlightsPricingBody:
+    "Сравните Starter и Pro, посмотрите наполнение и запишитесь на демо при необходимости.",
+  mobileHighlightsFaqTag: "FAQ",
+  mobileHighlightsFaqTitle: "Ответы под рукой",
+  mobileHighlightsFaqBody:
+    "Изучайте внедрение, интеграции и поддержку, не прокручивая длинный лендинг.",
+  mobileHighlightsCtaHeading: "Готовы увидеть KDSX в работе?",
+  mobileHighlightsCtaBody:
+    "Запустите короткий мастер, расскажите о заведении и получите персональный обзор на почту.",
+  mobileHighlightsCtaButton: "Запустить мастер",
   howBadge: "Как это работает",
   howHeading: "Запуск за выходные — результаты с понедельника",
   howBody: "Даже небольшие команды легко запускают KDSX.",
@@ -146,6 +166,18 @@ export const ru = {
   pricingImplementB3: "Поддержка сезонных меню и акций",
   pricingFinalHeading: "Готовы проводить смены без лишнего стресса?",
   pricingFinalCta: "Начать внедрение",
+  featuresPageBadge: "Подробности",
+  featuresPageHeading: "Как KDSX синхронизирует каждую смену",
+  featuresPageLead:
+    "Разберите модули, которые связывают зал, кухню и бэк-офис. Узнайте, что входит в дашборды, мобильные устройства и автоматизацию.",
+  pricingPageBadge: "Тарифы",
+  pricingPageHeading: "Тарифы, построенные вокруг работы вашей команды",
+  pricingPageLead:
+    "Сравните пакеты, дополнения и поддержку при внедрении. Каждый уровень включает онбординг, поддержку 24/7 и доступ к мастеру настройки.",
+  faqPageBadge: "Ответы",
+  faqPageHeading: "Частые вопросы о KDSX",
+  faqPageLead:
+    "Запуск, интеграции, развёртывание и повседневная поддержка — всё, что спрашивают чаще всего.",
   footerBrandDescription:
     "Полный контроль над рестораном. Объедините все процессы в единой POS-системе.",
   footerContactTitle: "Контакты",

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
+import MobileHighlights from '../components/MobileHighlights.astro';
 import BusinessSection from '../components/BusinessSection.astro';
 import FeaturesSection from '../components/FeaturesSection.astro';
 import HowItWorks from '../components/HowItWorks.astro';
@@ -16,15 +17,18 @@ import FAQ from '../components/FAQ.astro';
   <main class="space-y-0">
     <Hero />
     <LogoMarquee />
-    <BusinessSection />
-    <FeaturesSection />
-    <HowItWorks />
-    <Testimonials />
-    <PricingTable>
-      <Fragment slot="faq">
-        <FAQ />
-      </Fragment>
-    </PricingTable>
+    <MobileHighlights />
+    <div class="hidden md:block">
+      <BusinessSection />
+      <FeaturesSection />
+      <HowItWorks />
+      <Testimonials />
+      <PricingTable>
+        <Fragment slot="faq">
+          <FAQ />
+        </Fragment>
+      </PricingTable>
+    </div>
 </main>
 
 </Layout>

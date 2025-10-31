@@ -62,6 +62,26 @@ export const ko = {
   featuresCard4Title: "홀 팀을 위한 포켓 제어",
   featuresCard4Body:
     "직원이 자리를 떠나지 않고 주문, 할인, 결제를 처리하면 조리 화면이 즉시 업데이트됩니다.",
+  mobileHighlightsBadge: "모바일 요약",
+  mobileHighlightsHeading: "핵심만 담은 빠른 소개",
+  mobileHighlightsBody:
+    "1분 안에 KDSX의 핵심을 확인하세요. 필요한 섹션으로 바로 이동하거나, 여유 있을 때 더 깊게 살펴보세요.",
+  mobileHighlightsFeaturesTag: "기능",
+  mobileHighlightsFeaturesTitle: "운영, POS, 분석을 하나로",
+  mobileHighlightsFeaturesBody:
+    "KDSX가 홀, 주방, 백오피스를 라이브 대시보드와 모바일 도구로 어떻게 연결하는지 확인하세요.",
+  mobileHighlightsPricingTag: "요금제",
+  mobileHighlightsPricingTitle: "근무 흐름에 맞춘 간단한 요금제",
+  mobileHighlightsPricingBody:
+    "Starter와 Pro 번들을 비교하고 포함 항목을 확인한 뒤 필요하면 상담을 예약하세요.",
+  mobileHighlightsFaqTag: "FAQ",
+  mobileHighlightsFaqTitle: "언제든지 확인 가능한 답변",
+  mobileHighlightsFaqBody:
+    "긴 스크롤 없이도 도입, 통합, 지원 정보를 빠르게 찾아보세요.",
+  mobileHighlightsCtaHeading: "지금 KDSX를 직접 보고 싶나요?",
+  mobileHighlightsCtaBody:
+    "간단한 마법사를 열어 운영 형태를 알려주시면 맞춤형 데모를 이메일로 보내드립니다.",
+  mobileHighlightsCtaButton: "마법사 시작",
   howBadge: "작동 방식",
   howHeading: "주말에 설치 — 월요일부터 결과",
   howBody: "소규모 팀도 KDSX를 빠르게 도입합니다.",
@@ -145,6 +165,18 @@ export const ko = {
   pricingImplementB3: "시즌 메뉴 + 프로모션 지원",
   pricingFinalHeading: "모든 근무를 스트레스 없이 운영할 준비 되셨나요?",
   pricingFinalCta: "도입 시작하기",
+  featuresPageBadge: "심층 소개",
+  featuresPageHeading: "KDSX가 각 근무를 어떻게 정렬하는지 살펴보세요",
+  featuresPageLead:
+    "홀, 주방, 백오피스를 연결하는 모듈을 단계별로 확인하고 대시보드·모바일·자동화에 무엇이 포함되는지 알아보세요.",
+  pricingPageBadge: "요금제",
+  pricingPageHeading: "팀 운영 방식에 맞춘 요금 설계",
+  pricingPageLead:
+    "번들, 추가 기능, 도입 지원을 비교하세요. 모든 요금제는 온보딩과 24/7 지원, 맞춤 설정 마법사를 포함합니다.",
+  faqPageBadge: "답변",
+  faqPageHeading: "KDSX 자주 묻는 질문",
+  faqPageLead:
+    "도입, 통합, 롤아웃, 일상 지원 등 자주 받는 질문을 한곳에 모았습니다.",
   footerBrandDescription:
     "레스토랑 운영을 완전히 통합하세요. 하나의 POS 시스템으로 모든 프로세스를 연결합니다.",
   footerContactTitle: "연락처",

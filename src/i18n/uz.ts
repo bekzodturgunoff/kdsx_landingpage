@@ -63,6 +63,26 @@ export const uz = {
   featuresCard4Title: "Zal jamoasi uchun cho'ntakdagi boshqaruv",
   featuresCard4Body:
     "Xodimlar zaldan chiqmasdan buyurtma oladi, chegirmalar beradi va to'lov qabul qiladi — hammasi displeylarda zudlik bilan yangilanadi.",
+  mobileHighlightsBadge: "Tezkor sharh",
+  mobileHighlightsHeading: "Muhimi qisqa va mobil ko'rinishda",
+  mobileHighlightsBody:
+    "Bir daqiqa ichida KDSX haqida umumiy tasavvur oling. Kerakli bo'limlarga o'ting yoki bo'sh vaqtda batafsil tanishing.",
+  mobileHighlightsFeaturesTag: "Imkoniyatlar",
+  mobileHighlightsFeaturesTitle: "Operatsiya, POS va analitika — birlashgan",
+  mobileHighlightsFeaturesBody:
+    "KDSX zal, oshxona va back-officeni jonli panel va mobil vositalar bilan qanday bog'lashini ko'ring.",
+  mobileHighlightsPricingTag: "Narxlar",
+  mobileHighlightsPricingTitle: "Har smenaga mos sodda rejalar",
+  mobileHighlightsPricingBody:
+    "Starter va Pro tariflarini solishtiring, nimalar kirishini biling va kerak bo'lsa uchrashuv belgilang.",
+  mobileHighlightsFaqTag: "FAQ",
+  mobileHighlightsFaqTitle: "Kerakli javoblar qo'lda",
+  mobileHighlightsFaqBody:
+    "Uzun landingni aylantirmasdan joriy etish, integratsiya va yordam haqida bilib oling.",
+  mobileHighlightsCtaHeading: "KDSXni amalda ko'rishga tayyormisiz?",
+  mobileHighlightsCtaBody:
+    "Qisqa ustozni oching, biznesingiz haqida ayting va shaxsiy taqdimotni pochtangizga oling.",
+  mobileHighlightsCtaButton: "Ustozni ishga tushirish",
   howBadge: "Qanday ishlaydi",
   howHeading: "Dam olish kunlarida ishga tushiring — dushanbadan natija",
   howBody: "KDSX kichik jamoalar uchun ham oson joriy qilinadi.",
@@ -148,6 +168,18 @@ export const uz = {
   pricingImplementB3: "Mavsumiy menyu va promo yordami",
   pricingFinalHeading: "Har bir smenani kamroq stress bilan boshqaring",
   pricingFinalCta: "Boshlash",
+  featuresPageBadge: "Batafsil",
+  featuresPageHeading: "KDSX har bir smenani qanday uyg'unlashtirishini o'rganing",
+  featuresPageLead:
+    "Zal, oshxona va back-office'ni bog'laydigan modullarni ko'rib chiqing. Panel, mobil va avtomatlashtirishga nimalar kirishini bilib oling.",
+  pricingPageBadge: "Rejalar",
+  pricingPageHeading: "Jamoangiz ishlash uslubiga mos narxlash",
+  pricingPageLead:
+    "Paketlar, qo'shimchalar va joriy etish yordamini taqqoslang. Har bir daraja onboarding, 24/7 yordam va sozlash ustozini o'z ichiga oladi.",
+  faqPageBadge: "Javoblar",
+  faqPageHeading: "KDSX bo'yicha tez-tez so'raladigan savollar",
+  faqPageLead:
+    "Ishga tushirish, integratsiyalar, joriy etish va kundalik yordam bo'yicha eng ko'p so'ralgan savollarni bir joyga to'pladik.",
   footerBrandDescription:
     "Restoran ustidan to‘liq nazorat. Integratsiyalashgan POS ekotizimi bilan jarayonlarni birlashtiring.",
   footerContactTitle: "Bog‘lanish",
