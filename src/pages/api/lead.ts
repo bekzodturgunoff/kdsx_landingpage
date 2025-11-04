@@ -37,11 +37,17 @@ export const POST: APIRoute = async ({ request }) => {
       `Submitted: ${payload.timestamp}`,
     ];
 
-    // Delivery options via env vars
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const FROM_EMAIL = process.env.FROM_EMAIL || 'support@kdsx.uz';
-  const TO_EMAIL = process.env.TO_EMAIL || 'bekzodturgunoff@gmail.com';
-  const TO_EMAILS = TO_EMAIL.split(',').map((s) => s.trim()).filter(Boolean);
+    // Delivery options via env vars (sanitized)
+    const rawResendKey = process.env.RESEND_API_KEY?.trim();
+    const RESEND_API_KEY = rawResendKey?.replace(/;+$/, '') || '';
+    const rawFromEmail = process.env.FROM_EMAIL?.trim();
+    const FROM_EMAIL = rawFromEmail?.length ? rawFromEmail : 'onboarding@resend.dev';
+    const rawToEmail = process.env.TO_EMAIL?.trim();
+    const toEmailFallback = 'bekzodturgunoff@gmail.com';
+    const TO_EMAILS = (rawToEmail?.length ? rawToEmail : toEmailFallback)
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
     const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
     // Optional storage in Supabase (recommended to use SERVICE_ROLE key)
     const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -49,6 +55,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     let stored = false;
     let delivered = false;
+
+    const failureReasons: string[] = [];
 
     // Store in Supabase if configured
     if (SUPABASE_URL && SUPABASE_KEY) {
@@ -77,51 +85,71 @@ export const POST: APIRoute = async ({ request }) => {
           }),
         });
         stored = supabaseResp.ok;
-      } catch (_) {
+        if (!supabaseResp.ok) {
+          failureReasons.push(`Supabase returned ${supabaseResp.status}`);
+        }
+      } catch (error) {
         stored = false;
+        failureReasons.push(`Supabase error: ${error instanceof Error ? error.message : String(error)}`);
       }
     }
     // Try email via Resend if configured
-    if (RESEND_API_KEY && FROM_EMAIL) {
-      const resendPayload: Record<string, unknown> = {
-        from: FROM_EMAIL,
-        to: TO_EMAILS,
-        subject: `KDSX Lead — ${payload.plan || 'N/A'}`,
-        text: lines.join('\n'),
-      };
-      if (payload.email) {
-        resendPayload.reply_to = [payload.email];
-      }
+    if (RESEND_API_KEY) {
+      try {
+        const resendPayload: Record<string, unknown> = {
+          from: FROM_EMAIL,
+          to: TO_EMAILS,
+          subject: `KDSX Lead — ${payload.plan || 'N/A'}`,
+          text: lines.join('\n'),
+        };
+        if (payload.email) {
+          resendPayload.reply_to = [payload.email];
+        }
 
-      const resendResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(resendPayload),
-      });
+        const resendResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${RESEND_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(resendPayload),
+        });
 
-      if (!resendResponse.ok) {
-        const errorText = await resendResponse.text();
-        throw new Error(`Resend request failed (${resendResponse.status}): ${errorText}`);
+        if (!resendResponse.ok) {
+          const errorText = await resendResponse.text();
+          failureReasons.push(`Resend returned ${resendResponse.status}: ${errorText}`);
+        } else {
+          delivered = true;
+        }
+      } catch (error) {
+        failureReasons.push(`Resend error: ${error instanceof Error ? error.message : String(error)}`);
       }
-      delivered = true;
+    } else {
+      failureReasons.push('Resend API key not configured');
     }
 
     // Optionally notify Slack (or any webhook)
     if (SLACK_WEBHOOK_URL) {
-      await fetch(SLACK_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: `New KDSX lead:\n${lines.join('\n')}` }),
-      });
-      delivered = true;
+      try {
+        const slackResponse = await fetch(SLACK_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: `New KDSX lead:\n${lines.join('\n')}` }),
+        });
+        if (!slackResponse.ok) {
+          failureReasons.push(`Slack webhook returned ${slackResponse.status}`);
+        } else {
+          delivered = true;
+        }
+      } catch (error) {
+        failureReasons.push(`Slack error: ${error instanceof Error ? error.message : String(error)}`);
+      }
     }
 
     if (!delivered) {
-      return new Response(JSON.stringify({ ok: false, stored, error: 'No notification channel configured (set RESEND_API_KEY and/or SLACK_WEBHOOK_URL).'}), {
-        status: 501,
+      const errorMessage = failureReasons.join(' | ') || 'No notification channel succeeded.';
+      return new Response(JSON.stringify({ ok: false, stored, delivered, error: errorMessage }), {
+        status: failureReasons.length ? 502 : 501,
         headers: { 'content-type': 'application/json' },
       });
     }
