@@ -364,6 +364,9 @@ body {
     box-shadow: 0 16px 40px -26px rgba(26, 77, 26, 0.55);
   }
 
+  /* NOTE: page-section/page-shell utilities were removed to restore original
+     per-component spacing per request. Adjust spacing per-component instead. */
+
   /* Improved contrast for browsers without advanced features */
   @supports not (backdrop-filter: blur(10px)) {
     .badge-pill {
