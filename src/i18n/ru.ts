@@ -82,6 +82,8 @@ export const ru = {
   mobileHighlightsCtaBody:
     "Запустите короткий мастер, расскажите о заведении и получите персональный обзор на почту.",
   mobileHighlightsCtaButton: "Запустить мастер",
+  mobileContactHeading: "Свяжитесь с нами",
+  mobileContactSub: "Свяжитесь с нами по телефону или по электронной почте в любое время.",
   howBadge: "Как это работает",
   howHeading: "Запуск за выходные — результаты с понедельника",
   howBody: "Даже небольшие команды легко запускают KDSX.",
@@ -181,6 +183,9 @@ export const ru = {
   footerBrandDescription:
     "Полный контроль над рестораном. Объедините все процессы в единой POS-системе.",
   footerContactTitle: "Контакты",
+  footerContactPhone1: "+998941500330",
+  footerContactPhone2: "+821079328573",
+  footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "Мы в соцсетях",
   footerQuickLinksTitle: "Быстрые ссылки",
   footerQuickLinkFeatures: "Возможности",

@@ -82,6 +82,8 @@ export const en = {
   mobileHighlightsCtaBody:
     "Open the quick wizard to tell us about your concept and get a tailored walkthrough in your inbox.",
   mobileHighlightsCtaButton: "Launch wizard",
+  mobileContactHeading: "Contact us",
+  mobileContactSub: "Reach us anytime via phone or email.",
   howBadge: "How it works",
   howHeading: "Launch over a weekend—show results Monday",
   howBody: "KDSX streamlines rollout for lean teams.",
@@ -181,6 +183,9 @@ export const en = {
   footerBrandDescription:
     "Total restaurant control. Unify your operations with our integrated POS ecosystem.",
   footerContactTitle: "Contact Info",
+  footerContactPhone1: "+998941500330",
+  footerContactPhone2: "+821079328573",
+  footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "Follow Us",
   footerQuickLinksTitle: "Quick Links",
   footerQuickLinkFeatures: "Features",

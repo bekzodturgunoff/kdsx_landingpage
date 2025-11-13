@@ -82,6 +82,8 @@ export const ko = {
   mobileHighlightsCtaBody:
     "간단한 마법사를 열어 운영 형태를 알려주시면 맞춤형 데모를 이메일로 보내드립니다.",
   mobileHighlightsCtaButton: "마법사 시작",
+  mobileContactHeading: "문의하기",
+  mobileContactSub: "전화 또는 이메일로 언제든지 연락하세요.",
   howBadge: "작동 방식",
   howHeading: "주말에 설치 — 월요일부터 결과",
   howBody: "소규모 팀도 KDSX를 빠르게 도입합니다.",
@@ -180,6 +182,9 @@ export const ko = {
   footerBrandDescription:
     "레스토랑 운영을 완전히 통합하세요. 하나의 POS 시스템으로 모든 프로세스를 연결합니다.",
   footerContactTitle: "연락처",
+  footerContactPhone1: "+998941500330",
+  footerContactPhone2: "+821079328573",
+  footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "팔로우",
   footerQuickLinksTitle: "바로가기",
   footerQuickLinkFeatures: "기능",

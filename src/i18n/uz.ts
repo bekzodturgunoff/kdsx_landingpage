@@ -83,6 +83,8 @@ export const uz = {
   mobileHighlightsCtaBody:
     "Qisqa ustozni oching, biznesingiz haqida ayting va shaxsiy taqdimotni pochtangizga oling.",
   mobileHighlightsCtaButton: "Ustozni ishga tushirish",
+  mobileContactHeading: "Biz bilan bog'laning",
+  mobileContactSub: "Telefon yoki elektron pochta orqali istalgan vaqtda murojaat qiling.",
   howBadge: "Qanday ishlaydi",
   howHeading: "Dam olish kunlarida ishga tushiring — dushanbadan natija",
   howBody: "KDSX kichik jamoalar uchun ham oson joriy qilinadi.",
@@ -183,6 +185,9 @@ export const uz = {
   footerBrandDescription:
     "Restoran ustidan to‘liq nazorat. Integratsiyalashgan POS ekotizimi bilan jarayonlarni birlashtiring.",
   footerContactTitle: "Bog‘lanish",
+  footerContactPhone1: "+998941500330",
+  footerContactPhone2: "+821079328573",
+  footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "Ijtimoiy tarmoqlar",
   footerQuickLinksTitle: "Tezkor havolalar",
   footerQuickLinkFeatures: "Imkoniyatlar",
