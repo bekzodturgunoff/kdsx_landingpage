@@ -24,7 +24,7 @@ import WizardForm from '../components/WizardForm.astro';
     <link rel="icon" href="/logo.png" />
   <meta name="color-scheme" content="light" />
     <script is:inline>
-      // Initialize theme before paint to prevent flash and keep mobile chrome in sync
+      // Initialize theme early (only 'light' or 'dark', default to light)
       (function () {
         try {
           const THEME_KEY = 'theme';
@@ -34,41 +34,18 @@ import WizardForm from '../components/WizardForm.astro';
             const match = document.cookie.match(/(?:^|; )theme=([^;]+)/);
             return match ? decodeURIComponent(match[1]) : null;
           };
-
           let stored;
-          try {
-            stored = localStorage.getItem(THEME_KEY);
-          } catch (_) {
-            stored = undefined;
-          }
-          if (!stored) {
-            stored = getCookieTheme();
-          }
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const resolved = !stored || stored === 'system'
-            ? (prefersDark ? 'dark' : 'light')
-            : stored;
-
-          if (resolved === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
+          try { stored = localStorage.getItem(THEME_KEY); } catch (_) { stored = undefined; }
+          if (!stored) stored = getCookieTheme();
+          const resolved = stored === 'dark' ? 'dark' : 'light';
+          if (resolved === 'dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');
           document.documentElement.setAttribute('data-theme', resolved);
           document.documentElement.style.colorScheme = resolved === 'dark' ? 'dark' : 'light';
-
           const meta = document.querySelector('meta[name="theme-color"]');
-          if (meta) {
-            meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
-          }
-
+          if (meta) meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
           const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
-          if (colorSchemeMeta) {
-            colorSchemeMeta.setAttribute('content', resolved === 'dark' ? 'dark' : 'light');
-          }
-
-          const persistedValue = stored || 'system';
-          document.cookie = `theme=${encodeURIComponent(persistedValue)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+          if (colorSchemeMeta) colorSchemeMeta.setAttribute('content', resolved === 'dark' ? 'dark' : 'light');
+          document.cookie = `theme=${encodeURIComponent(resolved)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
         } catch (_) {}
       })();
     </script>
