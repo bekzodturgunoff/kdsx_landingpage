@@ -1,8 +1,9 @@
 ---
-import { createT, LANGUAGE_OPTIONS, DEFAULT_LANGUAGE } from "../i18n/index";
+import { translations, LANGUAGE_OPTIONS, DEFAULT_LANGUAGE } from "../i18n";
 
 const languageOptions = LANGUAGE_OPTIONS;
-const t = createT(DEFAULT_LANGUAGE);
+const translationsJSON = JSON.stringify(translations);
+const fallbackLanguage = DEFAULT_LANGUAGE;
 ---
 <header class="sticky top-0 z-50 px-2 sm:px-6">
   <div class="max-w-6xl mx-auto">
@@ -13,18 +14,18 @@ const t = createT(DEFAULT_LANGUAGE);
         </a>
       </div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70">
-        <a href="/features" class="group relative transition-colors duration-300 hover:text-brand-cta">
-          {t('navFeatures')}
+      <!-- Desktop nav: anchor links to sections on index page -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70" aria-label="Primary">
+        <a href="/#features" class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
+          <span class="inline-block">Features</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-        <a href="/pricing" class="group relative transition-colors duration-300 hover:text-brand-cta">
-          {t('navPricing')}
+        <a href="/#pricing" class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
+          <span class="inline-block">Pricing</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-        <a href="/faq" class="group relative transition-colors duration-300 hover:text-brand-cta">
-          {t('navFaq')}
+        <a href="/#faq" class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
+          <span class="inline-block">FAQ</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
       </nav>
@@ -93,13 +94,14 @@ const t = createT(DEFAULT_LANGUAGE);
   <!-- Mobile dropdown -->
   <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
     <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-4 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-6 text-sm font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
-    <a href="/features" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10">{t('navFeatures')}</a>
-    <a href="/pricing" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10">{t('navPricing')}</a>
-    <a href="/faq" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10">{t('navFaq')}</a>
+    <!-- Mobile nav: full pages (sections not all present inline on mobile) -->
+  <a href="/features" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFeatures">Features</a>
+  <a href="/pricing" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navPricing">Pricing</a>
+  <a href="/faq" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFaq">FAQ</a>
 
       <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
         <div class="flex items-center justify-between gap-3">
-          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark">{t('navThemeToggle')}</span>
+          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">Toggle theme</span>
           <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
             <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
@@ -113,8 +115,74 @@ const t = createT(DEFAULT_LANGUAGE);
     </nav>
   </div>
 </header>
+<script type="application/json" id="translations-data" data-fallback={fallbackLanguage} set:html={translationsJSON}></script>
 <script is:inline>
   (function setupHeader() {
+    const LANGUAGE_STORAGE_KEY = "preferred-lang";
+    const translationsNode = document.getElementById("translations-data");
+    const TRANSLATION_FALLBACK = (translationsNode?.dataset?.fallback) || "en";
+    let translations = {};
+    try {
+      translations = translationsNode ? JSON.parse(translationsNode.textContent || "{}") : {};
+    } catch (error) {
+      console.error("Failed to parse translations", error);
+      translations = {};
+    }
+
+    const applyTranslations = (lang) => {
+      const dictionary = translations[lang] || translations[TRANSLATION_FALLBACK] || {};
+      const fallbackDictionary = translations[TRANSLATION_FALLBACK] || {};
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        if (!key) return;
+        const value = dictionary[key] ?? fallbackDictionary[key];
+        if (value !== undefined) {
+          node.textContent = value;
+        }
+      });
+    };
+
+    const applyLanguage = (lang) => {
+      const html = document.documentElement;
+      html.setAttribute("lang", lang);
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      } catch (_) {}
+      document.querySelectorAll(".lang-select").forEach((select) => {
+        if (select.value !== lang) {
+          select.value = lang;
+        }
+      });
+      applyTranslations(lang);
+    };
+
+    const bindLanguage = () => {
+      const selects = document.querySelectorAll(".lang-select");
+      if (!selects.length) {
+        applyTranslations(document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK);
+        return;
+      }
+
+      selects.forEach((select) => {
+        if ((select)._boundLang) return;
+        select.addEventListener("change", (event) => {
+          const target = event.target;
+          const lang = target.value || TRANSLATION_FALLBACK;
+          applyLanguage(lang);
+        });
+        (select)._boundLang = true;
+      });
+
+      let storedLang;
+      try {
+        storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      } catch (_) {
+        storedLang = undefined;
+      }
+      const initialLang = storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
+      applyLanguage(initialLang);
+    };
+
     const bindTheme = () => {
   const html = document.documentElement;
   const THEME_KEY = 'theme'; // 'light' | 'dark'
@@ -243,12 +311,14 @@ const t = createT(DEFAULT_LANGUAGE);
       }
     };
 
-    // Initialize
+    // Initialize and restore language switching without page reload
     bindTheme();
     bindMenu();
+    bindLanguage();
     window.addEventListener('pageshow', () => {
       bindTheme();
       bindMenu();
+      bindLanguage();
     });
   })();
 </script>

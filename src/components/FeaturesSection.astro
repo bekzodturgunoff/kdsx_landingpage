@@ -1,13 +1,12 @@
 ---
-import { createT, DEFAULT_LANGUAGE } from "../i18n/index";
-const t = createT(DEFAULT_LANGUAGE);
+// Client-side data-i18n translation only; removed unused createT import
 ---
 <section id="features" class="w-full px-2 sm:px-6 py-10 sm:py-16">
   <div class="max-w-6xl mx-auto section-shell px-4 sm:px-8 md:px-10 py-10 sm:py-14 md:py-16">
     <div class="flex flex-col items-start gap-4 sm:gap-5 text-left">
-  <span class="badge-pill">{t('featuresBadge')}</span>
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark">{t('featuresHeading')}</h2>
-  <p class="max-w-3xl text-base sm:text-lg leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70">{t('featuresBody')}</p>
+  <span class="badge-pill" data-i18n="featuresBadge">All‑in‑one suite</span>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="featuresHeading">A live operations panel for every location</h2>
+  <p class="max-w-3xl text-base sm:text-lg leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresBody">KDSX connects orders, production, and profitability so you catch bottlenecks early and move faster.</p>
     </div>
 
   <div class="mt-7 sm:mt-10 space-y-6 sm:space-y-9">
@@ -17,18 +16,18 @@ const t = createT(DEFAULT_LANGUAGE);
           <img loading="lazy" src="/app_images/PC_MOCKUP_DASH_VIEW.png" alt="Operations dashboard displaying revenue, prep, and guest sentiment metrics" class="block w-full object-cover" />
         </div>
   <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-7 md:pt-8">
-          <div class="text-xs sm:text-sm font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark">{t('featuresCard1Tag')}</div>
-          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold">{t('featuresCard1Title')}</h3>
-          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70">{t('featuresCard1Body')}</p>
+          <div class="enterprise-ribbon" data-i18n="featuresCard1Tag">Command center</div>
+          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard1Title">One dashboard for mission‑critical signals</h3>
+          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard1Body">See revenue trends, line speed, and guest sentiment in a single live view so you can decide with confidence.</p>
           <div class="mt-5 sm:mt-7 flex flex-wrap gap-2 sm:gap-4">
-            <div class="rounded-xl sm:rounded-2xl border-0 sm:border sm:border-white/18 bg-white/70 px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-brand-cta-text shadow-sm sm:shadow-[0_10px_26px_-22px_rgba(26,77,26,0.5)] dark:border-white/20 dark:bg-white/15 dark:text-brand-cta-text-dark">
-              <span>{t('featuresCard1Pill1')}</span>
+            <div class="enterprise-pill" >
+              <span data-i18n="featuresCard1Pill1">Shift forecasts</span>
             </div>
-            <div class="rounded-xl sm:rounded-2xl border-0 sm:border sm:border-white/18 bg-white/70 px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-brand-cta-text shadow-sm sm:shadow-[0_10px_26px_-22px_rgba(26,77,26,0.5)] dark:border-white/20 dark:bg-white/15 dark:text-brand-cta-text-dark">
-              <span>{t('featuresCard1Pill2')}</span>
+            <div class="enterprise-pill" >
+              <span data-i18n="featuresCard1Pill2">Live KPIs</span>
             </div>
-            <div class="rounded-xl sm:rounded-2xl border-0 sm:border sm:border-white/18 bg-white/70 px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-[0.28em] text-brand-cta-text shadow-sm sm:shadow-[0_10px_26px_-22px_rgba(26,77,26,0.5)] dark:border-white/20 dark:bg-white/15 dark:text-brand-cta-text-dark">
-              <span>{t('featuresCard1Pill3')}</span>
+            <div class="enterprise-pill" >
+              <span data-i18n="featuresCard1Pill3">Service alerts</span>
             </div>
           </div>
         </div>
@@ -37,9 +36,9 @@ const t = createT(DEFAULT_LANGUAGE);
             <div class="feature-panel overflow-hidden text-left text-brand-text dark:text-brand-text-dark">
         <img loading="lazy" src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png" alt="Table-side POS tablet presenting menu and modifiers" class="block w-full object-cover" />
   <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-8 md:pt-8">
-            <div class="text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">{t('featuresCard2Tag')}</div>
-          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold">{t('featuresCard2Title')}</h3>
-          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70">{t('featuresCard2Body')}</p>
+            <div class="enterprise-ribbon" data-i18n="featuresCard2Tag">Front of house</div>
+          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard2Title">Menus that adapt to every guest</h3>
+          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard2Body">Upsells, modifiers, and payments flow smoothly at the table, counter, or online.</p>
         </div>
       </div>
 
@@ -47,9 +46,9 @@ const t = createT(DEFAULT_LANGUAGE);
       <div class="feature-panel overflow-hidden text-left text-brand-text dark:text-brand-text-dark">
         <img loading="lazy" src="/app_images/TABLE_MOCKUP_KITCHEN_ORDER_VIEW.png" alt="Kitchen display tablet showing synchronized order queues" class="block w-full object-cover" />
         <div class="px-6 pt-6 pb-8">
-          <div class="text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">{t('featuresCard3Tag')}</div>
-          <h3 class="mt-4 text-2xl font-semibold">{t('featuresCard3Title')}</h3>
-          <p class="mt-3 text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70">{t('featuresCard3Body')}</p>
+          <div class="enterprise-ribbon" data-i18n="featuresCard3Tag">Kitchen display</div>
+          <h3 class="mt-4 text-2xl font-semibold" data-i18n="featuresCard3Title">Every station stays on pace</h3>
+          <p class="mt-3 text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard3Body">Tickets arrive with timers, allergen flags, and priorities so the next move is clear.</p>
         </div>
       </div>
 
@@ -57,11 +56,11 @@ const t = createT(DEFAULT_LANGUAGE);
         <img loading="lazy" src="/app_images/PHONE_MOCKUP_POS_MENU_VIEW.png" alt="Mobile ordering interface highlighting quick table-side actions" class="block w-full object-cover" />
         <div class="px-7 pt-7 pb-8">
           <div class="flex items-center justify-between">
-            <div class="text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">{t('featuresCard4Tag')}</div>
+            <div class="enterprise-ribbon" data-i18n="featuresCard4Tag">Mobile service</div>
             <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text">Live</span>
           </div>
-          <h3 class="mt-4 text-2xl font-semibold">{t('featuresCard4Title')}</h3>
-          <p class="mt-3 text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70">{t('featuresCard4Body')}</p>
+          <h3 class="mt-4 text-2xl font-semibold" data-i18n="featuresCard4Title">Pocket-ready control for floor teams</h3>
+          <p class="mt-3 text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard4Body">Staff take orders, comps, and payments without leaving guests; prep screens update instantly.</p>
         </div>
       </div>
     </div>

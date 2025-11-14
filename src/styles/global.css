@@ -148,13 +148,13 @@ body {
     isolation: isolate;
     overflow: hidden;
     border-radius: 1.5rem;
-    /* Fallback for browsers without backdrop-filter */
-    border: 1px solid rgba(200, 200, 200, 0.34);
+    /* Fallback + default border (increased contrast for light theme) */
+    border: 1px solid rgba(180, 185, 180, 0.65);
     background: rgba(250, 250, 250, 0.94);
-    box-shadow: 0 18px 44px -28px rgba(26, 77, 26, 0.38);
-    /* Enhanced version with backdrop-filter for supporting browsers */
-    border: 1px solid rgba(255, 255, 255, 0.26);
-    background: rgba(255, 255, 255, 0.7);
+    /* External elevation + subtle inner highlight for definition */
+    box-shadow: 0 18px 44px -28px rgba(26, 77, 26, 0.38), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+    /* Enhanced version with backdrop-filter for supporting browsers (keep same border for consistency) */
+    background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(26px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: var(--color-brand-text);
@@ -349,20 +349,68 @@ body {
     align-items: center;
     gap: 0.5rem;
     border-radius: 999px;
-    /* Solid fallback */
-    border: 1px solid rgba(220, 220, 220, 0.8);
-    background: rgba(250, 250, 250, 0.96);
-    /* Enhanced version for supporting browsers */
-    border: 1px solid rgba(255, 255, 255, 0.44);
-    background: rgba(255, 255, 255, 0.82);
+    /* Single consistent higher-contrast border for light theme */
+    border: 1px solid rgba(185, 190, 185, 0.70);
+    background: rgba(255, 255, 255, 0.86);
+    /* Subtle depth & inner delineation */
+    box-shadow: 0 16px 40px -26px rgba(26, 77, 26, 0.38), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
     padding: 0.5rem 1.25rem;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--color-brand-cta-text);
-    box-shadow: 0 16px 40px -26px rgba(26, 77, 26, 0.55);
   }
+
+  .badge-pill:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(173, 219, 173, 0.35), inset 0 0 0 1px rgba(255,255,255,0.55);
+  }
+
+    /* Enterprise ribbon & pill style (used for 맞춤형 & unified feature tags) */
+    .enterprise-ribbon {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(185, 190, 185, 0.75);
+      box-shadow: 0 10px 28px -18px rgba(26, 77, 26, 0.42), inset 0 0 0 1px rgba(255,255,255,0.5);
+      color: var(--color-brand-cta-text);
+    }
+    .dark .enterprise-ribbon {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255,255,255,0.18);
+      color: var(--color-brand-cta-text-dark);
+      box-shadow: 0 10px 28px -18px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .enterprise-ribbon:focus { outline: none; box-shadow: 0 0 0 3px rgba(173,219,173,0.35), inset 0 0 0 1px rgba(255,255,255,0.55); }
+
+    .enterprise-pill {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      padding: 0.55rem 0.95rem 0.5rem;
+      border-radius: 1.2rem;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(185,190,185,0.7);
+      box-shadow: 0 8px 22px -14px rgba(26,77,26,0.42), inset 0 0 0 1px rgba(255,255,255,0.55);
+      color: var(--color-brand-cta-text);
+    }
+    .dark .enterprise-pill {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.18);
+      color: var(--color-brand-cta-text-dark);
+      box-shadow: 0 8px 22px -14px rgba(0,0,0,0.65), inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .enterprise-pill:focus { outline:none; box-shadow: 0 0 0 3px rgba(173,219,173,0.35), inset 0 0 0 1px rgba(255,255,255,0.55); }
 
   /* NOTE: page-section/page-shell utilities were removed to restore original
      per-component spacing per request. Adjust spacing per-component instead. */

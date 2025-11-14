@@ -99,7 +99,7 @@
       <slot name="faq"></slot>
     </div>
 
-  <footer class="mt-14 pt-10 border-t border-white/18 text-brand-text dark:text-brand-text-dark">
+  <footer class="hidden md:block mt-14 pt-10 border-t border-white/18 text-brand-text dark:text-brand-text-dark" aria-label="Site footer">
       <!-- Main Footer Content -->
       <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
         <!-- Brand Section -->
@@ -111,8 +111,8 @@
           <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">Total restaurant control. Unify your operations with our integrated POS ecosystem.</p>
         </div>
 
-        <!-- Contact Information -->
-        <div class="flex flex-col items-start">
+  <!-- Contact Information (hidden on mobile for dedicated pricing page) -->
+  <div class="hidden md:flex flex-col items-start">
           <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">Contact Info</h4>
           <div class="space-y-3">
             <a href="tel:+998941500330" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
