@@ -1,185 +1,225 @@
 export const en = {
-  brandTagline: "Everything your restaurant runs on, in one place",
+  brandTagline: "Everything your restaurant runs on — all in one place",
+
   navFeatures: "Features",
   navPricing: "Pricing",
   navFaq: "FAQ",
   navThemeToggle: "Toggle theme",
+
   heroBadge: "Restaurant POS platform",
-  heroHeading: "Manage your finances and operations from one KDSX hub",
+  heroHeading: "Run your finances and operations from one KDSX hub",
   heroBody:
-    "Automate orders, track spend in real time, and keep the floor and kitchen in sync—every shift.",
-  heroPrimaryCta: "Activate Free Month",
+    "Automate orders, track spend in real time, and keep your floor and kitchen perfectly in sync — every shift.",
+  heroPrimaryCta: "Start Free Month",
   heroSecondaryCta: "Book a walkthrough",
+
   heroMetricDowntimeTitle: "Fewer delays",
   heroMetricDowntimeCopy:
-    "Multi-location teams cut ticket delays in their first month on KDSX.",
+    "Multi-location teams cut ticket slowdowns within their first month on KDSX.",
   heroMetricInventoryTitle: "Accurate inventory",
   heroMetricInventoryCopy:
-    "Live counts keep prep, stock, and the dining room in sync.",
+    "Live counts keep prep, stock, and service aligned.",
   heroMetricRoiTitle: "Fast ROI",
   heroMetricRoiCopy:
-    "Most operators recoup their investment before the first quarter ends.",
+    "Most teams recoup their investment before the first quarter ends.",
+
   logosBadge: "Trusted by teams",
-  logosHeading: "Trusted by high‑performing restaurant groups",
+  logosHeading: "Trusted by top-performing restaurant groups",
   logosBody:
     "Teams across three continents rely on KDSX to keep every shift running smoothly.",
+
   businessBadge: "Why teams choose KDSX",
-  businessHeading: "A control center for every shift",
+  businessHeading: "A command center for every shift",
   businessBody:
-    "KDSX unifies orders, staffing, and inventory so you can finally retire scattered spreadsheets and apps.",
+    "KDSX pulls orders, staff, and inventory into one clean workspace — so scattered apps and spreadsheets finally disappear.",
+
   businessCard1Title: "Actionable insights",
-  businessCard1Heading: "Make decisions with real‑time data",
+  businessCard1Heading: "Make smarter decisions with real-time data",
   businessCard1Body:
-    "Targeted alerts flag unusual spend or prep so you can adjust staffing on the spot.",
+    "Targeted alerts flag unusual spend or prep issues so you can adjust in the moment.",
+
   businessCard2Title: "Unified management",
-  businessCard2Heading: "Everything in one workspace",
+  businessCard2Heading: "Everything in one place",
   businessCard2Body:
-    "Update menus, reconcile tabs, and monitor the kitchen board—without app‑hopping.",
+    "Update menus, close out tabs, and monitor the kitchen board — without switching apps.",
+
   businessCard3Title: "Team experience",
   businessCard3Heading: "Your team wins back hours",
   businessCard3Body:
-    "Training takes minutes, updates sync instantly, and service stays calm—even when orders spike.",
-  featuresBadge: "All‑in‑one suite",
+    "Training takes minutes, updates sync instantly, and service stays calm even when orders spike.",
+
+  featuresBadge: "All-in-one suite",
   featuresHeading: "A live operations panel for every location",
   featuresBody:
     "KDSX connects orders, production, and profitability so you catch bottlenecks early and move faster.",
+
   featuresCard1Tag: "Command center",
-  featuresCard1Title: "One dashboard for mission‑critical signals",
+  featuresCard1Title: "One dashboard for mission-critical signals",
   featuresCard1Body:
-    "See revenue trends, line speed, and guest sentiment in a single live view so you can decide with confidence.",
+    "Track revenue trends, kitchen speed, and guest sentiment in a single live view.",
   featuresCard1Pill1: "Shift forecasts",
   featuresCard1Pill2: "Live KPIs",
   featuresCard1Pill3: "Service alerts",
+
   featuresCard2Tag: "Front of house",
-  featuresCard2Title: "Menus that adapt to every guest",
+  featuresCard2Title: "Menus that flex for every guest",
   featuresCard2Body:
     "Upsells, modifiers, and payments flow smoothly at the table, counter, or online.",
+
   featuresCard3Tag: "Kitchen display",
   featuresCard3Title: "Every station stays on pace",
   featuresCard3Body:
-    "Tickets arrive with timers, allergen flags, and priorities so the next move is clear.",
+    "Tickets arrive with timers, allergen flags, and priorities — so the next move is always clear.",
+
   featuresCard4Tag: "Mobile service",
   featuresCard4Title: "Pocket-ready control for floor teams",
   featuresCard4Body:
-    "Staff take orders, comps, and payments without leaving guests; prep screens update instantly.",
+    "Take orders, comps, and payments without leaving guests; prep screens update instantly.",
+
   mobileHighlightsBadge: "Quick overview",
-  mobileHighlightsHeading: "Everything you need, trimmed for the go",
+  mobileHighlightsHeading: "Everything you need — simplified for the go",
   mobileHighlightsBody:
-    "Get the headline of KDSX in under a minute. Tap into the sections that matter most, or dive deeper when you have time.",
+    "See the essentials of KDSX in under a minute. Jump into the sections that matter most or dive deeper anytime.",
+
   mobileHighlightsFeaturesTag: "Features",
   mobileHighlightsFeaturesTitle: "Operations, POS, and analytics in sync",
   mobileHighlightsFeaturesBody:
-    "See how KDSX unifies the floor, kitchen, and back office with live dashboards and mobile tools.",
+    "Explore how KDSX connects the floor, kitchen, and back office with live dashboards and mobile tools.",
+
   mobileHighlightsPricingTag: "Pricing",
   mobileHighlightsPricingTitle: "Simple plans built around each shift",
   mobileHighlightsPricingBody:
-    "Compare starter and pro bundles, understand what’s included, and book a walkthrough if you need more.",
+    "Compare starter and pro bundles, see what’s included, and book a walkthrough if you need more.",
+
   mobileHighlightsFaqTag: "FAQ",
   mobileHighlightsFaqTitle: "Answers when you need them",
   mobileHighlightsFaqBody:
-    "Browse setup, integrations, and rollout guidance without scrolling through the entire landing page.",
+    "Quick access to setup, integrations, and rollout guidance — no long scrolling required.",
+
   mobileHighlightsCtaHeading: "Ready to see KDSX in action?",
   mobileHighlightsCtaBody:
-    "Open the quick wizard to tell us about your concept and get a tailored walkthrough in your inbox.",
+    "Open the quick wizard, tell us about your concept, and get a tailored demo sent to your inbox.",
   mobileHighlightsCtaButton: "Launch wizard",
+
   mobileContactHeading: "Contact us",
   mobileContactSub: "Reach us anytime via phone or email.",
+
   howBadge: "How it works",
-  howHeading: "Launch over a weekend—show results Monday",
-  howBody: "KDSX streamlines rollout for lean teams.",
+  howHeading: "Launch over a weekend — show results Monday",
+  howBody: "KDSX makes rollout easy for lean teams.",
+
   howStep1Tag: "Setup",
   howStep1Title: "Create your workspace",
   howStep1Body:
-    "Import menus, configure stations, and invite staff with role-based permissions in minutes.",
+    "Import menus, configure stations, and invite staff with the right permissions in minutes.",
+
   howStep2Tag: "Sync",
-  howStep2Title: "Link devices and data",
+  howStep2Title: "Connect devices and data",
   howStep2Body:
-    "Connect tablets, phones, and printers while KDSX syncs inventory and historical sales.",
+    "Link tablets, phones, and printers while KDSX syncs inventory and sales history.",
+
   howStep3Tag: "Optimize",
   howStep3Title: "Launch and iterate fast",
   howStep3Body:
-    "Track performance dashboards in real time, adjust prep, and share learnings instantly.",
+    "Monitor dashboards live, adjust prep, and share learnings instantly.",
+
   testimonialsBadge: "From our users",
-  testimonialsHeading: "Hospitality leaders on what changed with KDSX",
+  testimonialsHeading: "How hospitality leaders run smoother with KDSX",
   testimonialsBody:
-    "Operators trust us to remove friction so they can focus on guests—not software.",
-  testimonialsSubheading: "What our users are saying",
+    "We remove friction so your team can stay focused on guests — not software.",
+
+  testimonialsSubheading: "What users are saying",
+
   testimonialsCard1Tag: "Fine Dining Group",
   testimonialsCard1Quote:
-    '"KDSX let us retire four separate tools. Ticket visibility jumped overnight and waste dropped by 28%."',
+    '"KDSX replaced four separate tools. Ticket visibility improved overnight and waste dropped by 28%."',
   testimonialsCard1Author: "Farida Orujova · Operations Director",
+
   testimonialsCard2Tag: "Fast Casual Chain",
   testimonialsCard2Quote:
-    '"Our managers finally have one source of truth. Prep boards, POS, and analytics update as fast as service moves."',
+    '"Our managers finally have one source of truth. Prep, POS, and analytics move at the same speed as service."',
   testimonialsCard2Author: "Ahmed Hassan · Multi-unit Owner",
+
   testimonialsCard3Tag: "Multi-Site Bistro",
   testimonialsCard3Quote:
-    '"Inventory recounts went from nightly chaos to a 10-minute spot check. The finance sync is magic."',
+    '"Inventory checks went from nightly chaos to a 10-minute spot check. The finance sync is magic."',
   testimonialsCard3Author: "Maria Rodriguez · Beverage Lead",
+
   testimonialsCard4Tag: "Cloud Kitchen Collective",
   testimonialsCard4Quote:
-    '"Because KDSX automates routing and reporting, we redeployed two full-time ops roles to guest experience."',
+    '"Automated routing and reporting let us redeploy two full-time ops roles toward guest experience."',
   testimonialsCard4Author: "David Chen · Founder",
+
   testimonialsCard5Tag: "Finance Lead",
   testimonialsCard5Quote:
-    '"The reporting features are incredible. I can see exactly where my money goes and make better business decisions."',
+    '"The reporting tools are excellent. I can finally see where our money goes and make confident decisions."',
   testimonialsCard5Author: "Sarah Johnson · Finance Lead",
+
   pricingBadge: "Pricing",
   pricingHeading: "Flexible plans that scale with your service",
   pricingBody:
-    "Start lean and grow when you’re ready. Every plan includes hands‑on onboarding from the KDSX team.",
+    "Start small and grow when you're ready. Every plan includes hands-on onboarding from the KDSX team.",
+
   pricingStarterLabel: "Starter",
   pricingStarterRibbon: "",
   pricingStarterPrice: "Free",
   pricingStarterSubtitle: "First month on us",
   pricingStarterBody:
-    "Everything you need to launch a single location with confidence—your first month is completely free.",
+    "Everything you need to launch a single location with confidence — your first month is completely free.",
   pricingStarterB1: "1 register/station, unlimited logins",
   pricingStarterB2: "Order, table, and guest tracking",
-  pricingStarterB3: "Core dashboards and nightly summary emails",
-  pricingStarterB4: "Manual inventory counts + alerts",
-  pricingStarterB5: "After your first month, continue with the Pro plan",
-  pricingStarterB6: "Email support with 24-hour response",
-  pricingStarterCta: "Activate Free Month",
+  pricingStarterB3: "Core dashboards + nightly summaries",
+  pricingStarterB4: "Manual inventory + alerts",
+  pricingStarterB5: "After the first month, continue on the Pro plan",
+  pricingStarterB6: "Email support (24-hour response)",
+  pricingStarterCta: "Start Free Month",
+
   pricingProLabel: "Pro",
   pricingProRibbon: "Most popular",
   pricingProPrice: "$30",
   pricingProPeriod: "/mo",
   pricingProBody:
-    "Add automation, multi‑location controls, and proactive guidance from our team.",
+    "Add automation, multi-location controls, and proactive guidance from our team.",
   pricingProB1: "Unlimited registers with role-based controls",
   pricingProB2: "Automated inventory + supplier syncing",
   pricingProB3: "Advanced analytics & profitability dashboards",
   pricingProB4: "Priority chat & phone support",
   pricingProB5: "Dedicated Customer Success Manager",
   pricingProCta: "Get Started — $30/mo",
+
   pricingEnterpriseTitle: "Enterprise",
   pricingEnterpriseRibbon: "Custom",
-  pricingEnterpriseHeading: "Scale with confidence across regions",
+  pricingEnterpriseHeading: "Scale confidently across regions",
   pricingEnterpriseBody:
     "Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.",
   pricingEnterpriseCta: "Contact Sales",
-  pricingImplementTag: "Need a tailored rollout?",
+
+  pricingImplementTag: "Need tailored onboarding?",
   pricingImplementHeading: "Partner with our implementation team",
   pricingImplementBody:
-    "We’ll audit your operations, stage the hardware, and train staff across every location.",
-  pricingImplementB1: "Launch playbook customized to each venue",
+    "We’ll audit your operations, prep hardware, and train staff across all your locations.",
+  pricingImplementB1: "Custom rollout plan for each venue",
   pricingImplementB2: "On-site and remote training programs",
-  pricingImplementB3: "Seasonal menu + promo support",
+  pricingImplementB3: "Seasonal menu & promo support",
+
   pricingFinalHeading: "Ready to run every shift with less stress?",
   pricingFinalCta: "Start my rollout",
+
   featuresPageBadge: "Deep dive",
-  featuresPageHeading: "Explore how KDSX keeps every shift aligned",
+  featuresPageHeading: "See how KDSX keeps every shift aligned",
   featuresPageLead:
-    "Walk through the modules that connect your dining room, kitchen, and back office. See what’s included across dashboards, handhelds, and automations.",
+    "Explore the modules that connect your dining room, kitchen, and back office — from dashboards to handhelds and automations.",
+
   pricingPageBadge: "Plans",
-  pricingPageHeading: "Pricing shaped around the way your team runs",
+  pricingPageHeading: "Pricing built around the way your team works",
   pricingPageLead:
-    "Compare bundles, add-ons, and rollout support. Every tier includes onboarding, 24/7 coverage, and full access to the wizard for tailored setups.",
+    "Compare bundles, add-ons, and rollout support. All tiers include onboarding, 24/7 coverage, and access to the setup wizard.",
+
   faqPageBadge: "Answers",
-  faqPageHeading: "Frequently asked questions about KDSX",
+  faqPageHeading: "Frequently asked questions",
   faqPageLead:
-    "Deployment, integrations, rollouts, and day-to-day support—everything we get asked is captured here.",
+    "Everything we get asked most — deployment, integrations, rollout, and daily support.",
+
   footerBrandDescription:
     "Total restaurant control. Unify your operations with our integrated POS ecosystem.",
   footerContactTitle: "Contact Info",
@@ -193,10 +233,12 @@ export const en = {
   footerQuickLinkTerms: "Terms",
   footerQuickLinkPrivacy: "Privacy",
   footerRightsReserved: "All rights reserved.",
-  footerAccessibility: "Mobile Responsive & Accessible",
+  footerAccessibility: "Mobile-friendly & accessible",
+
   wizardTitle: "Get your free demo account",
-  wizardSubtitle: "Answer a few quick questions — we’ll set up a demo and share credentials.",
-  wizardTitleStarter: "Activate your free Starter month",
+  wizardSubtitle:
+    "Answer a few quick questions — we’ll prepare your demo and send login details.",
+  wizardTitleStarter: "Start your free Starter month",
   wizardTitlePro: "Get started with Pro",
   wizardTitleEnterprise: "Talk to Sales — Enterprise",
   wizardTitleGeneric: "Request a demo",
@@ -204,15 +246,15 @@ export const en = {
   wizardStepTemplate: "Step {current} of {total}",
   wizardNameLabel: "What’s your name?",
   wizardNamePlaceholder: "e.g., Alex Kim",
-  wizardBusinessLabel: "What’s your restaurant’s or market’s name?",
+  wizardBusinessLabel: "What's your restaurant or market called?",
   wizardBusinessPlaceholder: "e.g., Green Leaf Bistro",
   wizardLocationsLabel: "How many locations do you operate?",
   wizardLocationsOption1: "1 location",
   wizardLocationsOption2: "2–5 locations",
   wizardLocationsOption3: "6–10 locations",
   wizardLocationsOption4: "11+ locations",
-  wizardCurrentPosLabel: "Which POS or systems are you using today?",
-  wizardCurrentPosPlaceholder: "e.g., Toast, Square, custom",
+  wizardCurrentPosLabel: "Which POS or tools are you using today?",
+  wizardCurrentPosPlaceholder: "e.g., Toast, Square, custom system",
   wizardPhoneLabel: "Your phone number",
   wizardPhonePlaceholder: "+82 10-1234-5678",
   wizardEmailLabel: "Your email address (optional)",
@@ -221,45 +263,50 @@ export const en = {
   wizardTelegramPlaceholder: "@yourhandle",
   wizardKakaoLabel: "KakaoTalk (optional)",
   wizardKakaoPlaceholder: "ID or phone",
+
   wizardUsernameLabel: "Preferred username",
   wizardUsernamePlaceholder: "e.g., alex.kim",
   wizardPasswordLabel: "Preferred password",
   wizardPasswordPlaceholder: "At least 8 characters",
+
   wizardBack: "Back",
   wizardNext: "Next",
   wizardSubmit: "Request demo",
-  wizardSuccessMessage: "Thanks — we’ve received your request. A demo account with username and password will be shared via your preferred contact. To continue beyond the demo, you can switch to the Pro plan at any time.",
-  wizardServiceStyleLabel: "What best describes your service style?",
+  wizardSubmitting: "Submitting…",
+  wizardError: "Something went wrong. Please try again.",
+  wizardSuccessMessage:
+    "Thanks — your request has been received. Demo login details will be sent via your preferred contact. You can switch to Pro anytime after the demo.",
+  wizardSuccessCta: "Close",
+
+  wizardServiceStyleLabel: "Which service style fits you best?",
   wizardServiceStyleOption0: "Select one…",
   wizardServiceStyleOptionCafe: "Cafe",
   wizardServiceStyleOptionBistro: "Bistro",
-  wizardServiceStyleOptionQuick: "Quick‑service",
-  wizardServiceStyleOptionFull: "Full‑service",
+  wizardServiceStyleOptionQuick: "Quick-service",
+  wizardServiceStyleOptionFull: "Full-service",
   wizardServiceStyleOptionBar: "Bar",
   wizardServiceStyleOptionMarket: "Market",
   wizardServiceStyleOptionOther: "Other",
-  wizardSubmitting: "Submitting…",
-  wizardError: "Something went wrong. Please try again.",
-  wizardSuccessCta: "Close",
+
   faqBadge: "FAQ",
   faqHeading: "Answers to common questions",
   faqBody:
     "Everything you need to know about getting started, devices, pricing, and support.",
   faqQ1: "How fast can we go live?",
   faqA1:
-    "Most teams launch over a weekend. We guide setup, device linking, and a quick staff run‑through so you can show results by Monday.",
-  faqQ2: "Can this run on any device?",
+    "Most teams launch over a weekend. We guide setup, device linking, and a short staff run-through so you can show results by Monday.",
+  faqQ2: "Does this run on any device?",
   faqA2:
-    "Yes. KDSX works on modern tablets and smartphones with an internet connection. Use iOS, Android, or the web—no special hardware required.",
+    "Yes — KDSX works on modern tablets and smartphones with an internet connection. iOS, Android, or web — no special hardware required.",
   faqQ3: "What does onboarding include?",
   faqA3:
-    "We help import menus, configure stations, connect printers, and train staff. You’ll get a clear rollout plan tailored to each location.",
+    "We help import menus, configure stations, connect printers, and train staff. You'll get a clear rollout plan for each location.",
   faqQ4: "How is pricing structured?",
   faqA4:
-    "Start with our free month on the Starter plan. Upgrade to Pro for automation and multi‑location controls. Enterprise options are available for complex rollouts.",
+    "Start with a free month on Starter. Upgrade to Pro for automation and multi-location controls. Enterprise is available for advanced rollouts.",
   faqQ5: "What support is available?",
   faqA5:
-    "All customers receive responsive support and rollout guidance. Pro adds priority chat and phone support, and Enterprise includes white‑glove assistance.",
+    "All customers receive responsive support and rollout guidance. Pro adds priority chat and phone support; Enterprise includes white-glove assistance.",
 } as const;
 
 export type TranslationKey = keyof typeof en;
