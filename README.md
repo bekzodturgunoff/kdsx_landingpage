@@ -35,58 +35,21 @@ If the endpoint is missing or returns a non‑OK status, the wizard automaticall
 - Behavior: Accepts JSON, then forwards the submission to configured notification channels.
 - Notifications supported:
 	- Email via Resend (set `RESEND_API_KEY` + `FROM_EMAIL`, `TO_EMAIL`)
-	- Slack via Incoming Webhook (set `SLACK_WEBHOOK_URL`)
 - Security: The API intentionally does not include the password field in notifications.
 - If no channel is configured, the API returns HTTP 501 so the client falls back to mailto.
 
 ### Configure on Vercel
 
 1) Ensure the project is connected to Vercel.
-2) In Vercel → Project → Settings → Environment Variables, add as needed:
+2) In Vercel → Project → Settings → Environment Variables, add:
 	 - `RESEND_API_KEY` — Resend API key (store securely, never commit it)
 	 - `FROM_EMAIL` — Verified sender in Resend (e.g., `leads@yourdomain.com`)
-		- `TO_EMAIL` — Recipient(s). Set to `bekzodturgunoff@gmail.com` (or a comma‑separated list if you need multiple inboxes).
-	 - `SLACK_WEBHOOK_URL` — Slack Incoming Webhook (optional)
+		- `TO_EMAIL` — Recipient(s). Set to `bekzodturgunoff@gmail.com` (or a comma-separated list if you need multiple inboxes).
 3) Redeploy the project to ship the serverless function.
 
 For local development, copy `.env.example` to `.env` (or `.env.local`) and provide the same values so the Astro dev server can call the API with your credentials.
 
 _All legacy or archived components have been removed to keep the repository lean._
-
-### Store leads in Supabase (optional)
-
-You can persist each submission to Supabase in addition to sending notifications.
-
-1) Create a table (SQL example):
-
-```sql
-create table if not exists public.leads (
-	id uuid primary key default gen_random_uuid(),
-	plan text,
-	full_name text,
-	business_name text,
-	locations text,
-	service_style text,
-	current_pos text,
-	desired_username text,
-	phone text,
-	email text,
-	telegram text,
-	kakaotalk text,
-	submitted_at timestamptz default now()
-);
-
--- If using anon key from the browser (not recommended for server), enable RLS and allow inserts:
-alter table public.leads enable row level security;
-create policy "allow insert" on public.leads for insert to anon using (true) with check (true);
-```
-
-2) Add env vars in Vercel:
-	 - `SUPABASE_URL` — e.g., `https://YOUR_PROJECT.supabase.co`
-	 - `SUPABASE_SERVICE_ROLE_KEY` — service role key (recommended)
-		 - Alternatively `SUPABASE_KEY` if you insist on anon, but make sure RLS policies allow inserts.
-
-3) Redeploy. The API will attempt to insert into `public.leads` and include `{ stored: true }` in the JSON response when successful.
 
 ### Test the endpoint (after deploy)
 
@@ -115,5 +78,5 @@ Expected: HTTP 200 and delivery via configured channel(s). If you receive HTTP 5
 ### Troubleshooting
 
 - HTTP 400 locally: Ensure you send valid JSON with `Content-Type: application/json`.
-- HTTP 501 on production: Add `RESEND_API_KEY`/`FROM_EMAIL`/`TO_EMAIL` and/or `SLACK_WEBHOOK_URL` in Vercel.
+- HTTP 501 on production: Add `RESEND_API_KEY`/`FROM_EMAIL`/`TO_EMAIL` in Vercel.
 - Node version warning locally: Vercel functions run on Node 22; your local Node can differ.

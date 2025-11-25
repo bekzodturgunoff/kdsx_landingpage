@@ -275,6 +275,8 @@ export const ru = {
   wizardSubmit: "Отправить запрос",
   wizardSubmitting: "Отправка…",
   wizardError: "Произошла ошибка. Попробуйте ещё раз.",
+  wizardErrorTitle: "Извините — у нас что-то сломалось.",
+  wizardErrorBody: "Пока мы исправляем форму, напишите на support@kdsx.uz или bekzodturgunoff@gmail.com, и мы завершим заявку вручную.",
   wizardSuccessMessage:
     "Спасибо! Ваш запрос получен. Доступ к демо будет отправлен выбранным способом связи. После знакомства можно перейти на Pro.",
   wizardSuccessCta: "Закрыть",

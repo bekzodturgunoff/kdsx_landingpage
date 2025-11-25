@@ -20,6 +20,17 @@
         <span id="wizard-plan-label" class="truncate" data-i18n="wizardPlanPrefix">Plan:</span>
       </div>
 
+      <div
+        id="wizard-error"
+        class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 shadow-sm dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-100"
+        role="alert"
+        aria-live="assertive"
+        tabindex="-1"
+      >
+        <p class="font-semibold" data-i18n="wizardErrorTitle">Sorry — something broke on our side.</p>
+        <p class="mt-1" data-i18n="wizardErrorBody">Please email support@kdsx.uz or bekzodturgunoff@gmail.com so we can finish your request manually.</p>
+      </div>
+
       <form id="wizard-form" class="mt-6 space-y-6">
         <!-- Step 1: Name -->
         <div data-step="0" class="step-panel">
@@ -183,6 +194,27 @@
       return (dict[key] ?? '');
     };
 
+    const errorBox = document.getElementById('wizard-error');
+    const errorTitleEl = errorBox?.querySelector('[data-i18n="wizardErrorTitle"]');
+    const errorBodyEl = errorBox?.querySelector('[data-i18n="wizardErrorBody"]');
+    const ERROR_TITLE_FALLBACK = 'Sorry — something broke on our side.';
+    const ERROR_BODY_FALLBACK = 'Please email support@kdsx.uz or bekzodturgunoff@gmail.com so we can finish your request manually.';
+    const refreshErrorCopy = () => {
+      if (!errorBox) return;
+      if (errorTitleEl) errorTitleEl.textContent = t('wizardErrorTitle') || ERROR_TITLE_FALLBACK;
+      if (errorBodyEl) errorBodyEl.textContent = t('wizardErrorBody') || ERROR_BODY_FALLBACK;
+    };
+    const hideErrorMessage = () => {
+      if (!errorBox) return;
+      errorBox.classList.add('hidden');
+    };
+    const showErrorMessage = () => {
+      if (!errorBox) return;
+      refreshErrorCopy();
+      errorBox.classList.remove('hidden');
+      try { errorBox.focus(); } catch (_) {}
+    };
+
     const applyPlaceholders = () => {
       document.querySelectorAll('[data-i18n-placeholder]')?.forEach((el) => {
         const key = el.getAttribute('data-i18n-placeholder');
@@ -264,6 +296,7 @@
       }
       modal.classList.remove('hidden');
       showStep(0);
+      hideErrorMessage();
       setBodyScroll(true);
       requestAnimationFrame(() => {
         const first = panels[0].querySelector('input');
@@ -298,6 +331,7 @@
       modal.classList.add('hidden');
       setBodyScroll(false);
       form?.reset();
+      hideErrorMessage();
       const success = document.getElementById('wizard-success');
       success?.classList.add('hidden');
       if (keydownHandler) { document.removeEventListener('keydown', keydownHandler); keydownHandler = null; }
@@ -374,6 +408,7 @@
 
       try {
         analytics('wizard_submit', { plan });
+        hideErrorMessage();
         submitBtn.disabled = true;
         next.disabled = true;
         back.disabled = true;
@@ -399,6 +434,7 @@
         form.classList.add('hidden');
         const success = document.getElementById('wizard-success');
         success?.classList.remove('hidden');
+        hideErrorMessage();
         try { localStorage.removeItem(LS_KEY); } catch(_) {}
       } catch (err) {
         console.error('Failed to submit lead', err);
@@ -408,16 +444,21 @@
         next.disabled = false;
         back.disabled = step === 0;
         submitBtn.textContent = t('wizardSubmit') || 'Request demo';
-        alert(t('wizardError') || 'Something went wrong. Please try again. We opened your email client so you can send the request manually.');
+        showErrorMessage();
       }
     });
 
     document.getElementById('wizard-success-close')?.addEventListener('click', close);
 
     document.querySelectorAll('.lang-select')?.forEach((sel) => {
-      sel.addEventListener('change', () => setTimeout(() => { applyPlaceholders(); applyAriaLabels(); }, 50));
+      sel.addEventListener('change', () => setTimeout(() => {
+        applyPlaceholders();
+        applyAriaLabels();
+        refreshErrorCopy();
+      }, 50));
     });
     applyPlaceholders();
     applyAriaLabels();
+    refreshErrorCopy();
   })();
 </script>

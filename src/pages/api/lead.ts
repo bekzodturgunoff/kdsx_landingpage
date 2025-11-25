@@ -48,51 +48,11 @@ export const POST: APIRoute = async ({ request }) => {
       .split(',')
       .map((s) => s.trim())
       .filter(Boolean);
-    const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
-    // Optional storage in Supabase (recommended to use SERVICE_ROLE key)
-    const SUPABASE_URL = process.env.SUPABASE_URL;
-    const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
 
-    let stored = false;
     let delivered = false;
 
     const failureReasons: string[] = [];
 
-    // Store in Supabase if configured
-    if (SUPABASE_URL && SUPABASE_KEY) {
-      try {
-        const supabaseResp = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
-          method: 'POST',
-          headers: {
-            apikey: SUPABASE_KEY,
-            Authorization: `Bearer ${SUPABASE_KEY}`,
-            'Content-Type': 'application/json',
-            Prefer: 'return=minimal',
-          },
-          body: JSON.stringify({
-            plan: payload.plan,
-            full_name: payload.fullName,
-            business_name: payload.businessName,
-            locations: payload.locations,
-            service_style: payload.serviceStyle,
-            current_pos: payload.currentPos,
-            desired_username: payload.desiredUsername,
-            phone: payload.phone,
-            email: payload.email,
-            telegram: payload.telegram,
-            kakaotalk: payload.kakaotalk,
-            submitted_at: payload.timestamp,
-          }),
-        });
-        stored = supabaseResp.ok;
-        if (!supabaseResp.ok) {
-          failureReasons.push(`Supabase returned ${supabaseResp.status}`);
-        }
-      } catch (error) {
-        stored = false;
-        failureReasons.push(`Supabase error: ${error instanceof Error ? error.message : String(error)}`);
-      }
-    }
     // Try email via Resend if configured
     if (RESEND_API_KEY) {
       try {
@@ -128,33 +88,15 @@ export const POST: APIRoute = async ({ request }) => {
       failureReasons.push('Resend API key not configured');
     }
 
-    // Optionally notify Slack (or any webhook)
-    if (SLACK_WEBHOOK_URL) {
-      try {
-        const slackResponse = await fetch(SLACK_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: `New KDSX lead:\n${lines.join('\n')}` }),
-        });
-        if (!slackResponse.ok) {
-          failureReasons.push(`Slack webhook returned ${slackResponse.status}`);
-        } else {
-          delivered = true;
-        }
-      } catch (error) {
-        failureReasons.push(`Slack error: ${error instanceof Error ? error.message : String(error)}`);
-      }
-    }
-
     if (!delivered) {
       const errorMessage = failureReasons.join(' | ') || 'No notification channel succeeded.';
-      return new Response(JSON.stringify({ ok: false, stored, delivered, error: errorMessage }), {
+      return new Response(JSON.stringify({ ok: false, delivered, error: errorMessage }), {
         status: failureReasons.length ? 502 : 501,
         headers: { 'content-type': 'application/json' },
       });
     }
 
-    return new Response(JSON.stringify({ ok: true, delivered: true, stored }), {
+    return new Response(JSON.stringify({ ok: true, delivered: true }), {
       headers: { 'content-type': 'application/json' },
     });
   } catch (err) {

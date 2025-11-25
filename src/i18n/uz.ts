@@ -276,6 +276,8 @@ export const uz = {
   wizardSubmit: "Yuborish",
   wizardSubmitting: "Yuborilmoqda…",
   wizardError: "Xato yuz berdi. Iltimos, qayta urinib ko‘ring.",
+  wizardErrorTitle: "Kechirasiz, xizmatimizda nosozlik yuz berdi.",
+  wizardErrorBody: "Forma tuzatilayotganda support@kdsx.uz yoki bekzodturgunoff@gmail.com manziliga yozing — so‘rovingizni qo‘lda yakunlaymiz.",
   wizardSuccessMessage:
     "Rahmat! So‘rovingiz qabul qilindi. Demo akkaunt ma’lumotlari tanlagan aloqangiz orqali yuboriladi. Istagan vaqtda Pro rejaga o‘tishingiz mumkin.",
   wizardSuccessCta: "Yopish",

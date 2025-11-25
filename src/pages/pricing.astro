@@ -16,10 +16,9 @@ import FAQ from '../components/FAQ.astro';
   <p class="mt-4 text-base sm:text-lg leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="pricingPageLead">Compare bundles, add-ons, and rollout support. Every tier includes onboarding, 24/7 coverage, and full access to the wizard for tailored setups.</p>
       </div>
     </section>
-    <PricingTable>
-      <Fragment slot="faq">
-        <FAQ />
-      </Fragment>
-    </PricingTable>
+    <PricingTable />
+    <div class="hidden md:block">
+      <FAQ />
+    </div>
   </main>
 </Layout>

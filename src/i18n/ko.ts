@@ -274,6 +274,8 @@ export const ko = {
   wizardSubmit: "데모 요청",
   wizardSubmitting: "제출 중…",
   wizardError: "오류가 발생했습니다. 다시 시도해주세요.",
+  wizardErrorTitle: "죄송합니다. 지금 오류가 발생했습니다.",
+  wizardErrorBody: "폼을 고치는 동안 support@kdsx.uz 또는 bekzodturgunoff@gmail.com 으로 메일을 보내주시면 요청을 마무리해 드립니다.",
   wizardSuccessMessage:
     "요청이 접수되었습니다. 설정된 연락처로 데모 계정 정보가 전송됩니다. 데모 후 언제든 프로로 전환할 수 있습니다.",
   wizardSuccessCta: "닫기",

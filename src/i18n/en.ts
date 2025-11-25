@@ -274,6 +274,8 @@ export const en = {
   wizardSubmit: "Request demo",
   wizardSubmitting: "Submitting…",
   wizardError: "Something went wrong. Please try again.",
+  wizardErrorTitle: "Sorry — something broke on our side.",
+  wizardErrorBody: "Please email support@kdsx.uz or bekzodturgunoff@gmail.com so we can finish your request manually.",
   wizardSuccessMessage:
     "Thanks — your request has been received. Demo login details will be sent via your preferred contact. You can switch to Pro anytime after the demo.",
   wizardSuccessCta: "Close",
