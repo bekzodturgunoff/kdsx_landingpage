@@ -15,10 +15,10 @@ export const ko = {
 
   heroMetricDowntimeTitle: "지연 감소",
   heroMetricDowntimeCopy:
-    "다점포 팀은 KDSX 도입 첫 달부터 티켓 지연이 눈에 띄게 줄었습니다.",
+    "다점포 팀은 KDSX와 함께 첫 달 안에 티켓 지연을 줄입니다.",
   heroMetricInventoryTitle: "정확한 재고",
   heroMetricInventoryCopy:
-    "실시간 재고로 준비, 발주, 서비스가 항상 일치합니다.",
+    "실시간 수량이 전체 운영을 한 흐름으로 정렬합니다.",
   heroMetricRoiTitle: "빠른 ROI",
   heroMetricRoiCopy:
     "대부분의 팀이 분기 내에 투자 비용을 회수합니다.",
@@ -124,7 +124,7 @@ export const ko = {
     "실시간 대시보드로 준비량을 조정하고 팀과 필요한 정보를 즉시 공유하세요.",
 
   testimonialsBadge: "고객 후기",
-  testimonialsHeading: "KDSX로 더 안정적으로 운영하는 팀 이야기",
+  testimonialsHeading: "레스토랑 운영자들이 KDSX로 더 매끄럽게 운영합니다",
   testimonialsBody:
     "불필요한 마찰을 줄여 직원들이 소프트웨어가 아닌 손님에게 집중할 수 있도록 돕습니다.",
 

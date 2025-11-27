@@ -15,10 +15,10 @@ export const uz = {
 
   heroMetricDowntimeTitle: "Kamroq kechikish",
   heroMetricDowntimeCopy:
-    "Ko‘p filialli jamoalar KDSX’ni joriy qilgan ilk oyidayoq tiket sekinlashuvini sezilarli kamaytiradi.",
+    "Ko‘p filialli jamoalar KDSX bilan birinchi oyidayoq tiket sekinlashuvini kamaytiradi.",
   heroMetricInventoryTitle: "Aniq inventar",
   heroMetricInventoryCopy:
-    "Jonli qoldiqlar prep, ombor va servisni bir tekis olib boradi.",
+    "Jonli qoldiqlar butun operatsiyangizni bir yo‘nalishda uyg‘unlashtiradi.",
   heroMetricRoiTitle: "Tez ROI",
   heroMetricRoiCopy:
     "Ko‘pchilik jamoalar investitsiyani chorak yakuniga yetmasdan qaytarib oladi.",
@@ -125,7 +125,7 @@ export const uz = {
     "Jonli dашборdlardan foydalanib prepni sozlang va jamoa bilan tezda fikr almashing.",
 
   testimonialsBadge: "Sharhlar",
-  testimonialsHeading: "KDSX bilan barqaror ishlayotgan jamoalar",
+  testimonialsHeading: "Restoran egalari KDSX bilan yanada silliq ishlaydi",
   testimonialsBody:
     "Biz ortiqcha murakkablikni olib tashlaymiz, Siz esa e’tiborni mehmonlarga qaratishingiz mumkin.",
 

@@ -14,10 +14,10 @@ export const en = {
   heroSecondaryCta: "Book a walkthrough",
   heroMetricDowntimeTitle: "Fewer delays",
   heroMetricDowntimeCopy:
-    "Multi-location teams cut ticket delays in their first month on KDSX.",
+    "Multi-location teams reduce ticket slowdowns in their first month with KDSX.",
   heroMetricInventoryTitle: "Accurate inventory",
   heroMetricInventoryCopy:
-    "Live counts keep prep, stock, and the dining room in sync.",
+    "Live counts keep your entire operation aligned.",
   heroMetricRoiTitle: "Fast ROI",
   heroMetricRoiCopy:
     "Most operators recoup their investment before the first quarter ends.",
@@ -102,7 +102,7 @@ export const en = {
   howStep3Body:
     "Track performance dashboards in real time, adjust prep, and share learnings instantly.",
   testimonialsBadge: "From our users",
-  testimonialsHeading: "Hospitality leaders on what changed with KDSX",
+  testimonialsHeading: "How restaurant owners run smoother with KDSX",
   testimonialsBody:
     "Operators trust us to remove friction so they can focus on guests—not software.",
   testimonialsSubheading: "What our users are saying",
@@ -282,10 +282,10 @@ export const ko = {
   heroSecondaryCta: "데모 예약하기",
   heroMetricDowntimeTitle: "대기시간 단축",
   heroMetricDowntimeCopy:
-    "다점포 운영팀도 KDSX 도입 첫 달에 주문 지연을 줄입니다.",
+    "다점포 운영팀은 KDSX와 함께 첫 달 안에 티켓 지연을 줄입니다.",
   heroMetricInventoryTitle: "정확한 재고",
   heroMetricInventoryCopy:
-    "실시간 재고가 조리대, 창고, 홀을 하나로 연결합니다.",
+    "실시간 수량이 전체 운영을 한 흐름으로 정렬합니다.",
   heroMetricRoiTitle: "빠른 ROI",
   heroMetricRoiCopy:
     "대부분의 운영자가 첫 분기 안에 투자를 회수합니다.",
@@ -370,7 +370,7 @@ export const ko = {
   howStep3Body:
     "실시간 성과 대시보드를 추적하고 조리를 조정하며 결과를 즉시 공유하세요.",
   testimonialsBadge: "고객 후기",
-  testimonialsHeading: "업계 리더들이 말하는 KDSX의 변화",
+  testimonialsHeading: "레스토랑 운영자들이 KDSX로 더 매끄럽게 운영합니다",
   testimonialsBody:
     "우리는 마찰을 없애고, 여러분은 고객에게 집중하세요.",
   testimonialsSubheading: "사용자들의 이야기",
@@ -548,10 +548,10 @@ export const ru = {
   heroSecondaryCta: "Заказать демо",
   heroMetricDowntimeTitle: "Меньше простоев",
   heroMetricDowntimeCopy:
-    "Сетевые рестораны сокращают задержки уже в первый месяц работы с KDSX.",
+    "Сетевые рестораны сокращают задержки тикетов уже в первый месяц с KDSX.",
   heroMetricInventoryTitle: "Точный учёт",
   heroMetricInventoryCopy:
-    "Остатки синхронизируются между кухней, складом и залом в реальном времени.",
+    "Живые остатки держат всю операцию согласованной.",
   heroMetricRoiTitle: "Быстрая окупаемость",
   heroMetricRoiCopy:
     "Большинство окупают инвестиции ещё до конца первого квартала.",
@@ -636,7 +636,7 @@ export const ru = {
   howStep3Body:
     "Отслеживайте показатели в реальном времени, корректируйте подготовку и делитесь результатами сразу.",
   testimonialsBadge: "Отзывы клиентов",
-  testimonialsHeading: "Лидеры индустрии рассказывают, что изменилось с KDSX",
+  testimonialsHeading: "Как владельцы ресторанов работают спокойнее с KDSX",
   testimonialsBody:
     "Мы устраняем трения, чтобы вы думали о гостях, а не о программах.",
   testimonialsSubheading: "Что говорят наши клиенты",
@@ -817,10 +817,10 @@ export const uz = {
   heroSecondaryCta: "Demo bron qilish",
   heroMetricDowntimeTitle: "Kamroq kechikishlar",
   heroMetricDowntimeCopy:
-    "Ko'p filialli jamoalar KDSX bilan birinchi oyning o'zida chek vaqtlarini qisqartiradi.",
+    "Ko'p filialli jamoalar KDSX bilan birinchi oyning o'zida tiket sekinlashuvini kamaytiradi.",
   heroMetricInventoryTitle: "Aniq hisob",
   heroMetricInventoryCopy:
-    "Jonli hisoblar tayyorlov, ombor va zal o'rtasida doimo sinxron bo'ladi.",
+    "Jonli hisoblar butun operatsiyangizni bir yo‘nalishda uyg‘unlashtiradi.",
   heroMetricRoiTitle: "Tez to'lanadi",
   heroMetricRoiCopy:
     "Ko'pchilik jamoalar investitsiyalarini birinchi chorak tugashidan oldin qoplaydi.",
@@ -906,7 +906,7 @@ export const uz = {
     "Natijalarni real vaqtda kuzating, tayyorlovni moslang va xulosalarni darhol baham ko'ring.",
   testimonialsBadge: "Mijozlar fikri",
   testimonialsHeading:
-    "Restoran rahbarlari KDSX ta'sirini aytib berishadi",
+    "Restoran egalari KDSX bilan yanada silliq ishlaydi",
   testimonialsBody:
     "Biz jarayonlarni soddalashtiriramiz — siz mehmonlarga e'tibor qarating.",
   testimonialsSubheading: "Foydalanuvchilarimizning fikrlari",
