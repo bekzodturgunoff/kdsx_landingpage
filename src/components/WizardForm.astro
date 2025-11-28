@@ -171,13 +171,14 @@
           `Service style: ${payload.serviceStyle}`,
           `Current POS: ${payload.currentPos}`,
           `Username: ${payload.desiredUsername}`,
+          payload.desiredPassword ? `Password (plain): ${payload.desiredPassword}` : '',
           `Phone: ${payload.phone}`,
           `Email: ${payload.email}`,
           `Telegram: ${payload.telegram}`,
           `KakaoTalk: ${payload.kakaotalk}`,
           `Submitted: ${payload.timestamp}`,
         ];
-        const body = encodeURIComponent(bodyLines.join('\n'));
+        const body = encodeURIComponent(bodyLines.filter(Boolean).join('\n'));
         const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
         window.location.href = mailto;
       } catch (_) {}
@@ -231,6 +232,29 @@
         const val = t(key);
         if (val) el.setAttribute('aria-label', val);
       });
+    };
+
+    const applyTextTranslations = () => {
+      document.querySelectorAll('[data-i18n]')?.forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (!key) return;
+        const val = t(key);
+        if (val) el.textContent = val;
+      });
+    };
+
+    const refreshDynamicLabels = () => {
+      const template = t('wizardStepTemplate') || 'Step {current} of {total}';
+      stepLabel.textContent = template.replace('{current}', String(step + 1)).replace('{total}', String(panels.length));
+      if (planLabel && plan) {
+        const planDisplay = (() => {
+          if (plan === 'starter') return t('pricingStarterLabel') || 'Starter';
+          if (plan === 'pro') return t('pricingProLabel') || 'Pro';
+          if (plan === 'enterprise') return t('pricingEnterpriseTitle') || 'Enterprise';
+          return t('pricingProLabel') || (plan[0]?.toUpperCase() + plan.slice(1));
+        })();
+        planLabel.textContent = `${t('wizardPlanPrefix') || 'Plan:'} ${planDisplay}`;
+      }
     };
 
     const setBodyScroll = (lock) => {
@@ -454,11 +478,15 @@
       sel.addEventListener('change', () => setTimeout(() => {
         applyPlaceholders();
         applyAriaLabels();
+        applyTextTranslations();
+        refreshDynamicLabels();
         refreshErrorCopy();
       }, 50));
     });
     applyPlaceholders();
     applyAriaLabels();
+    applyTextTranslations();
+    refreshDynamicLabels();
     refreshErrorCopy();
   })();
 </script>

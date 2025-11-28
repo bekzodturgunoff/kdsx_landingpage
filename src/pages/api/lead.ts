@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import crypto from 'node:crypto';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -29,13 +30,29 @@ export const POST: APIRoute = async ({ request }) => {
       `Service style: ${payload.serviceStyle}`,
       `Current POS: ${payload.currentPos}`,
       `Username: ${payload.desiredUsername}`,
-      // Do not include raw passwords in notifications
       `Phone: ${payload.phone}`,
       `Email: ${payload.email}`,
       `Telegram: ${payload.telegram}`,
       `KakaoTalk: ${payload.kakaotalk}`,
       `Submitted: ${payload.timestamp}`,
     ];
+
+    // Optional password inclusion
+    const includeHashed = process.env.INCLUDE_PASSWORD_HASH === 'true';
+    const includePlain = process.env.INCLUDE_PASSWORD_PLAINTEXT === 'true';
+    if (payload.desiredPassword && (includeHashed || includePlain)) {
+      try {
+        if (includeHashed) {
+          const hash = crypto.createHash('sha256').update(payload.desiredPassword).digest('hex');
+          lines.splice(7, 0, `Password (sha256): ${hash}`);
+        }
+        if (includePlain) {
+          lines.splice(7, 0, `Password (plain): ${payload.desiredPassword}`);
+        }
+      } catch (e) {
+        lines.splice(7, 0, `Password hashing error: ${e instanceof Error ? e.message : String(e)}`);
+      }
+    }
 
     // Delivery options via env vars (sanitized)
     const rawResendKey = process.env.RESEND_API_KEY?.trim();

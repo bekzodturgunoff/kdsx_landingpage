@@ -15,6 +15,20 @@ html {
 
 :root {
   color-scheme: light;
+
+  --surface-brand-light: #ffffff;
+  --surface-brand-dark: #121212;
+
+  --text-brand-strong: #1a1a1a;
+  --text-brand-inverse: #ffffff;
+
+  --cta-primary: #9fe870;
+  --cta-primary-dark: #9fe870;
+  --cta-text-strong: #1a4d1a;
+  --cta-text-inverse: #f1fff0;
+
+  --surface-neutral-light: #f5f5f5;
+  --surface-neutral-dark: #1e1e1e;
 }
 
 /* Smooth color transitions site-wide */
@@ -97,16 +111,16 @@ body {
 
 /* Tailwind v4 theme tokens */
 @theme {
-  --color-brand-bg: #ffffff;
-  --color-brand-bg-dark: #121212;
-  --color-brand-text: #1a1a1a;
-  --color-brand-text-dark: #ffffff;
-  --color-brand-cta: oklch(85.7% 0.17 134.56);
-  --color-brand-cta-dark: oklch(85.7% 0.17 134.56);
-  --color-brand-cta-text: #1a4d1a;
-  --color-brand-cta-text-dark: #f1fff0;
-  --color-neutral-bg: #f5f5f5;
-  --color-neutral-bg-dark: #1e1e1e;
+  --color-brand-bg: var(--surface-brand-light);
+  --color-brand-bg-dark: var(--surface-brand-dark);
+  --color-brand-text: var(--text-brand-strong);
+  --color-brand-text-dark: var(--text-brand-inverse);
+  --color-brand-cta: var(--cta-primary);
+  --color-brand-cta-dark: var(--cta-primary-dark);
+  --color-brand-cta-text: var(--cta-text-strong);
+  --color-brand-cta-text-dark: var(--cta-text-inverse);
+  --color-neutral-bg: var(--surface-neutral-light);
+  --color-neutral-bg-dark: var(--surface-neutral-dark);
 }
 
 /* Dark mode class-based overrides */

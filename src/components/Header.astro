@@ -15,17 +15,17 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
         </a>
       </div>
 
-      <!-- Desktop nav: anchor links to sections on index page -->
+      <!-- Desktop nav: anchor links to sections on index page (smooth scroll) -->
       <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70" aria-label="Primary">
-        <a href="/#features" class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
+        <a href="/#features" data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
           <span class="inline-block">Features</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-        <a href="/#pricing" class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
+        <a href="/#pricing" data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
           <span class="inline-block">Pricing</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-        <a href="/#faq" class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
+        <a href="/#faq" data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
           <span class="inline-block">FAQ</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
@@ -316,6 +316,28 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
     bindTheme();
     bindMenu();
     bindLanguage();
+    // Smooth-scroll desktop anchors; mobile keeps normal navigation to pages
+    (function bindDesktopScroll(){
+      const anchors = document.querySelectorAll('nav[aria-label="Primary"] a[data-scroll]');
+      anchors.forEach((a) => {
+        if ((a)._boundScroll) return;
+        a.addEventListener('click', (e) => {
+          const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+          if (!isDesktop) return; // allow normal nav on mobile
+          const href = a.getAttribute('href') || '';
+          if (!href.startsWith('/#')) return;
+          e.preventDefault();
+          const id = href.replace('/#', '');
+          const target = document.getElementById(id);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            window.location.href = href;
+          }
+        });
+        (a)._boundScroll = true;
+      });
+    })();
     window.addEventListener('pageshow', () => {
       bindTheme();
       bindMenu();

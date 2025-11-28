@@ -1,12 +1,10 @@
 ---
-// Accept lang via props from parent pages (Layout propagates URL ?lang)
-// Hero uses client-side data-i18n translation; SSR translation logic removed to avoid duplicate text
+
 ---
 <section class="relative w-full px-2 sm:px-5 pb-10 pt-6 sm:py-10">
   <div class="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-brand-cta/10 to-transparent opacity-50"></div>
   <div class="max-w-6xl mx-auto section-shell px-4 sm:px-8 md:px-10 pb-10 pt-6 sm:py-14 md:py-16">
     <div class="flex flex-col items-center gap-8 sm:gap-12">
-      <!-- Visual -->
       <div class="relative flex w-full items-center justify-center">
         <div class="absolute inset-0 -z-10 rounded-[36px] bg-gradient-to-br from-brand-cta/12 via-white/25 to-transparent blur-3xl"></div>
         <img
@@ -17,7 +15,6 @@
         />
       </div>
 
-      <!-- Copy -->
       <div class="flex w-full flex-col items-center text-center">
     <span class="badge-pill mb-3 sm:mb-5" data-i18n="heroBadge">Restaurant POS platform</span>
     <h1 class="max-w-4xl text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.1] sm:leading-[1.05] text-brand-text dark:text-brand-text-dark" data-i18n="heroHeading">Manage your finances and operations from one KDSX hub</h1>
