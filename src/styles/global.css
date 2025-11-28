@@ -59,6 +59,23 @@ html {
   --color-bg-light-alt-rgb: 248 253 248;
   --color-bg-offwhite-rgb: 241 255 240;
   --color-green-soft-1-rgb: 173 189 176;
+
+  --motion-speed-fast: 45ms;
+  --motion-speed-review: 600ms;
+}
+
+/* Clamp global motion so everything is instant except the review slider */
+*,
+*::before,
+*::after {
+  transition-duration: var(--motion-speed-fast) !important;
+  animation-duration: var(--motion-speed-fast) !important;
+}
+
+.testimonial-track,
+.testimonial-track * {
+  transition-duration: var(--motion-speed-review) !important;
+  animation-duration: var(--motion-speed-review) !important;
 }
 
 /* Smooth color transitions site-wide */
@@ -68,8 +85,9 @@ header,
 main,
 section,
 footer {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  transition: background-color var(--motion-speed-fast) ease,
+    color var(--motion-speed-fast) ease,
+    border-color var(--motion-speed-fast) ease;
 }
 
 body {
