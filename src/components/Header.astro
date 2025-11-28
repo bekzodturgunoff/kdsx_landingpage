@@ -45,11 +45,11 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
         </div>
         <!-- Segmented Theme Switcher (Desktop) -->
         <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
-          <button data-theme-option="light" type="button" aria-label="Use light theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+          <button data-theme-option="light" type="button" aria-label="Use light theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-cta-text-dark">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
             <span>Light</span>
           </button>
-          <button data-theme-option="dark" type="button" aria-label="Use dark theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+          <button data-theme-option="dark" type="button" aria-label="Use dark theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-[var(--color-green-dark)]">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <span>Dark</span>
           </button>
@@ -74,7 +74,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
           type="button"
           data-theme-cycle
           aria-label="Theme"
-          class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-cta-text/25 bg-white/70 text-brand-text shadow-sm transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark"
+          class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-cta-text/25 bg-white/70 text-brand-text shadow-sm transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:border-white/15 dark:bg-white/10 dark:text-[var(--color-green-dark)]"
         >
           <span data-icon="light" class="block">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
@@ -83,7 +83,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </span>
         </button>
-        <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-cta/15 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-brand-cta-text-dark/20 dark:text-brand-text-dark">
+        <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" class="flex h-9 w-9 items-center justify-center rounded-full bg-brand-cta/15 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-brand-cta-text-dark/20 dark:text-[var(--color-green-dark)]">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -102,12 +102,12 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
 
       <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
         <div class="flex items-center justify-between gap-3">
-          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">Toggle theme</span>
+          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-[var(--color-green-dark)]" data-i18n="navThemeToggle">Toggle theme</span>
           <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
-            <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+            <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-cta-text-dark">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
             </button>
-            <button data-theme-option="dark" type="button" aria-label="Dark" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+            <button data-theme-option="dark" type="button" aria-label="Dark" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-[var(--color-green-dark)]">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
           </div>
