@@ -273,7 +273,7 @@ export const en = {
 
   wizardBack: "Previous",
   wizardNext: "Next",
-  wizardSubmit: "Submit Request",
+  wizardSubmit: "Submit",
   wizardSubmitting: "Processing...",
   wizardError: "An error occurred. Please try again",
   wizardErrorTitle: "Submission Failed",

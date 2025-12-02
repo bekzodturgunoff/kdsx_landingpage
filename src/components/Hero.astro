@@ -8,10 +8,14 @@
       <div class="relative flex w-full items-center justify-center">
         <div class="absolute inset-0 -z-10 rounded-[36px] bg-gradient-to-br from-brand-cta/12 via-white/25 to-transparent blur-3xl"></div>
         <img
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
           src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png"
           alt="Immersive tabletop POS experience presenting curated menu pathways"
-          class="relative w-full max-w-[1100px] rounded-[28px]"
+          width="1100"
+          height="700"
+          class="relative w-full max-w-[1100px] rounded-[28px] object-cover"
         />
       </div>
 

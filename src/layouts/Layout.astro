@@ -89,6 +89,56 @@ import WizardForm from '../components/WizardForm.astro';
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
   <slot />
     
+    <script is:inline>
+      // Lightweight i18n loader: applies JSON translations to data-i18n elements.
+      (function () {
+        const getCookie = (name) => {
+          const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
+          return m ? decodeURIComponent(m[1]) : null;
+        };
+        const supported = ['en', 'uz', 'ru', 'ko'];
+        const lang = (getCookie('lang') || navigator.language?.slice(0,2) || 'en').toLowerCase();
+        const resolved = supported.includes(lang) ? lang : 'en';
+        document.documentElement.setAttribute('lang', resolved);
+
+        const applyTranslations = (dict) => {
+          if (!dict) return;
+          const nodes = document.querySelectorAll('[data-i18n]');
+          nodes.forEach((el) => {
+            const key = el.getAttribute('data-i18n');
+            if (!key) return;
+            const val = dict[key];
+            if (typeof val === 'string' && val.length) {
+              // Replace only text content to preserve nested icons/spans
+              if (el.childElementCount === 0) {
+                el.textContent = val;
+              } else {
+                // Find a direct text node to update, otherwise set aria-label
+                let updated = false;
+                for (const node of el.childNodes) {
+                  if (node.nodeType === Node.TEXT_NODE) {
+                    node.textContent = val;
+                    updated = true;
+                    break;
+                  }
+                }
+                if (!updated) el.setAttribute('aria-label', val);
+              }
+            }
+          });
+        };
+
+        const preloadEN = () => fetch('/locales/en/landing.json').then(r => r.ok ? r.json() : {}).catch(() => ({}));
+        const loadLang = (l) => fetch(`/locales/${l}/landing.json`).then(r => r.ok ? r.json() : {}).catch(() => ({}));
+
+        // Preload English to ensure keys consistency (fallback already static in DOM)
+        preloadEN().then(() => {
+          if (resolved === 'en') return; // English DOM fallback stays
+          loadLang(resolved).then(applyTranslations);
+        });
+      })();
+    </script>
+    
     <!-- Floating CTA Button (Mobile Only) - Must be before WizardForm for event binding -->
     <div id="floating-cta" class="fixed bottom-6 left-4 right-4 z-50 md:hidden opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
       <button data-plan-trigger="starter" class="w-full btn-solid py-4 text-base font-semibold shadow-lg shadow-brand-cta/30 flex items-center justify-center gap-2">
