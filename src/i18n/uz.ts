@@ -9,7 +9,7 @@ export const uz = {
   heroBadge: "KDSX Platformasi",
   heroHeading: "Bitta tizim Uch kuchli ilova To‘liq nazorat",
   heroBody:
-    "Bosh ofisni Dash bilan, xizmatni POS bilan, oshxonani Kitchen bilan tartibga keltiring. Hammasi avtomatik sinxronlashadi.",
+    "Bosh ofisni Dash bilan, xizmatni POS bilan, oshxonani Kitchen ilova bilan tartibga keltiring. Hammasi avtomatik sinxronlashadi.",
   heroPrimaryCta: "Bepul oyni boshlang",
   heroSecondaryCta: "Qanday ishlashini ko‘ring",
 
@@ -228,6 +228,7 @@ export const uz = {
   footerQuickLinksTitle: "Menyu",
   footerQuickLinkFeatures: "Xususiyatlar",
   footerQuickLinkPricing: "Narxlar",
+  footerQuickLinkFaq: "Savollar",
   footerQuickLinkTerms: "Shartlar",
   footerQuickLinkPrivacy: "Maxfiylik",
   footerRightsReserved: "Barcha huquqlar himoyalangan",
@@ -307,4 +308,44 @@ export const uz = {
   faqQ5: "Qanday yordam bor?",
   faqA5:
     "Barcha mijozlarga tezkor yordam beriladi. Pro — ustuvor chat/telefon qo‘llab-quvvatlashi, Enterprise — to‘liq hamrohlikni o‘z ichiga oladi.",
+
+  termsBadge: "Huquqiy",
+  termsHeading: "Xizmat ko‘rsatish shartlari",
+  termsIntro:
+    "Bu shartlar KDSX platformaga qanday kirish berishini va jamoalardan nimalar kutilishini tushuntiradi. Matn oddiy yozilgan, shuning uchun operatorlar huquqiy lug‘atsiz ham o‘qib chiqishi mumkin.",
+  termsSection1Title: "1. Akkauntlar va kirish",
+  termsSection1Body:
+    "Har bir restoran uchun alohida loginlar yaratiladi. Ularni xavfsiz saqlash va ruxsatsiz kirishdan shubhalansangiz bizga xabar berish sizning zimangizda. Bir nechta lokatsiyani boshqarayotgan bo‘lsangiz, support@kdsx.uz manziliga yozib SSO yoki batafsil rollarni so‘rashingiz mumkin.",
+  termsSection2Title: "2. To‘g‘ri foydalanish",
+  termsSection2Body:
+    "KDSXni joylaringizni boshqarish uchun ishlating. Infratuzilmani sinash, kirishni qayta sotish yoki bildirishnomalar orqali haqoratomuz xabarlar jo‘natish taqiqlanadi. Platformani yoki boshqa mijozlarni xavf ostiga qo‘yadigan akkauntlar vaqtincha to‘xtatilishi mumkin.",
+  termsSection3Title: "3. To‘lovlar",
+  termsSection3Body:
+    "Starter rejasi birinchi oy bepul. Pullik rejalar har oy yangilanadi va yetti kun oldin bekor qilinishi mumkin. Uskuna xaridlari alohida hisob-faktura bilan yuboriladi. Offline to‘lov kerak bo‘lsa, billing@kdsx.uz ga yozing.",
+  termsSection4Title: "4. Ma’lumotlar kimga tegishli",
+  termsSection4Body:
+    "KDSXda saqlanadigan menyu, inventar, savdo va mehmon ma’lumotlari sizga tegishli. Biz ular ustida faqat xizmatni taqdim etish va yaxshilash uchun ishlaymiz. So‘rovga binoan besh ish kuni ichida ma’lumotlarni ko‘chma formatda yuboramiz.",
+  termsSection5Title: "5. Yangilanishlar",
+  termsSection5Body:
+    "Biz tez yangilanamiz. Agar o‘zgarishlar foydalanishingizga sezilarli ta’sir etsa, billing kontaktini email orqali ogohlantiramiz. KDSXdan foydalanishni davom ettirsangiz, yangilangan shartlarni qabul qilgan bo‘lasiz.",
+
+  privacyBadge: "Maxfiylik",
+  privacyHeading: "Maxfiylik siyosati",
+  privacyIntro:
+    "Bu sahifa qanday ma’lumotlarni yig‘ishimiz, nima uchun kerakligi va jamoalar ularni qanday boshqarishi yoki o‘chirishi mumkinligini qisqacha bayon qiladi.",
+  privacySection1Title: "1. Yig‘iladigan ma’lumotlar",
+  privacySection1Body:
+    "Operatorlarning aloqa ma’lumotlari, joy haqidagi ma’lumot, menyu elementlari, inventar sanog‘i, buyurtmalar va qurilma telemetriyasini yig‘amiz. Telegram yoki KakaoTalk kabi ixtiyoriy kanallar faqat siz berganingizda saqlanadi.",
+  privacySection2Title: "2. Ma’lumotlardan foydalanish",
+  privacySection2Body:
+    "Bu ma’lumotlar boshqaruv panellari, ogohlantirishlar va avtomatlashtirishni quvvatlaydi. Prognoz va barqarorlikni yaxshilash uchun foydalanish naqshlarini anonimlashtirishimiz mumkin, lekin shaxsni aniqlovchi ma’lumotlarni uchinchi tomonga sotmaymiz.",
+  privacySection3Title: "3. Integratsiyalar va protsessorlar",
+  privacySection3Body:
+    "To‘lov, yetkazib berish yoki buxgalteriya integratsiyalarini yoqsangiz, hamkorlarga faqat kerakli minimal maydonlar yuboriladi. Amaldagi sub-protsessorlar va hududlar SOC 2 paketimizda keltirilgan — compliance@kdsx.uz manziliga yozib so‘rashingiz mumkin.",
+  privacySection4Title: "4. Saqlash va o‘chirish",
+  privacySection4Body:
+    "Obuna faol bo‘lganida operatsion ma’lumotlar ham faol qoladi. Bekor qilingach, zaxiralar 30 kun saqlanadi va regulatorlar talab qilmasa, o‘chiriladi. Istalgan payt o‘chirishni so‘rashingiz mumkin — bajarilgach xabar beramiz.",
+  privacySection5Title: "5. Savollar",
+  privacySection5Body:
+    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
 } as const;

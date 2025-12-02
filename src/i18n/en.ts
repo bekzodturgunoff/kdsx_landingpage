@@ -9,7 +9,7 @@ export const en = {
   heroBadge: "The KDSX Platform",
   heroHeading: "One system Three powerful apps Total control",
   heroBody:
-    "Run the back office with Dash, keep service moving with POS, and bring order to your kitchen with Kitchen. Everything stays in sync automatically.",
+    "Run the back office with Dash, keep service moving with POS, and bring order to your kitchen with Kitchen App. Everything stays in sync automatically.",
   heroPrimaryCta: "Start Free Month",
   heroSecondaryCta: "See how it works",
 
@@ -231,6 +231,7 @@ export const en = {
   footerQuickLinksTitle: "Menu",
   footerQuickLinkFeatures: "Features",
   footerQuickLinkPricing: "Pricing",
+  footerQuickLinkFaq: "FAQ",
   footerQuickLinkTerms: "Terms",
   footerQuickLinkPrivacy: "Privacy",
   footerRightsReserved: "All rights reserved",
@@ -310,6 +311,46 @@ export const en = {
   faqQ5: "What support is available?",
   faqA5:
     "All customers receive responsive support and guidance. Pro adds priority chat and phone support; Enterprise includes white-glove assistance",
+
+  termsBadge: "Legal",
+  termsHeading: "Terms of Service",
+  termsIntro:
+    "These terms outline how KDSX provides access to the platform and what we expect from teams using it. We kept the language plain so operators can review it without a legal dictionary.",
+  termsSection1Title: "1. Accounts & access",
+  termsSection1Body:
+    "Each restaurant is provisioned with unique logins. You are responsible for keeping credentials safe and notifying us if you suspect unauthorized access. Multi-location operators can request SSO or granular role controls by emailing support@kdsx.uz.",
+  termsSection2Title: "2. Acceptable use",
+  termsSection2Body:
+    "Use KDSX to operate your venues, not to probe infrastructure, resell access, or send abusive content through our notification channels. We may suspend accounts that put the platform or other customers at risk.",
+  termsSection3Title: "3. Billing",
+  termsSection3Body:
+    "Starter is free for the first month. Paid plans renew monthly and can be cancelled with seven days notice. Hardware purchases are invoiced separately. Contact billing@kdsx.uz if you need offline payment options.",
+  termsSection4Title: "4. Data ownership",
+  termsSection4Body:
+    "You retain ownership of menus, inventory, sales data, and guest information you store in KDSX. We act as a processor, only using the data to provide and improve the service. Upon request we will export your data in a portable format within five business days.",
+  termsSection5Title: "5. Updates",
+  termsSection5Body:
+    "We iterate quickly. When we roll out changes that materially affect your use of the platform we will notify the billing contact via email. Your continued use of KDSX after updates constitutes acceptance of the revised terms.",
+
+  privacyBadge: "Privacy",
+  privacyHeading: "Privacy Policy",
+  privacyIntro:
+    "This page summarizes the data we collect, why we collect it, and how restaurant teams can control or remove their information.",
+  privacySection1Title: "1. Information we collect",
+  privacySection1Body:
+    "We gather operator contact details, venue metadata, menu items, inventory counts, orders, and device telemetry. Optional channels like Telegram or KakaoTalk are stored only when you provide them.",
+  privacySection2Title: "2. How we use data",
+  privacySection2Body:
+    "Data powers dashboards, alerts, and automations. We may anonymize usage patterns to improve forecasting and reliability but never sell identifiable information to third parties.",
+  privacySection3Title: "3. Integrations & processors",
+  privacySection3Body:
+    "When you enable payments, delivery, or accounting integrations we send only the minimum fields those partners require. Current sub-processors and regions are listed in our SOC 2 packet — request it at compliance@kdsx.uz.",
+  privacySection4Title: "4. Retention & deletion",
+  privacySection4Body:
+    "Operational data stays active while your subscription is live. We retain backups for 30 days after cancellation, then purge them unless regulators require a longer window. You can request deletion at any time and we will confirm once complete.",
+  privacySection5Title: "5. Questions",
+  privacySection5Body:
+    "Email privacy@kdsx.uz if you need a signed DPA, want to update contacts, or have compliance questions. We typically respond within one business day.",
 } as const;
 
 export type TranslationKey = keyof typeof en;

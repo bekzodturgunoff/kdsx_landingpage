@@ -9,7 +9,7 @@ export const ko = {
   heroBadge: "KDSX 플랫폼",
   heroHeading: "하나의 시스템 세 가지 강력한 앱 완전한 제어",
   heroBody:
-    "백오피스(Dash), 서비스(POS), 주방(Kitchen)을 하나로 연결하세요. 모든 것이 자동으로 동기화됩니다.",
+    "백오피스(Dash), 서비스(POS), 주방(Kitchen 앱)을 하나로 연결하세요. 모든 것이 자동으로 동기화됩니다.",
   heroPrimaryCta: "무료 한달 시작",
   heroSecondaryCta: "작동 방식 보기",
 
@@ -228,6 +228,7 @@ export const ko = {
   footerQuickLinksTitle: "메뉴",
   footerQuickLinkFeatures: "기능",
   footerQuickLinkPricing: "요금제",
+  footerQuickLinkFaq: "자주 묻는 질문",
   footerQuickLinkTerms: "약관",
   footerQuickLinkPrivacy: "개인정보",
   footerRightsReserved: "All rights reserved",
@@ -306,4 +307,44 @@ export const ko = {
   faqQ5: "어떤 지원을 받을 수 있나요?",
   faqA5:
     "모든 고객에게 빠른 지원을 제공합니다. 프로는 우선지원(채팅·전화)을 포함하고, 엔터프라이즈는 화이트글러브 서비스를 제공합니다.",
+
+  termsBadge: "법적 고지",
+  termsHeading: "이용 약관",
+  termsIntro:
+    "이 약관은 KDSX가 플랫폼 접근을 제공하는 방식과 팀이 지켜야 할 책임을 설명합니다. 법률 용어 없이도 이해할 수 있도록 간단한 언어로 작성했습니다.",
+  termsSection1Title: "1. 계정과 접근",
+  termsSection1Body:
+    "각 매장은 고유한 로그인 정보를 받습니다. 자격 증명을 안전하게 보관하고 무단 접근이 의심되면 즉시 알려주세요. 다점포 운영자는 support@kdsx.uz 로 이메일을 보내 SSO나 세분화된 역할 제어를 요청할 수 있습니다.",
+  termsSection2Title: "2. 허용되는 사용",
+  termsSection2Body:
+    "KDSX는 매장을 운영하기 위한 도구입니다. 인프라를 탐색하거나 접근을 재판매하거나 알림 채널로 부적절한 콘텐츠를 보내는 용도로 사용하지 마세요. 플랫폼이나 다른 고객에게 위험이 되는 계정은 중단될 수 있습니다.",
+  termsSection3Title: "3. 결제",
+  termsSection3Body:
+    "Starter 플랜은 첫 달 무료입니다. 유료 플랜은 매월 갱신되며 7일 전에 해지할 수 있습니다. 하드웨어 구매는 별도로 청구됩니다. 오프라인 결제가 필요하면 billing@kdsx.uz 로 연락하세요.",
+  termsSection4Title: "4. 데이터 소유권",
+  termsSection4Body:
+    "KDSX에 저장된 메뉴, 재고, 매출, 고객 정보의 소유권은 모두 여러분에게 있습니다. 우리는 서비스를 제공하고 개선하기 위해서만 데이터를 처리합니다. 요청 시 5영업일 이내에 휴대 가능한 형식으로 내보내 드립니다.",
+  termsSection5Title: "5. 업데이트",
+  termsSection5Body:
+    "우리는 빠르게 제품을 개선합니다. 사용 방식에 중대한 영향을 주는 변경 사항은 청구 담당자에게 이메일로 알립니다. 업데이트 이후에도 KDSX를 계속 사용하면 수정된 약관에 동의한 것으로 간주됩니다.",
+
+  privacyBadge: "개인정보",
+  privacyHeading: "개인정보 처리방침",
+  privacyIntro:
+    "우리가 어떤 데이터를 수집하고 왜 사용하는지, 그리고 팀이 정보를 어떻게 제어하거나 삭제할 수 있는지 요약합니다.",
+  privacySection1Title: "1. 수집하는 정보",
+  privacySection1Body:
+    "운영자 연락처, 매장 메타데이터, 메뉴 항목, 재고 수량, 주문, 기기 텔레메트리를 수집합니다. Telegram, KakaoTalk 같은 선택 채널은 제공한 경우에만 저장합니다.",
+  privacySection2Title: "2. 데이터 사용 방식",
+  privacySection2Body:
+    "데이터는 대시보드, 알림, 자동화를 구동합니다. 예측과 안정성을 개선하기 위해 사용 패턴을 익명화할 수 있지만 식별 가능한 정보를 제3자에게 판매하지 않습니다.",
+  privacySection3Title: "3. 통합 및 처리자",
+  privacySection3Body:
+    "결제, 배달, 회계 통합을 활성화하면 파트너가 요구하는 최소한의 필드만 전달합니다. 현재 하위 처리자와 지역은 SOC 2 패킷에 정리되어 있으며 compliance@kdsx.uz 로 요청하면 받을 수 있습니다.",
+  privacySection4Title: "4. 보관 및 삭제",
+  privacySection4Body:
+    "구독이 유지되는 동안 운영 데이터는 활성 상태로 남습니다. 해지 후 30일 동안 백업을 보관하고 규제가 더 긴 기간을 요구하지 않는 한 삭제합니다. 언제든 삭제를 요청할 수 있으며 완료되면 확인을 드립니다.",
+  privacySection5Title: "5. 문의",
+  privacySection5Body:
+    "서명된 DPA가 필요하거나 연락처를 업데이트하거나 컴플라이언스 질문이 있다면 privacy@kdsx.uz 로 이메일 주세요. 일반적으로 영업일 기준 하루 안에 답변합니다.",
 } as const;

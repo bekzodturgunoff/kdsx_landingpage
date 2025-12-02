@@ -27,3 +27,8 @@ dist-ssr
 .vercel/
 .vercel
 .env*.local
+# kdsx 
+
+kdsx/kdsx-dash-v2/
+kdsx/kdsx-kitchen-v2/
+kdsx/kdsx-pos-v2/
