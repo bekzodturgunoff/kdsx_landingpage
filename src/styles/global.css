@@ -456,9 +456,9 @@ body {
   }
 
   .dark .pro-card__inner {
-    background: var(--color-surface-soft);
+    /* background: var(--color-surface-soft); */
     color: var(--color-text-primary);
-    backdrop-filter: blur(18px);
+    /* backdrop-filter: blur(18px); */
   }
 
   .section-shell {
