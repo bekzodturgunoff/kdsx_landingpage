@@ -33,20 +33,21 @@ export const ko = {
   businessBody:
     "파편화된 도구를 더는 juggling 하지 마세요. KDSX는 관리, 서비스, 주방 운영을 하나의 연결된 시스템으로 통합합니다.",
 
-  businessCard1Title: "KDSX Dash",
-  businessCard1Heading: "백오피스 완전 제어",
+  // BusinessSection Cards - Generic feature benefits
+  businessCard1Title: "실행 가능한 인사이트",
+  businessCard1Heading: "실시간 데이터로 의사결정",
   businessCard1Body:
-    "재무, 메뉴, 재료, 재고, 권한을 관리하세요. Dash는 일매출부터 공급업체까지 비즈니스 전체를 한눈에 보여줍니다.",
+    "라이브 대시보드가 매출 추이, 재고 수준, 주문 흐름을 보여줍니다. 문제가 커지기 전에 조치할 수 있도록 알림을 받으세요.",
 
-  businessCard2Title: "KDSX POS",
-  businessCard2Heading: "모든 기능 한곳에",
+  businessCard2Title: "통합 관리",
+  businessCard2Heading: "모든 것이 한 공간에",
   businessCard2Body:
-    "바쁜 시간에도 빠르고 직관적인 UI. 주문을 신속히 만들고, 테이블을 시각적으로 관리하고, 티켓을 직원 간 이동하세요.",
+    "메뉴 업데이트, 주문 추적, 재고 관리, 주방 모니터링 — 앱이나 스프레드시트 전환 없이.",
 
-  businessCard3Title: "KDSX Kitchen",
-  businessCard3Heading: "동기화된 주방",
+  businessCard3Title: "팀 경험",
+  businessCard3Heading: "팀이 시간을 되찾습니다",
   businessCard3Body:
-    "주문이 즉시 표시됩니다. 항목을 맞는 스테이션으로 보내고, 조리 시간을 추적하고, 오해를 줄이며, 완료 건은 한 번에 정리하세요.",
+    "직관적 디자인으로 신입 직원도 몇 분 만에 주문을 받을 수 있습니다. 자동 동기화로 추가 회의나 인수인계 없이 모두가 정렬됩니다.",
 
   featuresBadge: "자세히 보기",
   featuresHeading: "레스토랑 모든 역할을 위한 설계",
@@ -54,27 +55,27 @@ export const ko = {
     "각 앱은 사장님, 서버, 주방팀의 실제 문제를 불필요한 복잡함 없이 해결합니다.",
 
   featuresCard1Tag: "Dash 앱",
-  featuresCard1Title: "데이터 기반 운영",
+  featuresCard1Title: "완전한 비즈니스 인텔리전스",
   featuresCard1Body:
-    "실시간 매출 리포트, 권한 제어, 카테고리/메뉴 구성으로 더 나은 결정을 내리세요.",
-  featuresCard1Pill1: "재무·이익",
+    "매출 추이, 베스트셀러 아이템, 시간대별 성과를 보여주는 실시간 대시보드에 접근하세요. 역할 기반 접근으로 직원 권한을 제어하세요. 카테고리, 변형, 재료로 전체 메뉴를 구성하세요. 주요 재료 소진 전 재고 알림을 설정하세요.",
+  featuresCard1Pill1: "매출 리포트",
   featuresCard1Pill2: "재고 알림",
-  featuresCard1Pill3: "권한 관리",
+  featuresCard1Pill3: "역할 관리",
 
   featuresCard2Tag: "POS 앱",
-  featuresCard2Title: "시각적 플로어 관리",
+  featuresCard2Title: "시각적 플로어 및 테이블 관리",
   featuresCard2Body:
-    "테이블 상태를 한눈에 — 사용중/예약/빈자리. 흐름을 끊지 않고 테이블 간 주문을 이동하세요.",
+    "색상으로 구분된 테이블 상태로 전체 플로어 플랜을 한눈에 파악하세요 — 초록은 빈자리, 노란색은 예약, 빨간색은 사용중. 몇 번의 탭으로 주문을 다른 테이블로 이동하거나 기존 주문과 합칠 수 있습니다. 사유 추적과 함께 분할 계산, 취소, 컴프를 처리하세요.",
 
   featuresCard3Tag: "Kitchen 앱",
-  featuresCard3Title: "지능형 스테이션 라우팅",
+  featuresCard3Title: "스마트 스테이션 라우팅",
   featuresCard3Body:
-    "음료는 바, 음식은 맞는 주방으로 자동 라우팅. 사운드 알림으로 놓침이 없습니다",
+    "설정에 따라 항목이 자동으로 적절한 조리 스테이션으로 전송됩니다 — 뜻거운 음식은 그릴로, 차가운 요리는 샐러드로, 음료는 바로. 각 스테이션은 자신의 티켓만 볼 수 있습니다. 내장 타이머로 각 주문의 대기 시간을 추적합니다. 새 주문 도착 시 오디오 알림이 직원에게 알립니다.",
 
   featuresCard4Tag: "재고",
-  featuresCard4Title: "자동으로 갱신되는 재고",
+  featuresCard4Title: "실시간 재고 관리",
   featuresCard4Body:
-    "Dash에서 공급·벤더·재고 수준을 관리하세요. 모든 판매가 재고를 즉시 업데이트합니다.",
+    "주문이 들어올 때마다 재고 수량이 자동으로 업데이트됩니다 — 수동 추적이 필요 없습니다. 최소 기준을 설정하고 소진되기 전에 알림을 받으세요. Dash에서 여러 창고 관리, 공급업체 납품 추적, 재고 조정이 모두 가능합니다.",
 
   mobileHighlightsBadge: "빠른 요약",
   mobileHighlightsHeading: "주머니 속 효율",
@@ -347,4 +348,12 @@ export const ko = {
   privacySection5Title: "5. 문의",
   privacySection5Body:
     "서명된 DPA가 필요하거나 연락처를 업데이트하거나 컴플라이언스 질문이 있다면 privacy@kdsx.uz 로 이메일 주세요. 일반적으로 영업일 기준 하루 안에 답변합니다.",
+
+  // Theme toggle
+  themeLight: "라이트",
+  themeDark: "다크",
+
+  // Step labels
+  stepLabel: "단계",
+  stepOf: "/",
 } as const;

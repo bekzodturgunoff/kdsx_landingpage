@@ -33,21 +33,21 @@ export const en = {
   businessBody:
     "Stop juggling disconnected tools. KDSX unifies your management, service, and kitchen operations into one connected system.",
 
-  // ★ More detailed, natural descriptions
-  businessCard1Title: "KDSX Dash",
-  businessCard1Heading: "Complete backend control",
+  // BusinessSection Cards - Generic feature benefits
+  businessCard1Title: "Actionable insights",
+  businessCard1Heading: "Make decisions with real-time data",
   businessCard1Body:
-    "Handle finances, build menus, manage ingredients, track stock, and control user access. Dash gives owners a clear overview of the entire business, from daily sales to supplier management.",
+    "Live dashboards show revenue trends, inventory levels, and order flow. Get alerts when something needs attention so you can act before problems grow.",
 
-  businessCard2Title: "KDSX POS",
-  businessCard2Heading: "Everything in one place",
+  businessCard2Title: "Unified management",
+  businessCard2Heading: "Everything in one workspace",
   businessCard2Body:
-    "A fast, intuitive interface built for busy service. Create orders quickly, manage tables visually, move tickets between servers.",
+    "Update menus, track orders, manage inventory, and monitor kitchen operations — all without switching between apps or spreadsheets.",
 
-  businessCard3Title: "KDSX Kitchen",
-  businessCard3Heading: "Synchronized kitchen",
+  businessCard3Title: "Team experience",
+  businessCard3Heading: "Your team wins back hours",
   businessCard3Body:
-    "Orders appear instantly. Send items to the right station, track cook times, reduce miscommunication, and clear completed tickets with a single tap.",
+    "Intuitive design means new staff can start taking orders in minutes. Automatic syncing keeps everyone aligned without extra meetings or handoffs.",
 
   featuresBadge: "Deep Dive",
   featuresHeading: "Built for every role in your restaurant",
@@ -55,27 +55,27 @@ export const en = {
     "Each app solves real problems faced by owners, servers, and kitchen staff — without unnecessary complexity.",
 
   featuresCard1Tag: "Dash App",
-  featuresCard1Title: "Data-driven management",
+  featuresCard1Title: "Complete business intelligence",
   featuresCard1Body:
-    "Access real-time revenue reports, control staff permissions, and organize items into clear categories and menus. Dash helps owners make informed decisions.",
-  featuresCard1Pill1: "Finance & Profit",
+    "Access real-time dashboards showing revenue trends, best-selling items, and hourly performance. Control staff permissions with role-based access. Organize your entire menu catalog with categories, variants, and ingredients. Set up stock alerts to never run out of key supplies.",
+  featuresCard1Pill1: "Revenue Reports",
   featuresCard1Pill2: "Stock Alerts",
-  featuresCard1Pill3: "Access Control",
+  featuresCard1Pill3: "Role Management",
 
   featuresCard2Tag: "POS App",
-  featuresCard2Title: "Visual floor management",
+  featuresCard2Title: "Visual floor and table management",
   featuresCard2Body:
-    "See table status at a glance — Occupied, Reserved, or Available. Move orders between tables without breaking the workflow.",
+    "See your entire floor plan at a glance with color-coded table status — green for available, yellow for reserved, red for occupied. Move orders to different tables or merge with existing orders in just a few taps. Handle check splitting, void requests, and comps with reason tracking.",
 
   featuresCard3Tag: "Kitchen App",
-  featuresCard3Title: "Intelligent station routing",
+  featuresCard3Title: "Smart station routing",
   featuresCard3Body:
-    "Ensure efficiency by automatically directing drinks to the bar and foods to the appropriate kitchen stations. Sound alerts ensure no order is missed",
+    "Items are automatically sent to the correct prep station based on your configuration — hot food to the grill, cold dishes to salads, drinks to the bar. Each station sees only their tickets. Built-in timers track how long each order has been waiting. Audio alerts notify staff when new orders arrive.",
 
   featuresCard4Tag: "Inventory",
-  featuresCard4Title: "Stock levels that update automatically",
+  featuresCard4Title: "Real-time stock management",
   featuresCard4Body:
-    "Track supplies, manage vendors, and adjust stock levels right from Dash. Every sale updates inventory instantly.",
+    "Inventory counts update automatically as orders are placed — no manual tracking needed. Set minimum thresholds and receive alerts before you run out. Manage multiple warehouses, track supplier deliveries, and perform stock adjustments all from Dash.",
 
   mobileHighlightsBadge: "Quick overview",
   mobileHighlightsHeading: "Efficiency in every pocket",
@@ -351,6 +351,14 @@ export const en = {
   privacySection5Title: "5. Questions",
   privacySection5Body:
     "Email privacy@kdsx.uz if you need a signed DPA, want to update contacts, or have compliance questions. We typically respond within one business day.",
+
+  // Theme toggle
+  themeLight: "Light",
+  themeDark: "Dark",
+
+  // Step labels
+  stepLabel: "Step",
+  stepOf: "of",
 } as const;
 
 export type TranslationKey = keyof typeof en;

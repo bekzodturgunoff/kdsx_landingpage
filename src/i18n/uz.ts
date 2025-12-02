@@ -33,20 +33,21 @@ export const uz = {
   businessBody:
     "Alohida-alohida vositalarni almashtirishni bas qiling. KDSX boshqaruv, servis va oshxona jarayonlarini yagona tizimga birlashtiradi.",
 
-  businessCard1Title: "KDSX Dash",
-  businessCard1Heading: "Bosh ofis ustidan to‘liq nazorat",
+  // BusinessSection Cards - Generic feature benefits
+  businessCard1Title: "Amaliy tahlillar",
+  businessCard1Heading: "Real vaqt ma'lumotlari bilan qaror qabul qiling",
   businessCard1Body:
-    "Moliya, menyu, ingredientlar va zaxiralarni boshqaring, kirish huquqlarini sozlang. Dash egalariga kunlik savdodан tortib yetkazib beruvchilargacha to‘liq manzarani beradi.",
+    "Jonli boshqaruv panellari daromad tendentsiyalari, inventar darajalari va buyurtma oqimini ko'rsatadi. Muammolar kattalashishidan oldin choralar ko'rish uchun ogohlantirishlar oling.",
 
-  businessCard2Title: "KDSX POS",
-  businessCard2Heading: "Hammasi bitta joyda",
+  businessCard2Title: "Yagona boshqaruv",
+  businessCard2Heading: "Hammasi bitta ish maydonida",
   businessCard2Body:
-    "Band xizmat uchun tez va tushunarli interfeys. Buyurtmalarni tez yarating, stollarni vizual boshqaring, tiketlarni ofitsiantlar o‘rtasida ko‘chiring.",
+    "Menyularni yangilang, buyurtmalarni kuzating, inventarni boshqaring va oshxonani nazorat qiling — ilovalar yoki jadvallar o'rtasida almashmasdan.",
 
-  businessCard3Title: "KDSX Kitchen",
-  businessCard3Heading: "Sinxron oshxona",
+  businessCard3Title: "Jamoa tajribasi",
+  businessCard3Heading: "Jamoangiz soatlar tejaydi",
   businessCard3Body:
-    "Buyurtmalar darhol ko‘rinadi. Pozitsiyalarni to‘g‘ri stansiyaga yuboring, pishirish vaqtini kuzating, chalkashliklarni kamaytiring va tayyorlarni bir bosishda yakunlang.",
+    "Intuitiv dizayn yangi xodimlarga bir necha daqiqada buyurtma qabul qilishni boshlash imkonini beradi. Avtomatik sinxronizatsiya qo'shimcha yig'ilishlarsiz hammani xabardor qiladi.",
 
   featuresBadge: "Chuquroq ko‘rinish",
   featuresHeading: "Restorandagi har bir rol uchun yaratilgan",
@@ -54,27 +55,27 @@ export const uz = {
     "Har bir ilova egalar, ofitsiantlar va oshxona uchun haqiqiy muammolarni ortiqcha murakkabliksiz hal qiladi.",
 
   featuresCard1Tag: "Dash ilovasi",
-  featuresCard1Title: "Ma’lumotga asoslangan boshqaruv",
+  featuresCard1Title: "To'liq biznes tahlili",
   featuresCard1Body:
-    "Jonli daromad hisobotlari, xodim ruxsatlari va menyu/kategoriyalarni tartibli tashkil qilish — bularning barchasi Dash’da.",
-  featuresCard1Pill1: "Moliya va foyda",
+    "Daromad tendentsiyalari, eng ko'p sotiladigan mahsulotlar va soatlik samaradorlikni ko'rsatuvchi real vaqt boshqaruv panellariga kiring. Rolga asoslangan kirish bilan xodim ruxsatlarini nazorat qiling. Kategoriyalar, variantlar va ingredientlar bilan butun menyu katalogini tartibga soling. Asosiy ta'minotlar tugamasdan oldin zaxira ogohlantirishlarini sozlang.",
+  featuresCard1Pill1: "Daromad hisobotlari",
   featuresCard1Pill2: "Zaxira ogohlantirishlari",
-  featuresCard1Pill3: "Kirish nazorati",
+  featuresCard1Pill3: "Rol boshqaruvi",
 
   featuresCard2Tag: "POS ilovasi",
-  featuresCard2Title: "Zalni vizual boshqarish",
+  featuresCard2Title: "Vizual zal va stol boshqaruvi",
   featuresCard2Body:
-    "Stol holatini bir qarashda ko‘ring — Band, Bron qilingan yoki Bo‘sh. Buyurtmalarni stolдан stolга uzluksiz ko‘chiring.",
+    "Rang bilan belgilangan stol holatlari bilan butun zal rejasini bir qarashda ko'ring — yashil bo'sh, sariq bron qilingan, qizil band. Bir necha bosish bilan buyurtmalarni boshqa stollarga ko'chiring yoki mavjud buyurtmalar bilan birlashtiring. Sabab kuzatuvi bilan hisob ajratish, bekor qilish va compliment so'rovlarini bajaring.",
 
   featuresCard3Tag: "Kitchen ilovasi",
-  featuresCard3Title: "Aqlli stansiya marshrutlash",
+  featuresCard3Title: "Aqlli stansiya yo'naltirish",
   featuresCard3Body:
-    "Ichimliklarni barга, taomlarni esa kerakli oshxona stansiyalariga avtomatik yuboring. Ovozli ogohlantirishlar hech bir buyurtma o‘tib ketmasligini ta’minlaydi",
+    "Elementlar sozlamalaringizga ko'ra avtomatik ravishda to'g'ri tayyorlash stansiyasiga yuboriladi — issiq taomlar grilga, sovuq taomlar salatlarga, ichimliklar barga. Har bir stansiya faqat o'z tiketlarini ko'radi. O'rnatilgan taymerlar har bir buyurtmaning qancha vaqt kutayotganini kuzatadi. Yangi buyurtmalar kelganda ovozli ogohlantirishlar xodimlarni xabardor qiladi.",
 
   featuresCard4Tag: "Inventar",
-  featuresCard4Title: "Zaxiralar avtomatik yangilanadi",
+  featuresCard4Title: "Real vaqt zaxira boshqaruvi",
   featuresCard4Body:
-    "Ta’minotlarni kuzating, yetkazib beruvchilarni boshqaring va zaxiralarni to‘g‘ridan Dash’dan sozlang. Har bir savdo inventarni darhol yangilaydi.",
+    "Buyurtmalar qabul qilinganda inventar soni avtomatik yangilanadi — qo'lda kuzatish kerak emas. Minimal chegaralarni belgilang va tugashidan oldin ogohlantirishlar oling. Bir nechta omborlarni boshqaring, yetkazib beruvchi yetkazib berishlarini kuzating va zaxiralarni to'g'rilang — barchasi Dash'dan.",
 
   mobileHighlightsBadge: "Qisqa sharh",
   mobileHighlightsHeading: "Har cho‘ntakda samaradorlik",
@@ -347,5 +348,13 @@ export const uz = {
     "Obuna faol bo‘lganida operatsion ma’lumotlar ham faol qoladi. Bekor qilingach, zaxiralar 30 kun saqlanadi va regulatorlar talab qilmasa, o‘chiriladi. Istalgan payt o‘chirishni so‘rashingiz mumkin — bajarilgach xabar beramiz.",
   privacySection5Title: "5. Savollar",
   privacySection5Body:
-    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
+    "Imzolangan DPA kerak bo'lsa, kontaktlarni yangilash kerak bo'lsa yoki muvofiqlik savollari bo'lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
+
+  // Theme toggle
+  themeLight: "Yorug'",
+  themeDark: "Qorong'i",
+
+  // Step labels
+  stepLabel: "Qadam",
+  stepOf: "/",
 } as const;
