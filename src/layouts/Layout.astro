@@ -23,6 +23,42 @@ import WizardForm from '../components/WizardForm.astro';
   <meta name="twitter:image" content="/logo.png" />
     <link rel="icon" href="/logo.png" />
   <meta name="color-scheme" content="light" />
+  <!-- JSON-LD Schema for Software Application -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "KDSX POS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "description": "All-in-one restaurant POS system with dashboard management, point of sale, and kitchen display. Manage orders, inventory, staff, and finances from one connected platform.",
+    "offers": {
+      "@type": "Offer",
+      "price": "30.00",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "KDSX",
+      "url": "https://kdsx.uz"
+    },
+    "featureList": [
+      "Point of Sale (POS)",
+      "Kitchen Display System",
+      "Inventory Management",
+      "Financial Reports",
+      "Employee Management",
+      "Multi-location Support",
+      "Real-time Analytics"
+    ]
+  }
+  </script>
     <script is:inline>
       // Initialize theme early (only 'light' or 'dark', default to light)
       (function () {
@@ -53,6 +89,53 @@ import WizardForm from '../components/WizardForm.astro';
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
   <slot />
     <WizardForm />
+    
+    <!-- Floating CTA Button (Mobile Only) -->
+    <div id="floating-cta" class="fixed bottom-6 left-4 right-4 z-50 md:hidden opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+      <button data-plan-trigger="starter" class="w-full btn-solid py-4 text-base font-semibold shadow-lg shadow-brand-cta/30 flex items-center justify-center gap-2">
+        <span data-i18n="heroPrimaryCta">Start Free Trial</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    
+    <script is:inline>
+      // Floating CTA visibility on scroll
+      (function() {
+        const floatingCta = document.getElementById('floating-cta');
+        if (!floatingCta) return;
+        
+        let lastScrollY = 0;
+        let ticking = false;
+        
+        const updateFloatingCta = () => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.documentElement.scrollHeight;
+          
+          // Show after scrolling down 300px, hide near bottom
+          const shouldShow = scrollY > 300 && scrollY < (docHeight - windowHeight - 200);
+          
+          if (shouldShow) {
+            floatingCta.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            floatingCta.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          } else {
+            floatingCta.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            floatingCta.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          }
+          
+          lastScrollY = scrollY;
+          ticking = false;
+        };
+        
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateFloatingCta);
+            ticking = true;
+          }
+        }, { passive: true });
+      })();
+    </script>
+
     <script is:inline>
       // Ensure page starts at top on refresh
       if (history.scrollRestoration) {

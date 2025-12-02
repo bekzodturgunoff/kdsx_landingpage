@@ -94,11 +94,11 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
 
   <!-- Mobile dropdown -->
   <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
-    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-4 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-6 text-sm font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
+    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-2 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-5 text-base font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
     <!-- Mobile nav: full pages (sections not all present inline on mobile) -->
-  <a href="/features" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFeatures">Features</a>
-  <a href="/pricing" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navPricing">Pricing</a>
-  <a href="/faq" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFaq">FAQ</a>
+  <a href="/features" class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">Features</a>
+  <a href="/pricing" class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">Pricing</a>
+  <a href="/faq" class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFaq">FAQ</a>
 
       <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
         <div class="flex items-center justify-between gap-3">
@@ -235,9 +235,17 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
 
       const applyTheme = (mode) => {
         const effective = (mode === 'dark' || mode === 'light') ? mode : 'light';
+        // Disable transitions during theme switch for instant change
+        html.classList.add('theme-transitioning');
         if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
         syncThemeArtifacts(effective);
         updateThemeUI(effective);
+        // Re-enable transitions after a frame
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            html.classList.remove('theme-transitioning');
+          });
+        });
       };
 
       const updateThemeUI = (mode) => {

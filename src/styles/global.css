@@ -80,6 +80,16 @@ html {
 
   --motion-speed-fast: 45ms;
   --motion-speed-review: 600ms;
+  --motion-speed-instant: 0ms;
+}
+
+/* Theme switching should be instant - no transitions during theme change */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
 }
 
 /* Clamp global motion so everything is instant except the review slider */
