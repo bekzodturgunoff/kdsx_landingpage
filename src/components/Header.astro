@@ -207,7 +207,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
           const cookieValue = getCookieTheme();
           if (cookieValue) return cookieValue;
         }
-        return (value === 'dark' || value === 'light') ? value : 'light';
+        return (value === 'dark' || value === 'light') ? value : 'dark';
       };
 
       const setStoredTheme = (value) => {
@@ -234,7 +234,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       };
 
       const applyTheme = (mode) => {
-        const effective = (mode === 'dark' || mode === 'light') ? mode : 'light';
+        const effective = (mode === 'dark' || mode === 'light') ? mode : 'dark';
         // Disable transitions during theme switch for instant change
         html.classList.add('theme-transitioning');
         if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');

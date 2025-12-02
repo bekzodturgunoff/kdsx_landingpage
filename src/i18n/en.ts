@@ -161,7 +161,7 @@ export const en = {
   pricingBody:
     "No hidden fees. No confusing tiers. Everything included.",
 
-  pricingStarterLabel: "Trial",
+  pricingStarterLabel: "Free Plan",
   pricingStarterRibbon: "Risk Free",
   pricingStarterPrice: "Free",
   pricingStarterSubtitle: "First month on us",
@@ -175,7 +175,7 @@ export const en = {
   pricingStarterB6: "Full support included",
   pricingStarterCta: "Start Free Trial",
 
-  pricingProLabel: "Pro Subscription",
+  pricingProLabel: "Pro Plan",
   pricingProRibbon: "All-Inclusive",
   pricingProPrice: "$30",
   pricingProPeriod: "/mo",
@@ -228,7 +228,7 @@ export const en = {
   footerContactPhone2: "+821079328573",
   footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "Social",
-  footerQuickLinksTitle: "Menu",
+  footerQuickLinksTitle: "Info",
   footerQuickLinkFeatures: "Features",
   footerQuickLinkPricing: "Pricing",
   footerQuickLinkFaq: "FAQ",

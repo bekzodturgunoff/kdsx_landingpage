@@ -2,11 +2,11 @@
 import '../styles/global.css';
 import WizardForm from '../components/WizardForm.astro';
 ---
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
+  <meta name="theme-color" content="#121212" id="theme-color-meta" />
   <title>KDSX POS | Run every shift in sync</title>
   <meta name="description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <!-- Open Graph -->
@@ -22,7 +22,7 @@ import WizardForm from '../components/WizardForm.astro';
   <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <meta name="twitter:image" content="/logo.png" />
     <link rel="icon" href="/logo.png" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="dark" />
   <!-- JSON-LD Schema for Software Application -->
   <script type="application/ld+json">
   {
@@ -60,7 +60,7 @@ import WizardForm from '../components/WizardForm.astro';
   }
   </script>
     <script is:inline>
-      // Initialize theme early (only 'light' or 'dark', default to light)
+      // Initialize theme early (only 'light' or 'dark', default to dark)
       (function () {
         try {
           const THEME_KEY = 'theme';
@@ -73,7 +73,7 @@ import WizardForm from '../components/WizardForm.astro';
           let stored;
           try { stored = localStorage.getItem(THEME_KEY); } catch (_) { stored = undefined; }
           if (!stored) stored = getCookieTheme();
-          const resolved = stored === 'dark' ? 'dark' : 'light';
+          const resolved = stored === 'light' ? 'light' : 'dark';
           if (resolved === 'dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');
           document.documentElement.setAttribute('data-theme', resolved);
           document.documentElement.style.colorScheme = resolved === 'dark' ? 'dark' : 'light';
@@ -88,15 +88,16 @@ import WizardForm from '../components/WizardForm.astro';
   </head>
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
   <slot />
-    <WizardForm />
     
-    <!-- Floating CTA Button (Mobile Only) -->
+    <!-- Floating CTA Button (Mobile Only) - Must be before WizardForm for event binding -->
     <div id="floating-cta" class="fixed bottom-6 left-4 right-4 z-50 md:hidden opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
       <button data-plan-trigger="starter" class="w-full btn-solid py-4 text-base font-semibold shadow-lg shadow-brand-cta/30 flex items-center justify-center gap-2">
-        <span data-i18n="heroPrimaryCta">Start Free Trial</span>
+        <span data-i18n="pricingStarterCta">Start Free Trial</span>
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
+    
+    <WizardForm />
     
     <script is:inline>
       // Floating CTA visibility on scroll

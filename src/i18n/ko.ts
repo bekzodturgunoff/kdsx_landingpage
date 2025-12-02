@@ -159,7 +159,7 @@ export const ko = {
   pricingBody:
     "숨겨진 비용 없음. 복잡한 티어 없음. 모두 포함.",
 
-  pricingStarterLabel: "체험",
+  pricingStarterLabel: "무료 플랜",
   pricingStarterRibbon: "리스크 없음",
   pricingStarterPrice: "무료",
   pricingStarterSubtitle: "첫 달 무료",
@@ -173,7 +173,7 @@ export const ko = {
   pricingStarterB6: "풀 서포트 포함",
   pricingStarterCta: "무료 체험 시작",
 
-  pricingProLabel: "프로 구독",
+  pricingProLabel: "Pro 플랜",
   pricingProRibbon: "올인원",
   pricingProPrice: "$30",
   pricingProPeriod: "/월",
@@ -226,7 +226,7 @@ export const ko = {
   footerContactPhone2: "+821079328573",
   footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "소셜",
-  footerQuickLinksTitle: "메뉴",
+  footerQuickLinksTitle: "정보",
   footerQuickLinkFeatures: "기능",
   footerQuickLinkPricing: "요금제",
   footerQuickLinkFaq: "자주 묻는 질문",

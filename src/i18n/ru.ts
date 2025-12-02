@@ -159,7 +159,7 @@ export const ru = {
   pricingBody:
     "Никаких скрытых комиссий. Никаких запутанных уровней. Всё включено.",
 
-  pricingStarterLabel: "Пробный",
+  pricingStarterLabel: "Бесплатный план",
   pricingStarterRibbon: "Без риска",
   pricingStarterPrice: "Бесплатно",
   pricingStarterSubtitle: "Первый месяц за наш счет",
@@ -173,7 +173,7 @@ export const ru = {
   pricingStarterB6: "Поддержка включена",
   pricingStarterCta: "Начать бесплатный месяц",
 
-  pricingProLabel: "Подписка Pro",
+  pricingProLabel: "Pro план",
   pricingProRibbon: "Всё включено",
   pricingProPrice: "$30",
   pricingProPeriod: "/мес",
@@ -226,7 +226,7 @@ export const ru = {
   footerContactPhone2: "+821079328573",
   footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "Соцсети",
-  footerQuickLinksTitle: "Меню",
+  footerQuickLinksTitle: "Информация",
   footerQuickLinkFeatures: "Функции",
   footerQuickLinkPricing: "Тарифы",
   footerQuickLinkFaq: "Вопросы",

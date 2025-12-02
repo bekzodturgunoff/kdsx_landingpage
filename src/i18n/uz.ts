@@ -33,21 +33,20 @@ export const uz = {
   businessBody:
     "Alohida-alohida vositalarni almashtirishni bas qiling. KDSX boshqaruv, servis va oshxona jarayonlarini yagona tizimga birlashtiradi.",
 
-  // BusinessSection Cards - Generic feature benefits
-  businessCard1Title: "Amaliy tahlillar",
-  businessCard1Heading: "Real vaqt ma'lumotlari bilan qaror qabul qiling",
+  businessCard1Title: "KDSX Dash",
+  businessCard1Heading: "Restoran boshqaruv markazi",
   businessCard1Body:
-    "Jonli boshqaruv panellari daromad tendentsiyalari, inventar darajalari va buyurtma oqimini ko'rsatadi. Muammolar kattalashishidan oldin choralar ko'rish uchun ogohlantirishlar oling.",
+    "Restoran boshqaruvining markaziy markazi. Kategoriyalar, modifikatorlar va narxlar bilan menyularni yarating va tartibga soling. Avtomatik zaxira ogohlantirishlari bilan inventar darajalarini kuzating. Xodimlar rollari va ruxsatlarini boshqaring. Yetkazib beruvchilar va kelayotgan ta'minotlarni nazorat qiling. Savdo xulosalari, foyda marjasi va kategoriya samaradorligi kabi batafsil moliyaviy hisobotlarga kiring — barchasi bitta kuchli boshqaruv panelida.",
 
-  businessCard2Title: "Yagona boshqaruv",
-  businessCard2Heading: "Hammasi bitta ish maydonida",
+  businessCard2Title: "KDSX POS",
+  businessCard2Heading: "Qulay buyurtma qabul qilish",
   businessCard2Body:
-    "Menyularni yangilang, buyurtmalarni kuzating, inventarni boshqaring va oshxonani nazorat qiling — ilovalar yoki jadvallar o'rtasida almashmasdan.",
+    "Pik soatlar uchun tezlikka qurilgan. Toza panjara tartibi va sozlanadigan modifikatorlar bilan buyurtmalarni qabul qiling. Zal rejasini vizual boshqaring — qaysi stollar band, bron qilingan yoki bo'sh ekanini bir qarashda ko'ring. Buyurtmalarni stollar o'rtasida uzluksiz ko'chiring, hisoblarni element yoki o'rindiq bo'yicha ajrating va turli to'lov usullarini qabul qiling. Zal xizmati, olib ketish va yetkazib berish — barchasi bitta oddiy interfeysda.",
 
-  businessCard3Title: "Jamoa tajribasi",
-  businessCard3Heading: "Jamoangiz soatlar tejaydi",
+  businessCard3Title: "KDSX Kitchen",
+  businessCard3Heading: "Tartibli oshxona ishlari",
   businessCard3Body:
-    "Intuitiv dizayn yangi xodimlarga bir necha daqiqada buyurtma qabul qilishni boshlash imkonini beradi. Avtomatik sinxronizatsiya qo'shimcha yig'ilishlarsiz hammani xabardor qiladi.",
+    "Band oshxonalar uchun raqamli tiket boshqaruvi. Buyurtmalar qabul qilinganda darhol ekranda paydo bo'ladi — yo'qolgan qog'oz tiketlar yo'q. Elementlarni avtomatik ravishda to'g'ri stansiyaga yo'naltiring: ichimliklar barga, sovuq taomlar salat bo'limiga, asosiy taomlar grilga. Buyurtma vaqtini kuzating, bir bosishda tayyor deb belgilang va butun liniyani sinxronlashtiring. Rush vaqtida ham hech bir buyurtma o'tkazib yuborilmasligini ta'minlash uchun audio ogohlantirishlar.",
 
   featuresBadge: "Chuquroq ko‘rinish",
   featuresHeading: "Restorandagi har bir rol uchun yaratilgan",
@@ -159,7 +158,7 @@ export const uz = {
   pricingBody:
     "Yashirin to‘lovlar yo‘q. Chalkash darajalar yo‘q. Hammasi ichida.",
 
-  pricingStarterLabel: "Sinov",
+  pricingStarterLabel: "Bepul reja",
   pricingStarterRibbon: "Xavfsiz",
   pricingStarterPrice: "Bepul",
   pricingStarterSubtitle: "Birinchi oy bizdan",
@@ -173,7 +172,7 @@ export const uz = {
   pricingStarterB6: "To‘liq yordam kiritilgan",
   pricingStarterCta: "Bepul sinovni boshlang",
 
-  pricingProLabel: "Pro obuna",
+  pricingProLabel: "Pro reja",
   pricingProRibbon: "Hammasi ichida",
   pricingProPrice: "$30",
   pricingProPeriod: "/oy",
@@ -226,7 +225,7 @@ export const uz = {
   footerContactPhone2: "+821079328573",
   footerContactEmail: "support@kdsx.uz",
   footerFollowTitle: "Ijtimoiy tarmoqlar",
-  footerQuickLinksTitle: "Menyu",
+  footerQuickLinksTitle: "Ma'lumot",
   footerQuickLinkFeatures: "Xususiyatlar",
   footerQuickLinkPricing: "Narxlar",
   footerQuickLinkFaq: "Savollar",
@@ -348,13 +347,5 @@ export const uz = {
     "Obuna faol bo‘lganida operatsion ma’lumotlar ham faol qoladi. Bekor qilingach, zaxiralar 30 kun saqlanadi va regulatorlar talab qilmasa, o‘chiriladi. Istalgan payt o‘chirishni so‘rashingiz mumkin — bajarilgach xabar beramiz.",
   privacySection5Title: "5. Savollar",
   privacySection5Body:
-    "Imzolangan DPA kerak bo'lsa, kontaktlarni yangilash kerak bo'lsa yoki muvofiqlik savollari bo'lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
-
-  // Theme toggle
-  themeLight: "Yorug'",
-  themeDark: "Qorong'i",
-
-  // Step labels
-  stepLabel: "Qadam",
-  stepOf: "/",
+    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
 } as const;

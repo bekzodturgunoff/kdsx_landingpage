@@ -29,9 +29,9 @@
           <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">Email support with 24-hour response</span></li>
         </ul>
         <div class="mt-8">
-          <a href="mailto:info@kdsx.uz?subject=KDSX%20Starter%20Plan%20Inquiry" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/35 bg-white/75 px-8 py-3.5 text-base font-semibold text-brand-text shadow-[0_18px_36px_-24px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-text">
+          <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/35 bg-white/75 px-8 py-3.5 text-base font-semibold text-brand-text shadow-[0_18px_36px_-24px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-text">
             <span data-i18n="pricingStarterCta">Activate Free Month</span>
-          </a>
+          </button>
         </div>
       </div>
 
@@ -53,9 +53,9 @@
             <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">Dedicated Customer Success Manager</span></li>
           </ul>
           <div class="mt-8">
-            <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Inquiry" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
+            <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
               <span data-i18n="pricingProCta">Get Started — $30/mo</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -69,10 +69,10 @@
         </div>
   <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">Scale with confidence across regions</h3>
   <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.</p>
-  <a href="mailto:info@kdsx.uz?subject=KDSX%20Enterprise%20Plan%20Inquiry" data-plan-trigger="enterprise" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+  <button type="button" data-plan-trigger="enterprise" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
           <span data-i18n="pricingEnterpriseCta">Contact Sales</span>
           <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        </button>
       </div>
 
   <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark">
@@ -89,9 +89,9 @@
 
     <div class="mt-12 text-center">
   <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-5 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">Ready to run every shift with less stress?</h3>
-  <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Free%20Trial" data-plan-trigger="cta" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
+  <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
   <span data-i18n="pricingFinalCta">Start my rollout</span>
-      </a>
+      </button>
     </div>
 
     <!-- FAQ placed before footer -->
@@ -158,13 +158,10 @@
           </div>
         </div>
 
-        <!-- Footer Menu -->
-        <div class="flex flex-col items-start" aria-label="Footer menu">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">Menu</h4>
-          <div class="space-y-2 text-sm">
-            <a href="#features" class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkFeatures">Features</a>
-            <a href="#pricing" class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPricing">Pricing</a>
-            <a href="#faq" class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkFaq">FAQ</a>
+        <!-- Footer info -->
+        <div class="items-start" aria-label="Footer menu">
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">Info</h4>
+          <div class="flex flex-col space-y-2 text-sm">
             <a href="/terms" class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">Terms</a>
             <a href="/privacy" class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">Privacy</a>
           </div>
