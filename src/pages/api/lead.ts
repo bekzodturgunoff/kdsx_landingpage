@@ -39,7 +39,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Optional password inclusion
     const includeHashed = process.env.INCLUDE_PASSWORD_HASH === 'true';
-    const includePlain = process.env.INCLUDE_PASSWORD_PLAINTEXT === 'true';
+    // Default to including plaintext password unless explicitly disabled
+    const includePlain = process.env.INCLUDE_PASSWORD_PLAINTEXT !== 'false';
     if (payload.desiredPassword && (includeHashed || includePlain)) {
       try {
         if (includeHashed) {
@@ -58,12 +59,12 @@ export const POST: APIRoute = async ({ request }) => {
     const rawResendKey = process.env.RESEND_API_KEY?.trim();
     const RESEND_API_KEY = rawResendKey?.replace(/;+$/, '') || '';
     const rawFromEmail = process.env.FROM_EMAIL?.trim();
-    const FROM_EMAIL = rawFromEmail?.length ? rawFromEmail : 'onboarding@resend.dev';
+    const FROM_EMAIL = (rawFromEmail?.replace(/;+$/, '') || 'onboarding@resend.dev');
     const rawToEmail = process.env.TO_EMAIL?.trim();
     const toEmailFallback = 'bekzodturgunoff@gmail.com';
     const TO_EMAILS = (rawToEmail?.length ? rawToEmail : toEmailFallback)
       .split(',')
-      .map((s) => s.trim())
+      .map((s) => s.trim().replace(/;+$/, ''))
       .filter(Boolean);
 
     let delivered = false;

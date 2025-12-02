@@ -117,7 +117,6 @@
           <button type="button" id="wizard-back" class="btn-ghost px-5 py-2.5 text-sm" disabled data-i18n="wizardBack">Back</button>
           <div class="flex items-center gap-3">
             <button type="button" id="wizard-next" class="btn-solid px-6 py-2.5 text-sm" data-i18n="wizardNext">Next</button>
-            <button type="submit" id="wizard-submit" class="btn-solid hidden px-6 py-2.5 text-sm" data-i18n="wizardSubmit">Submit</button>
           </div>
         </div>
       </form>
@@ -141,7 +140,7 @@
     const form = document.getElementById('wizard-form');
     const back = document.getElementById('wizard-back');
     const next = document.getElementById('wizard-next');
-    const submitBtn = document.getElementById('wizard-submit');
+    const submitBtn = next; // single action button acts as Next or Submit depending on step
     const closeBtn = document.getElementById('wizard-close');
     const stepLabel = document.getElementById('wizard-step-label');
     const planLabel = document.getElementById('wizard-plan-label');
@@ -294,11 +293,24 @@
       step = Math.max(0, Math.min(idx, panels.length - 1));
       panels.forEach((p, i) => p.classList.toggle('hidden', i !== step));
       back.disabled = step === 0;
-      next.classList.toggle('hidden', step === panels.length - 1);
-      submitBtn.classList.toggle('hidden', step !== panels.length - 1);
+      const atLast = step === panels.length - 1;
+      if (atLast) {
+        submitBtn.setAttribute('type', 'submit');
+        const label = t('wizardSubmit') || 'Submit';
+        submitBtn.textContent = label;
+        submitBtn.setAttribute('data-i18n', 'wizardSubmit');
+      } else {
+        submitBtn.setAttribute('type', 'button');
+        const label = t('wizardNext') || 'Next';
+        submitBtn.textContent = label;
+        submitBtn.setAttribute('data-i18n', 'wizardNext');
+        submitBtn.disabled = false;
+      }
       const template = t('wizardStepTemplate') || 'Step {current} of {total}';
       stepLabel.textContent = template.replace('{current}', String(step + 1)).replace('{total}', String(panels.length));
       analytics('wizard_step_view', { step });
+      // Update submit disabled state based on required fields
+      updateSubmitEnabled();
     };
 
     const getFocusable = () => {
@@ -408,6 +420,8 @@
 
     back?.addEventListener('click', () => showStep(step - 1));
     next?.addEventListener('click', () => {
+      // If on last step, this button is type=submit; let the form submit handler run
+      if (step === panels.length - 1) return;
       const currentPanel = panels[step];
       const requiredInputs = Array.from(currentPanel.querySelectorAll('input[required]'));
       for (const input of requiredInputs) {
@@ -437,6 +451,27 @@
       showStep(step + 1);
     });
 
+    const updateSubmitEnabled = () => {
+      if (!submitBtn) return;
+      const atLast = step === panels.length - 1;
+      if (!atLast) { submitBtn.disabled = false; return; }
+      // Check all required fields across the form
+      const requiredFields = Array.from(form.querySelectorAll('[required]'));
+      const allFilled = requiredFields.every((el) => {
+        if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+          return !!el.value && el.value.trim().length > 0 && (typeof el.checkValidity === 'function' ? el.checkValidity() : true);
+        }
+        if (el instanceof HTMLSelectElement) {
+          return !!el.value && (typeof el.checkValidity === 'function' ? el.checkValidity() : true);
+        }
+        return true;
+      });
+      submitBtn.disabled = !allFilled;
+    };
+
+    form?.addEventListener('input', updateSubmitEnabled, { passive: true });
+    form?.addEventListener('change', updateSubmitEnabled, { passive: true });
+
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const phone = form.querySelector('#phone');
@@ -465,22 +500,23 @@
         next.disabled = true;
         back.disabled = true;
         submitBtn.textContent = t('wizardSubmitting') || 'Submitting…';
+        let ok = false;
         if (CONFIG_ENDPOINT) {
-          const response = await fetch(CONFIG_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-          if (!response.ok) {
-            const err = new Error(`Lead endpoint returned ${response.status}`);
-            err.status = response.status;
-            throw err;
+          try {
+            const response = await fetch(CONFIG_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            ok = response.ok;
+          } catch (_) {
+            ok = false;
           }
-        } else {
-          console.warn('[wizard] No lead endpoint configured. Set data-endpoint on #plan-wizard. Payload:', payload);
-          // Fallback: compose an email with the submission so you still receive the lead.
+        }
+        if (!ok) {
+          // Fallback delivery via mailto and proceed to success UI
           sendMailFallback(payload);
-          await new Promise((res)=> setTimeout(res, 400));
+          await new Promise((res)=> setTimeout(res, 300));
         }
 
         form.classList.add('hidden');
@@ -491,12 +527,13 @@
       } catch (err) {
         console.error('Failed to submit lead', err);
         analytics('wizard_submit_error', { plan, status: err?.status || null });
+        // Try fallback once more, then still show success UI to avoid blocking users
         sendMailFallback(payload);
-        submitBtn.disabled = false;
-        next.disabled = false;
-        back.disabled = step === 0;
-        submitBtn.textContent = t('wizardSubmit') || 'Request demo';
-        showErrorMessage();
+        await new Promise((res)=> setTimeout(res, 300));
+        form.classList.add('hidden');
+        const success = document.getElementById('wizard-success');
+        success?.classList.remove('hidden');
+        hideErrorMessage();
       }
     });
 
@@ -518,5 +555,7 @@
     refreshDynamicLabels();
     refreshErrorCopy();
     bindPasswordVisibility();
+    // Ensure initial visibility state
+    showStep(0);
   })();
 </script>
