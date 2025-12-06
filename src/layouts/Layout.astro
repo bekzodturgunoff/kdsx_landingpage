@@ -96,7 +96,7 @@ import WizardForm from '../components/WizardForm.astro';
           const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
           return m ? decodeURIComponent(m[1]) : null;
         };
-        const supported = ['en', 'uz', 'ru', 'ko'];
+        const supported = ['en', 'ru', 'ko']; // Uzbek temporarily hidden
         const lang = (getCookie('lang') || navigator.language?.slice(0,2) || 'en').toLowerCase();
         const resolved = supported.includes(lang) ? lang : 'en';
         document.documentElement.setAttribute('lang', resolved);
