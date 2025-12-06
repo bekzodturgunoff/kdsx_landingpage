@@ -406,12 +406,14 @@
       analytics('wizard_close', { plan });
     };
 
-    document.querySelectorAll('[data-plan-trigger]')?.forEach((el) => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        const planName = el.getAttribute('data-plan-trigger') || 'starter';
-        open(planName);
-      });
+    // Direct binding for existing buttons/links
+    // Event delegation so any current or future trigger works
+    document.addEventListener('click', (e) => {
+      const target = e.target instanceof Element ? e.target.closest('[data-plan-trigger]') : null;
+      if (!target) return;
+      e.preventDefault();
+      const planName = target.getAttribute('data-plan-trigger') || 'starter';
+      open(planName);
     });
 
     closeBtn?.addEventListener('click', close);
@@ -464,16 +466,12 @@
       const requiredFields = Array.from(form.querySelectorAll('[required]'));
       let allValid = true;
       for (const field of requiredFields) {
-        // Skip disabled controls
-        // eslint-disable-next-line no-underscore-dangle
-        if ((field as HTMLInputElement).disabled) continue;
-        if (typeof (field as HTMLInputElement).checkValidity === 'function') {
-          if (!(field as HTMLInputElement).checkValidity()) {
-            allValid = false;
-            break;
-          }
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) continue;
+        if (field.disabled) continue;
+        if (typeof field.checkValidity === 'function') {
+          if (!field.checkValidity()) { allValid = false; break; }
         } else {
-          const val = (field as HTMLInputElement).value || '';
+          const val = field.value || '';
           if (!val.trim()) { allValid = false; break; }
         }
       }
