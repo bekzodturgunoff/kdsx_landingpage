@@ -299,6 +299,7 @@
         const label = t('wizardSubmit') || 'Submit';
         submitBtn.textContent = label;
         submitBtn.setAttribute('data-i18n', 'wizardSubmit');
+        submitBtn.disabled = false; // ensure we re-enable if a prior step toggled it off
       } else {
         submitBtn.setAttribute('type', 'button');
         const label = t('wizardNext') || 'Next';
@@ -458,9 +459,25 @@
         submitBtn.disabled = false;
         return;
       }
-      // Use built-in form validity across all required fields
-      const isValid = typeof form.checkValidity === 'function' ? form.checkValidity() : true;
-      submitBtn.disabled = !isValid;
+
+      // Manually validate required fields to avoid edge cases with hidden panels or stale validity state.
+      const requiredFields = Array.from(form.querySelectorAll('[required]'));
+      let allValid = true;
+      for (const field of requiredFields) {
+        // Skip disabled controls
+        // eslint-disable-next-line no-underscore-dangle
+        if ((field as HTMLInputElement).disabled) continue;
+        if (typeof (field as HTMLInputElement).checkValidity === 'function') {
+          if (!(field as HTMLInputElement).checkValidity()) {
+            allValid = false;
+            break;
+          }
+        } else {
+          const val = (field as HTMLInputElement).value || '';
+          if (!val.trim()) { allValid = false; break; }
+        }
+      }
+      submitBtn.disabled = !allValid;
     };
 
     form?.addEventListener('input', updateSubmitEnabled, { passive: true });
