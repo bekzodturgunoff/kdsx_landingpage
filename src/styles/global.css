@@ -92,20 +92,32 @@ html.theme-transitioning *::after {
   animation-duration: 0ms !important;
 }
 
-/* Clamp global motion so everything is instant except the review slider */
-*,
-*::before,
-*::after {
-  transition-duration: var(--motion-speed-fast) !important;
-  animation-duration: var(--motion-speed-fast) !important;
+/* Reduced motion: if user requests, clamp transitions/animations to zero */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
 }
 
+/* Limit transitions to key layout surfaces to avoid global repaint cost */
+body,
+html,
+header,
+main,
+section,
+footer {
+  transition: background-color var(--motion-speed-fast) ease,
+    color var(--motion-speed-fast) ease,
+    border-color var(--motion-speed-fast) ease;
+}
+
+/* Keep testimonial carousel smoother but scoped */
 .testimonial-track,
 .testimonial-track * {
-  transition-duration: var(--motion-speed-review) !important;
-  animation-duration: var(--motion-speed-review) !important;
+  transition-duration: var(--motion-speed-review);
+  animation-duration: var(--motion-speed-review);
 }
-
 /* Smooth color transitions site-wide */
 body,
 html,
@@ -159,12 +171,7 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Fixed attachment only on larger screens where performance is better */
-@media (min-width: 768px) {
-  body {
-    background-attachment: fixed;
-  }
-}
+/* Remove fixed attachment to reduce jank on desktop as well */
 
 .dark body {
   background-color: var(--color-brand-bg);
@@ -183,6 +190,7 @@ body {
       color-mix(in oklch, var(--color-black-soft-1) 78%, var(--color-bright-green) 12%) 0%,
       var(--color-black-soft-2) 100%
     );
+  color: var(--color-brand-text-dark);
 }
 
 /* Tailwind v4 theme tokens */
@@ -309,7 +317,7 @@ body {
 
   .lang-select {
     appearance: none;
-    border-radius: 999px;
+    color: var(--color-brand-text);
     border: 1px solid rgba(var(--color-grey-border-2-rgb) / 0.7);
     background: rgba(var(--color-white-rgb) / 0.86);
     padding: 0.55rem 2.6rem 0.55rem 1.1rem;

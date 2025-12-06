@@ -452,19 +452,15 @@
     });
 
     const updateSubmitEnabled = () => {
-      if (!submitBtn) return;
+      if (!submitBtn || !form) return;
       const atLast = step === panels.length - 1;
-      if (!atLast) { submitBtn.disabled = false; return; }
-      // Only check required fields in the current (visible) panel for enabling submit
-      const currentPanel = panels[step];
-      const requiredFields = Array.from(currentPanel.querySelectorAll('[required]'));
-      const allFilled = requiredFields.every((el) => {
-        if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement) {
-          return !!el.value && el.value.trim().length > 0;
-        }
-        return true;
-      });
-      submitBtn.disabled = !allFilled;
+      if (!atLast) {
+        submitBtn.disabled = false;
+        return;
+      }
+      // Use built-in form validity across all required fields
+      const isValid = typeof form.checkValidity === 'function' ? form.checkValidity() : true;
+      submitBtn.disabled = !isValid;
     };
 
     form?.addEventListener('input', updateSubmitEnabled, { passive: true });
