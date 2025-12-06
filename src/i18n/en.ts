@@ -20,8 +20,7 @@ export const en = {
   heroMetricInventoryCopy:
     "Live stock counts update as orders happen, keeping every department aligned.",
   heroMetricRoiTitle: "Fast ROI",
-  heroMetricRoiCopy:
-    "Most restaurants recover their investment within weeks",
+  heroMetricRoiCopy: "Most restaurants recover their investment within weeks",
 
   logosBadge: "Trusted by teams",
   logosHeading: "Powering modern hospitality",
@@ -126,8 +125,7 @@ export const en = {
 
   testimonialsBadge: "From our users",
   testimonialsHeading: "What restaurant owners are saying",
-  testimonialsBody:
-    "Real feedback from teams using KDSX every day.",
+  testimonialsBody: "Real feedback from teams using KDSX every day.",
 
   // testimonialsSubheading: "What users are saying",
 
@@ -158,15 +156,13 @@ export const en = {
 
   pricingBadge: "Pricing",
   pricingHeading: "One transparent subscription",
-  pricingBody:
-    "No hidden fees. No confusing tiers. Everything included.",
+  pricingBody: "No hidden fees. No confusing tiers. Everything included.",
 
   pricingStarterLabel: "Free Plan",
   pricingStarterRibbon: "Risk Free",
   pricingStarterPrice: "Free",
   pricingStarterSubtitle: "First month on us",
-  pricingStarterBody:
-    "Use the full system with your own data.",
+  pricingStarterBody: "Use the full system with your own data.",
   pricingStarterB1: "Full access to Dash, POS, and Kitchen",
   pricingStarterB2: "Unlimited items and transactions",
   pricingStarterB3: "Real-time reporting",
@@ -179,8 +175,7 @@ export const en = {
   pricingProRibbon: "All-Inclusive",
   pricingProPrice: "$30",
   pricingProPeriod: "/mo",
-  pricingProBody:
-    "The complete operating system for your restaurant.",
+  pricingProBody: "The complete operating system for your restaurant.",
   pricingProB1: "Up to 3 registers with role-based controls",
   pricingProB2: "Up to 10 staff accounts",
   pricingProB3: "Advanced Financial Reports",
@@ -213,13 +208,11 @@ export const en = {
 
   pricingPageBadge: "Plans",
   pricingPageHeading: "Pricing",
-  pricingPageLead:
-    "Straightforward, affordable, and designed for growth.",
+  pricingPageLead: "Straightforward, affordable, and designed for growth.",
 
   faqPageBadge: "Support",
   faqPageHeading: "Frequently Asked Questions",
-  faqPageLead:
-    "Common questions about using KDSX.",
+  faqPageLead: "Common questions about using KDSX.",
 
   footerBrandDescription:
     "KDSX: The all-in-one POS, management, and kitchen system.",
@@ -277,7 +270,8 @@ export const en = {
   wizardSubmitting: "Processing...",
   wizardError: "An error occurred. Please try again",
   wizardErrorTitle: "Submission Failed",
-  wizardErrorBody: "Oops! Something broke on our end. We're working on it, but for a fast fix, please email us directly at support@kdsx.uz",
+  wizardErrorBody:
+    "Oops! Something broke on our end. We're working on it, but for a fast fix, please email us directly at support@kdsx.uz",
   wizardSuccessMessage:
     "Your demo account is being prepared. We’ll reach out shortly with your login details.",
   wizardSuccessCta: "Done",
@@ -294,8 +288,7 @@ export const en = {
 
   faqBadge: "FAQ",
   faqHeading: "Common Questions",
-  faqBody:
-    "Everything you need to know about get started.",
+  faqBody: "Everything you need to know about get started.",
   faqQ1: "How fast can we go live?",
   faqA1:
     "Most teams launch over a weekend. We guide setup, device linking, and a short staff run-through so you can show results by Monday.",

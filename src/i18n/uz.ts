@@ -20,8 +20,7 @@ export const uz = {
   heroMetricInventoryCopy:
     "Buyurtmalar tushishi bilan jonli qoldiq yangilanadi — barcha bo‘limlar bir xil axborotda bo‘ladi.",
   heroMetricRoiTitle: "Tez ROI",
-  heroMetricRoiCopy:
-    "Ko‘p restoranlar xarajatni bir necha haftada qoplaydi",
+  heroMetricRoiCopy: "Ko‘p restoranlar xarajatni bir necha haftada qoplaydi",
 
   logosBadge: "Ishonchli jamoalar",
   logosHeading: "Zamonaviy xizmatni quvvatlaydi",
@@ -176,8 +175,7 @@ export const uz = {
   pricingProRibbon: "Hammasi ichida",
   pricingProPrice: "$30",
   pricingProPeriod: "/oy",
-  pricingProBody:
-    "Restoraningiz uchun to‘liq operatsion tizim.",
+  pricingProBody: "Restoraningiz uchun to‘liq operatsion tizim.",
   pricingProB1: "Rollar bo‘yicha boshqariladigan 3 tagacha kassа",
   pricingProB2: "10 tagacha xodim akkaunti",
   pricingProB3: "Kengaytirilgan moliyaviy hisobotlar",
@@ -210,16 +208,13 @@ export const uz = {
 
   pricingPageBadge: "Rejalar",
   pricingPageHeading: "Narxlar",
-  pricingPageLead:
-    "Oddiy, hamyonbop va o‘sishga mos.",
+  pricingPageLead: "Oddiy, hamyonbop va o‘sishga mos.",
 
   faqPageBadge: "Yordam",
   faqPageHeading: "Ko‘p so‘raladigan savollar",
-  faqPageLead:
-    "KDSX’dan foydalanish bo‘yicha odatiy savollar.",
+  faqPageLead: "KDSX’dan foydalanish bo‘yicha odatiy savollar.",
 
-  footerBrandDescription:
-    "KDSX: POS, boshqaruv va oshxona uchun yagona tizim.",
+  footerBrandDescription: "KDSX: POS, boshqaruv va oshxona uchun yagona tizim.",
   footerContactTitle: "Aloqa",
   footerContactPhone1: "+998941500330",
   footerContactPhone2: "+821079328573",
@@ -235,8 +230,7 @@ export const uz = {
   footerAccessibility: "Barcha qurilmalarda qulay",
 
   wizardTitle: "KDSX akkauntini yarating",
-  wizardSubtitle:
-    "Restorangiz haqida ayting — biz shaxsiy demo tayyorlaymiz.",
+  wizardSubtitle: "Restorangiz haqida ayting — biz shaxsiy demo tayyorlaymiz.",
   wizardTitleStarter: "Bepul sinovni boshlang",
   wizardTitlePro: "KDSX’ga obuna ($30/oy)",
   wizardTitleEnterprise: "Sotuv bilan bog‘lanish",
@@ -263,9 +257,9 @@ export const uz = {
   wizardKakaoLabel: "KakaoTalk (ixtiyoriy)",
   wizardKakaoPlaceholder: "ID",
 
-  wizardUsernameLabel: "Foydalanuvchi nomi",
+  wizardUsernameLabel: "Tanlangan foydalanuvchi nomi",
   wizardUsernamePlaceholder: "username",
-  wizardPasswordLabel: "Parol yarating",
+  wizardPasswordLabel: "Tanlangan parol",
   wizardPasswordPlaceholder: "Kamida 8 ta belgi",
 
   wizardBack: "Ortga",
@@ -274,7 +268,8 @@ export const uz = {
   wizardSubmitting: "Qayta ishlanmoqda...",
   wizardError: "Xatolik yuz berdi. Qayta urinib ko‘ring",
   wizardErrorTitle: "Yuborishda xatolik",
-  wizardErrorBody: "Afsus, bizda nosozlik. Tez yechim uchun support@kdsx.uz manziliga yozing",
+  wizardErrorBody:
+    "Afsus, bizda nosozlik. Tez yechim uchun support@kdsx.uz manziliga yozing",
   wizardSuccessMessage:
     "Demo akkauntingiz tayyorlanmoqda. Tez orada kirish ma’lumotlarini yuboramiz.",
   wizardSuccessCta: "Tayyor",
@@ -291,8 +286,7 @@ export const uz = {
 
   faqBadge: "FAQ",
   faqHeading: "Ko‘p so‘raladigan savollar",
-  faqBody:
-    "Boshlash haqida bilishingiz kerak bo‘lgan hamma narsa.",
+  faqBody: "Boshlash haqida bilishingiz kerak bo‘lgan hamma narsa.",
   faqQ1: "Qancha vaqtda ishga tushamiz?",
   faqA1:
     "Ko‘pchilik jamoalar dam olish kunlarida sozlab, dushanba kuni ishni boshlaydi. Biz sozlash, qurilma ulash va qisqa xodim brifingida yo‘l-yo‘riq beramiz.",

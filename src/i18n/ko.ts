@@ -20,8 +20,7 @@ export const ko = {
   heroMetricInventoryCopy:
     "주문이 발생할 때마다 재고 수량이 라이브로 반영되어 모든 부서가 정렬됩니다.",
   heroMetricRoiTitle: "빠른 ROI",
-  heroMetricRoiCopy:
-    "대부분의 레스토랑이 수주 내 투자 비용을 회수합니다",
+  heroMetricRoiCopy: "대부분의 레스토랑이 수주 내 투자 비용을 회수합니다",
 
   logosBadge: "신뢰받는 팀",
   logosHeading: "현대적인 호스피탈리티의 동력",
@@ -89,8 +88,7 @@ export const ko = {
 
   mobileHighlightsPricingTag: "가치",
   mobileHighlightsPricingTitle: "한 가격, 모두 포함",
-  mobileHighlightsPricingBody:
-    "세 앱, 모든 기능·업데이트 — 한 달 정가.",
+  mobileHighlightsPricingBody: "세 앱, 모든 기능·업데이트 — 한 달 정가.",
 
   mobileHighlightsFaqTag: "지원",
   mobileHighlightsFaqTitle: "도와드릴게요",
@@ -98,8 +96,7 @@ export const ko = {
     "설정, 메뉴 가져오기, 첫 실행까지 지원해 빠르게 런칭하세요.",
 
   mobileHighlightsCtaHeading: "운영을 업그레이드할 준비 되셨나요?",
-  mobileHighlightsCtaBody:
-    "첫 달 동안 모든 KDSX 앱을 위험 없이 사용해보세요.",
+  mobileHighlightsCtaBody: "첫 달 동안 모든 KDSX 앱을 위험 없이 사용해보세요.",
   mobileHighlightsCtaButton: "시작하기",
 
   mobileContactHeading: "문의하기",
@@ -111,23 +108,19 @@ export const ko = {
 
   howStep1Tag: "설정",
   howStep1Title: "Dash 준비",
-  howStep1Body:
-    "상품 추가, 플로어 설계, 직원 권한 설정을 한 곳에서 합니다.",
+  howStep1Body: "상품 추가, 플로어 설계, 직원 권한 설정을 한 곳에서 합니다.",
 
   howStep2Tag: "연결",
   howStep2Title: "POS 시작",
-  howStep2Body:
-    "단순한 그리드 레이아웃으로 팀이 즉시 주문을 받습니다.",
+  howStep2Body: "단순한 그리드 레이아웃으로 팀이 즉시 주문을 받습니다.",
 
   howStep3Tag: "조리",
   howStep3Title: "Kitchen 활성화",
-  howStep3Body:
-    "주방 디스플레이를 설치하고 끊김없이 흐르는 주문을 확인하세요.",
+  howStep3Body: "주방 디스플레이를 설치하고 끊김없이 흐르는 주문을 확인하세요.",
 
   testimonialsBadge: "고객의 말",
   testimonialsHeading: "레스토랑 운영자들이 말하는 변화",
-  testimonialsBody:
-    "매일 KDSX를 사용하는 팀들의 실제 피드백입니다.",
+  testimonialsBody: "매일 KDSX를 사용하는 팀들의 실제 피드백입니다.",
 
   testimonialsCard1Tag: "카페 오너",
   testimonialsCard1Quote:
@@ -156,15 +149,13 @@ export const ko = {
 
   pricingBadge: "요금",
   pricingHeading: "하나의 투명한 구독",
-  pricingBody:
-    "숨겨진 비용 없음. 복잡한 티어 없음. 모두 포함.",
+  pricingBody: "숨겨진 비용 없음. 복잡한 티어 없음. 모두 포함.",
 
   pricingStarterLabel: "무료 플랜",
   pricingStarterRibbon: "리스크 없음",
   pricingStarterPrice: "무료",
   pricingStarterSubtitle: "첫 달 무료",
-  pricingStarterBody:
-    "자신의 데이터로 전체 시스템을 사용해보세요.",
+  pricingStarterBody: "자신의 데이터로 전체 시스템을 사용해보세요.",
   pricingStarterB1: "Dash·POS·Kitchen 전체 접근",
   pricingStarterB2: "무제한 품목·거래",
   pricingStarterB3: "실시간 리포팅",
@@ -177,8 +168,7 @@ export const ko = {
   pricingProRibbon: "올인원",
   pricingProPrice: "$30",
   pricingProPeriod: "/월",
-  pricingProBody:
-    "레스토랑을 위한 완전한 운영 시스템.",
+  pricingProBody: "레스토랑을 위한 완전한 운영 시스템.",
   pricingProB1: "권한 기반 최대 3대 레지",
   pricingProB2: "직원 계정 최대 10개",
   pricingProB3: "고급 재무 리포트",
@@ -189,8 +179,7 @@ export const ko = {
   pricingEnterpriseTitle: "다점포",
   pricingEnterpriseRibbon: "맞춤",
   pricingEnterpriseHeading: "프랜차이즈 운영 중인가요?",
-  pricingEnterpriseBody:
-    "모든 지점의 메뉴·재고·리포팅을 중앙에서 관리하세요.",
+  pricingEnterpriseBody: "모든 지점의 메뉴·재고·리포팅을 중앙에서 관리하세요.",
   pricingEnterpriseCta: "영업 문의",
 
   pricingImplementTag: "맞춤 온보딩 필요?",
@@ -211,16 +200,13 @@ export const ko = {
 
   pricingPageBadge: "플랜",
   pricingPageHeading: "요금제",
-  pricingPageLead:
-    "단순하고 합리적이며 성장에 맞춰 설계.",
+  pricingPageLead: "단순하고 합리적이며 성장에 맞춰 설계.",
 
   faqPageBadge: "지원",
   faqPageHeading: "자주 묻는 질문",
-  faqPageLead:
-    "KDSX 사용에 대한 핵심 질문을 모았습니다.",
+  faqPageLead: "KDSX 사용에 대한 핵심 질문을 모았습니다.",
 
-  footerBrandDescription:
-    "KDSX: POS·관리·키친 올인원 시스템.",
+  footerBrandDescription: "KDSX: POS·관리·키친 올인원 시스템.",
   footerContactTitle: "문의",
   footerContactPhone1: "+998941500330",
   footerContactPhone2: "+821079328573",
@@ -236,8 +222,7 @@ export const ko = {
   footerAccessibility: "모든 기기에서 접근 가능",
 
   wizardTitle: "KDSX 계정 만들기",
-  wizardSubtitle:
-    "레스토랑 정보를 알려주시면 개인화된 데모를 준비해드립니다.",
+  wizardSubtitle: "레스토랑 정보를 알려주시면 개인화된 데모를 준비해드립니다.",
   wizardTitleStarter: "무료 체험 시작",
   wizardTitlePro: "KDSX 구독 ($30/월)",
   wizardTitleEnterprise: "영업 문의",
@@ -264,9 +249,9 @@ export const ko = {
   wizardKakaoLabel: "카카오톡 (선택)",
   wizardKakaoPlaceholder: "ID",
 
-  wizardUsernameLabel: "아이디 만들기",
+  wizardUsernameLabel: "선호 아이디",
   wizardUsernamePlaceholder: "username",
-  wizardPasswordLabel: "비밀번호 만들기",
+  wizardPasswordLabel: "선호 비밀번호",
   wizardPasswordPlaceholder: "8자 이상",
 
   wizardBack: "뒤로",
@@ -275,7 +260,8 @@ export const ko = {
   wizardSubmitting: "처리 중...",
   wizardError: "오류가 발생했습니다. 다시 시도해주세요",
   wizardErrorTitle: "제출 실패",
-  wizardErrorBody: "문제가 발생했습니다. 빠른 처리 원하시면 support@kdsx.uz 로 메일 주세요",
+  wizardErrorBody:
+    "문제가 발생했습니다. 빠른 처리 원하시면 support@kdsx.uz 로 메일 주세요",
   wizardSuccessMessage:
     "데모 계정을 준비 중입니다. 곧 로그인 정보를 보내드립니다.",
   wizardSuccessCta: "완료",
@@ -292,8 +278,7 @@ export const ko = {
 
   faqBadge: "FAQ",
   faqHeading: "공통 질문",
-  faqBody:
-    "시작에 필요한 모든 정보를 담았습니다.",
+  faqBody: "시작에 필요한 모든 정보를 담았습니다.",
   faqQ1: "얼마나 빨리 오픈할 수 있나요?",
   faqA1:
     "대부분 주말 동안 설치하고 월요일에 운영을 시작합니다. 설정·기기 연결·직원 브리핑을 도와 드립니다.",

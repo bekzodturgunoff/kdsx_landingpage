@@ -38,14 +38,30 @@ html {
   --color-surface-deep: #d4e3d4;
 
   --color-bright-green: var(--cta-primary);
-  --color-bright-green-active: color-mix(in srgb, var(--color-bright-green) 80%, var(--color-dark-green) 20%);
+  --color-bright-green-active: color-mix(
+    in srgb,
+    var(--color-bright-green) 80%,
+    var(--color-dark-green) 20%
+  );
   --color-dark-green: #1a4d1a;
   --color-text-primary: var(--text-brand-strong);
-  --color-text-secondary: color-mix(in srgb, var(--color-text-primary) 65%, white 35%);
+  --color-text-secondary: color-mix(
+    in srgb,
+    var(--color-text-primary) 65%,
+    white 35%
+  );
   --color-border-strong: #b4b9b4;
   --color-border-soft: #dcdcdc;
-  --color-neutral-layer: color-mix(in srgb, var(--color-dark-green) 8%, transparent);
-  --color-neutral-layer-strong: color-mix(in srgb, var(--color-dark-green) 14%, transparent);
+  --color-neutral-layer: color-mix(
+    in srgb,
+    var(--color-dark-green) 8%,
+    transparent
+  );
+  --color-neutral-layer-strong: color-mix(
+    in srgb,
+    var(--color-dark-green) 14%,
+    transparent
+  );
   --color-error-bright: #f87171;
   --color-error-dark: #991b1b;
 
@@ -94,7 +110,9 @@ html.theme-transitioning *::after {
 
 /* Reduced motion: if user requests, clamp transitions/animations to zero */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0ms !important;
     transition-duration: 0ms !important;
   }
@@ -107,7 +125,8 @@ header,
 main,
 section,
 footer {
-  transition: background-color var(--motion-speed-fast) ease,
+  transition:
+    background-color var(--motion-speed-fast) ease,
     color var(--motion-speed-fast) ease,
     border-color var(--motion-speed-fast) ease;
 }
@@ -125,7 +144,8 @@ header,
 main,
 section,
 footer {
-  transition: background-color var(--motion-speed-fast) ease,
+  transition:
+    background-color var(--motion-speed-fast) ease,
     color var(--motion-speed-fast) ease,
     border-color var(--motion-speed-fast) ease;
 }
@@ -133,7 +153,8 @@ footer {
 body {
   background-color: var(--color-brand-bg);
   /* Fallback for browsers without color-mix support */
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       1200px 1200px at -10% -20%,
       rgba(var(--color-green-accent-rgb) / 0.15) 0%,
       transparent 60%
@@ -150,7 +171,8 @@ body {
       var(--color-brand-bg) 100%
     );
   /* Enhanced version with color-mix for supporting browsers */
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       1200px 1200px at -10% -20%,
       color-mix(in oklch, var(--color-brand-cta) 20%, transparent) 0%,
       transparent 60%
@@ -162,7 +184,8 @@ body {
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--color-brand-bg) 94%, var(--color-brand-cta) 6%) 0%,
+      color-mix(in srgb, var(--color-brand-bg) 94%, var(--color-brand-cta) 6%)
+        0%,
       var(--color-brand-bg) 40%,
       var(--color-brand-bg) 100%
     );
@@ -175,7 +198,8 @@ body {
 
 .dark body {
   background-color: var(--color-brand-bg);
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       1200px 1200px at -15% -12%,
       color-mix(in oklch, var(--color-bright-green) 26%, transparent) 0%,
       transparent 58%
@@ -187,7 +211,12 @@ body {
     ),
     linear-gradient(
       180deg,
-      color-mix(in oklch, var(--color-black-soft-1) 78%, var(--color-bright-green) 12%) 0%,
+      color-mix(
+          in oklch,
+          var(--color-black-soft-1) 78%,
+          var(--color-bright-green) 12%
+        )
+        0%,
       var(--color-black-soft-2) 100%
     );
   color: var(--color-brand-text-dark);
@@ -275,11 +304,15 @@ body {
     border: 1px solid rgba(var(--color-grey-border-1-rgb) / 0.65);
     background: rgba(var(--color-grey-card-rgb) / 0.94);
     /* External elevation + subtle inner highlight for definition */
-    box-shadow: 0 18px 44px -28px rgba(var(--color-green-dark-rgb) / 0.38), inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.35);
+    box-shadow:
+      0 18px 44px -28px rgba(var(--color-green-dark-rgb) / 0.38),
+      inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.35);
     /* Enhanced version with backdrop-filter for supporting browsers (keep same border for consistency) */
     background: rgba(var(--color-white-rgb) / 0.72);
     backdrop-filter: blur(26px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     color: var(--color-brand-text);
   }
 
@@ -327,7 +360,9 @@ body {
     text-transform: uppercase;
     color: var(--color-text-primary);
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
       background 0.2s ease;
   }
 
@@ -353,7 +388,8 @@ body {
 
   .dark .lang-select:focus-visible {
     border-color: var(--color-border-bright);
-    box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-bright-green) 32%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in oklch, var(--color-bright-green) 32%, transparent);
   }
 
   .btn-solid,
@@ -364,24 +400,34 @@ body {
     border-radius: 999px;
     font-weight: 600;
     letter-spacing: -0.01em;
-    transition: transform 0.18s ease, box-shadow 0.18s ease,
-      background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      background 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
   }
 
   .btn-solid {
     background: var(--color-bright-green);
     color: var(--color-dark-green);
-    border: 1px solid color-mix(in oklch, var(--color-dark-green) 18%, transparent);
-    box-shadow: 0 18px 44px -24px color-mix(in oklch, var(--color-dark-green) 35%, transparent), inset 0 0 0 1px color-mix(in oklch, var(--color-white) 35%, transparent);
+    border: 1px solid
+      color-mix(in oklch, var(--color-dark-green) 18%, transparent);
+    box-shadow:
+      0 18px 44px -24px
+        color-mix(in oklch, var(--color-dark-green) 35%, transparent),
+      inset 0 0 0 1px color-mix(in oklch, var(--color-white) 35%, transparent);
   }
 
   .btn-solid:hover {
     transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 22px 56px -28px color-mix(in oklch, var(--color-dark-green) 40%, transparent);
+    box-shadow: 0 22px 56px -28px
+      color-mix(in oklch, var(--color-dark-green) 40%, transparent);
   }
 
   .btn-solid:focus-visible {
-    outline: 2px solid color-mix(in oklch, var(--color-bright-green) 55%, transparent);
+    outline: 2px solid
+      color-mix(in oklch, var(--color-bright-green) 55%, transparent);
     outline-offset: 2px;
   }
 
@@ -395,7 +441,10 @@ body {
     background: var(--color-bright-green);
     color: var(--color-dark-green);
     border-color: transparent;
-    box-shadow: 0 0 0 1px var(--color-border-soft), 0 22px 56px -28px color-mix(in oklch, var(--color-bright-green) 36%, transparent);
+    box-shadow:
+      0 0 0 1px var(--color-border-soft),
+      0 22px 56px -28px
+        color-mix(in oklch, var(--color-bright-green) 36%, transparent);
   }
 
   .dark .btn-solid:hover {
@@ -415,7 +464,8 @@ body {
   }
 
   .btn-ghost:focus-visible {
-    outline: 2px solid color-mix(in oklch, var(--color-bright-green) 35%, transparent);
+    outline: 2px solid
+      color-mix(in oklch, var(--color-bright-green) 35%, transparent);
     outline-offset: 2px;
   }
 
@@ -435,13 +485,15 @@ body {
     overflow: hidden;
     border-radius: 32px;
     padding: 1px;
-    border: 1px solid color-mix(in oklch, var(--color-dark-green) 28%, transparent);
+    border: 1px solid
+      color-mix(in oklch, var(--color-dark-green) 28%, transparent);
     background: linear-gradient(
       140deg,
       color-mix(in oklch, var(--color-bright-green) 32%, white 68%) 0%,
       color-mix(in oklch, var(--color-surface) 92%, white 8%) 100%
     );
-    box-shadow: 0 34px 110px -58px color-mix(in oklch, var(--color-dark-green) 42%, transparent);
+    box-shadow: 0 34px 110px -58px
+      color-mix(in oklch, var(--color-dark-green) 42%, transparent);
   }
 
   .pro-card__inner {
@@ -457,7 +509,12 @@ body {
     border-color: var(--color-border-soft);
     background: linear-gradient(
       160deg,
-      color-mix(in oklch, var(--color-bright-green) 18%, var(--color-surface) 82%) 0%,
+      color-mix(
+          in oklch,
+          var(--color-bright-green) 18%,
+          var(--color-surface) 82%
+        )
+        0%,
       var(--color-surface) 100%
     );
     box-shadow: 0 34px 110px -58px rgba(0, 0, 0, 0.74);
@@ -536,7 +593,8 @@ body {
     border-radius: 999px;
     border: 1px solid var(--color-border-soft);
     background: var(--color-surface);
-    box-shadow: 0 20px 70px -50px color-mix(in oklch, var(--color-dark-green) 20%, transparent);
+    box-shadow: 0 20px 70px -50px
+      color-mix(in oklch, var(--color-dark-green) 20%, transparent);
     backdrop-filter: blur(8px);
   }
 
@@ -564,7 +622,9 @@ body {
 
   .badge-pill:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--color-green-accent-rgb) / 0.35), inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
+    box-shadow:
+      0 0 0 3px rgba(var(--color-green-accent-rgb) / 0.35),
+      inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
   }
 
   .dark .badge-pill {
@@ -605,7 +665,9 @@ body {
     border-radius: 999px;
     background: rgba(var(--color-white-rgb) / 0.9);
     border: 1px solid rgba(var(--color-grey-border-2-rgb) / 0.75);
-    box-shadow: 0 10px 28px -18px rgba(var(--color-green-dark-rgb) / 0.42), inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.5);
+    box-shadow:
+      0 10px 28px -18px rgba(var(--color-green-dark-rgb) / 0.42),
+      inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.5);
     color: var(--color-brand-cta-text);
   }
 
@@ -618,7 +680,9 @@ body {
 
   .enterprise-ribbon:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--color-green-accent-rgb) / 0.35), inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
+    box-shadow:
+      0 0 0 3px rgba(var(--color-green-accent-rgb) / 0.35),
+      inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
   }
 
   .enterprise-pill {
@@ -632,7 +696,9 @@ body {
     border-radius: 1.2rem;
     background: rgba(var(--color-white-rgb) / 0.86);
     border: 1px solid rgba(var(--color-grey-border-2-rgb) / 0.7);
-    box-shadow: 0 8px 22px -14px rgba(var(--color-green-dark-rgb) / 0.42), inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
+    box-shadow:
+      0 8px 22px -14px rgba(var(--color-green-dark-rgb) / 0.42),
+      inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
     color: var(--color-brand-cta-text);
   }
 
@@ -645,7 +711,9 @@ body {
 
   .enterprise-pill:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--color-green-accent-rgb) / 0.35), inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
+    box-shadow:
+      0 0 0 3px rgba(var(--color-green-accent-rgb) / 0.35),
+      inset 0 0 0 1px rgba(var(--color-white-rgb) / 0.55);
   }
 
   /* NOTE: page-section/page-shell utilities were removed to restore original

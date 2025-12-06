@@ -23,16 +23,23 @@ export const DEFAULT_LANGUAGE: LanguageCode = "en";
 
 // Resolve translations for a given language code (falls back to DEFAULT_LANGUAGE)
 export function getTranslations(lang?: string) {
-  const code = (lang && lang in translations ? (lang as LanguageCode) : DEFAULT_LANGUAGE);
+  const code =
+    lang && lang in translations ? (lang as LanguageCode) : DEFAULT_LANGUAGE;
   return { code, table: translations[code] };
 }
 
 // Factory that returns a translator function: t(key)
 export function createT(lang?: string) {
-  return (key: keyof typeof en) => translations[(lang && lang in translations ? (lang as LanguageCode) : DEFAULT_LANGUAGE)][key];
+  return (key: keyof typeof en) =>
+    translations[
+      lang && lang in translations ? (lang as LanguageCode) : DEFAULT_LANGUAGE
+    ][key];
 }
 
 // Back-compat: if someone still imports t(lang,key)
-export function tLegacy(lang: string | undefined, key: keyof typeof en): string {
+export function tLegacy(
+  lang: string | undefined,
+  key: keyof typeof en
+): string {
   return createT(lang)(key);
 }

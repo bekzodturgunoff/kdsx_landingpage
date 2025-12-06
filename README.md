@@ -34,18 +34,18 @@ If the endpoint is missing or returns a non‑OK status, the wizard automaticall
 - File: `src/pages/api/lead.ts`
 - Behavior: Accepts JSON, then forwards the submission to configured notification channels.
 - Notifications supported:
-	- Email via Resend (set `RESEND_API_KEY` + `FROM_EMAIL`, `TO_EMAIL`)
+  - Email via Resend (set `RESEND_API_KEY` + `FROM_EMAIL`, `TO_EMAIL`)
 - Security: The API intentionally does not include the password field in notifications.
 - If no channel is configured, the API returns HTTP 501 so the client falls back to mailto.
 
 ### Configure on Vercel
 
-1) Ensure the project is connected to Vercel.
-2) In Vercel → Project → Settings → Environment Variables, add:
-	 - `RESEND_API_KEY` — Resend API key (store securely, never commit it)
-	 - `FROM_EMAIL` — Verified sender in Resend (e.g., `leads@yourdomain.com`)
-		- `TO_EMAIL` — Recipient(s). Set to `bekzodturgunoff@gmail.com` (or a comma-separated list if you need multiple inboxes).
-3) Redeploy the project to ship the serverless function.
+1. Ensure the project is connected to Vercel.
+2. In Vercel → Project → Settings → Environment Variables, add:
+   - `RESEND_API_KEY` — Resend API key (store securely, never commit it)
+   - `FROM_EMAIL` — Verified sender in Resend (e.g., `leads@yourdomain.com`)
+     - `TO_EMAIL` — Recipient(s). Set to `bekzodturgunoff@gmail.com` (or a comma-separated list if you need multiple inboxes).
+3. Redeploy the project to ship the serverless function.
 
 For local development, copy `.env.example` to `.env` (or `.env.local`) and provide the same values so the Astro dev server can call the API with your credentials.
 
