@@ -1,6 +1,4 @@
 import type { APIRoute } from "astro";
-import crypto from "node:crypto";
-
 // API routes must opt out of prerendering so they stay server-rendered.
 export const prerender = false;
 
@@ -10,6 +8,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Basic shape and coercion
     const payload = {
+      // Intentionally omit desiredPassword from notifications for security.
       plan: String(data.plan || ""),
       fullName: String(data.fullName || ""),
       businessName: String(data.businessName || ""),
@@ -17,7 +16,6 @@ export const POST: APIRoute = async ({ request }) => {
       serviceStyle: String(data.serviceStyle || ""),
       currentPos: String(data.currentPos || ""),
       desiredUsername: String(data.desiredUsername || ""),
-      desiredPassword: String(data.desiredPassword || ""),
       phone: String(data.phone || ""),
       email: String(data.email || ""),
       telegram: String(data.telegram || ""),
@@ -39,24 +37,6 @@ export const POST: APIRoute = async ({ request }) => {
       `KakaoTalk: ${payload.kakaotalk}`,
       `Submitted: ${payload.timestamp}`,
     ];
-
-    // Always include both plaintext and hashed password so operators receive credentials.
-    if (payload.desiredPassword) {
-      try {
-        const hash = crypto
-          .createHash("sha256")
-          .update(payload.desiredPassword)
-          .digest("hex");
-        lines.splice(7, 0, `Password (sha256): ${hash}`);
-        lines.splice(7, 0, `Password (plain): ${payload.desiredPassword}`);
-      } catch (e) {
-        lines.splice(
-          7,
-          0,
-          `Password hashing error: ${e instanceof Error ? e.message : String(e)}`
-        );
-      }
-    }
 
     // Delivery options via env vars (sanitized)
     const rawResendKey = process.env.RESEND_API_KEY?.trim();
