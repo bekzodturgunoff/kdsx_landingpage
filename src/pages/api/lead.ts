@@ -7,8 +7,8 @@ export const POST: APIRoute = async ({ request }) => {
     const data = await request.json();
 
     // Basic shape and coercion
+    // Password fields are intentionally ignored to avoid storing or notifying them.
     const payload = {
-      // Intentionally omit desiredPassword from notifications for security.
       plan: String(data.plan || ""),
       fullName: String(data.fullName || ""),
       businessName: String(data.businessName || ""),
