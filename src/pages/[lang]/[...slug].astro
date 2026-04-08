@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import MobileHighlights from '../../components/MobileHighlights.astro';
+import BusinessSection from '../../components/BusinessSection.astro';
+import FeaturesSection from '../../components/FeaturesSection.astro';
+import HowItWorks from '../../components/HowItWorks.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import PricingTable from '../../components/PricingTable.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
+const validPages = ['home', 'features', 'pricing', 'faq', 'privacy', 'terms'] as const;
+
+type SupportedLang = (typeof supportedLangs)[number];
+type ValidPage = (typeof validPages)[number];
+
+const { lang, slug } = Astro.params;
+const langCode = String(lang || '');
+
+if (!supportedLangs.includes(langCode as SupportedLang)) {
+  return Astro.redirect('/en', 302);
+}
+
+const slugPath = Array.isArray(slug) ? slug.join('/') : (slug || '');
+const page = (slugPath || 'home') as ValidPage;
+
+if (!validPages.includes(page)) {
+  return new Response('Not found', { status: 404 });
+}
+---
+
+<Layout lang={langCode}>
+  <Header />
+
+  {page === 'home' && (
+    <main class="space-y-0">
+      <Hero />
+      <MobileHighlights />
+      <div class="hidden md:block">
+        <BusinessSection />
+        <FeaturesSection />
+        <HowItWorks />
+        <Testimonials />
+        <PricingTable>
+          <Fragment slot="faq">
+            <FAQ />
+          </Fragment>
+        </PricingTable>
+      </div>
+    </main>
+  )}
+
+  {page === 'features' && (
+    <main class="space-y-0">
+      <BusinessSection />
+      <FeaturesSection />
+      <HowItWorks />
+    </main>
+  )}
+
+  {page === 'pricing' && (
+    <main class="space-y-0">
+      <PricingTable />
+    </main>
+  )}
+
+  {page === 'faq' && (
+    <main class="space-y-0">
+      <FAQ />
+    </main>
+  )}
+
+  {page === 'privacy' && (
+    <main class="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section class="max-w-4xl mx-auto section-shell px-4 sm:px-8 py-10 text-brand-text dark:text-brand-text-dark">
+        <span class="badge-pill" data-i18n="privacyBadge">Privacy</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight" data-i18n="privacyHeading">Privacy Policy</h1>
+        <p class="mt-3 text-base text-brand-text/80 dark:text-brand-text-dark/75" data-i18n="privacyIntro">
+          This page summarizes the data we collect, why we collect it, and how restaurant teams can
+          control or remove their information.
+        </p>
+
+        <div class="mt-8 space-y-6 text-base leading-relaxed">
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="privacySection1Title">1. Information we collect</h2>
+            <p class="mt-2" data-i18n="privacySection1Body">
+              We gather operator contact details, venue metadata, menu items, inventory counts, orders,
+              and device telemetry. Optional channels like Telegram or KakaoTalk are stored only when
+              you provide them.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="privacySection2Title">2. How we use data</h2>
+            <p class="mt-2" data-i18n="privacySection2Body">
+              Data powers dashboards, alerts, and automations. We may anonymize usage patterns to
+              improve forecasting and reliability but never sell identifiable information to third
+              parties.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="privacySection3Title">3. Integrations &amp; processors</h2>
+            <p class="mt-2" data-i18n="privacySection3Body">
+              When you enable payments, delivery, or accounting integrations we send only the minimum
+              fields those partners require. Current sub-processors and regions are listed in our SOC 2
+              packet — request it at compliance@kdsx.uz.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="privacySection4Title">4. Retention &amp; deletion</h2>
+            <p class="mt-2" data-i18n="privacySection4Body">
+              Operational data stays active while your subscription is live. We retain backups for 30
+              days after cancellation, then purge them unless regulators require a longer window. You
+              can request deletion at any time and we will confirm once complete.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="privacySection5Title">5. Questions</h2>
+            <p class="mt-2" data-i18n="privacySection5Body">
+              Email privacy@kdsx.uz if you need a signed DPA, want to update contacts, or have
+              compliance questions. We typically respond within one business day.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  )}
+
+  {page === 'terms' && (
+    <main class="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section class="max-w-4xl mx-auto section-shell px-4 sm:px-8 py-10 text-brand-text dark:text-brand-text-dark">
+        <span class="badge-pill" data-i18n="termsBadge">Legal</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight" data-i18n="termsHeading">Terms of Service</h1>
+        <p class="mt-3 text-base text-brand-text/80 dark:text-brand-text-dark/75" data-i18n="termsIntro">
+          These terms outline how KDSX provides access to the platform and what we expect from teams
+          using it. We kept the language plain so operators can review it without a legal dictionary.
+        </p>
+
+        <div class="mt-8 space-y-6 text-base leading-relaxed">
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="termsSection1Title">1. Accounts &amp; access</h2>
+            <p class="mt-2" data-i18n="termsSection1Body">
+              Each restaurant is provisioned with unique logins. You are responsible for keeping
+              credentials safe and notifying us if you suspect unauthorized access. Multi-location
+              operators can request SSO or granular role controls by emailing support@kdsx.uz.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="termsSection2Title">2. Acceptable use</h2>
+            <p class="mt-2" data-i18n="termsSection2Body">
+              Use KDSX to operate your venues, not to probe infrastructure, resell access, or send
+              abusive content through our notification channels. We may suspend accounts that put the
+              platform or other customers at risk.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="termsSection3Title">3. Billing</h2>
+            <p class="mt-2" data-i18n="termsSection3Body">
+              Starter is free for the first month. Paid plans renew monthly and can be cancelled with
+              seven days notice. Hardware purchases are invoiced separately. Contact billing@kdsx.uz if
+              you need offline payment options.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="termsSection4Title">4. Data ownership</h2>
+            <p class="mt-2" data-i18n="termsSection4Body">
+              You retain ownership of menus, inventory, sales data, and guest information you store in
+              KDSX. We act as a processor, only using the data to provide and improve the service. Upon
+              request we will export your data in a portable format within five business days.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold" data-i18n="termsSection5Title">5. Updates</h2>
+            <p class="mt-2" data-i18n="termsSection5Body">
+              We iterate quickly. When we roll out changes that materially affect your use of the
+              platform we will notify the billing contact via email. Your continued use of KDSX after
+              updates constitutes acceptance of the revised terms.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  )}
+</Layout>

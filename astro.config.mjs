@@ -3,6 +3,7 @@ import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kdsx.uz',
   adapter: vercel(),
   output: 'server',
   prerender: { default: true },

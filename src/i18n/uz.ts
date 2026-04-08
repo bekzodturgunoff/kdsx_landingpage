@@ -342,4 +342,8 @@ export const uz = {
   privacySection5Title: "5. Savollar",
   privacySection5Body:
     "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
+  themeLight: "Yorug‘",
+  themeDark: "Qorong‘i",
+  stepLabel: "Bosqich",
+  stepOf: "dan",
 } as const;

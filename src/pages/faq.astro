@@ -1,13 +1,3 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import FAQ from '../components/FAQ.astro';
-// (Reverted) remove SSR page-level translations
+return Astro.redirect('/en/faq', 302);
 ---
-
-<Layout>
-  <Header />
-  <main class="space-y-0">
-  <FAQ />
-  </main>
-</Layout>

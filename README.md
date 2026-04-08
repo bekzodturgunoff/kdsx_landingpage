@@ -35,7 +35,7 @@ If the endpoint is missing or returns a non‑OK status, the wizard automaticall
 - Behavior: Accepts JSON, then forwards the submission to configured notification channels.
 - Notifications supported:
   - Email via Resend (set `RESEND_API_KEY` + `FROM_EMAIL`, `TO_EMAIL`)
-- Security: The API intentionally does not include the password field in notifications.
+- Password handling note: The current implementation intentionally includes plaintext password values in lead notifications for operator onboarding convenience. This is a product decision for now and is not treated as an immediate blocker in this repository. Handle notification inbox access accordingly.
 - If no channel is configured, the API returns HTTP 501 so the client falls back to mailto.
 
 ### Configure on Vercel

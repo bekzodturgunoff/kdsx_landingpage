@@ -16,6 +16,7 @@ export const LANGUAGE_OPTIONS: Array<{ value: LanguageCode; label: string }> = [
   { value: "en", label: "English" },
   { value: "ru", label: "Русский" },
   { value: "ko", label: "한국어" },
+  { value: "uz", label: "O'zbekcha" },
 ];
 
 export const DEFAULT_LANGUAGE: LanguageCode = "en";

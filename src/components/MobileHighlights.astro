@@ -1,3 +1,9 @@
+---
+const supportedLangs = ['en', 'ru', 'ko', 'uz'];
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const localeBase = `/${currentLang}`;
+---
 <section class="md:hidden w-full px-2 sm:px-6 pt-4 pb-5">
   <div class="max-w-6xl mx-auto section-shell px-4 py-5 space-y-6 text-left text-brand-text dark:text-brand-text-dark">
     <div class="space-y-3">
@@ -11,7 +17,7 @@
     </div>
 
     <div class="space-y-3">
-      <a href="/features" class="surface-card block px-4 py-5">
+      <a href={`${localeBase}/features`} class="surface-card block px-4 py-5">
         <div class="flex items-start justify-between gap-3">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="mobileHighlightsFeaturesTag">Features</p>
@@ -24,7 +30,7 @@
         </p>
       </a>
 
-  <a href="/pricing" class="surface-card block px-4 py-5">
+  <a href={`${localeBase}/pricing`} class="surface-card block px-4 py-5">
         <div class="flex items-start justify-between gap-3">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="mobileHighlightsPricingTag">Pricing</p>
@@ -37,7 +43,7 @@
         </p>
       </a>
 
-  <a href="/faq" class="surface-card block px-4 py-5">
+  <a href={`${localeBase}/faq`} class="surface-card block px-4 py-5">
         <div class="flex items-start justify-between gap-3">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="mobileHighlightsFaqTag">FAQ</p>

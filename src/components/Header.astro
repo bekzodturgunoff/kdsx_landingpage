@@ -1,31 +1,40 @@
 ---
-import { translations, LANGUAGE_OPTIONS, DEFAULT_LANGUAGE } from "../i18n";
+import { LANGUAGE_OPTIONS } from "../i18n";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
 
 const languageOptions = LANGUAGE_OPTIONS;
-const translationsJSON = JSON.stringify(translations);
-const fallbackLanguage = DEFAULT_LANGUAGE;
+const supportedLangs = ['en', 'ru', 'ko', 'uz'];
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const localeBase = `/${currentLang}`;
+const homeHref = localeBase;
+const featuresHref = `${localeBase}#features`;
+const pricingHref = `${localeBase}#pricing`;
+const faqHref = `${localeBase}#faq`;
+const featuresPageHref = `${localeBase}/features`;
+const pricingPageHref = `${localeBase}/pricing`;
+const faqPageHref = `${localeBase}/faq`;
 ---
 <header class="sticky top-0 z-50 px-2 sm:px-6">
   <div class="max-w-6xl mx-auto">
     <div class="mt-6 flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
-        <a href="/" aria-label="KDSX Home" class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs sm:text-sm uppercase tracking-[0.3em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60 dark:text-brand-cta-text">
+        <a href={homeHref} aria-label="KDSX Home" class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs sm:text-sm uppercase tracking-[0.3em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60 dark:text-brand-cta-text">
           KDSX
         </a>
       </div>
 
       <!-- Desktop nav: anchor links to sections on index page (smooth scroll) -->
       <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70" aria-label="Primary">
-        <a href="/#features" data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
+        <a href={featuresHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
           <span class="inline-block">Features</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-        <a href="/#pricing" data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
+        <a href={pricingHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
           <span class="inline-block">Pricing</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-        <a href="/#faq" data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
+        <a href={faqHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
           <span class="inline-block">FAQ</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
@@ -96,9 +105,9 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
   <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
     <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-2 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-5 text-base font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
     <!-- Mobile nav: full pages (sections not all present inline on mobile) -->
-  <a href="/features" class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">Features</a>
-  <a href="/pricing" class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">Pricing</a>
-  <a href="/faq" class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFaq">FAQ</a>
+  <a href={featuresPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">Features</a>
+  <a href={pricingPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">Pricing</a>
+  <a href={faqPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFaq">FAQ</a>
 
       <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
         <div class="flex items-center justify-between gap-3">
@@ -116,7 +125,6 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
     </nav>
   </div>
 </header>
-<script type="application/json" id="translations-data" data-fallback={fallbackLanguage} set:html={translationsJSON}></script>
 <script is:inline>
   (function setupHeader() {
     const LANGUAGE_STORAGE_KEY = "preferred-lang";
@@ -143,18 +151,41 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       });
     };
 
-    const applyLanguage = (lang) => {
+    const supported = ["en", "ru", "ko", "uz"];
+
+    const getPathLang = () => {
+      const first = window.location.pathname.split("/").filter(Boolean)[0];
+      return supported.includes(first) ? first : null;
+    };
+
+    const buildLocalizedPath = (lang) => {
+      const segments = window.location.pathname.split("/").filter(Boolean);
+      const hasLangPrefix = segments.length > 0 && supported.includes(segments[0]);
+      const rest = hasLangPrefix ? segments.slice(1) : segments;
+      return `/${lang}${rest.length ? `/${rest.join("/")}` : ""}`;
+    };
+
+    const applyLanguage = (lang, opts = { navigate: false }) => {
       const html = document.documentElement;
       html.setAttribute("lang", lang);
       try {
         localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
       } catch (_) {}
+      document.cookie = `lang=${encodeURIComponent(lang)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
       document.querySelectorAll(".lang-select").forEach((select) => {
         if (select.value !== lang) {
           select.value = lang;
         }
       });
       applyTranslations(lang);
+
+      if (opts.navigate) {
+        const targetPath = buildLocalizedPath(lang);
+        const currentPath = window.location.pathname;
+        if (targetPath !== currentPath) {
+          window.location.assign(`${targetPath}${window.location.search}${window.location.hash}`);
+        }
+      }
     };
 
     const bindLanguage = () => {
@@ -169,7 +200,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
         select.addEventListener("change", (event) => {
           const target = event.target;
           const lang = target.value || TRANSLATION_FALLBACK;
-          applyLanguage(lang);
+          applyLanguage(lang, { navigate: true });
         });
         (select)._boundLang = true;
       });
@@ -180,7 +211,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       } catch (_) {
         storedLang = undefined;
       }
-      const initialLang = storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
+      const initialLang = getPathLang() || storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
       applyLanguage(initialLang);
     };
 
@@ -333,14 +364,16 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
           const isDesktop = window.matchMedia('(min-width: 768px)').matches;
           if (!isDesktop) return; // allow normal nav on mobile
           const href = a.getAttribute('href') || '';
-          if (!href.startsWith('/#')) return;
+          const hashIndex = href.indexOf('#');
+          if (hashIndex === -1) return;
+          const basePath = href.slice(0, hashIndex) || '/';
+          const id = href.slice(hashIndex + 1);
+          if (!id) return;
+          if (basePath !== window.location.pathname) return;
           e.preventDefault();
-          const id = href.replace('/#', '');
           const target = document.getElementById(id);
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          } else {
-            window.location.href = href;
           }
         });
         (a)._boundScroll = true;

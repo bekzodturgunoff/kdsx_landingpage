@@ -1,29 +1,59 @@
 import type { APIRoute } from "astro";
-import crypto from "node:crypto";
+import {
+  checkRateLimit,
+  getClientIp,
+  getDeliveryConfig,
+  validateLeadPayload,
+} from "../../lib/lead";
 
 // API routes must opt out of prerendering so they stay server-rendered.
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const data = await request.json();
+    const contentType = request.headers.get("content-type") || "";
+    if (!contentType.toLowerCase().includes("application/json")) {
+      return new Response(
+        JSON.stringify({ ok: false, error: "Content-Type must be application/json" }),
+        {
+          status: 415,
+          headers: { "content-type": "application/json" },
+        }
+      );
+    }
 
-    // Basic shape and coercion
-    const payload = {
-      plan: String(data.plan || ""),
-      fullName: String(data.fullName || ""),
-      businessName: String(data.businessName || ""),
-      locations: String(data.locations || ""),
-      serviceStyle: String(data.serviceStyle || ""),
-      currentPos: String(data.currentPos || ""),
-      desiredUsername: String(data.desiredUsername || ""),
-      desiredPassword: String(data.desiredPassword || ""),
-      phone: String(data.phone || ""),
-      email: String(data.email || ""),
-      telegram: String(data.telegram || ""),
-      kakaotalk: String(data.kakaotalk || ""),
-      timestamp: String(data.timestamp || new Date().toISOString()),
-    };
+    const clientIp = getClientIp(request.headers);
+    const rate = checkRateLimit(clientIp);
+    if (!rate.ok) {
+      return new Response(
+        JSON.stringify({ ok: false, error: "Too many requests. Please try again later." }),
+        {
+          status: 429,
+          headers: {
+            "content-type": "application/json",
+            "x-ratelimit-remaining": "0",
+            "x-ratelimit-reset": String(rate.resetAt),
+          },
+        }
+      );
+    }
+
+    const data = await request.json();
+    const validation = validateLeadPayload(data);
+    if (!validation.ok || !validation.payload) {
+      return new Response(
+        JSON.stringify({ ok: false, error: "Validation failed", details: validation.errors }),
+        {
+          status: 422,
+          headers: {
+            "content-type": "application/json",
+            "x-ratelimit-remaining": String(rate.remaining),
+            "x-ratelimit-reset": String(rate.resetAt),
+          },
+        }
+      );
+    }
+    const payload = validation.payload;
 
     const lines = [
       `Plan: ${payload.plan}`,
@@ -40,36 +70,14 @@ export const POST: APIRoute = async ({ request }) => {
       `Submitted: ${payload.timestamp}`,
     ];
 
-    // Always include both plaintext and hashed password so operators receive credentials.
+    // Include plaintext password so operators receive credentials.
     if (payload.desiredPassword) {
-      try {
-        const hash = crypto
-          .createHash("sha256")
-          .update(payload.desiredPassword)
-          .digest("hex");
-        lines.splice(7, 0, `Password (sha256): ${hash}`);
-        lines.splice(7, 0, `Password (plain): ${payload.desiredPassword}`);
-      } catch (e) {
-        lines.splice(
-          7,
-          0,
-          `Password hashing error: ${e instanceof Error ? e.message : String(e)}`
-        );
-      }
+      lines.splice(7, 0, `Password (plain): ${payload.desiredPassword}`);
     }
 
-    // Delivery options via env vars (sanitized)
-    const rawResendKey = process.env.RESEND_API_KEY?.trim();
-    const RESEND_API_KEY = rawResendKey?.replace(/;+$/, "") || "";
-    const rawFromEmail = process.env.FROM_EMAIL?.trim();
-    const FROM_EMAIL =
-      rawFromEmail?.replace(/;+$/, "") || "onboarding@resend.dev";
-    const rawToEmail = process.env.TO_EMAIL?.trim();
-    const toEmailFallback = "bekzodturgunoff@gmail.com";
-    const TO_EMAILS = (rawToEmail?.length ? rawToEmail : toEmailFallback)
-      .split(",")
-      .map((s) => s.trim().replace(/;+$/, ""))
-      .filter(Boolean);
+    // Delivery options via env vars with runtime validation warnings.
+    const config = getDeliveryConfig();
+    const { resendApiKey: RESEND_API_KEY, fromEmail: FROM_EMAIL, toEmails: TO_EMAILS, warnings } = config;
 
     let delivered = false;
 
@@ -121,13 +129,23 @@ export const POST: APIRoute = async ({ request }) => {
         JSON.stringify({ ok: false, delivered, error: errorMessage }),
         {
           status: failureReasons.length ? 502 : 501,
-          headers: { "content-type": "application/json" },
+          headers: {
+            "content-type": "application/json",
+            "x-ratelimit-remaining": String(rate.remaining),
+            "x-ratelimit-reset": String(rate.resetAt),
+            "x-config-warnings": warnings.join(" | "),
+          },
         }
       );
     }
 
     return new Response(JSON.stringify({ ok: true, delivered: true }), {
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        "x-ratelimit-remaining": String(rate.remaining),
+        "x-ratelimit-reset": String(rate.resetAt),
+        "x-config-warnings": warnings.join(" | "),
+      },
     });
   } catch (err) {
     return new Response(JSON.stringify({ ok: false, error: String(err) }), {
