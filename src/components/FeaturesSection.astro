@@ -1,12 +1,19 @@
 ---
-// Client-side data-i18n translation only; removed unused createT import
+import { createT } from '../i18n';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes((pathSegments[0] || '') as (typeof supportedLangs)[number])
+  ? pathSegments[0]
+  : 'en';
+const t = createT(currentLang);
 ---
 <section id="features" class="w-full px-2 sm:px-6 py-10 sm:py-16">
   <div class="max-w-6xl mx-auto section-shell px-4 sm:px-8 md:px-10 py-10 sm:py-14 md:py-16">
     <div class="flex flex-col items-start gap-4 sm:gap-5 text-left">
-  <span class="badge-pill" data-i18n="featuresBadge">All‑in‑one suite</span>
-  <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="featuresHeading">A live operations panel for every location</h2>
-  <p class="max-w-3xl text-base sm:text-lg leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresBody">KDSX connects orders, production, and profitability so you catch bottlenecks early and move faster.</p>
+  <span class="badge-pill" data-i18n="featuresBadge">{t('featuresBadge')}</span>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="featuresHeading">{t('featuresHeading')}</h2>
+  <p class="max-w-3xl text-base sm:text-lg leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresBody">{t('featuresBody')}</p>
     </div>
 
   <div class="mt-7 sm:mt-10 space-y-6 sm:space-y-9">
@@ -16,18 +23,18 @@
           <img loading="lazy" decoding="async" src="/app_images/PC_MOCKUP_DASH_VIEW.png" alt="Operations dashboard displaying revenue, prep, and guest sentiment metrics" class="block w-full object-cover" />
         </div>
   <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-7 md:pt-8">
-          <div class="enterprise-ribbon" data-i18n="featuresCard1Tag">Command center</div>
-          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard1Title">One dashboard for mission‑critical signals</h3>
-          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard1Body">See revenue trends, line speed, and guest sentiment in a single live view so you can decide with confidence.</p>
+          <div class="enterprise-ribbon" data-i18n="featuresCard1Tag">{t('featuresCard1Tag')}</div>
+          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard1Title">{t('featuresCard1Title')}</h3>
+          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard1Body">{t('featuresCard1Body')}</p>
           <div class="mt-5 sm:mt-7 flex flex-wrap gap-2 sm:gap-4">
             <div class="enterprise-pill" >
-              <span data-i18n="featuresCard1Pill1">Shift forecasts</span>
+              <span data-i18n="featuresCard1Pill1">{t('featuresCard1Pill1')}</span>
             </div>
             <div class="enterprise-pill" >
-              <span data-i18n="featuresCard1Pill2">Live KPIs</span>
+              <span data-i18n="featuresCard1Pill2">{t('featuresCard1Pill2')}</span>
             </div>
             <div class="enterprise-pill" >
-              <span data-i18n="featuresCard1Pill3">Service alerts</span>
+              <span data-i18n="featuresCard1Pill3">{t('featuresCard1Pill3')}</span>
             </div>
           </div>
         </div>
@@ -36,9 +43,9 @@
             <div class="feature-panel overflow-hidden text-left text-brand-text dark:text-brand-text-dark">
         <img loading="lazy" decoding="async" src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png" alt="Table-side POS tablet presenting menu and modifiers" width="1100" height="700" class="block w-full object-cover" />
   <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-8 md:pt-8">
-            <div class="enterprise-ribbon" data-i18n="featuresCard2Tag">Front of house</div>
-          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard2Title">Menus that adapt to every guest</h3>
-          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard2Body">Upsells, modifiers, and payments flow smoothly at the table, counter, or online.</p>
+            <div class="enterprise-ribbon" data-i18n="featuresCard2Tag">{t('featuresCard2Tag')}</div>
+          <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard2Title">{t('featuresCard2Title')}</h3>
+          <p class="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard2Body">{t('featuresCard2Body')}</p>
         </div>
       </div>
 
@@ -46,9 +53,9 @@
       <div class="feature-panel overflow-hidden text-left text-brand-text dark:text-brand-text-dark">
         <img loading="lazy" decoding="async" src="/app_images/TABLE_MOCKUP_KITCHEN_ORDER_VIEW.png" alt="Kitchen display tablet showing synchronized order queues" class="block w-full object-cover" />
         <div class="px-6 pt-6 pb-8">
-          <div class="enterprise-ribbon" data-i18n="featuresCard3Tag">Kitchen display</div>
-          <h3 class="mt-4 text-2xl font-semibold" data-i18n="featuresCard3Title">Every station stays on pace</h3>
-          <p class="mt-3 text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard3Body">Tickets arrive with timers, allergen flags, and priorities so the next move is clear.</p>
+          <div class="enterprise-ribbon" data-i18n="featuresCard3Tag">{t('featuresCard3Tag')}</div>
+          <h3 class="mt-4 text-2xl font-semibold" data-i18n="featuresCard3Title">{t('featuresCard3Title')}</h3>
+          <p class="mt-3 text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="featuresCard3Body">{t('featuresCard3Body')}</p>
         </div>
       </div>
 

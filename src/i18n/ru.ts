@@ -20,6 +20,7 @@ export const ru = {
   heroMetricInventoryCopy:
     "Остатки обновляются в реальном времени с каждым заказом, держа все отделы в курсе.",
   heroMetricRoiTitle: "Быстрый возврат",
+  heroMetricRoiValue: "30 дней",
   heroMetricRoiCopy:
     "Большинство ресторанов окупают вложения за несколько недель",
 

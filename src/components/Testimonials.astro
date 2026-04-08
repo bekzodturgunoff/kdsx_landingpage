@@ -1,11 +1,19 @@
 ---
+import { createT } from '../i18n';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes((pathSegments[0] || '') as (typeof supportedLangs)[number])
+  ? pathSegments[0]
+  : 'en';
+const t = createT(currentLang);
 ---
 <section class="w-full px-3 sm:px-6 py-10 sm:py-16">
   <div class="max-w-6xl mx-auto section-shell px-3 sm:px-8 py-10 sm:py-14">
     <div class="max-w-6xl mx-auto px-3 sm:px-4 text-center">
-  <span class="badge-pill" data-i18n="testimonialsBadge">From our users</span>
+    <span class="badge-pill" data-i18n="testimonialsBadge">{t('testimonialsBadge')}</span>
   <h2 class="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark px-2" data-i18n="testimonialsHeading">
-        Hospitality leaders share what changed with KDSX
+      {t('testimonialsHeading')}
       </h2>
   
 
@@ -14,43 +22,33 @@
   <div class="testimonial-container relative overflow-hidden rounded-none sm:rounded-[28px] border-0 sm:border sm:border-white/18 bg-transparent sm:bg-white/65 text-left shadow-none sm:shadow-[0_32px_96px_-60px_rgba(26,77,26,0.5)] backdrop-blur-0 sm:backdrop-blur-2xl dark:border-white/15 dark:bg-white/10">
           <div class="testimonial-track" style="display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
             <div class="testimonial-slide px-4 py-5 sm:px-6 sm:py-7" data-slide="0" style="flex-shrink: 0; width: 100%;">
-              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard1Quote">
-                "KDSX let us retire four separate tools. Ticket visibility jumped overnight and waste dropped by 28%."
-              </blockquote>
+              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard1Quote">{t('testimonialsCard1Quote')}</blockquote>
               <p class="mt-5 sm:mt-6 text-xs sm:text-sm font-medium sm:uppercase tracking-wider sm:tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard1Author">
-                Farida Orujova · Operations Director
+                {t('testimonialsCard1Author')}
               </p>
             </div>
             <div class="testimonial-slide px-4 py-5 sm:px-6 sm:py-7" data-slide="1" style="flex-shrink: 0; width: 100%;">
-              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard2Quote">
-                "Our managers finally have one source of truth. Prep boards, POS, and analytics update as fast as service moves."
-              </blockquote>
+              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard2Quote">{t('testimonialsCard2Quote')}</blockquote>
               <p class="mt-5 sm:mt-6 text-xs sm:text-sm font-medium sm:uppercase tracking-wider sm:tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard2Author">
-                Ahmed Hassan · Multi-unit Owner
+                {t('testimonialsCard2Author')}
               </p>
             </div>
             <div class="testimonial-slide px-4 py-5 sm:px-6 sm:py-7" data-slide="2" style="flex-shrink: 0; width: 100%;">
-              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard3Quote">
-                "Inventory recounts went from nightly chaos to a 10-minute spot check. The finance sync is magic."
-              </blockquote>
+              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard3Quote">{t('testimonialsCard3Quote')}</blockquote>
               <p class="mt-5 sm:mt-6 text-xs sm:text-sm font-medium sm:uppercase tracking-wider sm:tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard3Author">
-                Maria Rodriguez · Beverage Lead
+                {t('testimonialsCard3Author')}
               </p>
             </div>
             <div class="testimonial-slide px-4 py-5 sm:px-6 sm:py-7" data-slide="3" style="flex-shrink: 0; width: 100%;">
-              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard4Quote">
-                "Because KDSX automates routing and reporting, we redeployed two full-time ops roles to guest experience."
-              </blockquote>
+              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard4Quote">{t('testimonialsCard4Quote')}</blockquote>
               <p class="mt-5 sm:mt-6 text-xs sm:text-sm font-medium sm:uppercase tracking-wider sm:tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard4Author">
-                David Chen · Founder
+                {t('testimonialsCard4Author')}
               </p>
             </div>
             <div class="testimonial-slide px-4 py-5 sm:px-6 sm:py-7" data-slide="4" style="flex-shrink: 0; width: 100%;">
-              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard5Quote">
-                "The reporting features are incredible. I can see exactly where my money goes and make better business decisions."
-              </blockquote>
+              <blockquote class="text-lg sm:text-2xl font-semibold leading-relaxed text-brand-text dark:text-brand-text-dark" data-i18n="testimonialsCard5Quote">{t('testimonialsCard5Quote')}</blockquote>
               <p class="mt-5 sm:mt-6 text-xs sm:text-sm font-medium sm:uppercase tracking-wider sm:tracking-[0.25em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="testimonialsCard5Author">
-                Sarah Johnson · Finance Lead
+                {t('testimonialsCard5Author')}
               </p>
             </div>
           </div>

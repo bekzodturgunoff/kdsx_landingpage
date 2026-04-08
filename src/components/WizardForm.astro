@@ -1,4 +1,12 @@
 ---
+import { createT } from '../i18n';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes((pathSegments[0] || '') as (typeof supportedLangs)[number])
+  ? pathSegments[0]
+  : 'en';
+const t = createT(currentLang);
 ---
 <!-- Plan Signup Wizard Modal -->
 <div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-endpoint="/api/lead" data-email="bekzodturgunoff@gmail.com">
@@ -7,17 +15,17 @@
     <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" aria-describedby="wizard-subtitle" class="rounded-3xl border bg-[var(--color-brand-bg)] p-6 sm:p-7 md:p-8 shadow-2xl dark:border-white/20">
       <div class="flex items-start justify-between">
         <div>
-          <h3 id="wizard-title" class="text-xl font-semibold text-[var(--color-brand-text)]" data-i18n="wizardTitle">Get your free demo account</h3>
-          <p id="wizard-subtitle" class="mt-1 text-sm text-[var(--color-brand-text)] opacity-70" data-i18n="wizardSubtitle">Answer a couple of quick questions — we'll set up a demo and share credentials.</p>
+          <h3 id="wizard-title" class="text-xl font-semibold text-[var(--color-brand-text)]" data-i18n="wizardTitle">{t('wizardTitle')}</h3>
+          <p id="wizard-subtitle" class="mt-1 text-sm text-[var(--color-brand-text)] opacity-70" data-i18n="wizardSubtitle">{t('wizardSubtitle')}</p>
         </div>
         <button type="button" id="wizard-close" aria-label="Close" data-i18n-aria-label="wizardSuccessCta" class="btn-ghost ml-4 h-10 w-10 p-0 text-[var(--color-brand-text)] opacity-70">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6" stroke-linecap="round"/></svg>
         </button>
       </div>
       <div class="mt-4 flex items-center gap-2 text-xs font-medium text-[var(--color-brand-text)] opacity-70">
-  <span id="wizard-step-label">Step 1 of 7</span>
+  <span id="wizard-step-label">{(t('wizardStepTemplate') || 'Step {current} of {total}').replace('{current}', '1').replace('{total}', '7')}</span>
         <span class="mx-2 h-1 w-1 rounded-full bg-[var(--color-brand-text)] opacity-40"></span>
-        <span id="wizard-plan-label" class="truncate" data-i18n="wizardPlanPrefix">Plan:</span>
+        <span id="wizard-plan-label" class="truncate" data-i18n="wizardPlanPrefix">{t('wizardPlanPrefix')}</span>
       </div>
 
       <div
@@ -27,65 +35,65 @@
         aria-live="assertive"
         tabindex="-1"
       >
-        <p class="font-semibold" data-i18n="wizardErrorTitle">Sorry — something broke on our side.</p>
-        <p class="mt-1" data-i18n="wizardErrorBody">Please email support@kdsx.uz or bekzodturgunoff@gmail.com so we can finish your request manually.</p>
+        <p class="font-semibold" data-i18n="wizardErrorTitle">{t('wizardErrorTitle')}</p>
+        <p class="mt-1" data-i18n="wizardErrorBody">{t('wizardErrorBody')}</p>
       </div>
 
       <form id="wizard-form" class="mt-6 space-y-6">
         <!-- Step 1: Name -->
         <div data-step="0" class="step-panel">
-          <label for="fullName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardNameLabel">What's your name?</label>
-          <input id="fullName" name="fullName" type="text" required data-i18n-placeholder="wizardNamePlaceholder" placeholder="e.g., Alex Kim" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+          <label for="fullName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardNameLabel">{t('wizardNameLabel')}</label>
+          <input id="fullName" name="fullName" type="text" required data-i18n-placeholder="wizardNamePlaceholder" placeholder={t('wizardNamePlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
         </div>
 
         <!-- Step 2: Business name -->
         <div data-step="1" class="step-panel hidden">
-          <label for="businessName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardBusinessLabel">What's your restaurant's or market's name?</label>
-          <input id="businessName" name="businessName" type="text" required data-i18n-placeholder="wizardBusinessPlaceholder" placeholder="e.g., Green Leaf Bistro" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+          <label for="businessName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardBusinessLabel">{t('wizardBusinessLabel')}</label>
+          <input id="businessName" name="businessName" type="text" required data-i18n-placeholder="wizardBusinessPlaceholder" placeholder={t('wizardBusinessPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
         </div>
 
         <!-- Step 3: Locations -->
         <div data-step="2" class="step-panel hidden">
-          <label for="locations" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardLocationsLabel">How many locations do you operate?</label>
+          <label for="locations" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardLocationsLabel">{t('wizardLocationsLabel')}</label>
           <select id="locations" name="locations" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white">
-            <option value="1" data-i18n="wizardLocationsOption1">1 location</option>
-            <option value="2-5" data-i18n="wizardLocationsOption2">2–5 locations</option>
-            <option value="6-10" data-i18n="wizardLocationsOption3">6–10 locations</option>
-            <option value="11+" data-i18n="wizardLocationsOption4">11+ locations</option>
+            <option value="1" data-i18n="wizardLocationsOption1">{t('wizardLocationsOption1')}</option>
+            <option value="2-5" data-i18n="wizardLocationsOption2">{t('wizardLocationsOption2')}</option>
+            <option value="6-10" data-i18n="wizardLocationsOption3">{t('wizardLocationsOption3')}</option>
+            <option value="11+" data-i18n="wizardLocationsOption4">{t('wizardLocationsOption4')}</option>
           </select>
         </div>
 
         <!-- Step 4: Service style / industry -->
         <div data-step="3" class="step-panel hidden">
-          <label for="serviceStyle" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardServiceStyleLabel">What best describes your service style?</label>
+          <label for="serviceStyle" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardServiceStyleLabel">{t('wizardServiceStyleLabel')}</label>
           <select id="serviceStyle" name="serviceStyle" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white">
-            <option value="" data-i18n="wizardServiceStyleOption0">Select one…</option>
-            <option value="cafe" data-i18n="wizardServiceStyleOptionCafe">Cafe</option>
-            <option value="bistro" data-i18n="wizardServiceStyleOptionBistro">Bistro</option>
-            <option value="quick" data-i18n="wizardServiceStyleOptionQuick">Quick‑service</option>
-            <option value="full" data-i18n="wizardServiceStyleOptionFull">Full‑service</option>
-            <option value="bar" data-i18n="wizardServiceStyleOptionBar">Bar</option>
-            <option value="market" data-i18n="wizardServiceStyleOptionMarket">Market</option>
-            <option value="other" data-i18n="wizardServiceStyleOptionOther">Other</option>
+            <option value="" data-i18n="wizardServiceStyleOption0">{t('wizardServiceStyleOption0')}</option>
+            <option value="cafe" data-i18n="wizardServiceStyleOptionCafe">{t('wizardServiceStyleOptionCafe')}</option>
+            <option value="bistro" data-i18n="wizardServiceStyleOptionBistro">{t('wizardServiceStyleOptionBistro')}</option>
+            <option value="quick" data-i18n="wizardServiceStyleOptionQuick">{t('wizardServiceStyleOptionQuick')}</option>
+            <option value="full" data-i18n="wizardServiceStyleOptionFull">{t('wizardServiceStyleOptionFull')}</option>
+            <option value="bar" data-i18n="wizardServiceStyleOptionBar">{t('wizardServiceStyleOptionBar')}</option>
+            <option value="market" data-i18n="wizardServiceStyleOptionMarket">{t('wizardServiceStyleOptionMarket')}</option>
+            <option value="other" data-i18n="wizardServiceStyleOptionOther">{t('wizardServiceStyleOptionOther')}</option>
           </select>
         </div>
 
         <!-- Step 5: Current POS -->
         <div data-step="4" class="step-panel hidden">
-          <label for="currentPos" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardCurrentPosLabel">Which POS or systems are you using today?</label>
-          <input id="currentPos" name="currentPos" type="text" data-i18n-placeholder="wizardCurrentPosPlaceholder" placeholder="e.g., Toast, Square, custom" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+          <label for="currentPos" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardCurrentPosLabel">{t('wizardCurrentPosLabel')}</label>
+          <input id="currentPos" name="currentPos" type="text" data-i18n-placeholder="wizardCurrentPosPlaceholder" placeholder={t('wizardCurrentPosPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
         </div>
 
         <!-- Step 6: Credentials -->
         <div data-step="5" class="step-panel hidden">
           <div class="grid gap-4">
             <div>
-              <label for="desiredUsername" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardUsernameLabel">Preferred username</label>
-              <input id="desiredUsername" name="desiredUsername" type="text" required pattern="^[a-zA-Z0-9._-]{3,20}$" data-i18n-placeholder="wizardUsernamePlaceholder" placeholder="e.g., alex.kim" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+              <label for="desiredUsername" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardUsernameLabel">{t('wizardUsernameLabel')}</label>
+              <input id="desiredUsername" name="desiredUsername" type="text" required pattern="^[a-zA-Z0-9._-]{3,20}$" data-i18n-placeholder="wizardUsernamePlaceholder" placeholder={t('wizardUsernamePlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
             </div>
             <div>
-              <label for="desiredPassword" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardPasswordLabel">Preferred password</label>
-                <input id="desiredPassword" name="desiredPassword" type="text" required minlength="8" data-i18n-placeholder="wizardPasswordPlaceholder" placeholder="At least 8 characters" class="w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+              <label for="desiredPassword" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardPasswordLabel">{t('wizardPasswordLabel')}</label>
+                <input id="desiredPassword" name="desiredPassword" type="text" required minlength="8" data-i18n-placeholder="wizardPasswordPlaceholder" placeholder={t('wizardPasswordPlaceholder')} class="w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
             </div>
           </div>
         </div>
@@ -94,29 +102,29 @@
         <div data-step="6" class="step-panel hidden">
           <div class="grid gap-4">
             <div>
-              <label for="phone" class="block text-sm font-medium text-[var(--color-brand-text)]"><span data-i18n="wizardPhoneLabel">Your phone number</span><span class="text-brand-cta"> *</span></label>
-              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="wizardPhonePlaceholder" placeholder="e.g., +82 10-1234-5678" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+              <label for="phone" class="block text-sm font-medium text-[var(--color-brand-text)]"><span data-i18n="wizardPhoneLabel">{t('wizardPhoneLabel')}</span><span class="text-brand-cta"> *</span></label>
+              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="wizardPhonePlaceholder" placeholder={t('wizardPhonePlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardEmailLabel">Your email address (optional)</label>
-              <input id="email" name="email" type="email" data-i18n-placeholder="wizardEmailPlaceholder" placeholder="e.g., you@company.com" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+              <label for="email" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardEmailLabel">{t('wizardEmailLabel')}</label>
+              <input id="email" name="email" type="email" data-i18n-placeholder="wizardEmailPlaceholder" placeholder={t('wizardEmailPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
             </div>
             <div>
-              <label for="telegram" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardTelegramLabel">Telegram (optional)</label>
-              <input id="telegram" name="telegram" type="text" data-i18n-placeholder="wizardTelegramPlaceholder" placeholder="@yourhandle" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+              <label for="telegram" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardTelegramLabel">{t('wizardTelegramLabel')}</label>
+              <input id="telegram" name="telegram" type="text" data-i18n-placeholder="wizardTelegramPlaceholder" placeholder={t('wizardTelegramPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
             </div>
             <div>
-              <label for="kakaotalk" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardKakaoLabel">KakaoTalk (optional)</label>
-              <input id="kakaotalk" name="kakaotalk" type="text" data-i18n-placeholder="wizardKakaoPlaceholder" placeholder="ID or phone" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+              <label for="kakaotalk" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardKakaoLabel">{t('wizardKakaoLabel')}</label>
+              <input id="kakaotalk" name="kakaotalk" type="text" data-i18n-placeholder="wizardKakaoPlaceholder" placeholder={t('wizardKakaoPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
             </div>
           </div>
         </div>
 
         <!-- Controls -->
         <div class="flex items-center justify-between">
-          <button type="button" id="wizard-back" class="btn-ghost px-5 py-2.5 text-sm" disabled data-i18n="wizardBack">Back</button>
+          <button type="button" id="wizard-back" class="btn-ghost px-5 py-2.5 text-sm" disabled data-i18n="wizardBack">{t('wizardBack')}</button>
           <div class="flex items-center gap-3">
-            <button type="button" id="wizard-next" class="btn-solid px-6 py-2.5 text-sm" data-i18n="wizardNext">Next</button>
+            <button type="button" id="wizard-next" class="btn-solid px-6 py-2.5 text-sm" data-i18n="wizardNext">{t('wizardNext')}</button>
           </div>
         </div>
       </form>
@@ -124,10 +132,10 @@
       <div id="wizard-success" class="mt-6 hidden rounded-xl border bg-[var(--color-brand-bg)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
         <div class="flex items-start gap-3">
           <svg class="mt-0.5 h-5 w-5 text-brand-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p data-i18n="wizardSuccessMessage">Thanks — we've received your request. A demo account with username and password will be shared via your preferred contact. To continue beyond the demo, you can switch to the Pro plan at any time.</p>
+          <p data-i18n="wizardSuccessMessage">{t('wizardSuccessMessage')}</p>
         </div>
         <div class="mt-4 flex justify-end">
-          <button type="button" id="wizard-success-close" class="btn-solid px-5 py-2 text-sm" data-i18n="wizardSuccessCta">Close</button>
+          <button type="button" id="wizard-success-close" class="btn-solid px-5 py-2 text-sm" data-i18n="wizardSuccessCta">{t('wizardSuccessCta')}</button>
         </div>
       </div>
     </div>

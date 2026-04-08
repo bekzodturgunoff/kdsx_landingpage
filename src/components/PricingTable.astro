@@ -1,40 +1,43 @@
 ---
+import { createT } from '../i18n';
+
 const supportedLangs = ['en', 'ru', 'ko', 'uz'];
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
 const localeBase = `/${currentLang}`;
+const t = createT(currentLang);
 ---
 <section id="pricing" class="w-full px-2 sm:px-6 py-10 sm:py-16">
   <div class="max-w-6xl mx-auto section-shell px-4 sm:px-9 py-12 sm:py-14">
     <div class="flex flex-col items-center text-center gap-5">
-  <span class="badge-pill" data-i18n="pricingBadge">Pricing</span>
+  <span class="badge-pill" data-i18n="pricingBadge">{t('pricingBadge')}</span>
   <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="pricingHeading">
-        Flexible plans that scale with every service shift
+        {t('pricingHeading')}
       </h2>
   <p class="max-w-3xl text-base sm:text-lg text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingBody">
-        Start lean and grow when you’re ready. Every plan comes with hands-on onboarding from the KDSX crew.
+        {t('pricingBody')}
       </p>
     </div>
 
     <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="surface-card p-8 text-center text-brand-text dark:text-brand-text-dark">
         <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">
-          <span data-i18n="pricingStarterLabel">Starter</span>
+          <span data-i18n="pricingStarterLabel">{t('pricingStarterLabel')}</span>
         </div>
-  <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">Free</div>
-  <div class="mt-2 text-xs font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">First month on us</div>
-  <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">Everything you need to launch a single location with confidence—your first month is completely free.</p>
+  <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
+  <div class="mt-2 text-xs font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">{t('pricingStarterSubtitle')}</div>
+  <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">{t('pricingStarterBody')}</p>
   <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB1">1 register/station, unlimited logins</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB2">Order, table, and guest tracking</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB3">Core dashboards and nightly summary emails</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB4">Manual inventory counts + alerts</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB5">Keep rolling after month one for only $15/month</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">Email support with 24-hour response</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB1">{t('pricingStarterB1')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB2">{t('pricingStarterB2')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB3">{t('pricingStarterB3')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB4">{t('pricingStarterB4')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB5">{t('pricingStarterB5')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">{t('pricingStarterB6')}</span></li>
         </ul>
         <div class="mt-8">
           <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/35 bg-white/75 px-8 py-3.5 text-base font-semibold text-brand-text shadow-[0_18px_36px_-24px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-text">
-            <span data-i18n="pricingStarterCta">Activate Free Month</span>
+            <span data-i18n="pricingStarterCta">{t('pricingStarterCta')}</span>
           </button>
         </div>
       </div>
@@ -42,23 +45,23 @@ const localeBase = `/${currentLang}`;
       <div class="pro-card">
         <div class="pro-card__inner">
           <div class="flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
-            <span data-i18n="pricingProLabel">Pro</span>
-            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-lg" data-i18n="pricingProRibbon">Most popular</span>
+            <span data-i18n="pricingProLabel">{t('pricingProLabel')}</span>
+            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-lg" data-i18n="pricingProRibbon">{t('pricingProRibbon')}</span>
           </div>
           <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
-            <span data-i18n="pricingProPrice">$30</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">/mo</span>
+            <span data-i18n="pricingProPrice">{t('pricingProPrice')}</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">{t('pricingProPeriod')}</span>
           </div>
-          <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">Add automation, multi-location controls, and proactive guidance from our team.</p>
+          <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">{t('pricingProBody')}</p>
           <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB1">Unlimited registers with role-based controls</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB2">Automated inventory + supplier syncing</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB3">Advanced analytics & profitability dashboards</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">Priority chat & phone support</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">Dedicated Customer Success Manager</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB1">{t('pricingProB1')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB2">{t('pricingProB2')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB3">{t('pricingProB3')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">{t('pricingProB4')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">{t('pricingProB5')}</span></li>
           </ul>
           <div class="mt-8">
             <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
-              <span data-i18n="pricingProCta">Get Started — $30/mo</span>
+              <span data-i18n="pricingProCta">{t('pricingProCta')}</span>
             </button>
           </div>
         </div>
@@ -68,33 +71,33 @@ const localeBase = `/${currentLang}`;
     <div class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark">
         <div class="flex items-center justify-between">
-          <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">Enterprise</div>
-          <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">Custom</span>
+          <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">{t('pricingEnterpriseTitle')}</div>
+          <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">{t('pricingEnterpriseRibbon')}</span>
         </div>
-  <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">Scale with confidence across regions</h3>
-  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.</p>
+  <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">{t('pricingEnterpriseHeading')}</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">{t('pricingEnterpriseBody')}</p>
   <button type="button" data-plan-trigger="enterprise" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
-          <span data-i18n="pricingEnterpriseCta">Contact Sales</span>
+          <span data-i18n="pricingEnterpriseCta">{t('pricingEnterpriseCta')}</span>
           <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
 
   <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark">
-    <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingImplementTag">Need a tailored roll-out?</div>
-  <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingImplementHeading">Partner with our implementation team</h3>
-  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingImplementBody">We’ll audit your operations, stage the hardware, and train staff across every location.</p>
+    <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingImplementTag">{t('pricingImplementTag')}</div>
+  <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingImplementHeading">{t('pricingImplementHeading')}</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingImplementBody">{t('pricingImplementBody')}</p>
   <ul class="mt-3.5 space-y-2 text-sm text-brand-text/70 dark:text-brand-text-dark/70">
-          <li>✔ <span data-i18n="pricingImplementB1">Launch playbook customized to each venue</span></li>
-          <li>✔ <span data-i18n="pricingImplementB2">On-site and remote training programs</span></li>
-          <li>✔ <span data-i18n="pricingImplementB3">Seasonal menu + promo support</span></li>
+          <li>✔ <span data-i18n="pricingImplementB1">{t('pricingImplementB1')}</span></li>
+          <li>✔ <span data-i18n="pricingImplementB2">{t('pricingImplementB2')}</span></li>
+          <li>✔ <span data-i18n="pricingImplementB3">{t('pricingImplementB3')}</span></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-12 text-center">
-  <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-5 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">Ready to run every shift with less stress?</h3>
+  <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-5 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">{t('pricingFinalHeading')}</h3>
   <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
-  <span data-i18n="pricingFinalCta">Start my rollout</span>
+  <span data-i18n="pricingFinalCta">{t('pricingFinalCta')}</span>
       </button>
     </div>
 
@@ -112,37 +115,37 @@ const localeBase = `/${currentLang}`;
             <span class="font-bold text-2xl text-brand-text dark:text-brand-text-dark">KDSX</span>
             <img src="/logo.png" alt="KDSX Logo" class="w-8 h-8" loading="lazy" />
           </div>
-          <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">Total restaurant control. Unify your operations with our integrated POS ecosystem.</p>
+          <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">{t('footerBrandDescription')}</p>
         </div>
 
   <!-- Contact Information (hidden on mobile for dedicated pricing page) -->
   <div class="hidden md:flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">Contact Info</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">{t('footerContactTitle')}</h4>
           <div class="space-y-3">
             <a href="tel:+998941500330" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <span class="text-sm" data-i18n="footerContactPhone1">+998941500330</span>
+              <span class="text-sm" data-i18n="footerContactPhone1">{t('footerContactPhone1')}</span>
             </a>
             <a href="tel:+821079328573" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <span class="text-sm" data-i18n="footerContactPhone2">+821079328573</span>
+              <span class="text-sm" data-i18n="footerContactPhone2">{t('footerContactPhone2')}</span>
             </a>
             <a href="mailto:support@kdsx.uz" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
-              <span class="text-sm" data-i18n="footerContactEmail">support@kdsx.uz</span>
+              <span class="text-sm" data-i18n="footerContactEmail">{t('footerContactEmail')}</span>
             </a>
           </div>
         </div>
 
         <!-- Social Media -->
         <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">Follow Us</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">{t('footerFollowTitle')}</h4>
           <div class="flex gap-4">
             <a href="https://t.me/kdsx_pos_uzbekistan" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -164,18 +167,18 @@ const localeBase = `/${currentLang}`;
 
         <!-- Footer info -->
         <div class="items-start" aria-label="Footer menu">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">Info</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">{t('footerQuickLinksTitle')}</h4>
           <div class="flex flex-col space-y-2 text-sm">
-            <a href={`${localeBase}/terms`} class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">Terms</a>
-            <a href={`${localeBase}/privacy`} class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">Privacy</a>
+            <a href={`${localeBase}/terms`} class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">{t('footerQuickLinkTerms')}</a>
+            <a href={`${localeBase}/privacy`} class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">{t('footerQuickLinkPrivacy')}</a>
           </div>
         </div>
       </div>
 
       <!-- Bottom Footer -->
       <div class="pt-6 border-t border-brand-cta-text/20 dark:border-brand-cta-text-dark/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-75">
-        <span>&copy; 2025 KDSX. <span data-i18n="footerRightsReserved">All rights reserved.</span></span>
-        <span data-i18n="footerAccessibility">Mobile Responsive &amp; Accessible</span>
+        <span>&copy; 2025 KDSX. <span data-i18n="footerRightsReserved">{t('footerRightsReserved')}</span></span>
+        <span data-i18n="footerAccessibility">{t('footerAccessibility')}</span>
       </div>
     </footer>
   </div>

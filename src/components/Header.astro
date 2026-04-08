@@ -1,11 +1,12 @@
 ---
-import { LANGUAGE_OPTIONS } from "../i18n";
+import { createT, LANGUAGE_OPTIONS } from "../i18n";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
 
 const languageOptions = LANGUAGE_OPTIONS;
 const supportedLangs = ['en', 'ru', 'ko', 'uz'];
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const t = createT(currentLang);
 const localeBase = `/${currentLang}`;
 const homeHref = localeBase;
 const featuresHref = `${localeBase}#features`;
@@ -27,15 +28,15 @@ const faqPageHref = `${localeBase}/faq`;
       <!-- Desktop nav: anchor links to sections on index page (smooth scroll) -->
       <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70" aria-label="Primary">
         <a href={featuresHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
-          <span class="inline-block">Features</span>
+          <span class="inline-block">{t('navFeatures')}</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
         <a href={pricingHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
-          <span class="inline-block">Pricing</span>
+          <span class="inline-block">{t('navPricing')}</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
         <a href={faqHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
-          <span class="inline-block">FAQ</span>
+          <span class="inline-block">{t('navFaq')}</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
       </nav>
@@ -56,11 +57,11 @@ const faqPageHref = `${localeBase}/faq`;
         <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
           <button data-theme-option="light" type="button" aria-label="Use light theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-cta-text-dark dark:hover:bg-[rgba(var(--color-white-rgb)/0.18)] dark:hover:text-brand-cta-text-dark">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
-            <span data-i18n="themeLight">Light</span>
+            <span data-i18n="themeLight">{t('themeLight')}</span>
           </button>
           <button data-theme-option="dark" type="button" aria-label="Use dark theme" class="group flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:hover:bg-[rgba(var(--color-green-dark-rgb)/0.22)] dark:text-[var(--color-green-dark)] dark:hover:text-brand-cta-text-dark dark:group-hover:text-brand-cta-text-dark">
             <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <span data-i18n="themeDark">Dark</span>
+            <span data-i18n="themeDark">{t('themeDark')}</span>
           </button>
         </div>
       </div>
@@ -105,13 +106,13 @@ const faqPageHref = `${localeBase}/faq`;
   <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
     <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-2 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-5 text-base font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
     <!-- Mobile nav: full pages (sections not all present inline on mobile) -->
-  <a href={featuresPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">Features</a>
-  <a href={pricingPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">Pricing</a>
-  <a href={faqPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFaq">FAQ</a>
+  <a href={featuresPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">{t('navFeatures')}</a>
+  <a href={pricingPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">{t('navPricing')}</a>
+  <a href={faqPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFaq">{t('navFaq')}</a>
 
       <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
         <div class="flex items-center justify-between gap-3">
-          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">Toggle theme</span>
+          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">{t('navThemeToggle')}</span>
           <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
             <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark dark:hover:bg-[rgba(var(--color-white-rgb)/0.18)] dark:hover:text-brand-text-dark">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
@@ -128,28 +129,7 @@ const faqPageHref = `${localeBase}/faq`;
 <script is:inline>
   (function setupHeader() {
     const LANGUAGE_STORAGE_KEY = "preferred-lang";
-    const translationsNode = document.getElementById("translations-data");
-    const TRANSLATION_FALLBACK = (translationsNode?.dataset?.fallback) || "en";
-    let translations = {};
-    try {
-      translations = translationsNode ? JSON.parse(translationsNode.textContent || "{}") : {};
-    } catch (error) {
-      console.error("Failed to parse translations", error);
-      translations = {};
-    }
-
-    const applyTranslations = (lang) => {
-      const dictionary = translations[lang] || translations[TRANSLATION_FALLBACK] || {};
-      const fallbackDictionary = translations[TRANSLATION_FALLBACK] || {};
-      document.querySelectorAll("[data-i18n]").forEach((node) => {
-        const key = node.getAttribute("data-i18n");
-        if (!key) return;
-        const value = dictionary[key] ?? fallbackDictionary[key];
-        if (value !== undefined) {
-          node.textContent = value;
-        }
-      });
-    };
+    const TRANSLATION_FALLBACK = "en";
 
     const supported = ["en", "ru", "ko", "uz"];
 
@@ -177,7 +157,6 @@ const faqPageHref = `${localeBase}/faq`;
           select.value = lang;
         }
       });
-      applyTranslations(lang);
 
       if (opts.navigate) {
         const targetPath = buildLocalizedPath(lang);
@@ -190,10 +169,7 @@ const faqPageHref = `${localeBase}/faq`;
 
     const bindLanguage = () => {
       const selects = document.querySelectorAll(".lang-select");
-      if (!selects.length) {
-        applyTranslations(document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK);
-        return;
-      }
+      if (!selects.length) return;
 
       selects.forEach((select) => {
         if ((select)._boundLang) return;

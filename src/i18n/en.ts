@@ -20,6 +20,7 @@ export const en = {
   heroMetricInventoryCopy:
     "Live stock counts update as orders happen, keeping every department aligned.",
   heroMetricRoiTitle: "Fast ROI",
+  heroMetricRoiValue: "30 days",
   heroMetricRoiCopy: "Most restaurants recover their investment within weeks",
 
   logosBadge: "Trusted by teams",

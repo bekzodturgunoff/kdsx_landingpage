@@ -20,6 +20,7 @@ export const uz = {
   heroMetricInventoryCopy:
     "Buyurtmalar tushishi bilan jonli qoldiq yangilanadi — barcha bo‘limlar bir xil axborotda bo‘ladi.",
   heroMetricRoiTitle: "Tez ROI",
+  heroMetricRoiValue: "30 kun",
   heroMetricRoiCopy: "Ko‘p restoranlar xarajatni bir necha haftada qoplaydi",
 
   logosBadge: "Ishonchli jamoalar",

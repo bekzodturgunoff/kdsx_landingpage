@@ -20,6 +20,7 @@ export const ko = {
   heroMetricInventoryCopy:
     "주문이 발생할 때마다 재고 수량이 라이브로 반영되어 모든 부서가 정렬됩니다.",
   heroMetricRoiTitle: "빠른 ROI",
+  heroMetricRoiValue: "30일",
   heroMetricRoiCopy: "대부분의 레스토랑이 수주 내 투자 비용을 회수합니다",
 
   logosBadge: "신뢰받는 팀",
