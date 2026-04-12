@@ -264,6 +264,8 @@ export const en = {
   wizardUsernamePlaceholder: "username",
   wizardPasswordLabel: "Create Password",
   wizardPasswordPlaceholder: "Minimum 8 characters",
+  wizardStartTrial: "Start Instant Trial",
+  wizardCreatingKitchen: "Creating your kitchen...",
 
   wizardBack: "Previous",
   wizardNext: "Next",

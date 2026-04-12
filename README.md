@@ -81,18 +81,9 @@ Ensure the `RESEND_API_KEY`, `FROM_EMAIL`, and `TO_EMAIL` are securely configure
 curl -s -X POST https://<your-domain>/api/lead \
 	-H "Content-Type: application/json" \
 	-d '{
-		"plan": "starter",
-		"fullName": "Test User",
 		"businessName": "Test Bistro",
-		"locations": "1",
-		"serviceStyle": "Cafe",
-		"currentPos": "Square",
-		"desiredUsername": "test.user",
-		"desiredPassword": "secret123",
-		"phone": "+82 10-0000-0000",
 		"email": "test@example.com",
-		"telegram": "@test",
-		"kakaotalk": "test",
+		"password": "secretpassword123",
 		"timestamp": "2025-10-28T12:00:00Z"
 	}'
 ```

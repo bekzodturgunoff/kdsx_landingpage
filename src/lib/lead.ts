@@ -1,16 +1,7 @@
 export type LeadPayload = {
-  plan: string;
-  fullName: string;
   businessName: string;
-  locations: string;
-  serviceStyle: string;
-  currentPos: string;
-  desiredUsername: string;
-  desiredPassword: string;
-  phone: string;
   email: string;
-  telegram: string;
-  kakaotalk: string;
+  password?: string;
   timestamp: string;
 };
 
@@ -50,31 +41,16 @@ export function validateLeadPayload(input: unknown): LeadValidationResult {
   const data = (input && typeof input === "object") ? (input as Record<string, unknown>) : {};
 
   const payload: LeadPayload = {
-    plan: toStringValue(data.plan, 40),
-    fullName: toStringValue(data.fullName, 100),
     businessName: toStringValue(data.businessName, 120),
-    locations: toStringValue(data.locations, 40),
-    serviceStyle: toStringValue(data.serviceStyle, 60),
-    currentPos: toStringValue(data.currentPos, 120),
-    desiredUsername: toStringValue(data.desiredUsername, 40),
-    desiredPassword: toStringValue(data.desiredPassword, 120),
-    phone: toStringValue(data.phone, 40),
     email: toStringValue(data.email, EMAIL_MAX_LEN),
-    telegram: toStringValue(data.telegram, 80),
-    kakaotalk: toStringValue(data.kakaotalk, 80),
+    password: toStringValue(data.password, 120),
     timestamp: toStringValue(data.timestamp, 80) || new Date().toISOString(),
   };
 
   const errors: string[] = [];
 
-  if (!payload.plan) errors.push("plan is required");
-  if (!payload.fullName || payload.fullName.length < 2) errors.push("fullName must be at least 2 characters");
   if (!payload.businessName || payload.businessName.length < 2) errors.push("businessName must be at least 2 characters");
-  if (!payload.locations) errors.push("locations is required");
-  if (!payload.desiredUsername || payload.desiredUsername.length < 3) errors.push("desiredUsername must be at least 3 characters");
-  if (!payload.desiredPassword || payload.desiredPassword.length < 8) errors.push("desiredPassword must be at least 8 characters");
-  if (!payload.phone || !isValidPhone(payload.phone)) errors.push("phone format is invalid");
-  if (!isValidEmail(payload.email)) errors.push("email format is invalid");
+  if (!payload.email || !isValidEmail(payload.email)) errors.push("email format is invalid");
   if (Number.isNaN(Date.parse(payload.timestamp))) errors.push("timestamp is invalid");
 
   if (errors.length) {

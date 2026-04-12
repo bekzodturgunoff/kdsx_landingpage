@@ -25,31 +25,31 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       </div>
 
       <div id="wizard-error" class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 shadow-sm dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-100" role="alert" aria-live="assertive" tabindex="-1">
-        <p class="font-semibold">Could not create your trial account.</p>
-        <p class="mt-1">Please try again. If this continues, contact support@kdsx.uz.</p>
+        <p class="font-semibold">{t("wizardErrorTitle") || "Could not create your trial account."}</p>
+        <p class="mt-1">{t("wizardErrorBody") || "Please try again. If this continues, contact support@kdsx.uz."}</p>
       </div>
 
       <form id="wizard-form" class="mt-6 space-y-4">
         <div>
-          <label for="businessName" class="block text-sm font-medium text-[var(--color-brand-text)]">Business Name</label>
-          <input id="businessName" name="businessName" type="text" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder="Your restaurant name" />
+          <label for="businessName" class="block text-sm font-medium text-[var(--color-brand-text)]">{t("wizardBusinessLabel") || "Business Name"}</label>
+          <input id="businessName" name="businessName" type="text" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder={t("wizardBusinessPlaceholder") || "Your restaurant name"} />
         </div>
         <div>
-          <label for="email" class="block text-sm font-medium text-[var(--color-brand-text)]">Email</label>
-          <input id="email" name="email" type="email" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder="you@business.com" />
+          <label for="email" class="block text-sm font-medium text-[var(--color-brand-text)]">{t("wizardEmailLabel") || "Email"}</label>
+          <input id="email" name="email" type="email" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder={t("wizardEmailPlaceholder") || "you@business.com"} />
         </div>
         <div>
-          <label for="password" class="block text-sm font-medium text-[var(--color-brand-text)]">Password</label>
-          <input id="password" name="password" type="password" minlength="8" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder="Minimum 8 characters" />
+          <label for="password" class="block text-sm font-medium text-[var(--color-brand-text)]">{t("wizardPasswordLabel") || "Password"}</label>
+          <input id="password" name="password" type="password" minlength="8" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder={t("wizardPasswordPlaceholder") || "Minimum 8 characters"} />
         </div>
 
-        <button id="wizard-submit" type="submit" class="btn-solid mt-2 w-full px-6 py-3 text-sm">Start Instant Trial</button>
+        <button id="wizard-submit" type="submit" class="btn-solid mt-2 w-full px-6 py-3 text-sm" data-submit-text={t("wizardStartTrial") || "Start Instant Trial"} data-loading-text={t("wizardSubmitting") || "Creating account..."}>{t("wizardStartTrial") || "Start Instant Trial"}</button>
       </form>
 
       <div id="wizard-loading" class="mt-6 hidden rounded-xl border bg-[var(--color-brand-bg)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
         <div class="flex items-center gap-3">
           <span class="h-4 w-4 animate-spin rounded-full border-2 border-brand-cta border-t-transparent"></span>
-          <p>Creating your kitchen...</p>
+          <p>{t("wizardCreatingKitchen") || "Creating your kitchen..."}</p>
         </div>
       </div>
     </div>
@@ -106,7 +106,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       loadingState?.classList.add("hidden");
       form.classList.remove("hidden");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Start Instant Trial";
+      submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || "Start Instant Trial";
       if (keydownHandler) {
         document.removeEventListener("keydown", keydownHandler);
         keydownHandler = null;
@@ -144,7 +144,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = "Creating account...";
+      submitBtn.textContent = submitBtn.getAttribute("data-loading-text") || "Creating account...";
       loadingState?.classList.remove("hidden");
 
       const firstName = businessName;
@@ -213,7 +213,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       } catch (_) {
         loadingState?.classList.add("hidden");
         submitBtn.disabled = false;
-        submitBtn.textContent = "Start Instant Trial";
+        submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || "Start Instant Trial";
         showError();
       }
     });
