@@ -1,5 +1,6 @@
 ---
 import { createT } from '../i18n';
+import ContactWizard from './ContactWizard.astro';
 
 const supportedLangs = ['en', 'ru', 'ko', 'uz'];
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
@@ -25,7 +26,7 @@ const currentYear = new Date().getFullYear();
         <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">
           <span data-i18n="pricingStarterLabel">{t('pricingStarterLabel')}</span>
         </div>
-  <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
+  <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
   <div class="mt-2 text-xs font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">{t('pricingStarterSubtitle')}</div>
   <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">{t('pricingStarterBody')}</p>
   <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
@@ -49,9 +50,8 @@ const currentYear = new Date().getFullYear();
             <span data-i18n="pricingProLabel">{t('pricingProLabel')}</span>
             <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-lg" data-i18n="pricingProRibbon">{t('pricingProRibbon')}</span>
           </div>
-          <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
+          <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
             <span id="price-amount" data-base-usd="30" data-i18n="pricingProPrice">{t('pricingProPrice')}</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">{t('pricingProPeriod')}</span>
-            <div id="pricing-debug" class="mt-2 text-sm text-brand-text/60 dark:text-brand-text-dark/60" style="display:none;font-size:0.8rem"></div>
           </div>
           <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">{t('pricingProBody')}</p>
           <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
@@ -61,7 +61,7 @@ const currentYear = new Date().getFullYear();
             <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">{t('pricingProB4')}</span></li>
             <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">{t('pricingProB5')}</span></li>
           </ul>
-          <div class="mt-8">
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
               <span data-i18n="pricingProCta">{t('pricingProCta')}</span>
             </button>
@@ -93,6 +93,11 @@ const currentYear = new Date().getFullYear();
           <li>✔ <span data-i18n="pricingImplementB2">{t('pricingImplementB2')}</span></li>
           <li>✔ <span data-i18n="pricingImplementB3">{t('pricingImplementB3')}</span></li>
         </ul>
+        <div class="mt-4">
+          <button type="button" data-contact-trigger="support" class="group mt-3 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+            <span>{t('contactSupportBtn')}</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -187,13 +192,14 @@ const currentYear = new Date().getFullYear();
   </div>
 </section>
 
+<ContactWizard />
+
 <script is:inline>
   (function () {
     const priceEl = document.getElementById('price-amount');
     if (!priceEl) return;
     const baseUSD = Number(priceEl.dataset.baseUsd || 30);
       const userLocale = (navigator.languages && navigator.languages[0]) || navigator.language || 'en-US';
-      console.debug('[pricing-detect] userLocale', userLocale);
     let lang = (userLocale && userLocale.split('-')[0]) || 'en';
 
     // Default mapping by language
@@ -215,28 +221,10 @@ const currentYear = new Date().getFullYear();
     function setDisplay(val) {
       try {
         const formatted = new Intl.NumberFormat(userLocale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(val);
-        console.debug('[pricing-display] formatted', { formatted, currency, userLocale });
         priceEl.textContent = formatted;
-        try {
-          const debugEl = document.getElementById('pricing-debug');
-          if (debugEl && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-            const tzNow = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
-            debugEl.style.display = 'block';
-            debugEl.textContent = `detected: locale=${userLocale}, tz=${tzNow}, currency=${currency}`;
-          }
-        } catch (e) {}
       } catch (e) {
         const fallback = `${Math.round(val).toLocaleString()} ${currency}`;
-        console.debug('[pricing-display] fallback', { fallback, currency });
         priceEl.textContent = fallback;
-        try {
-          const debugEl = document.getElementById('pricing-debug');
-          if (debugEl && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-            const tzNow = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
-            debugEl.style.display = 'block';
-            debugEl.textContent = `detected: locale=${userLocale}, tz=${tzNow}, currency=${currency} (fallback)`;
-          }
-        } catch (e) {}
       }
     }
 
@@ -245,7 +233,6 @@ const currentYear = new Date().getFullYear();
     try {
       const tz = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
       const tzLower = String(tz).toLowerCase();
-        console.debug('[pricing-detect] tz detection result', { lang, currency });
       if (/tashkent|uzbekistan|asia\/tashkent/.test(tzLower)) {
         currency = 'UZS';
         lang = 'uz';
