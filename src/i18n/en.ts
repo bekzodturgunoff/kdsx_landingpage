@@ -203,6 +203,12 @@ export const en = {
   contactEmailPlaceholder: "you@company.com",
   contactMessagePlaceholderSales: "Describe your needs (pricing, onboarding, integrations)",
   contactMessagePlaceholderSupport: "Describe the issue and include any relevant details (order ID, screenshots)",
+  contactImageLabel: "Attach an image (optional)",
+  contactImageHelp: "You can attach a screenshot or photo (optional).",
+  contactSuccessTitle: "Message sent",
+  contactSuccessBody: "Thanks — our team will review your message and get back to you shortly.",
+  contactSuccessCta: "Done",
+  contactImageRemove: "Remove image",
 
   pricingEnterpriseTitle: "Multi-Location",
   pricingEnterpriseRibbon: "Custom",

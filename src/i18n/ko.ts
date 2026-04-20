@@ -7,10 +7,10 @@ export const ko = {
   navThemeToggle: "테마 전환",
 
   heroBadge: "Octopos 플랫폼",
-  heroHeading: "하나의 시스템 세 가지 강력한 앱 완전한 제어",
+  heroHeading: "하나의 시스템, 세 가지 강력한 앱 — 완벽한 제어",
   heroBody:
     "백오피스(Dash), 서비스(POS), 주방(Kitchen 앱)을 하나로 연결하세요. 모든 것이 자동으로 동기화됩니다.",
-  heroPrimaryCta: "무료 한달 시작",
+  heroPrimaryCta: "한 달 무료 체험 시작",
   heroSecondaryCta: "작동 방식 보기",
 
   heroMetricDowntimeTitle: "지연 감소",
@@ -70,7 +70,7 @@ export const ko = {
   featuresCard3Tag: "Kitchen 앱",
   featuresCard3Title: "스마트 스테이션 라우팅",
   featuresCard3Body:
-    "설정에 따라 항목이 자동으로 적절한 조리 스테이션으로 전송됩니다 — 뜻거운 음식은 그릴로, 차가운 요리는 샐러드로, 음료는 바로. 각 스테이션은 자신의 티켓만 볼 수 있습니다. 내장 타이머로 각 주문의 대기 시간을 추적합니다. 새 주문 도착 시 오디오 알림이 직원에게 알립니다.",
+    "설정에 따라 항목이 자동으로 적절한 조리 스테이션으로 전송됩니다 — 뜨거운 음식은 그릴로, 차가운 요리는 샐러드 스테이션으로, 음료는 바(bar)로 전달됩니다. 각 스테이션은 자신에게 배정된 티켓만 보며, 내장 타이머는 각 주문의 대기 시간을 기록합니다. 새 주문이 도착하면 오디오 알림으로 직원에게 알려줍니다.",
 
   featuresCard4Tag: "재고",
   featuresCard4Title: "실시간 재고 관리",
@@ -196,6 +196,12 @@ export const ko = {
   contactEmailPlaceholder: "you@company.com",
   contactMessagePlaceholderSales: "요구 사항을 적어주세요 (가격, 온보딩, 통합)",
   contactMessagePlaceholderSupport: "문제를 설명하고 관련 정보를 포함하세요 (주문 ID, 스크린샷)",
+  contactImageLabel: "이미지 첨부 (선택)",
+  contactImageHelp: "스크린샷이나 사진을 첨부할 수 있습니다 (선택).",
+  contactSuccessTitle: "메시지 전송 완료",
+  contactSuccessBody: "감사합니다 — 팀이 메시지를 확인한 후 곧 연락드릴게요.",
+  contactSuccessCta: "완료",
+  contactImageRemove: "이미지 제거",
 
   pricingEnterpriseTitle: "다점포",
   pricingEnterpriseRibbon: "맞춤",
@@ -239,7 +245,7 @@ export const ko = {
   footerQuickLinkFaq: "자주 묻는 질문",
   footerQuickLinkTerms: "약관",
   footerQuickLinkPrivacy: "개인정보",
-  footerRightsReserved: "All rights reserved",
+  footerRightsReserved: "모든 권리 보유",
   footerAccessibility: "모든 기기에서 접근 가능",
 
   wizardTitle: "Octopos 계정 만들기",
@@ -273,7 +279,8 @@ export const ko = {
   wizardUsernameLabel: "선호 아이디",
   wizardUsernamePlaceholder: "username",
   wizardPasswordLabel: "선호 비밀번호",
-  wizardPasswordPlaceholder: "8자 이상",  wizardStartTrial: "무료 체험 시작",
+  wizardPasswordPlaceholder: "8자 이상",
+  wizardStartTrial: "무료 체험 시작",
   wizardCreatingKitchen: "계정을 설정 중입니다...",
   wizardBack: "뒤로",
   wizardNext: "다음",

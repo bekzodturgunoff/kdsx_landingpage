@@ -204,6 +204,12 @@ export const ru = {
   contactEmailPlaceholder: "you@company.com",
   contactMessagePlaceholderSales: "Опишите ваши потребности (цены, внедрение, интеграции)",
   contactMessagePlaceholderSupport: "Опишите проблему и добавьте детали (номер заказа, скриншоты)",
+  contactImageLabel: "Прикрепить изображение (необязательно)",
+  contactImageHelp: "Можно прикрепить скриншот или фото (необязательно).",
+  contactSuccessTitle: "Сообщение отправлено",
+  contactSuccessBody: "Спасибо — наша команда рассмотрит сообщение и скоро свяжется с вами.",
+  contactSuccessCta: "Готово",
+  contactImageRemove: "Удалить изображение",
 
   pricingEnterpriseTitle: "Мульти‑локации",
   pricingEnterpriseRibbon: "Кастом",
