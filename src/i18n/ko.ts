@@ -6,7 +6,7 @@ export const ko = {
   navFaq: "FAQ",
   navThemeToggle: "테마 전환",
 
-  heroBadge: "KDSX 플랫폼",
+  heroBadge: "Octopos 플랫폼",
   heroHeading: "하나의 시스템 세 가지 강력한 앱 완전한 제어",
   heroBody:
     "백오피스(Dash), 서비스(POS), 주방(Kitchen 앱)을 하나로 연결하세요. 모든 것이 자동으로 동기화됩니다.",
@@ -26,12 +26,12 @@ export const ko = {
   logosBadge: "신뢰받는 팀",
   logosHeading: "현대적인 호스피탈리티의 동력",
   logosBody:
-    "작은 카페부터 대형 매장까지 운영팀이 KDSX로 워크플로를 단순화하고 매끄러운 서비스를 유지합니다.",
+    "작은 카페부터 대형 매장까지 운영팀이 Octopos로 워크플로를 단순화하고 매끄러운 서비스를 유지합니다.",
 
-  businessBadge: "KDSX 스위트",
+  businessBadge: "Octopos 스위트",
   businessHeading: "세 앱이 하나처럼 동작",
   businessBody:
-    "파편화된 도구를 더는 juggling 하지 마세요. KDSX는 관리, 서비스, 주방 운영을 하나의 연결된 시스템으로 통합합니다.",
+    "파편화된 도구를 더는 juggling 하지 마세요. Octopos는 관리, 서비스, 주방 운영을 하나의 연결된 시스템으로 통합합니다.",
 
   // BusinessSection Cards - Generic feature benefits
   businessCard1Title: "실행 가능한 인사이트",
@@ -97,7 +97,7 @@ export const ko = {
     "설정, 메뉴 가져오기, 첫 실행까지 지원해 빠르게 런칭하세요.",
 
   mobileHighlightsCtaHeading: "운영을 업그레이드할 준비 되셨나요?",
-  mobileHighlightsCtaBody: "첫 달 동안 모든 KDSX 앱을 위험 없이 사용해보세요.",
+  mobileHighlightsCtaBody: "첫 달 동안 모든 Octopos 앱을 위험 없이 사용해보세요.",
   mobileHighlightsCtaButton: "시작하기",
 
   mobileContactHeading: "문의하기",
@@ -105,7 +105,7 @@ export const ko = {
 
   howBadge: "온보딩",
   howHeading: "세 단계로 시작",
-  howBody: "KDSX 전환은 간단하고 가이드됩니다.",
+  howBody: "Octopos 전환은 간단하고 가이드됩니다.",
 
   howStep1Tag: "설정",
   howStep1Title: "Dash 준비",
@@ -121,7 +121,7 @@ export const ko = {
 
   testimonialsBadge: "고객의 말",
   testimonialsHeading: "레스토랑 운영자들이 말하는 변화",
-  testimonialsBody: "매일 KDSX를 사용하는 팀들의 실제 피드백입니다.",
+  testimonialsBody: "매일 Octopos를 사용하는 팀들의 실제 피드백입니다.",
 
   testimonialsCard1Tag: "카페 오너",
   testimonialsCard1Quote:
@@ -192,10 +192,10 @@ export const ko = {
   pricingImplementB3: "직원 교육 세션",
 
   pricingFinalHeading: "레스토랑을 현대화할 준비 되셨나요?",
-  pricingFinalCta: "지금 KDSX 시작",
+  pricingFinalCta: "지금 Octopos 시작",
 
   featuresPageBadge: "모듈",
-  featuresPageHeading: "KDSX 에코시스템 살펴보기",
+  featuresPageHeading: "Octopos 에코시스템 살펴보기",
   featuresPageLead:
     "매장·주방·오피스를 하나로 잇는 모듈을 한 곳에서 확인하세요",
 
@@ -205,13 +205,13 @@ export const ko = {
 
   faqPageBadge: "지원",
   faqPageHeading: "자주 묻는 질문",
-  faqPageLead: "KDSX 사용에 대한 핵심 질문을 모았습니다.",
+  faqPageLead: "Octopos 사용에 대한 핵심 질문을 모았습니다.",
 
-  footerBrandDescription: "KDSX: POS·관리·키친 올인원 시스템.",
+  footerBrandDescription: "Octopos: POS·관리·키친 올인원 시스템.",
   footerContactTitle: "문의",
   footerContactPhone1: "+998941500330",
   footerContactPhone2: "+821079328573",
-  footerContactEmail: "support@kdsx.uz",
+  footerContactEmail: "support@octopos.uz",
   footerFollowTitle: "소셜",
   footerQuickLinksTitle: "정보",
   footerQuickLinkFeatures: "기능",
@@ -222,10 +222,10 @@ export const ko = {
   footerRightsReserved: "All rights reserved",
   footerAccessibility: "모든 기기에서 접근 가능",
 
-  wizardTitle: "KDSX 계정 만들기",
+  wizardTitle: "Octopos 계정 만들기",
   wizardSubtitle: "레스토랑 정보를 알려주시면 개인화된 데모를 준비해드립니다.",
   wizardTitleStarter: "무료 체험 시작",
-  wizardTitlePro: "KDSX 구독 ($30/월)",
+  wizardTitlePro: "Octopos 구독 ($30/월)",
   wizardTitleEnterprise: "영업 문의",
   wizardTitleGeneric: "시작하기",
   wizardPlanPrefix: "선택한 플랜:",
@@ -262,7 +262,7 @@ export const ko = {
   wizardError: "오류가 발생했습니다. 다시 시도해주세요",
   wizardErrorTitle: "제출 실패",
   wizardErrorBody:
-    "문제가 발생했습니다. 빠른 처리 원하시면 support@kdsx.uz 로 메일 주세요",
+    "문제가 발생했습니다. 빠른 처리 원하시면 support@octopos.uz 로 메일 주세요",
   wizardSuccessMessage:
     "데모 계정을 준비 중입니다. 곧 로그인 정보를 보내드립니다.",
   wizardSuccessCta: "완료",
@@ -299,16 +299,16 @@ export const ko = {
   termsBadge: "법적 고지",
   termsHeading: "이용 약관",
   termsIntro:
-    "이 약관은 KDSX가 플랫폼 접근을 제공하는 방식과 팀이 지켜야 할 책임을 설명합니다. 법률 용어 없이도 이해할 수 있도록 간단한 언어로 작성했습니다.",
+    "이 약관은 Octopos가 플랫폼 접근을 제공하는 방식과 팀이 지켜야 할 책임을 설명합니다. 법률 용어 없이도 이해할 수 있도록 간단한 언어로 작성했습니다.",
   termsSection1Title: "1. 계정과 접근",
   termsSection1Body:
-    "각 매장은 고유한 로그인 정보를 받습니다. 자격 증명을 안전하게 보관하고 무단 접근이 의심되면 즉시 알려주세요. 다점포 운영자는 support@kdsx.uz 로 이메일을 보내 SSO나 세분화된 역할 제어를 요청할 수 있습니다.",
+    "각 매장은 고유한 로그인 정보를 받습니다. 자격 증명을 안전하게 보관하고 무단 접근이 의심되면 즉시 알려주세요. 다점포 운영자는 support@octopos.uz 로 이메일을 보내 SSO나 세분화된 역할 제어를 요청할 수 있습니다.",
   termsSection2Title: "2. 허용되는 사용",
   termsSection2Body:
     "KDSX는 매장을 운영하기 위한 도구입니다. 인프라를 탐색하거나 접근을 재판매하거나 알림 채널로 부적절한 콘텐츠를 보내는 용도로 사용하지 마세요. 플랫폼이나 다른 고객에게 위험이 되는 계정은 중단될 수 있습니다.",
   termsSection3Title: "3. 결제",
   termsSection3Body:
-    "Starter 플랜은 첫 달 무료입니다. 유료 플랜은 매월 갱신되며 7일 전에 해지할 수 있습니다. 하드웨어 구매는 별도로 청구됩니다. 오프라인 결제가 필요하면 billing@kdsx.uz 로 연락하세요.",
+    "Starter 플랜은 첫 달 무료입니다. 유료 플랜은 매월 갱신되며 7일 전에 해지할 수 있습니다. 하드웨어 구매는 별도로 청구됩니다. 오프라인 결제가 필요하면 billing@octopos.uz 로 연락하세요.",
   termsSection4Title: "4. 데이터 소유권",
   termsSection4Body:
     "KDSX에 저장된 메뉴, 재고, 매출, 고객 정보의 소유권은 모두 여러분에게 있습니다. 우리는 서비스를 제공하고 개선하기 위해서만 데이터를 처리합니다. 요청 시 5영업일 이내에 휴대 가능한 형식으로 내보내 드립니다.",
@@ -328,13 +328,13 @@ export const ko = {
     "데이터는 대시보드, 알림, 자동화를 구동합니다. 예측과 안정성을 개선하기 위해 사용 패턴을 익명화할 수 있지만 식별 가능한 정보를 제3자에게 판매하지 않습니다.",
   privacySection3Title: "3. 통합 및 처리자",
   privacySection3Body:
-    "결제, 배달, 회계 통합을 활성화하면 파트너가 요구하는 최소한의 필드만 전달합니다. 현재 하위 처리자와 지역은 SOC 2 패킷에 정리되어 있으며 compliance@kdsx.uz 로 요청하면 받을 수 있습니다.",
+    "결제, 배달, 회계 통합을 활성화하면 파트너가 요구하는 최소한의 필드만 전달합니다. 현재 하위 처리자와 지역은 SOC 2 패킷에 정리되어 있으며 compliance@octopos.uz 로 요청하면 받을 수 있습니다.",
   privacySection4Title: "4. 보관 및 삭제",
   privacySection4Body:
     "구독이 유지되는 동안 운영 데이터는 활성 상태로 남습니다. 해지 후 30일 동안 백업을 보관하고 규제가 더 긴 기간을 요구하지 않는 한 삭제합니다. 언제든 삭제를 요청할 수 있으며 완료되면 확인을 드립니다.",
   privacySection5Title: "5. 문의",
   privacySection5Body:
-    "서명된 DPA가 필요하거나 연락처를 업데이트하거나 컴플라이언스 질문이 있다면 privacy@kdsx.uz 로 이메일 주세요. 일반적으로 영업일 기준 하루 안에 답변합니다.",
+    "서명된 DPA가 필요하거나 연락처를 업데이트하거나 컴플라이언스 질문이 있다면 privacy@octopos.uz 로 이메일 주세요. 일반적으로 영업일 기준 하루 안에 답변합니다.",
 
   // Theme toggle
   themeLight: "라이트",

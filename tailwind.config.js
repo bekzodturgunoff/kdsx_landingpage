@@ -16,6 +16,9 @@ export default {
         "neutral-bg": "oklch(96.49% 0.015 119.1)",
         "neutral-bg-dark": "oklch(23.89% 0.009 137.83)",
       },
+      fontFamily: {
+        circular: ['"Circular Std"', 'Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],

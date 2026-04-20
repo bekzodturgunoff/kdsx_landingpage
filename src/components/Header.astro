@@ -18,11 +18,28 @@ const faqPageHref = `${localeBase}/faq`;
 ---
 <header class="sticky top-0 z-50 px-2 sm:px-6">
   <div class="max-w-6xl mx-auto">
-    <div class="mt-6 flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
+    <div class="mt-6 relative flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
-        <a href={homeHref} aria-label="KDSX Home" class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs sm:text-sm uppercase tracking-[0.3em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60 dark:text-brand-cta-text">
-          KDSX
+        <a href={homeHref} aria-label="Octopos Home" class="flex items-center  sm:text-sm tracking-[0.15em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60">
+          <img src="/logo.png" alt="Octopos logo" class="w-8 h-8 md:w-9 md:h-9 mr-2" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
+          <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text dark:text-white">Octo</span>
+          <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text">pos</span>
         </a>
+      </div>
+
+      <!-- Centered mobile language selector -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
+        <div class="relative">
+          <label class="sr-only" for="mobile-lang-select">Language</label>
+          <select id="mobile-lang-select" class="lang-select appearance-none rounded-full border border-brand-cta-text/20 bg-white/80 px-3 py-2 pr-9 text-xs font-semibold uppercase tracking-[0.25em] text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-white/10 dark:text-brand-text-dark" aria-label="Language switcher">
+            {languageOptions.map(({ value, label }) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-brand-text/60 dark:text-brand-text-dark/60" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
       </div>
 
       <!-- Desktop nav: anchor links to sections on index page (smooth scroll) -->
@@ -68,17 +85,6 @@ const faqPageHref = `${localeBase}/faq`;
 
       <!-- Mobile controls -->
       <div class="flex items-center gap-2 md:hidden">
-        <label class="sr-only" for="mobile-lang-select">Language</label>
-        <div class="relative">
-          <select id="mobile-lang-select" class="lang-select appearance-none rounded-full border border-brand-cta-text/20 bg-white/80 px-3 py-2 pr-9 text-xs font-semibold uppercase tracking-[0.25em] text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-white/10 dark:text-brand-text-dark" aria-label="Language switcher">
-            {languageOptions.map(({ value, label }) => (
-              <option value={value}>{label}</option>
-            ))}
-          </select>
-          <svg class="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-brand-text/60 dark:text-brand-text-dark/60" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </div>
         <!-- Compact Theme Cycle Button (Mobile) -->
         <button
           type="button"
@@ -238,6 +244,16 @@ const faqPageHref = `${localeBase}/faq`;
         if (colorSchemeMeta) {
           colorSchemeMeta.setAttribute('content', effective === 'dark' ? 'dark' : 'light');
         }
+
+        // Update any theme-aware logos: use the provided light/dark sources
+        try {
+          document.querySelectorAll('img[data-logo-for-light]').forEach((img) => {
+            const lightSrc = img.getAttribute('data-logo-for-light');
+            const darkSrc = img.getAttribute('data-logo-for-dark');
+            const chosen = effective === 'dark' ? (darkSrc || img.getAttribute('src')) : (lightSrc || img.getAttribute('src'));
+            if (chosen && img.getAttribute('src') !== chosen) img.setAttribute('src', chosen);
+          });
+        } catch (_) {}
       };
 
       const applyTheme = (mode) => {

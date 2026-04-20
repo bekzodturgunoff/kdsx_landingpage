@@ -6,7 +6,7 @@ export const en = {
   navFaq: "FAQ",
   navThemeToggle: "Toggle theme",
 
-  heroBadge: "The KDSX Platform",
+  heroBadge: "The Octopos Platform",
   heroHeading: "One system Three powerful apps Total control",
   heroBody:
     "Run the back office with Dash, keep service moving with POS, and bring order to your kitchen with Kitchen App. Everything stays in sync automatically.",
@@ -26,12 +26,12 @@ export const en = {
   logosBadge: "Trusted by teams",
   logosHeading: "Powering modern hospitality",
   logosBody:
-    "From small cafes to high-volume dining, operators use KDSX to simplify their workflow and keep service running smoothly.",
+    "From small cafes to high-volume dining, operators use Octopos to simplify their workflow and keep service running smoothly.",
 
-  businessBadge: "The KDSX Suite",
+  businessBadge: "The Octopos Suite",
   businessHeading: "Three apps working as one",
   businessBody:
-    "Stop juggling disconnected tools. KDSX unifies your management, service, and kitchen operations into one connected system.",
+    "Stop juggling disconnected tools. Octopos unifies your management, service, and kitchen operations into one connected system.",
 
   // BusinessSection Cards - Generic feature benefits
   businessCard1Title: "Actionable insights",
@@ -80,7 +80,7 @@ export const en = {
   mobileHighlightsBadge: "Quick overview",
   mobileHighlightsHeading: "Efficiency in every pocket",
   mobileHighlightsBody:
-    "KDSX is designed so new staff can learn it quickly. No long training sessions needed.",
+    "Octopos is designed so new staff can learn it quickly. No long training sessions needed.",
 
   mobileHighlightsFeaturesTag: "Ecosystem",
   mobileHighlightsFeaturesTitle: "Seamless sync",
@@ -107,7 +107,7 @@ export const en = {
 
   howBadge: "Onboarding",
   howHeading: "Go live in three steps",
-  howBody: "Switching to KDSX is straightforward and guided.",
+  howBody: "Switching to Octopos is straightforward and guided.",
 
   howStep1Tag: "Configure",
   howStep1Title: "Set up Dash",
@@ -126,7 +126,7 @@ export const en = {
 
   testimonialsBadge: "From our users",
   testimonialsHeading: "What restaurant owners are saying",
-  testimonialsBody: "Real feedback from teams using KDSX every day.",
+  testimonialsBody: "Real feedback from teams using Octopos every day.",
 
   // testimonialsSubheading: "What users are saying",
 
@@ -200,10 +200,10 @@ export const en = {
   pricingImplementB3: "Staff training sessions",
 
   pricingFinalHeading: "Ready to modernize your restaurant?",
-  pricingFinalCta: "Get KDSX Today",
+  pricingFinalCta: "Get Octopos Today",
 
   featuresPageBadge: "Modules",
-  featuresPageHeading: "Explore the KDSX Ecosystem",
+  featuresPageHeading: "Explore the Octopos Ecosystem",
   featuresPageLead:
     "Explore the modules that connect your dining room, kitchen and office - in one place",
 
@@ -213,14 +213,14 @@ export const en = {
 
   faqPageBadge: "Support",
   faqPageHeading: "Frequently Asked Questions",
-  faqPageLead: "Common questions about using KDSX.",
+  faqPageLead: "Common questions about using Octopos.",
 
   footerBrandDescription:
-    "KDSX: The all-in-one POS, management, and kitchen system.",
+    "Octopos: The all-in-one POS, management, and kitchen system.",
   footerContactTitle: "Contact Us",
   footerContactPhone1: "+998941500330",
   footerContactPhone2: "+821079328573",
-  footerContactEmail: "support@kdsx.uz",
+  footerContactEmail: "support@octopos.uz",
   footerFollowTitle: "Social",
   footerQuickLinksTitle: "Info",
   footerQuickLinkFeatures: "Features",
@@ -231,11 +231,11 @@ export const en = {
   footerRightsReserved: "All rights reserved",
   footerAccessibility: "Accessible on all devices",
 
-  wizardTitle: "Create your KDSX account",
+  wizardTitle: "Create your Octopos account",
   wizardSubtitle:
     "Tell us about your restaurant and we’ll prepare a personalized demo.",
   wizardTitleStarter: "Start Free Trial",
-  wizardTitlePro: "Subscribe to KDSX ($30/mo)",
+  wizardTitlePro: "Subscribe to Octopos ($30/mo)",
   wizardTitleEnterprise: "Contact Sales",
   wizardTitleGeneric: "Get Started",
   wizardPlanPrefix: "Selected Plan:",
@@ -272,7 +272,7 @@ export const en = {
   wizardError: "An error occurred. Please try again",
   wizardErrorTitle: "Submission Failed",
   wizardErrorBody:
-    "Oops! Something broke on our end. We're working on it, but for a fast fix, please email us directly at support@kdsx.uz",
+    "Oops! Something broke on our end. We're working on it, but for a fast fix, please email us directly at support@octopos.uz",
   wizardSuccessMessage:
     "Your demo account is being prepared. We’ll reach out shortly with your login details.",
   wizardSuccessCta: "Done",
@@ -309,16 +309,16 @@ export const en = {
   termsBadge: "Legal",
   termsHeading: "Terms of Service",
   termsIntro:
-    "These terms outline how KDSX provides access to the platform and what we expect from teams using it. We kept the language plain so operators can review it without a legal dictionary.",
+    "These terms outline how Octopos provides access to the platform and what we expect from teams using it. We kept the language plain so operators can review it without a legal dictionary.",
   termsSection1Title: "1. Accounts & access",
   termsSection1Body:
-    "Each restaurant is provisioned with unique logins. You are responsible for keeping credentials safe and notifying us if you suspect unauthorized access. Multi-location operators can request SSO or granular role controls by emailing support@kdsx.uz.",
+    "Each restaurant is provisioned with unique logins. You are responsible for keeping credentials safe and notifying us if you suspect unauthorized access. Multi-location operators can request SSO or granular role controls by emailing support@octopos.uz.",
   termsSection2Title: "2. Acceptable use",
   termsSection2Body:
     "Use KDSX to operate your venues, not to probe infrastructure, resell access, or send abusive content through our notification channels. We may suspend accounts that put the platform or other customers at risk.",
   termsSection3Title: "3. Billing",
   termsSection3Body:
-    "Starter is free for the first month. Paid plans renew monthly and can be cancelled with seven days notice. Hardware purchases are invoiced separately. Contact billing@kdsx.uz if you need offline payment options.",
+    "Starter is free for the first month. Paid plans renew monthly and can be cancelled with seven days notice. Hardware purchases are invoiced separately. Contact billing@octopos.uz if you need offline payment options.",
   termsSection4Title: "4. Data ownership",
   termsSection4Body:
     "You retain ownership of menus, inventory, sales data, and guest information you store in KDSX. We act as a processor, only using the data to provide and improve the service. Upon request we will export your data in a portable format within five business days.",
@@ -338,13 +338,13 @@ export const en = {
     "Data powers dashboards, alerts, and automations. We may anonymize usage patterns to improve forecasting and reliability but never sell identifiable information to third parties.",
   privacySection3Title: "3. Integrations & processors",
   privacySection3Body:
-    "When you enable payments, delivery, or accounting integrations we send only the minimum fields those partners require. Current sub-processors and regions are listed in our SOC 2 packet — request it at compliance@kdsx.uz.",
+    "When you enable payments, delivery, or accounting integrations we send only the minimum fields those partners require. Current sub-processors and regions are listed in our SOC 2 packet — request it at compliance@octopos.uz.",
   privacySection4Title: "4. Retention & deletion",
   privacySection4Body:
     "Operational data stays active while your subscription is live. We retain backups for 30 days after cancellation, then purge them unless regulators require a longer window. You can request deletion at any time and we will confirm once complete.",
   privacySection5Title: "5. Questions",
   privacySection5Body:
-    "Email privacy@kdsx.uz if you need a signed DPA, want to update contacts, or have compliance questions. We typically respond within one business day.",
+    "Email privacy@octopos.uz if you need a signed DPA, want to update contacts, or have compliance questions. We typically respond within one business day.",
 
   // Theme toggle
   themeLight: "Light",

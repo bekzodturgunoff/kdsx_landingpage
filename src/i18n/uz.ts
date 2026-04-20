@@ -6,7 +6,7 @@ export const uz = {
   navFaq: "FAQ",
   navThemeToggle: "Mavzuni almashtirish",
 
-  heroBadge: "KDSX Platformasi",
+  heroBadge: "Octopos Platformasi",
   heroHeading: "Bitta tizim Uch kuchli ilova To‘liq nazorat",
   heroBody:
     "Bosh ofisni Dash bilan, xizmatni POS bilan, oshxonani Kitchen ilova bilan tartibga keltiring. Hammasi avtomatik sinxronlashadi.",
@@ -26,24 +26,24 @@ export const uz = {
   logosBadge: "Ishonchli jamoalar",
   logosHeading: "Zamonaviy xizmatni quvvatlaydi",
   logosBody:
-    "Kichik kafelardan tortib yuqori oqimli restoranlargacha — operatorlar KDSX bilan ish jarayonini soddalashtiradi va xizmatni barqaror ushlab turadi.",
+    "Kichik kafelardan tortib yuqori oqimli restoranlargacha — operatorlar Octopos bilan ish jarayonini soddalashtiradi va xizmatni barqaror ushlab turadi.",
 
-  businessBadge: "KDSX to‘plami",
+  businessBadge: "Octopos to‘plami",
   businessHeading: "Uch ilova — yagona tizim",
   businessBody:
-    "Alohida-alohida vositalarni almashtirishni bas qiling. KDSX boshqaruv, servis va oshxona jarayonlarini yagona tizimga birlashtiradi.",
+    "Alohida-alohida vositalarni almashtirishni bas qiling. Octopos boshqaruv, servis va oshxona jarayonlarini yagona tizimga birlashtiradi.",
 
-  businessCard1Title: "KDSX Dash",
+  businessCard1Title: "Octopos Dash",
   businessCard1Heading: "Restoran boshqaruv markazi",
   businessCard1Body:
     "Restoran boshqaruvining markaziy markazi. Kategoriyalar, modifikatorlar va narxlar bilan menyularni yarating va tartibga soling. Avtomatik zaxira ogohlantirishlari bilan inventar darajalarini kuzating. Xodimlar rollari va ruxsatlarini boshqaring. Yetkazib beruvchilar va kelayotgan ta'minotlarni nazorat qiling. Savdo xulosalari, foyda marjasi va kategoriya samaradorligi kabi batafsil moliyaviy hisobotlarga kiring — barchasi bitta kuchli boshqaruv panelida.",
 
-  businessCard2Title: "KDSX POS",
+  businessCard2Title: "Octopos POS",
   businessCard2Heading: "Qulay buyurtma qabul qilish",
   businessCard2Body:
     "Pik soatlar uchun tezlikka qurilgan. Toza panjara tartibi va sozlanadigan modifikatorlar bilan buyurtmalarni qabul qiling. Zal rejasini vizual boshqaring — qaysi stollar band, bron qilingan yoki bo'sh ekanini bir qarashda ko'ring. Buyurtmalarni stollar o'rtasida uzluksiz ko'chiring, hisoblarni element yoki o'rindiq bo'yicha ajrating va turli to'lov usullarini qabul qiling. Zal xizmati, olib ketish va yetkazib berish — barchasi bitta oddiy interfeysda.",
 
-  businessCard3Title: "KDSX Kitchen",
+  businessCard3Title: "Octopos Kitchen",
   businessCard3Heading: "Tartibli oshxona ishlari",
   businessCard3Body:
     "Band oshxonalar uchun raqamli tiket boshqaruvi. Buyurtmalar qabul qilinganda darhol ekranda paydo bo'ladi — yo'qolgan qog'oz tiketlar yo'q. Elementlarni avtomatik ravishda to'g'ri stansiyaga yo'naltiring: ichimliklar barga, sovuq taomlar salat bo'limiga, asosiy taomlar grilga. Buyurtma vaqtini kuzating, bir bosishda tayyor deb belgilang va butun liniyani sinxronlashtiring. Rush vaqtida ham hech bir buyurtma o'tkazib yuborilmasligini ta'minlash uchun audio ogohlantirishlar.",
@@ -79,7 +79,7 @@ export const uz = {
   mobileHighlightsBadge: "Qisqa sharh",
   mobileHighlightsHeading: "Har cho‘ntakda samaradorlik",
   mobileHighlightsBody:
-    "KDSX yangi xodimlar tez o‘rganishi uchun yaratilgan. Uzoq treninglar shart emas.",
+    "Octopos yangi xodimlar tez o‘rganishi uchun yaratilgan. Uzoq treninglar shart emas.",
 
   mobileHighlightsFeaturesTag: "Ekotizim",
   mobileHighlightsFeaturesTitle: "Uzilsiz sinxron",
