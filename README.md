@@ -127,6 +127,3 @@ curl -s -X POST https://<your-domain>/api/lead \
 
 - `.vercel` / build artifacts: If you find a committed `.vercel` folder or other build outputs in the repo, remove them from source control. The repo should not contain build artifacts.
 - **Contact wizard image uploads:** Intentional client-only preview; if you want to persist uploads, wire the form to your upload endpoint and handle multipart/form-data on the server.
-
----
-If you'd like, I can run the tests (`pnpm test`) and a local dev build to verify everything end-to-end. Want me to do that now?
