@@ -29,18 +29,18 @@ const canonicalPath = localizedPath(activeLang);
 const translationsJSON = JSON.stringify(translations);
 const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString() : canonicalPath;
 ---
-<html lang={activeLang} class="dark">
+<html lang={activeLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#121212" id="theme-color-meta" />
+  <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
   <title>Octopos | Run every shift in sync</title>
   <meta name="description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Octopos | Run every shift in sync" />
   <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta property="og:url" content="https://kdsx-7xa05cei2-bekzods-projects-a2170551.vercel.app" />
+  <meta property="og:url" content={canonicalHref} />
   <meta property="og:image" content="/logo.png" />
   <meta property="og:image:alt" content="Octopos logo" />
   <!-- Twitter -->
@@ -116,6 +116,17 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
           try { stored = localStorage.getItem(LANG_KEY); } catch (_) { stored = undefined; }
           if (pathLang) stored = pathLang;
           if (!stored) stored = getCookieLang();
+
+          // If user has not chosen a language, try inferring from timezone (helps when browser language differs)
+          if (!stored) {
+            try {
+              const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+              if (/Seoul|Korea|Asia\/Seoul/i.test(tz)) stored = 'ko';
+              else if (/Tashkent|Uzbekistan|Asia\/Tashkent/i.test(tz)) stored = 'uz';
+              else if (/Moscow|Europe\/Moscow|Europe\/Minsk|Europe\/Saint_Petersburg/i.test(tz)) stored = 'ru';
+            } catch (_) {}
+          }
+
           if (!stored) stored = navigator.language?.slice(0, 2);
           const resolved = supported.includes(String(stored).toLowerCase()) ? String(stored).toLowerCase() : 'en';
           document.documentElement.setAttribute('lang', resolved);
@@ -125,7 +136,7 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
       })();
     </script>
     <script is:inline>
-      // Initialize theme early (only 'light' or 'dark', default to dark)
+      // Initialize theme early (only 'light' or 'dark', default to light)
       (function () {
         try {
           const THEME_KEY = 'theme';
@@ -138,7 +149,7 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
           let stored;
           try { stored = localStorage.getItem(THEME_KEY); } catch (_) { stored = undefined; }
           if (!stored) stored = getCookieTheme();
-          const resolved = stored === 'light' ? 'light' : 'dark';
+          const resolved = stored === 'dark' ? 'dark' : 'light';
           if (resolved === 'dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');
           document.documentElement.setAttribute('data-theme', resolved);
           document.documentElement.style.colorScheme = resolved === 'dark' ? 'dark' : 'light';

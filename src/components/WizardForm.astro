@@ -17,16 +17,16 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       <div class="flex items-start justify-between">
         <div>
           <h3 id="wizard-title" class="text-xl font-semibold text-[var(--color-brand-text)]">{t("wizardTitle") || "Start your instant trial"}</h3>
-          <p class="mt-1 text-sm text-[var(--color-brand-text)] opacity-70">Create your restaurant and jump into your dashboard in one click.</p>
+          <p class="mt-1 text-sm text-[var(--color-brand-text)] opacity-70">{t("wizardSubtitle") || "Tell us about your restaurant and we’ll prepare a personalized demo."}</p>
         </div>
-        <button type="button" id="wizard-close" aria-label="Close" class="btn-ghost rounded-full ml-4 h-10 w-10 p-0 text-[var(--color-brand-text)] opacity-70">
+        <button type="button" id="wizard-close" aria-label={t("wizardClose") || "Close"} class="btn-ghost rounded-full ml-4 h-10 w-10 p-0 text-[var(--color-brand-text)] opacity-70">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6" stroke-linecap="round"/></svg>
         </button>
       </div>
 
       <div id="wizard-error" class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 shadow-sm dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-100" role="alert" aria-live="assertive" tabindex="-1">
         <p class="font-semibold">{t("wizardErrorTitle") || "Could not create your trial account."}</p>
-        <p class="mt-1">{t("wizardErrorBody") || "Please try again. If this continues, contact support@kdsx.uz."}</p>
+        <p class="mt-1">{t("wizardErrorBody") || "Please try again. If this continues, contact support@octopos.uz."}</p>
       </div>
 
       <form id="wizard-form" class="mt-6 space-y-4">
@@ -56,8 +56,18 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
   </div>
 </div>
 
-<script is:inline>
+    <script type="application/json" id="wizard-strings" set:html={JSON.stringify({
+      submit: t("wizardStartTrial") || "Start Instant Trial",
+      loading: t("wizardSubmitting") || "Creating account...",
+      close: t("wizardClose") || "Close"
+    })}></script>
+
+    <script is:inline>
   (function instantTrialWizard() {
+    const wizardStringsEl = document.getElementById('wizard-strings');
+    const wizardStrings = wizardStringsEl ? JSON.parse(wizardStringsEl.textContent || '{}') : {};
+    const submitFallback = wizardStrings.submit || 'Start Instant Trial';
+    const loadingFallback = wizardStrings.loading || 'Creating account...';
     const modal = document.getElementById("plan-wizard");
     const form = document.getElementById("wizard-form");
     const closeBtn = document.getElementById("wizard-close");
@@ -84,7 +94,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       errorBox?.classList.add("hidden");
     };
 
-    const open = () => {
+      const open = () => {
       lastActive = document.activeElement;
       modal.classList.remove("hidden");
       document.documentElement.classList.add("overflow-hidden");
@@ -99,14 +109,14 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       });
     };
 
-    const close = () => {
+      const close = () => {
       modal.classList.add("hidden");
       document.documentElement.classList.remove("overflow-hidden");
       hideError();
       loadingState?.classList.add("hidden");
       form.classList.remove("hidden");
       submitBtn.disabled = false;
-      submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || "Start Instant Trial";
+        submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || submitFallback;
       if (keydownHandler) {
         document.removeEventListener("keydown", keydownHandler);
         keydownHandler = null;
@@ -130,7 +140,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       if (e.target === modal) close();
     });
 
-    form.addEventListener("submit", async (e) => {
+      form.addEventListener("submit", async (e) => {
       e.preventDefault();
       hideError();
 
@@ -142,9 +152,9 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
         showError();
         return;
       }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = submitBtn.getAttribute("data-loading-text") || "Creating account...";
+      
+      	submitBtn.disabled = true;
+      	submitBtn.textContent = submitBtn.getAttribute("data-loading-text") || loadingFallback;
       loadingState?.classList.remove("hidden");
 
       const firstName = businessName;
@@ -213,7 +223,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
       } catch (_) {
         loadingState?.classList.add("hidden");
         submitBtn.disabled = false;
-        submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || "Start Instant Trial";
+        submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || submitFallback;
         showError();
       }
     });

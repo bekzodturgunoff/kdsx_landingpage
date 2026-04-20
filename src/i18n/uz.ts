@@ -219,7 +219,7 @@ export const uz = {
   footerContactTitle: "Aloqa",
   footerContactPhone1: "+998941500330",
   footerContactPhone2: "+821079328573",
-  footerContactEmail: "support@kdsx.uz",
+  footerContactEmail: "support@octopos.uz",
   footerFollowTitle: "Ijtimoiy tarmoqlar",
   footerQuickLinksTitle: "Ma'lumot",
   footerQuickLinkFeatures: "Xususiyatlar",
@@ -269,10 +269,11 @@ export const uz = {
   wizardNext: "Keyingi",
   wizardSubmit: "So‘rov yuborish",
   wizardSubmitting: "Qayta ishlanmoqda...",
+  wizardClose: "Yopish",
   wizardError: "Xatolik yuz berdi. Qayta urinib ko‘ring",
   wizardErrorTitle: "Yuborishda xatolik",
   wizardErrorBody:
-    "Afsus, bizda nosozlik. Tez yechim uchun support@kdsx.uz manziliga yozing",
+    "Afsus, bizda nosozlik. Tez yechim uchun support@octopos.uz manziliga yozing",
   wizardSuccessMessage:
     "Demo akkauntingiz tayyorlanmoqda. Tez orada kirish ma’lumotlarini yuboramiz.",
   wizardSuccessCta: "Tayyor",
@@ -312,13 +313,13 @@ export const uz = {
     "Bu shartlar Octopos platformaga qanday kirish berishini va jamoalardan nimalar kutilishini tushuntiradi. Matn oddiy yozilgan, shuning uchun operatorlar huquqiy lug‘atsiz ham o‘qib chiqishi mumkin.",
   termsSection1Title: "1. Akkauntlar va kirish",
   termsSection1Body:
-    "Har bir restoran uchun alohida loginlar yaratiladi. Ularni xavfsiz saqlash va ruxsatsiz kirishdan shubhalansangiz bizga xabar berish sizning zimangizda. Bir nechta lokatsiyani boshqarayotgan bo‘lsangiz, support@kdsx.uz manziliga yozib SSO yoki batafsil rollarni so‘rashingiz mumkin.",
+    "Har bir restoran uchun alohida loginlar yaratiladi. Ularni xavfsiz saqlash va ruxsatsiz kirishdan shubhalansangiz bizga xabar berish sizning zimangizda. Bir nechta lokatsiyani boshqarayotgan bo‘lsangiz, support@octopos.uz manziliga yozib SSO yoki batafsil rollarni so‘rashingiz mumkin.",
   termsSection2Title: "2. To‘g‘ri foydalanish",
   termsSection2Body:
     "Octoposni joylaringizni boshqarish uchun ishlating. Infratuzilmani sinash, kirishni qayta sotish yoki bildirishnomalar orqali haqoratomuz xabarlar jo‘natish taqiqlanadi. Platformani yoki boshqa mijozlarni xavf ostiga qo‘yadigan akkauntlar vaqtincha to‘xtatilishi mumkin.",
   termsSection3Title: "3. To‘lovlar",
   termsSection3Body:
-    "Starter rejasi birinchi oy bepul. Pullik rejalar har oy yangilanadi va yetti kun oldin bekor qilinishi mumkin. Uskuna xaridlari alohida hisob-faktura bilan yuboriladi. Offline to‘lov kerak bo‘lsa, billing@kdsx.uz ga yozing.",
+     "Starter rejasi birinchi oy bepul. Pullik rejalar har oy yangilanadi va yetti kun oldin bekor qilinishi mumkin. Uskuna xaridlari alohida hisob-faktura bilan yuboriladi. Offline to‘lov kerak bo‘lsa, billing@octopos.uz ga yozing.",
   termsSection4Title: "4. Ma’lumotlar kimga tegishli",
   termsSection4Body:
     "Octoposda saqlanadigan menyu, inventar, savdo va mehmon ma’lumotlari sizga tegishli. Biz ular ustida faqat xizmatni taqdim etish va yaxshilash uchun ishlaymiz. So‘rovga binoan besh ish kuni ichida ma’lumotlarni ko‘chma formatda yuboramiz.",
@@ -338,13 +339,13 @@ export const uz = {
     "Bu ma’lumotlar boshqaruv panellari, ogohlantirishlar va avtomatlashtirishni quvvatlaydi. Prognoz va barqarorlikni yaxshilash uchun foydalanish naqshlarini anonimlashtirishimiz mumkin, lekin shaxsni aniqlovchi ma’lumotlarni uchinchi tomonga sotmaymiz.",
   privacySection3Title: "3. Integratsiyalar va protsessorlar",
   privacySection3Body:
-    "To‘lov, yetkazib berish yoki buxgalteriya integratsiyalarini yoqsangiz, hamkorlarga faqat kerakli minimal maydonlar yuboriladi. Amaldagi sub-protsessorlar va hududlar SOC 2 paketimizda keltirilgan — compliance@kdsx.uz manziliga yozib so‘rashingiz mumkin.",
+    "To‘lov, yetkazib berish yoki buxgalteriya integratsiyalarini yoqsangiz, hamkorlarga faqat kerakli minimal maydonlar yuboriladi. Amaldagi sub-protsessorlar va hududlar SOC 2 paketimizda keltirilgan — compliance@octopos.uz manziliga yozib so‘rashingiz mumkin.",
   privacySection4Title: "4. Saqlash va o‘chirish",
   privacySection4Body:
     "Obuna faol bo‘lganida operatsion ma’lumotlar ham faol qoladi. Bekor qilingach, zaxiralar 30 kun saqlanadi va regulatorlar talab qilmasa, o‘chiriladi. Istalgan payt o‘chirishni so‘rashingiz mumkin — bajarilgach xabar beramiz.",
   privacySection5Title: "5. Savollar",
   privacySection5Body:
-    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
+    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@octopos.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
   themeLight: "Yorug‘",
   themeDark: "Qorong‘i",
   stepLabel: "Bosqich",

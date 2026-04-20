@@ -271,6 +271,7 @@ export const en = {
   wizardNext: "Next",
   wizardSubmit: "Submit",
   wizardSubmitting: "Processing...",
+  wizardClose: "Close",
   wizardError: "An error occurred. Please try again",
   wizardErrorTitle: "Submission Failed",
   wizardErrorBody:

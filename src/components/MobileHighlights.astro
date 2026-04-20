@@ -89,7 +89,7 @@ const t = createT(currentLang);
           </span>
           <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
         </a>
-        <a href="mailto:support@kdsx.uz" class="surface-card flex items-center justify-between rounded-2xl px-4 py-3">
+        <a href={`mailto:${t('footerContactEmail')}`} class="surface-card flex items-center justify-between rounded-2xl px-4 py-3">
           <span class="flex items-center gap-3">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span class="text-sm" data-i18n="footerContactEmail">{t('footerContactEmail')}</span>

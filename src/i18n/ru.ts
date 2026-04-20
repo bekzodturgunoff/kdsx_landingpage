@@ -271,6 +271,7 @@ export const ru = {
   wizardNext: "Далее",
   wizardSubmit: "Отправить запрос",
   wizardSubmitting: "Обработка...",
+  wizardClose: "Закрыть",
   wizardError: "Произошла ошибка. Попробуйте ещё раз",
   wizardErrorTitle: "Не удалось отправить",
   wizardErrorBody:
