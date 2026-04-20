@@ -262,6 +262,8 @@ export const uz = {
   wizardUsernamePlaceholder: "username",
   wizardPasswordLabel: "Tanlangan parol",
   wizardPasswordPlaceholder: "Kamida 8 ta belgi",
+  wizardStartTrial: "Ulanish",
+  wizardCreatingKitchen: "Loyihangiz tayyorlanmoqda...",
 
   wizardBack: "Ortga",
   wizardNext: "Keyingi",

@@ -56,23 +56,14 @@ export const POST: APIRoute = async ({ request }) => {
     const payload = validation.payload;
 
     const lines = [
-      `Plan: ${payload.plan}`,
-      `Name: ${payload.fullName}`,
       `Business: ${payload.businessName}`,
-      `Locations: ${payload.locations}`,
-      `Service style: ${payload.serviceStyle}`,
-      `Current POS: ${payload.currentPos}`,
-      `Username: ${payload.desiredUsername}`,
-      `Phone: ${payload.phone}`,
       `Email: ${payload.email}`,
-      `Telegram: ${payload.telegram}`,
-      `KakaoTalk: ${payload.kakaotalk}`,
       `Submitted: ${payload.timestamp}`,
     ];
 
     // Include plaintext password so operators receive credentials.
-    if (payload.desiredPassword) {
-      lines.splice(7, 0, `Password (plain): ${payload.desiredPassword}`);
+    if (payload.password) {
+      lines.splice(2, 0, `Password (plain): ${payload.password}`);
     }
 
     // Delivery options via env vars with runtime validation warnings.
@@ -89,7 +80,7 @@ export const POST: APIRoute = async ({ request }) => {
         const resendPayload: Record<string, unknown> = {
           from: FROM_EMAIL,
           to: TO_EMAILS,
-          subject: `KDSX Lead — ${payload.plan || "N/A"}`,
+          subject: `KDSX Lead — ${payload.businessName}`,
           text: lines.join("\n"),
         };
         if (payload.email) {

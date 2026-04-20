@@ -264,6 +264,8 @@ export const ru = {
   wizardUsernamePlaceholder: "username",
   wizardPasswordLabel: "Предпочтительный пароль",
   wizardPasswordPlaceholder: "Минимум 8 символов",
+  wizardStartTrial: "Начать мгновенно",
+  wizardCreatingKitchen: "Создание вашей кухни...",
 
   wizardBack: "Назад",
   wizardNext: "Далее",

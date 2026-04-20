@@ -253,8 +253,8 @@ export const ko = {
   wizardUsernameLabel: "선호 아이디",
   wizardUsernamePlaceholder: "username",
   wizardPasswordLabel: "선호 비밀번호",
-  wizardPasswordPlaceholder: "8자 이상",
-
+  wizardPasswordPlaceholder: "8자 이상",  wizardStartTrial: "무료 체험 시작",
+  wizardCreatingKitchen: "계정을 설정 중입니다...",
   wizardBack: "뒤로",
   wizardNext: "다음",
   wizardSubmit: "요청 보내기",

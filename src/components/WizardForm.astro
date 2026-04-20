@@ -1,141 +1,55 @@
 ---
-import { createT } from '../i18n';
+import {createT} from "../i18n";
 
-const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
-const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const currentLang = supportedLangs.includes((pathSegments[0] || '') as (typeof supportedLangs)[number])
-  ? pathSegments[0]
-  : 'en';
+const supportedLangs = ["en", "ru", "ko", "uz"] as const;
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+const currentLang = supportedLangs.includes((pathSegments[0] || "") as (typeof supportedLangs)[number]) ? pathSegments[0] : "en";
 const t = createT(currentLang);
+
+const trialAPIBaseURL = (process.env.PUBLIC_TRIAL_API_BASE_URL || "http://localhost:3000").replace(/\/$/, "");
+const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
 ---
-<!-- Plan Signup Wizard Modal -->
-<div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-endpoint="/api/lead" data-email="bekzodturgunoff@gmail.com">
+
+<div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-api-base={trialAPIBaseURL} data-dash-url={dashAppURL}>
   <div class="absolute inset-0 bg-black/40 backdrop-blur-sm dark:bg-black/70"></div>
   <div class="relative mx-auto my-10 max-w-lg px-4">
-    <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" aria-describedby="wizard-subtitle" class="rounded-3xl border bg-[var(--color-brand-bg)] p-6 sm:p-7 md:p-8 shadow-2xl dark:border-white/20">
+    <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" class="rounded-3xl border bg-[var(--color-brand-bg)] p-6 sm:p-7 md:p-8 shadow-2xl dark:border-white/20">
       <div class="flex items-start justify-between">
         <div>
-          <h3 id="wizard-title" class="text-xl font-semibold text-[var(--color-brand-text)]" data-i18n="wizardTitle">{t('wizardTitle')}</h3>
-          <p id="wizard-subtitle" class="mt-1 text-sm text-[var(--color-brand-text)] opacity-70" data-i18n="wizardSubtitle">{t('wizardSubtitle')}</p>
+          <h3 id="wizard-title" class="text-xl font-semibold text-[var(--color-brand-text)]">{t("wizardTitle") || "Start your instant trial"}</h3>
+          <p class="mt-1 text-sm text-[var(--color-brand-text)] opacity-70">Create your restaurant and jump into your dashboard in one click.</p>
         </div>
-        <button type="button" id="wizard-close" aria-label="Close" data-i18n-aria-label="wizardSuccessCta" class="btn-ghost ml-4 h-10 w-10 p-0 text-[var(--color-brand-text)] opacity-70">
+        <button type="button" id="wizard-close" aria-label="Close" class="btn-ghost ml-4 h-10 w-10 p-0 text-[var(--color-brand-text)] opacity-70">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6" stroke-linecap="round"/></svg>
         </button>
       </div>
-      <div class="mt-4 flex items-center gap-2 text-xs font-medium text-[var(--color-brand-text)] opacity-70">
-  <span id="wizard-step-label">{(t('wizardStepTemplate') || 'Step {current} of {total}').replace('{current}', '1').replace('{total}', '7')}</span>
-        <span class="mx-2 h-1 w-1 rounded-full bg-[var(--color-brand-text)] opacity-40"></span>
-        <span id="wizard-plan-label" class="truncate" data-i18n="wizardPlanPrefix">{t('wizardPlanPrefix')}</span>
+
+      <div id="wizard-error" class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 shadow-sm dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-100" role="alert" aria-live="assertive" tabindex="-1">
+        <p class="font-semibold">{t("wizardErrorTitle") || "Could not create your trial account."}</p>
+        <p class="mt-1">{t("wizardErrorBody") || "Please try again. If this continues, contact support@kdsx.uz."}</p>
       </div>
 
-      <div
-        id="wizard-error"
-        class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 shadow-sm dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-100"
-        role="alert"
-        aria-live="assertive"
-        tabindex="-1"
-      >
-        <p class="font-semibold" data-i18n="wizardErrorTitle">{t('wizardErrorTitle')}</p>
-        <p class="mt-1" data-i18n="wizardErrorBody">{t('wizardErrorBody')}</p>
-      </div>
-
-      <form id="wizard-form" class="mt-6 space-y-6">
-        <!-- Step 1: Name -->
-        <div data-step="0" class="step-panel">
-          <label for="fullName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardNameLabel">{t('wizardNameLabel')}</label>
-          <input id="fullName" name="fullName" type="text" required data-i18n-placeholder="wizardNamePlaceholder" placeholder={t('wizardNamePlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
+      <form id="wizard-form" class="mt-6 space-y-4">
+        <div>
+          <label for="businessName" class="block text-sm font-medium text-[var(--color-brand-text)]">{t("wizardBusinessLabel") || "Business Name"}</label>
+          <input id="businessName" name="businessName" type="text" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder={t("wizardBusinessPlaceholder") || "Your restaurant name"} />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-[var(--color-brand-text)]">{t("wizardEmailLabel") || "Email"}</label>
+          <input id="email" name="email" type="email" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder={t("wizardEmailPlaceholder") || "you@business.com"} />
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-[var(--color-brand-text)]">{t("wizardPasswordLabel") || "Password"}</label>
+          <input id="password" name="password" type="password" minlength="8" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" placeholder={t("wizardPasswordPlaceholder") || "Minimum 8 characters"} />
         </div>
 
-        <!-- Step 2: Business name -->
-        <div data-step="1" class="step-panel hidden">
-          <label for="businessName" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardBusinessLabel">{t('wizardBusinessLabel')}</label>
-          <input id="businessName" name="businessName" type="text" required data-i18n-placeholder="wizardBusinessPlaceholder" placeholder={t('wizardBusinessPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-        </div>
-
-        <!-- Step 3: Locations -->
-        <div data-step="2" class="step-panel hidden">
-          <label for="locations" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardLocationsLabel">{t('wizardLocationsLabel')}</label>
-          <select id="locations" name="locations" required class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white">
-            <option value="1" data-i18n="wizardLocationsOption1">{t('wizardLocationsOption1')}</option>
-            <option value="2-5" data-i18n="wizardLocationsOption2">{t('wizardLocationsOption2')}</option>
-            <option value="6-10" data-i18n="wizardLocationsOption3">{t('wizardLocationsOption3')}</option>
-            <option value="11+" data-i18n="wizardLocationsOption4">{t('wizardLocationsOption4')}</option>
-          </select>
-        </div>
-
-        <!-- Step 4: Service style / industry -->
-        <div data-step="3" class="step-panel hidden">
-          <label for="serviceStyle" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardServiceStyleLabel">{t('wizardServiceStyleLabel')}</label>
-          <select id="serviceStyle" name="serviceStyle" class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white">
-            <option value="" data-i18n="wizardServiceStyleOption0">{t('wizardServiceStyleOption0')}</option>
-            <option value="cafe" data-i18n="wizardServiceStyleOptionCafe">{t('wizardServiceStyleOptionCafe')}</option>
-            <option value="bistro" data-i18n="wizardServiceStyleOptionBistro">{t('wizardServiceStyleOptionBistro')}</option>
-            <option value="quick" data-i18n="wizardServiceStyleOptionQuick">{t('wizardServiceStyleOptionQuick')}</option>
-            <option value="full" data-i18n="wizardServiceStyleOptionFull">{t('wizardServiceStyleOptionFull')}</option>
-            <option value="bar" data-i18n="wizardServiceStyleOptionBar">{t('wizardServiceStyleOptionBar')}</option>
-            <option value="market" data-i18n="wizardServiceStyleOptionMarket">{t('wizardServiceStyleOptionMarket')}</option>
-            <option value="other" data-i18n="wizardServiceStyleOptionOther">{t('wizardServiceStyleOptionOther')}</option>
-          </select>
-        </div>
-
-        <!-- Step 5: Current POS -->
-        <div data-step="4" class="step-panel hidden">
-          <label for="currentPos" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardCurrentPosLabel">{t('wizardCurrentPosLabel')}</label>
-          <input id="currentPos" name="currentPos" type="text" data-i18n-placeholder="wizardCurrentPosPlaceholder" placeholder={t('wizardCurrentPosPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-        </div>
-
-        <!-- Step 6: Credentials -->
-        <div data-step="5" class="step-panel hidden">
-          <div class="grid gap-4">
-            <div>
-              <label for="desiredUsername" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardUsernameLabel">{t('wizardUsernameLabel')}</label>
-              <input id="desiredUsername" name="desiredUsername" type="text" required pattern="^[a-zA-Z0-9._-]{3,20}$" data-i18n-placeholder="wizardUsernamePlaceholder" placeholder={t('wizardUsernamePlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-            </div>
-            <div>
-              <label for="desiredPassword" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardPasswordLabel">{t('wizardPasswordLabel')}</label>
-                <input id="desiredPassword" name="desiredPassword" type="text" required minlength="8" data-i18n-placeholder="wizardPasswordPlaceholder" placeholder={t('wizardPasswordPlaceholder')} class="w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 7: Contact details -->
-        <div data-step="6" class="step-panel hidden">
-          <div class="grid gap-4">
-            <div>
-              <label for="phone" class="block text-sm font-medium text-[var(--color-brand-text)]"><span data-i18n="wizardPhoneLabel">{t('wizardPhoneLabel')}</span><span class="text-brand-cta"> *</span></label>
-              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="wizardPhonePlaceholder" placeholder={t('wizardPhonePlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardEmailLabel">{t('wizardEmailLabel')}</label>
-              <input id="email" name="email" type="email" data-i18n-placeholder="wizardEmailPlaceholder" placeholder={t('wizardEmailPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-            </div>
-            <div>
-              <label for="telegram" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardTelegramLabel">{t('wizardTelegramLabel')}</label>
-              <input id="telegram" name="telegram" type="text" data-i18n-placeholder="wizardTelegramPlaceholder" placeholder={t('wizardTelegramPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-            </div>
-            <div>
-              <label for="kakaotalk" class="block text-sm font-medium text-[var(--color-brand-text)]" data-i18n="wizardKakaoLabel">{t('wizardKakaoLabel')}</label>
-              <input id="kakaotalk" name="kakaotalk" type="text" data-i18n-placeholder="wizardKakaoPlaceholder" placeholder={t('wizardKakaoPlaceholder')} class="mt-2 w-full rounded-xl border px-4 py-3 shadow-sm outline-none transition-none focus:ring-2 border-brand-cta-text/25 bg-white text-[#1a1a1a] placeholder:text-gray-500 focus:border-brand-cta focus:ring-brand-cta/40 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:placeholder:text-gray-400" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <div class="flex items-center justify-between">
-          <button type="button" id="wizard-back" class="btn-ghost px-5 py-2.5 text-sm" disabled data-i18n="wizardBack">{t('wizardBack')}</button>
-          <div class="flex items-center gap-3">
-            <button type="button" id="wizard-next" class="btn-solid px-6 py-2.5 text-sm" data-i18n="wizardNext">{t('wizardNext')}</button>
-          </div>
-        </div>
+        <button id="wizard-submit" type="submit" class="btn-solid mt-2 w-full px-6 py-3 text-sm" data-submit-text={t("wizardStartTrial") || "Start Instant Trial"} data-loading-text={t("wizardSubmitting") || "Creating account..."}>{t("wizardStartTrial") || "Start Instant Trial"}</button>
       </form>
 
-      <div id="wizard-success" class="mt-6 hidden rounded-xl border bg-[var(--color-brand-bg)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
-        <div class="flex items-start gap-3">
-          <svg class="mt-0.5 h-5 w-5 text-brand-cta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p data-i18n="wizardSuccessMessage">{t('wizardSuccessMessage')}</p>
-        </div>
-        <div class="mt-4 flex justify-end">
-          <button type="button" id="wizard-success-close" class="btn-solid px-5 py-2 text-sm" data-i18n="wizardSuccessCta">{t('wizardSuccessCta')}</button>
+      <div id="wizard-loading" class="mt-6 hidden rounded-xl border bg-[var(--color-brand-bg)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
+        <div class="flex items-center gap-3">
+          <span class="h-4 w-4 animate-spin rounded-full border-2 border-brand-cta border-t-transparent"></span>
+          <p>{t("wizardCreatingKitchen") || "Creating your kitchen..."}</p>
         </div>
       </div>
     </div>
@@ -143,436 +57,165 @@ const t = createT(currentLang);
 </div>
 
 <script is:inline>
-  (function planWizard(){
-    const modal = document.getElementById('plan-wizard');
-    const form = document.getElementById('wizard-form');
-    const back = document.getElementById('wizard-back');
-    const next = document.getElementById('wizard-next');
-    const submitBtn = next; // single action button acts as Next or Submit depending on step
-    const closeBtn = document.getElementById('wizard-close');
-    const stepLabel = document.getElementById('wizard-step-label');
-    const planLabel = document.getElementById('wizard-plan-label');
-    const titleEl = document.getElementById('wizard-title');
-    const dialog = modal?.querySelector('[role="dialog"]');
-    const panels = Array.from(form?.querySelectorAll('.step-panel') || []);
-    let step = 0;
-    let plan = '';
-    const LS_KEY = 'kdsx-wizard-state';
-    const CONFIG_ENDPOINT = modal?.getAttribute('data-endpoint') || '';
+  (function instantTrialWizard() {
+    const modal = document.getElementById("plan-wizard");
+    const form = document.getElementById("wizard-form");
+    const closeBtn = document.getElementById("wizard-close");
+    const submitBtn = document.getElementById("wizard-submit");
+    const loadingState = document.getElementById("wizard-loading");
+    const errorBox = document.getElementById("wizard-error");
+
+    if (!modal || !form || !submitBtn) return;
+
+    const apiBaseURL = (modal.getAttribute("data-api-base") || "http://localhost:3000").replace(/\/$/, "");
+    const dashURL = modal.getAttribute("data-dash-url") || "http://localhost:3000";
+
     let lastActive = null;
     let keydownHandler = null;
-    const analytics = (event, data={}) => {
-      try { window.dispatchEvent(new CustomEvent('kdsx.analytics', { detail: { event, ...data } })); } catch(_) {}
-      try { console.info('[analytics]', event, data); } catch(_) {}
-    };
 
-    const sendMailFallback = (payload) => {
+    const showError = () => {
+      errorBox?.classList.remove("hidden");
       try {
-        const to = modal?.getAttribute('data-email') || 'info@kdsx.uz';
-        const subject = encodeURIComponent(`KDSX Lead — ${payload.plan || 'N/A'}`);
-        const bodyLines = [
-          `Plan: ${payload.plan}`,
-          `Name: ${payload.fullName}`,
-          `Business: ${payload.businessName}`,
-          `Locations: ${payload.locations}`,
-          `Service style: ${payload.serviceStyle}`,
-          `Current POS: ${payload.currentPos}`,
-          `Username: ${payload.desiredUsername}`,
-          payload.desiredPassword ? `Password (plain): ${payload.desiredPassword}` : '',
-          `Phone: ${payload.phone}`,
-          `Email: ${payload.email}`,
-          `Telegram: ${payload.telegram}`,
-          `KakaoTalk: ${payload.kakaotalk}`,
-          `Submitted: ${payload.timestamp}`,
-        ];
-        const body = encodeURIComponent(bodyLines.filter(Boolean).join('\n'));
-        const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
-        window.location.href = mailto;
+        errorBox?.focus();
       } catch (_) {}
     };
 
-    const translationsNode = document.getElementById('translations-data');
-    const fallbackLang = translationsNode?.dataset?.fallback || 'en';
-    let dictionaries = {};
-    try { dictionaries = translationsNode ? JSON.parse(translationsNode.textContent || '{}') : {}; } catch(_) { dictionaries = {}; }
-    const getCurrentLang = () => document.documentElement.getAttribute('lang') || fallbackLang;
-    const t = (key) => {
-      const lang = getCurrentLang();
-      const dict = dictionaries[lang] || dictionaries[fallbackLang] || {};
-      return (dict[key] ?? '');
+    const hideError = () => {
+      errorBox?.classList.add("hidden");
     };
 
-    const errorBox = document.getElementById('wizard-error');
-    const errorTitleEl = errorBox?.querySelector('[data-i18n="wizardErrorTitle"]');
-    const errorBodyEl = errorBox?.querySelector('[data-i18n="wizardErrorBody"]');
-    const ERROR_TITLE_FALLBACK = 'Sorry — something broke on our side.';
-    const ERROR_BODY_FALLBACK = 'Please email support@kdsx.uz or bekzodturgunoff@gmail.com so we can finish your request manually.';
-    const refreshErrorCopy = () => {
-      if (!errorBox) return;
-      if (errorTitleEl) errorTitleEl.textContent = t('wizardErrorTitle') || ERROR_TITLE_FALLBACK;
-      if (errorBodyEl) errorBodyEl.textContent = t('wizardErrorBody') || ERROR_BODY_FALLBACK;
-    };
-
-    const bindPasswordVisibility = () => {
-      document.querySelectorAll('[data-password-toggle]').forEach((btn) => {
-        if (btn._boundPasswordToggle) return;
-        const targetId = btn.getAttribute('data-password-toggle');
-        if (!targetId) return;
-        const input = document.getElementById(targetId);
-        if (!input) return;
-
-        const showLabel = btn.getAttribute('data-label-show') || 'Show';
-        const hideLabel = btn.getAttribute('data-label-hide') || 'Hide';
-
-        const update = () => {
-          const isVisible = input.getAttribute('type') === 'text';
-          btn.textContent = isVisible ? hideLabel : showLabel;
-          btn.setAttribute('aria-pressed', isVisible ? 'true' : 'false');
-        };
-
-        btn.addEventListener('click', () => {
-          const nextType = input.getAttribute('type') === 'password' ? 'text' : 'password';
-          input.setAttribute('type', nextType);
-          update();
-        });
-
-        update();
-        btn._boundPasswordToggle = true;
-      });
-    };
-    const hideErrorMessage = () => {
-      if (!errorBox) return;
-      errorBox.classList.add('hidden');
-    };
-    const showErrorMessage = () => {
-      if (!errorBox) return;
-      refreshErrorCopy();
-      errorBox.classList.remove('hidden');
-      try { errorBox.focus(); } catch (_) {}
-    };
-
-    const applyPlaceholders = () => {
-      document.querySelectorAll('[data-i18n-placeholder]')?.forEach((el) => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (!key) return;
-        const val = t(key);
-        if (val) el.setAttribute('placeholder', val);
-      });
-    };
-
-    const applyAriaLabels = () => {
-      document.querySelectorAll('[data-i18n-aria-label]')?.forEach((el) => {
-        const key = el.getAttribute('data-i18n-aria-label');
-        if (!key) return;
-        const val = t(key);
-        if (val) el.setAttribute('aria-label', val);
-      });
-    };
-
-    const applyTextTranslations = () => {
-      document.querySelectorAll('[data-i18n]')?.forEach((el) => {
-        const key = el.getAttribute('data-i18n');
-        if (!key) return;
-        const val = t(key);
-        if (val) el.textContent = val;
-      });
-    };
-
-    const refreshDynamicLabels = () => {
-      const template = t('wizardStepTemplate') || 'Step {current} of {total}';
-      stepLabel.textContent = template.replace('{current}', String(step + 1)).replace('{total}', String(panels.length));
-      if (planLabel && plan) {
-        const planDisplay = (() => {
-          if (plan === 'starter') return t('pricingStarterLabel') || 'Starter';
-          if (plan === 'pro') return t('pricingProLabel') || 'Pro';
-          if (plan === 'enterprise') return t('pricingEnterpriseTitle') || 'Enterprise';
-          return t('pricingProLabel') || (plan[0]?.toUpperCase() + plan.slice(1));
-        })();
-        planLabel.textContent = `${t('wizardPlanPrefix') || 'Plan:'} ${planDisplay}`;
-      }
-    };
-
-    const setBodyScroll = (lock) => {
-      const html = document.documentElement;
-      if (lock) html.classList.add('overflow-hidden'); else html.classList.remove('overflow-hidden');
-    };
-
-    const showStep = (idx) => {
-      step = Math.max(0, Math.min(idx, panels.length - 1));
-      panels.forEach((p, i) => p.classList.toggle('hidden', i !== step));
-      back.disabled = step === 0;
-      const atLast = step === panels.length - 1;
-      if (atLast) {
-        submitBtn.setAttribute('type', 'submit');
-        const label = t('wizardSubmit') || 'Submit';
-        submitBtn.textContent = label;
-        submitBtn.setAttribute('data-i18n', 'wizardSubmit');
-        submitBtn.disabled = false; // ensure we re-enable if a prior step toggled it off
-      } else {
-        submitBtn.setAttribute('type', 'button');
-        const label = t('wizardNext') || 'Next';
-        submitBtn.textContent = label;
-        submitBtn.setAttribute('data-i18n', 'wizardNext');
-        submitBtn.disabled = false;
-      }
-      const template = t('wizardStepTemplate') || 'Step {current} of {total}';
-      stepLabel.textContent = template.replace('{current}', String(step + 1)).replace('{total}', String(panels.length));
-      analytics('wizard_step_view', { step });
-      // Update submit disabled state based on required fields
-      updateSubmitEnabled();
-    };
-
-    const getFocusable = () => {
-      if (!dialog) return [];
-      return Array.from(dialog.querySelectorAll(
-        'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      ));
-    };
-
-    const trapFocus = (e) => {
-      if (e.key !== 'Tab') return;
-      const f = getFocusable();
-      if (!f.length) return;
-      const first = f[0];
-      const last = f[f.length - 1];
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-
-    const open = (planName) => {
+    const open = () => {
       lastActive = document.activeElement;
-      plan = planName;
-      const planDisplay = (() => {
-        if (planName === 'starter') return t('pricingStarterLabel') || 'Starter';
-        if (planName === 'pro') return t('pricingProLabel') || 'Pro';
-        if (planName === 'enterprise') return t('pricingEnterpriseTitle') || 'Enterprise';
-        return t('pricingProLabel') || (planName[0]?.toUpperCase() + planName.slice(1));
-      })();
-      if (planLabel) planLabel.textContent = `${t('wizardPlanPrefix') || 'Plan:'} ${planDisplay}`;
-      if (titleEl) {
-        const titleCopyByPlan = {
-          starter: t('pricingStarterCta') || t('wizardTitleStarter') || t('wizardTitle'),
-          pro: t('pricingProCta') || t('wizardTitlePro') || t('wizardTitle'),
-          enterprise: t('pricingEnterpriseCta') || t('wizardTitleEnterprise') || t('wizardTitle'),
-          cta: t('wizardTitle') || t('wizardTitleGeneric') || 'Request a demo',
-        };
-        titleEl.textContent = titleCopyByPlan[planName] || titleCopyByPlan.cta;
-      }
-      modal.classList.remove('hidden');
-      showStep(0);
-      hideErrorMessage();
-      setBodyScroll(true);
+      modal.classList.remove("hidden");
+      document.documentElement.classList.add("overflow-hidden");
+      hideError();
+      keydownHandler = (e) => {
+        if (e.key === "Escape") close();
+      };
+      document.addEventListener("keydown", keydownHandler);
       requestAnimationFrame(() => {
-        const first = panels[0].querySelector('input');
+        const first = form.querySelector("input");
         first && first.focus && first.focus();
       });
-      applyPlaceholders();
-      applyAriaLabels();
-      keydownHandler = (e) => {
-        if (e.key === 'Escape') { close(); return; }
-        trapFocus(e);
-      };
-      document.addEventListener('keydown', keydownHandler);
-      try {
-        const saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
-        if (saved && saved.plan === planName) {
-          form.fullName && (form.fullName.value = saved.fullName || '');
-          form.businessName && (form.businessName.value = saved.businessName || '');
-          form.locations && (form.locations.value = saved.locations || '');
-          form.currentPos && (form.currentPos.value = saved.currentPos || '');
-          form.desiredUsername && (form.desiredUsername.value = saved.desiredUsername || '');
-          form.serviceStyle && (form.serviceStyle.value = saved.serviceStyle || '');
-          form.phone && (form.phone.value = saved.phone || '');
-          form.email && (form.email.value = saved.email || '');
-          form.telegram && (form.telegram.value = saved.telegram || '');
-          form.kakaotalk && (form.kakaotalk.value = saved.kakaotalk || '');
-        }
-      } catch(_) {}
-      analytics('wizard_open', { plan: planName });
     };
 
     const close = () => {
-      modal.classList.add('hidden');
-      setBodyScroll(false);
-      form?.reset();
-      hideErrorMessage();
-      const success = document.getElementById('wizard-success');
-      success?.classList.add('hidden');
-      if (keydownHandler) { document.removeEventListener('keydown', keydownHandler); keydownHandler = null; }
-      if (lastActive && lastActive.focus) {
-        try { lastActive.focus(); } catch(_) {}
+      modal.classList.add("hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+      hideError();
+      loadingState?.classList.add("hidden");
+      form.classList.remove("hidden");
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || "Start Instant Trial";
+      if (keydownHandler) {
+        document.removeEventListener("keydown", keydownHandler);
+        keydownHandler = null;
       }
-      analytics('wizard_close', { plan });
+      if (lastActive && lastActive.focus) {
+        try {
+          lastActive.focus();
+        } catch (_) {}
+      }
     };
 
-    // Direct binding for existing buttons/links
-    // Event delegation so any current or future trigger works
-    document.addEventListener('click', (e) => {
-      const target = e.target instanceof Element ? e.target.closest('[data-plan-trigger]') : null;
+    document.addEventListener("click", (e) => {
+      const target = e.target instanceof Element ? e.target.closest("[data-plan-trigger]") : null;
       if (!target) return;
       e.preventDefault();
-      const planName = target.getAttribute('data-plan-trigger') || 'starter';
-      open(planName);
+      open();
     });
 
-    closeBtn?.addEventListener('click', close);
-    modal?.addEventListener('click', (e) => {
+    closeBtn?.addEventListener("click", close);
+    modal.addEventListener("click", (e) => {
       if (e.target === modal) close();
     });
 
-    back?.addEventListener('click', () => showStep(step - 1));
-    next?.addEventListener('click', () => {
-      // If on last step, this button is type=submit; let the form submit handler run
-      if (step === panels.length - 1) return;
-      const currentPanel = panels[step];
-      const requiredInputs = Array.from(currentPanel.querySelectorAll('input[required]'));
-      for (const input of requiredInputs) {
-        if (!input.value.trim()) { input.focus(); return; }
-      }
-      const requiredSelects = Array.from(currentPanel.querySelectorAll('select[required]'));
-      for (const sel of requiredSelects) {
-        if (!sel.value) { sel.focus(); return; }
-      }
-      try {
-        const state = {
-          plan,
-          fullName: form.fullName?.value || '',
-          businessName: form.businessName?.value || '',
-          locations: form.locations?.value || '',
-          currentPos: form.currentPos?.value || '',
-          desiredUsername: form.desiredUsername?.value || '',
-          serviceStyle: form.serviceStyle?.value || '',
-          phone: form.phone?.value || '',
-          email: form.email?.value || '',
-          telegram: form.telegram?.value || '',
-          kakaotalk: form.kakaotalk?.value || '',
-        };
-        localStorage.setItem(LS_KEY, JSON.stringify(state));
-      } catch(_) {}
-      analytics('wizard_step_next', { step });
-      showStep(step + 1);
-    });
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideError();
 
-    const updateSubmitEnabled = () => {
-      if (!submitBtn || !form) return;
-      const atLast = step === panels.length - 1;
-      if (!atLast) {
-        submitBtn.disabled = false;
+      const businessName = String(form.businessName?.value || "").trim();
+      const email = String(form.email?.value || "").trim().toLowerCase();
+      const password = String(form.password?.value || "");
+
+      if (!businessName || !email || password.length < 8) {
+        showError();
         return;
       }
 
-      // Manually validate required fields to avoid edge cases with hidden panels or stale validity state.
-      const requiredFields = Array.from(form.querySelectorAll('[required]'));
-      let allValid = true;
-      for (const field of requiredFields) {
-        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) continue;
-        if (field.disabled) continue;
-        if (typeof field.checkValidity === 'function') {
-          if (!field.checkValidity()) { allValid = false; break; }
-        } else {
-          const val = field.value || '';
-          if (!val.trim()) { allValid = false; break; }
-        }
-      }
-      submitBtn.disabled = !allValid;
-    };
+      submitBtn.disabled = true;
+      submitBtn.textContent = submitBtn.getAttribute("data-loading-text") || "Creating account...";
+      loadingState?.classList.remove("hidden");
 
-    form?.addEventListener('input', updateSubmitEnabled, { passive: true });
-    form?.addEventListener('change', updateSubmitEnabled, { passive: true });
+      const firstName = businessName;
+      const lastName = "Owner";
+      const lang = (document.documentElement.getAttribute("lang") || "en").slice(0, 2);
+      const defaultLang = ["en", "ru", "uz", "ko"].includes(lang) ? lang : "en";
 
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const phone = form.querySelector('#phone');
-      if (phone && !phone.value.trim()) { phone.focus(); return; }
-
-      const payload = {
-        plan,
-        fullName: form.fullName?.value || '',
-        businessName: form.businessName?.value || '',
-        locations: form.locations?.value || '',
-        serviceStyle: form.serviceStyle?.value || '',
-        currentPos: form.currentPos?.value || '',
-        desiredUsername: form.desiredUsername?.value || '',
-        desiredPassword: form.desiredPassword?.value || '',
-        phone: form.phone?.value || '',
-        email: form.email?.value || '',
-        telegram: form.telegram?.value || '',
-        kakaotalk: form.kakaotalk?.value || '',
-        timestamp: new Date().toISOString(),
+      const bootstrapPayload = {
+        user: {
+          login: email,
+          firstName,
+          lastName,
+          password,
+        },
+        setting: {
+          currency: "USD",
+          businessType: "restaurant",
+          defaultLang,
+        },
+        location: {
+          name: businessName,
+          description: "",
+          addressLine1: "",
+          addressLine2: "",
+          email,
+          phone: "",
+          websiteURL: "",
+          instagramURL: "",
+          logoURL: "",
+          timeZone: "Asia/Seoul",
+          workingFrom: "09:00",
+          workingTo: "22:00",
+        },
       };
 
       try {
-        analytics('wizard_submit', { plan });
-        hideErrorMessage();
-        submitBtn.disabled = true;
-        next.disabled = true;
-        back.disabled = true;
-        submitBtn.textContent = t('wizardSubmitting') || 'Submitting…';
-        let ok = false;
-        if (CONFIG_ENDPOINT) {
-          try {
-            const response = await fetch(CONFIG_ENDPOINT, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-              body: JSON.stringify(payload),
-            });
-            ok = response.ok;
-          } catch (_) {
-            ok = false;
-          }
-        }
-        if (!ok) {
-          // Fallback delivery via mailto and proceed to success UI
-          sendMailFallback(payload);
-          await new Promise((res)=> setTimeout(res, 300));
+        const bootstrapRes = await fetch(`${apiBaseURL}/bootstrap`, {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(bootstrapPayload),
+        });
+
+        if (!bootstrapRes.ok) {
+          throw new Error("bootstrap failed");
         }
 
-        form.classList.add('hidden');
-        const success = document.getElementById('wizard-success');
-        success?.classList.remove('hidden');
-        hideErrorMessage();
-        try { localStorage.removeItem(LS_KEY); } catch(_) {}
-      } catch (err) {
-        console.error('Failed to submit lead', err);
-        analytics('wizard_submit_error', { plan, status: err?.status || null });
-        // Try fallback once more, then still show success UI to avoid blocking users
-        sendMailFallback(payload);
-        await new Promise((res)=> setTimeout(res, 300));
-        form.classList.add('hidden');
-        const success = document.getElementById('wizard-success');
-        success?.classList.remove('hidden');
-        hideErrorMessage();
+        const signInRes = await fetch(`${apiBaseURL}/auth.signInWithPassword`, {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({login: email, password}),
+        });
+
+        if (!signInRes.ok) {
+          throw new Error("sign in failed");
+        }
+
+        window.location.href = dashURL;
+      } catch (_) {
+        loadingState?.classList.add("hidden");
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || "Start Instant Trial";
+        showError();
       }
     });
-
-    document.getElementById('wizard-success-close')?.addEventListener('click', close);
-
-    document.querySelectorAll('.lang-select')?.forEach((sel) => {
-      sel.addEventListener('change', () => setTimeout(() => {
-        applyPlaceholders();
-        applyAriaLabels();
-        applyTextTranslations();
-        refreshDynamicLabels();
-        refreshErrorCopy();
-        bindPasswordVisibility();
-      }, 50));
-    });
-    applyPlaceholders();
-    applyAriaLabels();
-    applyTextTranslations();
-    refreshDynamicLabels();
-    refreshErrorCopy();
-    bindPasswordVisibility();
-    // Ensure initial visibility state
-    showStep(0);
   })();
 </script>
