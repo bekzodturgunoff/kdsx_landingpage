@@ -41,7 +41,11 @@ const t = createT(currentLang);
         </div>
         <div>
           <label for="contact-image" class="block text-sm font-medium text-[var(--color-brand-text)]">{t('contactImageLabel')}</label>
-          <input id="contact-image" name="image" type="file" accept="image/*" class="mt-2 w-full text-sm text-brand-text/80 file:rounded-xl file:border file:px-3 file:py-2 file:bg-white file:text-sm file:font-medium file:border-brand-cta-text/25 dark:file:bg-neutral-800" aria-describedby="contact-image-help" />
+          <div class="mt-2 flex items-center gap-3">
+            <input id="contact-image" name="image" type="file" accept="image/*" class="sr-only" aria-describedby="contact-image-help" />
+            <label for="contact-image" id="contact-image-btn" class="inline-flex items-center gap-2 rounded-xl border px-3 py-2 bg-white text-sm font-medium text-brand-text/80 dark:bg-neutral-800 dark:text-brand-text-dark/80 hover:bg-brand-cta/5 cursor-pointer">{t('contactImageButton')}</label>
+            <span id="contact-image-filename" class="text-sm text-brand-text/70 dark:text-brand-text-dark/70"></span>
+          </div>
           <p id="contact-image-help" class="mt-2 text-xs text-brand-text/60 dark:text-brand-text-dark/60">{t('contactImageHelp')}</p>
           <p id="contact-image-error" class="mt-2 text-xs text-red-600 dark:text-red-400 hidden"></p>
           <div id="contact-image-preview" class="mt-3 hidden">
@@ -96,7 +100,9 @@ const t = createT(currentLang);
     errorBody: t('contactErrorBody'),
     successTitle: t('contactSuccessTitle'),
     successBody: t('contactSuccessBody'),
-    successCta: t('contactSuccessCta')
+    successCta: t('contactSuccessCta'),
+    imageInvalid: t('contactImageInvalid'),
+    imageTooLarge: t('contactImageTooLarge')
   }
 })}></script>
 
@@ -130,6 +136,7 @@ const t = createT(currentLang);
   const imageThumb = document.getElementById('contact-image-thumb');
   const imageError = document.getElementById('contact-image-error');
   const imageRemove = document.getElementById('contact-image-remove');
+  const imageFilename = document.getElementById('contact-image-filename');
   let currentObjectUrl = null;
 
   function clearImagePreview() {
@@ -141,6 +148,7 @@ const t = createT(currentLang);
     if (imagePreview) imagePreview.classList.add('hidden');
     if (imageError) { imageError.textContent = ''; imageError.classList.add('hidden'); }
     if (imageInput) imageInput.value = '';
+    if (imageFilename) imageFilename.textContent = '';
   }
 
   if (imageInput) {
@@ -163,6 +171,7 @@ const t = createT(currentLang);
       } catch (_) {}
       currentObjectUrl = URL.createObjectURL(f);
       if (imageThumb) { imageThumb.src = currentObjectUrl; }
+      if (imageFilename) { imageFilename.textContent = f.name; }
       if (imagePreview) imagePreview.classList.remove('hidden');
       if (imageError) { imageError.textContent = ''; imageError.classList.add('hidden'); }
     });
