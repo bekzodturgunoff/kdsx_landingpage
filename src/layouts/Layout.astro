@@ -41,7 +41,7 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
   <meta property="og:title" content="Octopos | Run every shift in sync" />
   <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <meta property="og:url" content={canonicalHref} />
-  <meta property="og:image" content="/logo_light.png" />
+  <meta property="og:image" content="/logo_dark.png" />
   <meta property="og:image:alt" content="Octopos logo" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -61,7 +61,7 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
     hrefLang="x-default"
     href={Astro.site ? new URL(localizedPath(DEFAULT_LANGUAGE), Astro.site).toString() : localizedPath(DEFAULT_LANGUAGE)}
   />
-    <link rel="icon" href="/logo_light.png" />
+    <link rel="icon" href="/logo_dark.png" />
   <!-- JSON-LD Schema for Software Application -->
   <script type="application/ld+json">
   {
