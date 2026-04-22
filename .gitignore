@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Deployment artifacts
+.vercel/
+.vercel
+.env*.local
+# kdsx 
+
+kdsx/kdsx-dash-v2/
+kdsx/kdsx-kitchen-v2/
+kdsx/kdsx-pos-v2/

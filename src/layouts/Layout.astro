@@ -1,57 +1,219 @@
 ---
 import '../styles/global.css';
+import WizardForm from '../components/WizardForm.astro';
+import { translations, DEFAULT_LANGUAGE, createT } from '../i18n';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
+type SupportedLang = (typeof supportedLangs)[number];
+
+interface Props {
+  lang?: string;
+}
+
+const { lang: propLang } = Astro.props as Props;
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const pathLang = supportedLangs.includes(pathSegments[0] as SupportedLang)
+  ? (pathSegments[0] as SupportedLang)
+  : undefined;
+const activeLang = supportedLangs.includes((propLang || '') as SupportedLang)
+  ? (propLang as SupportedLang)
+  : pathLang || DEFAULT_LANGUAGE;
+const t = createT(activeLang);
+
+const remainderSegments = pathLang ? pathSegments.slice(1) : pathSegments;
+const remainderPath = remainderSegments.join('/');
+const localizedPath = (langCode: SupportedLang) =>
+  `/${langCode}${remainderPath ? `/${remainderPath}` : ''}`;
+const canonicalPath = localizedPath(activeLang);
+
+const translationsJSON = JSON.stringify(translations);
+const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString() : canonicalPath;
 ---
-<html lang="en">
+<html lang={activeLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
-  <title>KDSX POS | Run every shift in sync</title>
+  <title>Octopos | Run every shift in sync</title>
   <meta name="description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="KDSX POS | Run every shift in sync" />
+  <meta property="og:title" content="Octopos | Run every shift in sync" />
   <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta property="og:url" content="https://kdsx-7xa05cei2-bekzods-projects-a2170551.vercel.app" />
-  <meta property="og:image" content="/logo.png" />
-  <meta property="og:image:alt" content="KDSX logo" />
+  <meta property="og:url" content={canonicalHref} />
+  <meta property="og:image" content="/logo_dark.png" />
+  <meta property="og:image:alt" content="Octopos logo" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KDSX POS | Run every shift in sync" />
+  <meta name="twitter:title" content="Octopos | Run every shift in sync" />
   <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta name="twitter:image" content="/logo.png" />
-    <link rel="icon" href="/logo.png" />
-    <meta name="color-scheme" content="light dark" />
+  <meta name="twitter:image" content="/logo_dark.png" />
+  <link rel="canonical" href={canonicalHref} />
+  {supportedLangs.map((langCode) => (
+    <link
+      rel="alternate"
+      hrefLang={langCode}
+      href={Astro.site ? new URL(localizedPath(langCode), Astro.site).toString() : localizedPath(langCode)}
+    />
+  ))}
+  <link
+    rel="alternate"
+    hrefLang="x-default"
+    href={Astro.site ? new URL(localizedPath(DEFAULT_LANGUAGE), Astro.site).toString() : localizedPath(DEFAULT_LANGUAGE)}
+  />
+    <link rel="icon" href="/logo_dark.png" />
+  <!-- JSON-LD Schema for Software Application -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Octopos",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "description": "All-in-one restaurant POS system with dashboard management, point of sale, and kitchen display. Manage orders, inventory, staff, and finances from one connected platform.",
+    "offers": {
+      "@type": "Offer",
+      "price": "30.00",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Octopos",
+      "url": "https://octopos.uz"
+    },
+    "featureList": [
+      "Point of Sale (POS)",
+      "Kitchen Display System",
+      "Inventory Management",
+      "Financial Reports",
+      "Employee Management",
+      "Multi-location Support",
+      "Real-time Analytics"
+    ]
+  }
+  </script>
     <script is:inline>
-      // Initialize theme before paint to prevent flash
+      // Initialize language early.
+      (function () {
+        try {
+          const LANG_KEY = 'preferred-lang';
+          const supported = ['en', 'ru', 'ko', 'uz'];
+          const pathLang = (() => {
+            const first = window.location.pathname.split('/').filter(Boolean)[0];
+            return supported.includes(first) ? first : null;
+          })();
+          const getCookieLang = () => {
+            const match = document.cookie.match(/(?:^|; )lang=([^;]+)/);
+            return match ? decodeURIComponent(match[1]) : null;
+          };
+          let stored;
+          try { stored = localStorage.getItem(LANG_KEY); } catch (_) { stored = undefined; }
+          if (pathLang) stored = pathLang;
+          if (!stored) stored = getCookieLang();
+
+          // If user has not chosen a language, try inferring from timezone (helps when browser language differs)
+          if (!stored) {
+            try {
+              const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+              if (/Seoul|Korea|Asia\/Seoul/i.test(tz)) stored = 'ko';
+              else if (/Tashkent|Uzbekistan|Asia\/Tashkent/i.test(tz)) stored = 'uz';
+              else if (/Moscow|Europe\/Moscow|Europe\/Minsk|Europe\/Saint_Petersburg/i.test(tz)) stored = 'ru';
+            } catch (_) {}
+          }
+
+          if (!stored) stored = navigator.language?.slice(0, 2);
+          const resolved = supported.includes(String(stored).toLowerCase()) ? String(stored).toLowerCase() : 'en';
+          document.documentElement.setAttribute('lang', resolved);
+          document.cookie = `lang=${encodeURIComponent(resolved)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+          try { localStorage.setItem(LANG_KEY, resolved); } catch (_) {}
+        } catch (_) {}
+      })();
+    </script>
+    <script is:inline>
+      // Initialize theme early (only 'light' or 'dark', default to light)
       (function () {
         try {
           const THEME_KEY = 'theme';
           const DARK_COLOR = '#121212';
           const LIGHT_COLOR = '#ffffff';
-          const stored = localStorage.getItem(THEME_KEY);
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const resolved = !stored || stored === 'system'
-            ? (prefersDark ? 'dark' : 'light')
-            : stored;
-
-          if (resolved === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
+          const getCookieTheme = () => {
+            const match = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+            return match ? decodeURIComponent(match[1]) : null;
+          };
+          let stored;
+          try { stored = localStorage.getItem(THEME_KEY); } catch (_) { stored = undefined; }
+          if (!stored) stored = getCookieTheme();
+          const resolved = stored === 'dark' ? 'dark' : 'light';
+          if (resolved === 'dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');
           document.documentElement.setAttribute('data-theme', resolved);
-
+          document.documentElement.style.colorScheme = resolved === 'dark' ? 'dark' : 'light';
           const meta = document.querySelector('meta[name="theme-color"]');
-          if (meta) {
-            meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
-          }
+          if (meta) meta.setAttribute('content', resolved === 'dark' ? DARK_COLOR : LIGHT_COLOR);
+          const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+          if (colorSchemeMeta) colorSchemeMeta.setAttribute('content', resolved === 'dark' ? 'dark' : 'light');
+          document.cookie = `theme=${encodeURIComponent(resolved)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
         } catch (_) {}
       })();
     </script>
   </head>
   <body class="min-h-screen bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark font-sans antialiased">
-    <slot />
+  <script type="application/json" id="translations-data" data-fallback={DEFAULT_LANGUAGE} set:html={translationsJSON}></script>
+  <slot />
+    
+    <!-- Floating CTA Button (Mobile Only) - Must be before WizardForm for event binding -->
+    <div id="floating-cta" class="fixed bottom-6 left-4 right-4 z-50 md:hidden opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+      <button data-plan-trigger="starter" class="w-full btn-solid py-4 text-base font-semibold shadow-lg shadow-brand-cta/30 flex items-center justify-center gap-2">
+        <span data-i18n="pricingStarterCta">{t('pricingStarterCta')}</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    
+    <WizardForm />
+    
+    <script is:inline>
+      // Floating CTA visibility on scroll
+      (function() {
+        const floatingCta = document.getElementById('floating-cta');
+        if (!floatingCta) return;
+        
+        let lastScrollY = 0;
+        let ticking = false;
+        
+        const updateFloatingCta = () => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.documentElement.scrollHeight;
+          
+          // Show after scrolling down 300px, hide near bottom
+          const shouldShow = scrollY > 300 && scrollY < (docHeight - windowHeight - 200);
+          
+          if (shouldShow) {
+            floatingCta.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            floatingCta.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          } else {
+            floatingCta.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            floatingCta.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          }
+          
+          lastScrollY = scrollY;
+          ticking = false;
+        };
+        
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateFloatingCta);
+            ticking = true;
+          }
+        }, { passive: true });
+      })();
+    </script>
+
     <script is:inline>
       // Ensure page starts at top on refresh
       if (history.scrollRestoration) {

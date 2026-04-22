@@ -1,30 +1,35 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import LogoMarquee from '../components/LogoMarquee.astro';
-import BusinessSection from '../components/BusinessSection.astro';
-import FeaturesSection from '../components/FeaturesSection.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Testimonials from '../components/Testimonials.astro';
-import PricingTable from '../components/PricingTable.astro';
-import FAQ from '../components/FAQ.astro';
+const acceptLang = Astro.request.headers.get("accept-language") || "";
+const ipCountry = Astro.request.headers.get("x-vercel-ip-country") || "";
+
+let targetLang = "en";
+
+// Simple IP country mapping
+if (ipCountry === "KR") {
+  targetLang = "ko";
+} else if (ipCountry === "UZ") {
+  targetLang = "uz";
+} else if (ipCountry === "RU" || ipCountry === "BY" || ipCountry === "KZ") {
+  targetLang = "ru";
+} else {
+  // Fallback to browser language
+  const prioritized = acceptLang.split(",").map(lang => lang.split(";")[0].trim().toLowerCase() || "");
+  for (const lang of prioritized) {
+    if (lang.startsWith("ko")) {
+      targetLang = "ko";
+      break;
+    } else if (lang.startsWith("uz")) {
+      targetLang = "uz";
+      break;
+    } else if (lang.startsWith("ru")) {
+      targetLang = "ru";
+      break;
+    } else if (lang.startsWith("en")) {
+      targetLang = "en";
+      break;
+    }
+  }
+}
+
+return Astro.redirect(`/${targetLang}`, 302);
 ---
-
-<Layout>
-  <Header />
-  <main class="space-y-0">
-    <Hero />
-    <LogoMarquee />
-    <BusinessSection />
-    <FeaturesSection />
-    <HowItWorks />
-    <Testimonials />
-    <PricingTable>
-      <Fragment slot="faq">
-        <FAQ />
-      </Fragment>
-    </PricingTable>
-</main>
-
-</Layout>

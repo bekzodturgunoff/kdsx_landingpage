@@ -1,29 +1,58 @@
 ---
-import { translations, LANGUAGE_OPTIONS, DEFAULT_LANGUAGE } from "../i18n";
+import { createT, LANGUAGE_OPTIONS } from "../i18n";
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 
 const languageOptions = LANGUAGE_OPTIONS;
-const translationsJSON = JSON.stringify(translations);
-const fallbackLanguage = DEFAULT_LANGUAGE;
+const supportedLangs = ['en', 'ru', 'ko', 'uz'];
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const t = createT(currentLang);
+const localeBase = `/${currentLang}`;
+const homeHref = localeBase;
+const featuresHref = `${localeBase}#features`;
+const pricingHref = `${localeBase}#pricing`;
+const faqHref = `${localeBase}#faq`;
+const featuresPageHref = `${localeBase}/features`;
+const pricingPageHref = `${localeBase}/pricing`;
+const faqPageHref = `${localeBase}/faq`;
 ---
 <header class="sticky top-0 z-50 px-2 sm:px-6">
   <div class="max-w-6xl mx-auto">
-    <div class="mt-6 flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
+    <div class="mt-6 relative flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
-        <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs sm:text-sm uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text">KDSX</span>
+        <a href={homeHref} aria-label="Octopos Home" class="flex items-center  sm:text-sm tracking-[0.15em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60">
+          <img src="/logo_dark.png" alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
+          <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text dark:text-white">Octopos</span>
+        </a>
       </div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70">
-  <a href="#features" class="group relative transition-colors duration-300 hover:text-brand-cta" data-i18n="navFeatures">
-          Features
+      <!-- Mobile language selector: center between logo and mobile controls -->
+      <div class="flex-1 flex items-center justify-center md:hidden">
+        <div class="relative">
+          <label class="sr-only" for="mobile-lang-select">Language</label>
+          <select id="mobile-lang-select" class="lang-select appearance-none rounded-full border border-brand-cta-text/20 bg-white/80 px-3 py-2 pr-9 text-xs font-semibold uppercase tracking-[0.25em] text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-white/10 dark:text-brand-text-dark" aria-label="Language switcher">
+            {languageOptions.map(({ value, label }) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-brand-text/60 dark:text-brand-text-dark/60" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Desktop nav: anchor links to sections on index page (smooth scroll) -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium uppercase tracking-[0.35em] text-brand-text/80 dark:text-brand-text-dark/70" aria-label="Primary">
+        <a href={featuresHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFeatures">
+          <span class="inline-block">{t('navFeatures')}</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-  <a href="#pricing" class="group relative transition-colors duration-300 hover:text-brand-cta" data-i18n="navPricing">
-          Pricing
+        <a href={pricingHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navPricing">
+          <span class="inline-block">{t('navPricing')}</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
-  <a href="#faq" class="group relative transition-colors duration-300 hover:text-brand-cta" data-i18n="navFaq">
-          FAQ
+        <a href={faqHref} data-scroll class="group relative transition-colors duration-300 hover:text-brand-cta focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta" data-i18n="navFaq">
+          <span class="inline-block">{t('navFaq')}</span>
           <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand-cta transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
       </nav>
@@ -42,46 +71,28 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
         </div>
         <!-- Segmented Theme Switcher (Desktop) -->
         <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
-          <button data-theme-option="light" type="button" aria-label="Use light theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+          <button data-theme-option="light" type="button" aria-label="Use light theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-cta-text-dark dark:hover:bg-[rgba(var(--color-white-rgb)/0.18)] dark:hover:text-brand-cta-text-dark">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
-            <span>Light</span>
+            <span data-i18n="themeLight">{t('themeLight')}</span>
           </button>
-          <button data-theme-option="system" type="button" aria-label="Match system theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17h10"/></svg>
-            <span>System</span>
-          </button>
-          <button data-theme-option="dark" type="button" aria-label="Use dark theme" class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <span>Dark</span>
+          <button data-theme-option="dark" type="button" aria-label="Use dark theme" class="group flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:hover:bg-[rgba(var(--color-green-dark-rgb)/0.22)] dark:text-[var(--color-green-dark)] dark:hover:text-brand-cta-text-dark dark:group-hover:text-brand-cta-text-dark">
+            <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <span data-i18n="themeDark">{t('themeDark')}</span>
           </button>
         </div>
       </div>
 
       <!-- Mobile controls -->
       <div class="flex items-center gap-2 md:hidden">
-        <label class="sr-only" for="mobile-lang-select">Language</label>
-        <div class="relative">
-          <select id="mobile-lang-select" class="lang-select appearance-none rounded-full border border-brand-cta-text/20 bg-white/80 px-3 py-2 pr-9 text-xs font-semibold uppercase tracking-[0.25em] text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-cta dark:bg-white/10 dark:text-brand-text-dark" aria-label="Language switcher">
-            {languageOptions.map(({ value, label }) => (
-              <option value={value}>{label}</option>
-            ))}
-          </select>
-          <svg class="pointer-events-none absolute right-3 top-1/2 h-3 w-3 -translate-y-1/2 text-brand-text/60 dark:text-brand-text-dark/60" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </div>
         <!-- Compact Theme Cycle Button (Mobile) -->
         <button
           type="button"
           data-theme-cycle
           aria-label="Theme"
-          class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-cta-text/25 bg-white/70 text-brand-text shadow-sm transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark"
+          class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-cta-text/25 bg-white/70 text-brand-text shadow-sm transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-brand-cta dark:border-white/15 dark:bg-white/10 dark:text-brand-text-dark dark:hover:bg-[rgba(var(--color-white-rgb)/0.2)]"
         >
           <span data-icon="light" class="block">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
-          </span>
-          <span data-icon="system" class="hidden">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17h10"/></svg>
           </span>
           <span data-icon="dark" class="hidden">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -98,23 +109,21 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
 
   <!-- Mobile dropdown -->
   <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
-    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-4 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-6 text-sm font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
-  <a href="#features" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFeatures">Features</a>
-  <a href="#pricing" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navPricing">Pricing</a>
-  <a href="#faq" class="flex items-center justify-between rounded-2xl px-4 py-3 uppercase tracking-[0.25em] transition-colors duration-300 hover:bg-brand-cta/10" data-i18n="navFaq">FAQ</a>
+    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-2 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-5 text-base font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
+    <!-- Mobile nav: full pages (sections not all present inline on mobile) -->
+  <a href={featuresPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">{t('navFeatures')}</a>
+  <a href={pricingPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">{t('navPricing')}</a>
+  <a href={faqPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFaq">{t('navFaq')}</a>
 
       <div class="rounded-2xl border border-brand-cta-text/12 bg-white/80 p-4 shadow-inner dark:border-brand-cta-text-dark/20 dark:bg-white/10">
         <div class="flex items-center justify-between gap-3">
-          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">Theme</span>
+          <span class="uppercase tracking-[0.25em] text-sm font-semibold text-brand-text dark:text-brand-text-dark" data-i18n="navThemeToggle">{t('navThemeToggle')}</span>
           <div data-theme-group class="inline-flex items-center gap-1 rounded-full border border-brand-cta-text/20 bg-white/60 p-1 shadow-sm backdrop-blur-md dark:border-white/15 dark:bg-white/10">
-            <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
+            <button data-theme-option="light" type="button" aria-label="Light" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark dark:hover:bg-[rgba(var(--color-white-rgb)/0.18)] dark:hover:text-brand-text-dark">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22L5.64 5.64m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78L5.64 18.36m12.72-12.72l1.42-1.42" stroke-linecap="round"/></svg>
             </button>
-            <button data-theme-option="system" type="button" aria-label="System" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17h10"/></svg>
-            </button>
-            <button data-theme-option="dark" type="button" aria-label="Dark" class="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:text-brand-text-dark/85">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <button data-theme-option="dark" type="button" aria-label="Dark" class="group flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-semibold text-brand-text/80 transition-colors duration-200 hover:bg-brand-cta/10 dark:hover:bg-[rgba(var(--color-green-dark-rgb)/0.22)] dark:text-brand-text-dark dark:hover:text-brand-text-dark dark:group-hover:text-brand-text-dark">
+              <svg class="h-4 w-4 dark:group-hover:text-brand-text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
           </div>
         </div>
@@ -122,61 +131,57 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
     </nav>
   </div>
 </header>
-<script type="application/json" id="translations-data" data-fallback={fallbackLanguage} set:html={translationsJSON}></script>
 <script is:inline>
   (function setupHeader() {
     const LANGUAGE_STORAGE_KEY = "preferred-lang";
-    const translationsNode = document.getElementById("translations-data");
-    const TRANSLATION_FALLBACK = (translationsNode?.dataset?.fallback) || "en";
-    let translations = {};
-    try {
-      translations = translationsNode ? JSON.parse(translationsNode.textContent || "{}") : {};
-    } catch (error) {
-      console.error("Failed to parse translations", error);
-      translations = {};
-    }
+    const TRANSLATION_FALLBACK = "en";
 
-    const applyTranslations = (lang) => {
-      const dictionary = translations[lang] || translations[TRANSLATION_FALLBACK] || {};
-      const fallbackDictionary = translations[TRANSLATION_FALLBACK] || {};
-      document.querySelectorAll("[data-i18n]").forEach((node) => {
-        const key = node.getAttribute("data-i18n");
-        if (!key) return;
-        // Keys are standardized to camelCase across the codebase; look up directly with a simple fallback.
-        const value = dictionary[key] ?? fallbackDictionary[key];
-        if (value !== undefined) {
-          node.textContent = value;
-        }
-      });
+    const supported = ["en", "ru", "ko", "uz"];
+
+    const getPathLang = () => {
+      const first = window.location.pathname.split("/").filter(Boolean)[0];
+      return supported.includes(first) ? first : null;
     };
 
-    const applyLanguage = (lang) => {
+    const buildLocalizedPath = (lang) => {
+      const segments = window.location.pathname.split("/").filter(Boolean);
+      const hasLangPrefix = segments.length > 0 && supported.includes(segments[0]);
+      const rest = hasLangPrefix ? segments.slice(1) : segments;
+      return `/${lang}${rest.length ? `/${rest.join("/")}` : ""}`;
+    };
+
+    const applyLanguage = (lang, opts = { navigate: false }) => {
       const html = document.documentElement;
       html.setAttribute("lang", lang);
       try {
         localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
       } catch (_) {}
+      document.cookie = `lang=${encodeURIComponent(lang)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
       document.querySelectorAll(".lang-select").forEach((select) => {
         if (select.value !== lang) {
           select.value = lang;
         }
       });
-      applyTranslations(lang);
+
+      if (opts.navigate) {
+        const targetPath = buildLocalizedPath(lang);
+        const currentPath = window.location.pathname;
+        if (targetPath !== currentPath) {
+          window.location.assign(`${targetPath}${window.location.search}${window.location.hash}`);
+        }
+      }
     };
 
     const bindLanguage = () => {
       const selects = document.querySelectorAll(".lang-select");
-      if (!selects.length) {
-        applyTranslations(document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK);
-        return;
-      }
+      if (!selects.length) return;
 
       selects.forEach((select) => {
         if ((select)._boundLang) return;
         select.addEventListener("change", (event) => {
           const target = event.target;
           const lang = target.value || TRANSLATION_FALLBACK;
-          applyLanguage(lang);
+          applyLanguage(lang, { navigate: true });
         });
         (select)._boundLang = true;
       });
@@ -187,35 +192,82 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       } catch (_) {
         storedLang = undefined;
       }
-      const initialLang = storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
+      const initialLang = getPathLang() || storedLang || document.documentElement.getAttribute("lang") || TRANSLATION_FALLBACK;
       applyLanguage(initialLang);
     };
 
     const bindTheme = () => {
-      const html = document.documentElement;
-      const THEME_KEY = 'theme'; // 'light' | 'dark' | 'system'
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const html = document.documentElement;
+  const THEME_KEY = 'theme'; // 'light' | 'dark'
       const DARK_COLOR = '#121212';
       const LIGHT_COLOR = '#ffffff';
+      const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+
+      const getCookieTheme = () => {
+        const match = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : null;
+      };
 
       const getStoredTheme = () => {
-        try { return localStorage.getItem(THEME_KEY) || 'system'; } catch (_) { return 'system'; }
+        let value;
+        try {
+          value = localStorage.getItem(THEME_KEY);
+        } catch (_) {
+          value = undefined;
+        }
+        if (!value) {
+          const cookieValue = getCookieTheme();
+          if (cookieValue) return cookieValue;
+        }
+        return (value === 'dark' || value === 'light') ? value : 'dark';
       };
-      const setStoredTheme = (value) => { try { localStorage.setItem(THEME_KEY, value); } catch (_) {} };
+
+      const setStoredTheme = (value) => {
+        try {
+          localStorage.setItem(THEME_KEY, value);
+        } catch (_) {}
+        document.cookie = `theme=${encodeURIComponent(value)}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+      };
 
       const syncThemeArtifacts = (effective) => {
+        // Update document chrome so mobile browsers respect the chosen theme
         html.setAttribute('data-theme', effective);
+        html.style.colorScheme = effective === 'dark' ? 'dark' : 'light';
+
         const meta = document.querySelector('meta[name="theme-color"]');
         if (meta) {
           meta.setAttribute('content', effective === 'dark' ? DARK_COLOR : LIGHT_COLOR);
         }
+
+        const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+        if (colorSchemeMeta) {
+          colorSchemeMeta.setAttribute('content', effective === 'dark' ? 'dark' : 'light');
+        }
+
+        // Update any theme-aware logos: use the provided light/dark sources
+        try {
+          document.querySelectorAll('img[data-logo-for-light]').forEach((img) => {
+            const lightSrc = img.getAttribute('data-logo-for-light');
+            const darkSrc = img.getAttribute('data-logo-for-dark');
+            const chosen = effective === 'dark' ? (darkSrc || img.getAttribute('src')) : (lightSrc || img.getAttribute('src'));
+            if (chosen && img.getAttribute('src') !== chosen) img.setAttribute('src', chosen);
+          });
+        } catch (_) {}
       };
 
       const applyTheme = (mode) => {
-        const effective = mode === 'system' ? (prefersDark.matches ? 'dark' : 'light') : mode;
+        const effective = (mode === 'dark' || mode === 'light') ? mode : 'dark';
+        // Disable transitions during theme switch for instant change
+        html.classList.add('theme-transitioning');
         if (effective === 'dark') html.classList.add('dark'); else html.classList.remove('dark');
         syncThemeArtifacts(effective);
-        updateThemeUI(mode);
+        updateThemeUI(effective);
+        // Re-enable transitions after a frame
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            html.classList.remove('theme-transitioning');
+          });
+        });
       };
 
       const updateThemeUI = (mode) => {
@@ -242,14 +294,6 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       const current = getStoredTheme();
       applyTheme(current);
 
-      // Respond to system changes when in system mode
-      if (!(bindTheme._boundMatch)) {
-        prefersDark.addEventListener('change', () => {
-          if (getStoredTheme() === 'system') applyTheme('system');
-        });
-        bindTheme._boundMatch = true;
-      }
-
       // Bind segmented controls
       document.querySelectorAll('[data-theme-group]').forEach((group) => {
         if (group._boundTheme) return;
@@ -267,7 +311,7 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       const cycleBtn = document.querySelector('[data-theme-cycle]');
       if (cycleBtn && !cycleBtn._boundThemeCycle) {
         cycleBtn.addEventListener('click', () => {
-          const order = ['light', 'system', 'dark'];
+          const order = ['light', 'dark'];
           const current = getStoredTheme();
           const idx = Math.max(0, order.indexOf(current));
           const next = order[(idx + 1) % order.length];
@@ -298,10 +342,34 @@ const fallbackLanguage = DEFAULT_LANGUAGE;
       }
     };
 
-    // Run immediately and on pageshow (for bfcache)
+    // Initialize and restore language switching without page reload
     bindTheme();
     bindMenu();
     bindLanguage();
+    // Smooth-scroll desktop anchors; mobile keeps normal navigation to pages
+    (function bindDesktopScroll(){
+      const anchors = document.querySelectorAll('nav[aria-label="Primary"] a[data-scroll]');
+      anchors.forEach((a) => {
+        if ((a)._boundScroll) return;
+        a.addEventListener('click', (e) => {
+          const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+          if (!isDesktop) return; // allow normal nav on mobile
+          const href = a.getAttribute('href') || '';
+          const hashIndex = href.indexOf('#');
+          if (hashIndex === -1) return;
+          const basePath = href.slice(0, hashIndex) || '/';
+          const id = href.slice(hashIndex + 1);
+          if (!id) return;
+          if (basePath !== window.location.pathname) return;
+          e.preventDefault();
+          const target = document.getElementById(id);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+        (a)._boundScroll = true;
+      });
+    })();
     window.addEventListener('pageshow', () => {
       bindTheme();
       bindMenu();

@@ -1,0 +1,105 @@
+---
+import { createT } from '../i18n';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'];
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const localeBase = `/${currentLang}`;
+const t = createT(currentLang);
+---
+<section class="md:hidden w-full px-2 sm:px-6 pt-4 pb-5">
+  <div class="max-w-6xl mx-auto section-shell px-4 py-5 space-y-6 text-left text-brand-text dark:text-brand-text-dark">
+    <div class="space-y-3">
+      <span class="badge-pill" data-i18n="mobileHighlightsBadge">{t('mobileHighlightsBadge')}</span>
+      <h2 class="text-3xl font-semibold tracking-tight" data-i18n="mobileHighlightsHeading">
+        {t('mobileHighlightsHeading')}
+      </h2>
+      <p class="text-base leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="mobileHighlightsBody">
+        {t('mobileHighlightsBody')}
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <a href={`${localeBase}/features`} class="surface-card block px-4 py-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="mobileHighlightsFeaturesTag">{t('mobileHighlightsFeaturesTag')}</p>
+            <h3 class="mt-2 text-xl font-semibold" data-i18n="mobileHighlightsFeaturesTitle">{t('mobileHighlightsFeaturesTitle')}</h3>
+          </div>
+          <span class="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="mobileHighlightsFeaturesBody">
+          {t('mobileHighlightsFeaturesBody')}
+        </p>
+      </a>
+
+  <a href={`${localeBase}/pricing`} class="surface-card block px-4 py-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="mobileHighlightsPricingTag">{t('mobileHighlightsPricingTag')}</p>
+            <h3 class="mt-2 text-xl font-semibold" data-i18n="mobileHighlightsPricingTitle">{t('mobileHighlightsPricingTitle')}</h3>
+          </div>
+          <span class="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="mobileHighlightsPricingBody">
+          {t('mobileHighlightsPricingBody')}
+        </p>
+      </a>
+
+  <a href={`${localeBase}/faq`} class="surface-card block px-4 py-5">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="mobileHighlightsFaqTag">{t('mobileHighlightsFaqTag')}</p>
+            <h3 class="mt-2 text-xl font-semibold" data-i18n="mobileHighlightsFaqTitle">{t('mobileHighlightsFaqTitle')}</h3>
+          </div>
+          <span class="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
+        </div>
+        <p class="mt-3 text-sm leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="mobileHighlightsFaqBody">
+          {t('mobileHighlightsFaqBody')}
+        </p>
+      </a>
+
+        <div class="surface-card px-5 py-5 text-brand-text dark:text-brand-text-dark">
+      <h3 class="text-lg font-semibold" data-i18n="mobileHighlightsCtaHeading">{t('mobileHighlightsCtaHeading')}</h3>
+      <p class="mt-2 text-sm leading-relaxed text-brand-text/80 dark:text-brand-text-dark/75" data-i18n="mobileHighlightsCtaBody">
+        {t('mobileHighlightsCtaBody')}
+      </p>
+    <button type="button" data-plan-trigger="cta" class="btn-solid mt-4 inline-flex items-center gap-2 px-5 py-3 text-sm">
+        <span data-i18n="mobileHighlightsCtaButton">{t('mobileHighlightsCtaButton')}</span>
+    <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Contact Section -->
+    <div class="surface-card px-5 py-5 text-brand-text dark:text-brand-text-dark">
+      <h3 class="text-lg font-semibold" data-i18n="mobileContactHeading">{t('mobileContactHeading')}</h3>
+      <p class="mt-2 text-sm leading-relaxed text-brand-text/75 dark:text-brand-text-dark/70" data-i18n="mobileContactSub">{t('mobileContactSub')}</p>
+      <div class="mt-4 space-y-3">
+        <a href="tel:+998941500330" class="surface-card flex items-center justify-between rounded-2xl px-4 py-3">
+          <span class="flex items-center gap-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span class="text-sm" data-i18n="footerContactPhone1">{t('footerContactPhone1')}</span>
+          </span>
+          <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
+        </a>
+        <a href="tel:+998501886669" class="surface-card flex items-center justify-between rounded-2xl px-4 py-3">
+          <span class="flex items-center gap-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span class="text-sm" data-i18n="footerContactPhone2">{t('footerContactPhone2')}</span>
+          </span>
+          <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
+        </a>
+        <a href={`mailto:${t('footerContactEmail')}`} class="surface-card flex items-center justify-between rounded-2xl px-4 py-3">
+          <span class="flex items-center gap-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span class="text-sm" data-i18n="footerContactEmail">{t('footerContactEmail')}</span>
+          </span>
+          <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-cta text-brand-cta-text dark:text-[var(--color-green-dark)]">→</span>
+        </a>
+      </div>
+    </div>
+    </div>
+
+
+  </div>
+</section>

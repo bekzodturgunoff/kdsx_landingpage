@@ -1,228 +1,390 @@
 export const en = {
-  brandTagline: "Everything your restaurant runs on, in one place",
-  navFeatures: "Features",
+  brandTagline: "Everything your restaurant runs on — all in one place",
+
+  navFeatures: "Apps",
   navPricing: "Pricing",
   navFaq: "FAQ",
   navThemeToggle: "Toggle theme",
-  heroBadge: "Restaurant POS platform",
-  heroHeading: "Manage your finances and operations from one KDSX hub",
+
+  heroBadge: "The Octopos Platform",
+  heroHeading: "One system Three powerful apps Total control",
   heroBody:
-    "Automate orders, track spend in real time, and keep the floor and kitchen in sync—every shift.",
-  heroPrimaryCta: "Activate Free Month",
-  heroSecondaryCta: "Book a walkthrough",
+    "Run the back office with Dash, keep service moving with POS, and bring order to your kitchen with Kitchen App. Everything stays in sync automatically.",
+  heroPrimaryCta: "Start Free Month",
+  heroSecondaryCta: "See how it works",
+
   heroMetricDowntimeTitle: "Fewer delays",
   heroMetricDowntimeCopy:
-    "Multi-location teams cut ticket delays in their first month on KDSX.",
+    "Digital table management and instant kitchen tickets help reduce bottlenecks and cut down wait times.",
   heroMetricInventoryTitle: "Accurate inventory",
   heroMetricInventoryCopy:
-    "Live counts keep prep, stock, and the dining room in sync.",
+    "Live stock counts update as orders happen, keeping every department aligned.",
   heroMetricRoiTitle: "Fast ROI",
-  heroMetricRoiCopy:
-    "Most operators recoup their investment before the first quarter ends.",
+  heroMetricRoiValue: "30 days",
+  heroMetricRoiCopy: "Most restaurants recover their investment within weeks",
+
   logosBadge: "Trusted by teams",
-  logosHeading: "Trusted by high‑performing restaurant groups",
+  logosHeading: "Powering modern hospitality",
   logosBody:
-    "Teams across three continents rely on KDSX to keep every shift running smoothly.",
-  businessBadge: "Why teams choose KDSX",
-  businessHeading: "A control center for every shift",
+    "From small cafes to high-volume dining, operators use Octopos to simplify their workflow and keep service running smoothly.",
+
+  businessBadge: "The Octopos Suite",
+  businessHeading: "Three apps working as one",
   businessBody:
-    "KDSX unifies orders, staffing, and inventory so you can finally retire scattered spreadsheets and apps.",
+    "Stop juggling disconnected tools. Octopos unifies your management, service, and kitchen operations into one connected system.",
+
+  // BusinessSection Cards - Generic feature benefits
   businessCard1Title: "Actionable insights",
-  businessCard1Heading: "Make decisions with real‑time data",
+  businessCard1Heading: "Make decisions with real-time data",
   businessCard1Body:
-    "Targeted alerts flag unusual spend or prep so you can adjust staffing on the spot.",
+    "Live dashboards show revenue trends, inventory levels, and order flow. Get alerts when something needs attention so you can act before problems grow.",
+
   businessCard2Title: "Unified management",
   businessCard2Heading: "Everything in one workspace",
   businessCard2Body:
-    "Update menus, reconcile tabs, and monitor the kitchen board—without app‑hopping.",
+    "Update menus, track orders, manage inventory, and monitor kitchen operations — all without switching between apps or spreadsheets.",
+
   businessCard3Title: "Team experience",
   businessCard3Heading: "Your team wins back hours",
   businessCard3Body:
-    "Training takes minutes, updates sync instantly, and service stays calm—even when orders spike.",
-  featuresBadge: "All‑in‑one suite",
-  featuresHeading: "A live operations panel for every location",
+    "Intuitive design means new staff can start taking orders in minutes. Automatic syncing keeps everyone aligned without extra meetings or handoffs.",
+
+  featuresBadge: "Deep Dive",
+  featuresHeading: "Built for every role in your restaurant",
   featuresBody:
-    "KDSX connects orders, production, and profitability so you catch bottlenecks early and move faster.",
-  featuresCard1Tag: "Command center",
-  featuresCard1Title: "One dashboard for mission‑critical signals",
+    "Each app solves real problems faced by owners, servers, and kitchen staff — without unnecessary complexity.",
+
+  featuresCard1Tag: "Dash App",
+  featuresCard1Title: "Complete business intelligence",
   featuresCard1Body:
-    "See revenue trends, line speed, and guest sentiment in a single live view so you can decide with confidence.",
-  featuresCard1Pill1: "Shift forecasts",
-  featuresCard1Pill2: "Live KPIs",
-  featuresCard1Pill3: "Service alerts",
-  featuresCard2Tag: "Front of house",
-  featuresCard2Title: "Menus that adapt to every guest",
+    "Access real-time dashboards showing revenue trends, best-selling items, and hourly performance. Control staff permissions with role-based access. Organize your entire menu catalog with categories, variants, and ingredients. Set up stock alerts to never run out of key supplies.",
+  featuresCard1Pill1: "Revenue Reports",
+  featuresCard1Pill2: "Stock Alerts",
+  featuresCard1Pill3: "Role Management",
+
+  featuresCard2Tag: "POS App",
+  featuresCard2Title: "Visual floor and table management",
   featuresCard2Body:
-    "Upsells, modifiers, and payments flow smoothly at the table, counter, or online.",
-  featuresCard3Tag: "Kitchen display",
-  featuresCard3Title: "Every station stays on pace",
+    "See your entire floor plan at a glance with color-coded table status — green for available, yellow for reserved, red for occupied. Move orders to different tables or merge with existing orders in just a few taps. Handle check splitting, void requests, and comps with reason tracking.",
+
+  featuresCard3Tag: "Kitchen App",
+  featuresCard3Title: "Smart station routing",
   featuresCard3Body:
-    "Tickets arrive with timers, allergen flags, and priorities so the next move is clear.",
-  featuresCard4Tag: "Mobile service",
-  featuresCard4Title: "Pocket-ready control for floor teams",
+    "Items are automatically sent to the correct prep station based on your configuration — hot food to the grill, cold dishes to salads, drinks to the bar. Each station sees only their tickets. Built-in timers track how long each order has been waiting. Audio alerts notify staff when new orders arrive.",
+
+  featuresCard4Tag: "Inventory",
+  featuresCard4Title: "Real-time stock management",
   featuresCard4Body:
-    "Staff take orders, comps, and payments without leaving guests; prep screens update instantly.",
-  howBadge: "How it works",
-  howHeading: "Launch over a weekend—show results Monday",
-  howBody: "KDSX streamlines rollout for lean teams.",
-  howStep1Tag: "Setup",
-  howStep1Title: "Create your workspace",
+    "Inventory counts update automatically as orders are placed — no manual tracking needed. Set minimum thresholds and receive alerts before you run out. Manage multiple warehouses, track supplier deliveries, and perform stock adjustments all from Dash.",
+
+  mobileHighlightsBadge: "Quick overview",
+  mobileHighlightsHeading: "Efficiency in every pocket",
+  mobileHighlightsBody:
+    "Octopos is designed so new staff can learn it quickly. No long training sessions needed.",
+
+  mobileHighlightsFeaturesTag: "Ecosystem",
+  mobileHighlightsFeaturesTitle: "Seamless sync",
+  mobileHighlightsFeaturesBody:
+    "Orders placed on POS appear instantly in Kitchen and update stock in Dash — no extra steps.",
+
+  mobileHighlightsPricingTag: "Value",
+  mobileHighlightsPricingTitle: "One price, everything included",
+  mobileHighlightsPricingBody:
+    "All three apps, all features, all updates — one flat monthly rate.",
+
+  mobileHighlightsFaqTag: "Support",
+  mobileHighlightsFaqTitle: "Here to help",
+  mobileHighlightsFaqBody:
+    "We assist with setup, menu import, and your first launch so you can go live quickly.",
+
+  mobileHighlightsCtaHeading: "Ready to upgrade your operations?",
+  mobileHighlightsCtaBody:
+    "Try every Octopos app with no risk during your first month.",
+  mobileHighlightsCtaButton: "Get Started",
+
+  mobileContactHeading: "Contact us",
+  mobileContactSub: "Reach us anytime via phone or email",
+
+  howBadge: "Onboarding",
+  howHeading: "Go live in three steps",
+  howBody: "Switching to Octopos is straightforward and guided.",
+
+  howStep1Tag: "Configure",
+  howStep1Title: "Set up Dash",
   howStep1Body:
-    "Import menus, configure stations, and invite staff with role-based permissions in minutes.",
-  howStep2Tag: "Sync",
-  howStep2Title: "Link devices and data",
+    "Add your items, design your floor plan, and set staff permissions — all from one place.",
+
+  howStep2Tag: "Connect",
+  howStep2Title: "Launch POS",
   howStep2Body:
-    "Connect tablets, phones, and printers while KDSX syncs inventory and historical sales.",
-  howStep3Tag: "Optimize",
-  howStep3Title: "Launch and iterate fast",
+    "Your team can start taking orders immediately through the simple grid layout.",
+
+  howStep3Tag: "Cook",
+  howStep3Title: "Activate Kitchen",
   howStep3Body:
-    "Track performance dashboards in real time, adjust prep, and share learnings instantly.",
+    "Mount your kitchen display and watch orders flow in without delays.",
+
   testimonialsBadge: "From our users",
-  testimonialsHeading: "Hospitality leaders on what changed with KDSX",
-  testimonialsBody:
-    "Operators trust us to remove friction so they can focus on guests—not software.",
-  testimonialsSubheading: "What our users are saying",
-  testimonialsCard1Tag: "Fine Dining Group",
+  testimonialsHeading: "What restaurant owners are saying",
+  testimonialsBody: "Real feedback from teams using Octopos every day.",
+
+  // testimonialsSubheading: "What users are saying",
+
+  testimonialsCard1Tag: "Cafe Owner",
   testimonialsCard1Quote:
-    '"KDSX let us retire four separate tools. Ticket visibility jumped overnight and waste dropped by 28%."',
-  testimonialsCard1Author: "Farida Orujova · Operations Director",
-  testimonialsCard2Tag: "Fast Casual Chain",
+    '"The visual floor plan makes it easy to see where service is needed. Our speed has improved a lot."',
+  testimonialsCard1Author: "Alex M",
+
+  testimonialsCard2Tag: "Kitchen Manager",
   testimonialsCard2Quote:
-    '"Our managers finally have one source of truth. Prep boards, POS, and analytics update as fast as service moves."',
-  testimonialsCard2Author: "Ahmed Hassan · Multi-unit Owner",
-  testimonialsCard3Tag: "Multi-Site Bistro",
+    '"Station routing changed everything. Drinks go to the bar, food goes to the kitchen — no confusion, no shouting."',
+  testimonialsCard2Author: "Sarah J",
+
+  testimonialsCard3Tag: "General Manager",
   testimonialsCard3Quote:
-    '"Inventory recounts went from nightly chaos to a 10-minute spot check. The finance sync is magic."',
-  testimonialsCard3Author: "Maria Rodriguez · Beverage Lead",
-  testimonialsCard4Tag: "Cloud Kitchen Collective",
+    '"The Dash reports give me exactly what I need — profits, best-selling items, and trends. Super helpful."',
+  testimonialsCard3Author: "David L",
+
+  testimonialsCard4Tag: "Operations",
   testimonialsCard4Quote:
-    '"Because KDSX automates routing and reporting, we redeployed two full-time ops roles to guest experience."',
-  testimonialsCard4Author: "David Chen · Founder",
-  testimonialsCard5Tag: "Finance Lead",
+    '"Inventory used to take hours. Now it updates automatically as we work."',
+  testimonialsCard4Author: "Maria R",
+
+  testimonialsCard5Tag: "Owner",
   testimonialsCard5Quote:
-    '"The reporting features are incredible. I can see exactly where my money goes and make better business decisions."',
-  testimonialsCard5Author: "Sarah Johnson · Finance Lead",
+    '"For $30 a month, this delivers more value than systems costing five times as much."',
+  testimonialsCard5Author: "James K",
+
   pricingBadge: "Pricing",
-  pricingHeading: "Flexible plans that scale with your service",
-  pricingBody:
-    "Start lean and grow when you’re ready. Every plan includes hands‑on onboarding from the KDSX team.",
-  pricingStarterLabel: "Starter",
-  pricingStarterRibbon: "",
+  pricingHeading: "One transparent subscription",
+  pricingBody: "No hidden fees. No confusing tiers. Everything included.",
+
+  pricingStarterLabel: "Free Plan",
+  pricingStarterRibbon: "Risk Free",
   pricingStarterPrice: "Free",
   pricingStarterSubtitle: "First month on us",
-  pricingStarterBody:
-    "Everything you need to launch a single location with confidence—your first month is completely free.",
-  pricingStarterB1: "1 register/station, unlimited logins",
-  pricingStarterB2: "Order, table, and guest tracking",
-  pricingStarterB3: "Core dashboards and nightly summary emails",
-  pricingStarterB4: "Manual inventory counts + alerts",
-  pricingStarterB5: "After your first month, continue with the Pro plan",
-  pricingStarterB6: "Email support with 24-hour response",
-  pricingStarterCta: "Activate Free Month",
-  pricingProLabel: "Pro",
-  pricingProRibbon: "Most popular",
+  pricingStarterBody: "Use the full system with your own data.",
+  pricingStarterB1: "Full access to Dash, POS, and Kitchen",
+  pricingStarterB2: "Unlimited items and transactions",
+  pricingStarterB3: "Real-time reporting",
+  pricingStarterB4: "Inventory tracking",
+  pricingStarterB5: "No credit card required for demo",
+  pricingStarterB6: "Full support included",
+  pricingStarterCta: "Start Free Trial",
+
+  pricingProLabel: "Pro Plan",
+  pricingProRibbon: "All-Inclusive",
   pricingProPrice: "$30",
   pricingProPeriod: "/mo",
-  pricingProBody:
-    "Add automation, multi‑location controls, and proactive guidance from our team.",
-  pricingProB1: "Unlimited registers with role-based controls",
-  pricingProB2: "Automated inventory + supplier syncing",
-  pricingProB3: "Advanced analytics & profitability dashboards",
-  pricingProB4: "Priority chat & phone support",
-  pricingProB5: "Dedicated Customer Success Manager",
-  pricingProCta: "Get Started — $30/mo",
-  pricingEnterpriseTitle: "Enterprise",
+  pricingProBody: "The complete operating system for your restaurant.",
+  pricingProB1: "Up to 3 registers with role-based controls",
+  pricingProB2: "Up to 10 staff accounts",
+  pricingProB3: "Advanced Financial Reports",
+  pricingProB4: "Multi-station Kitchen Display",
+  pricingProB5: "Priority Customer Support",
+  pricingProCta: "Subscribe",
+
+  contactSalesBtn: "Contact Sales",
+  contactSupportBtn: "Contact Support",
+  contactWizardTitleSales: "Contact Sales",
+  contactWizardSubtitleSales: "Send a message to our sales team and we'll get back to you.",
+  contactWizardTitleSupport: "Contact Support",
+  contactWizardSubtitleSupport: "Send a message to our support team and we'll follow up.",
+  contactNameLabel: "Name",
+  contactEmailLabel: "Email",
+  contactMessageLabelSales: "Message to sales team",
+  contactMessageLabelSupport: "Message to support team",
+  contactSubmitSales: "Send to Sales",
+  contactSubmitSupport: "Send to Support",
+  contactClose: "Close",
+  contactErrorTitle: "Could not send message",
+  contactErrorBody: "Please complete the form correctly. This message is only stored locally for now.",
+  contactNamePlaceholder: "e.g. John Doe",
+  contactEmailPlaceholder: "you@company.com",
+  contactMessagePlaceholderSales: "Describe your needs (pricing, onboarding, integrations)",
+  contactMessagePlaceholderSupport: "Describe the issue and include any relevant details (order ID, screenshots)",
+  contactImageLabel: "Attach an image (optional)",
+  contactImageHelp: "You can attach a screenshot or photo (optional).",
+  contactImageButton: "Choose image",
+  contactImageInvalid: "Selected file is not an image",
+  contactImageTooLarge: "Image exceeds 5MB",
+  contactSuccessTitle: "Message sent",
+  contactSuccessBody: "Thanks — our team will review your message and get back to you shortly.",
+  contactSuccessCta: "Done",
+  contactImageRemove: "Remove image",
+
+  pricingEnterpriseTitle: "Multi-Location",
   pricingEnterpriseRibbon: "Custom",
-  pricingEnterpriseHeading: "Scale with confidence across regions",
+  pricingEnterpriseHeading: "Running a franchise?",
   pricingEnterpriseBody:
-    "Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.",
+    "Centralize menus, inventory, and reporting across all your locations.",
   pricingEnterpriseCta: "Contact Sales",
-  pricingImplementTag: "Need a tailored rollout?",
-  pricingImplementHeading: "Partner with our implementation team",
+
+  pricingImplementTag: "Need tailored onboarding?",
+  pricingImplementHeading: "Need help setting up?",
   pricingImplementBody:
-    "We’ll audit your operations, stage the hardware, and train staff across every location.",
-  pricingImplementB1: "Launch playbook customized to each venue",
-  pricingImplementB2: "On-site and remote training programs",
-  pricingImplementB3: "Seasonal menu + promo support",
-  pricingFinalHeading: "Ready to run every shift with less stress?",
-  pricingFinalCta: "Start my rollout",
+    "We can help you digitize menus, build floor plans, and train your staff.",
+  pricingImplementB1: "Menu digitization service",
+  pricingImplementB2: "Hardware recommendations",
+  pricingImplementB3: "Staff training sessions",
+
+  pricingFinalHeading: "Ready to modernize your restaurant?",
+  pricingFinalCta: "Get Octopos Today",
+
+  featuresPageBadge: "Modules",
+  featuresPageHeading: "Explore the Octopos Ecosystem",
+  featuresPageLead:
+    "Explore the modules that connect your dining room, kitchen and office - in one place",
+
+  pricingPageBadge: "Plans",
+  pricingPageHeading: "Pricing",
+  pricingPageLead: "Straightforward, affordable, and designed for growth.",
+
+  faqPageBadge: "Support",
+  faqPageHeading: "Frequently Asked Questions",
+  faqPageLead: "Common questions about using Octopos.",
+
   footerBrandDescription:
-    "Total restaurant control. Unify your operations with our integrated POS ecosystem.",
-  footerContactTitle: "Contact Info",
-  footerFollowTitle: "Follow Us",
-  footerQuickLinksTitle: "Quick Links",
+    "Octopos: The all-in-one POS, management, and kitchen system.",
+  footerContactTitle: "Contact Us",
+  footerContactPhone1: "+998 94 150 03 30",
+  footerContactPhone2: "+998 50 188 66 69",
+  footerContactEmail: "support@octopos.uz",
+  footerFollowTitle: "Social",
+  footerQuickLinksTitle: "Info",
   footerQuickLinkFeatures: "Features",
   footerQuickLinkPricing: "Pricing",
+  footerQuickLinkFaq: "FAQ",
   footerQuickLinkTerms: "Terms",
   footerQuickLinkPrivacy: "Privacy",
-  footerRightsReserved: "All rights reserved.",
-  footerAccessibility: "Mobile Responsive & Accessible",
-  wizardTitle: "Get your free demo account",
-  wizardSubtitle: "Answer a few quick questions — we’ll set up a demo and share credentials.",
-  wizardTitleStarter: "Activate your free Starter month",
-  wizardTitlePro: "Get started with Pro",
-  wizardTitleEnterprise: "Talk to Sales — Enterprise",
-  wizardTitleGeneric: "Request a demo",
-  wizardPlanPrefix: "Plan:",
+  footerRightsReserved: "All rights reserved",
+  footerAccessibility: "Accessible on all devices",
+
+  wizardTitle: "Create your Octopos account",
+  wizardSubtitle:
+    "Tell us about your restaurant and we’ll prepare a personalized demo.",
+  wizardTitleStarter: "Start Free Trial",
+  wizardTitlePro: "Subscribe to Octopos ($30/mo)",
+  wizardTitleEnterprise: "Contact Sales",
+  wizardTitleGeneric: "Get Started",
+  wizardPlanPrefix: "Selected Plan:",
   wizardStepTemplate: "Step {current} of {total}",
-  wizardNameLabel: "What’s your name?",
-  wizardNamePlaceholder: "e.g., Alex Kim",
-  wizardBusinessLabel: "What’s your restaurant’s or market’s name?",
-  wizardBusinessPlaceholder: "e.g., Green Leaf Bistro",
-  wizardLocationsLabel: "How many locations do you operate?",
-  wizardLocationsOption1: "1 location",
-  wizardLocationsOption2: "2–5 locations",
-  wizardLocationsOption3: "6–10 locations",
-  wizardLocationsOption4: "11+ locations",
-  wizardCurrentPosLabel: "Which POS or systems are you using today?",
-  wizardCurrentPosPlaceholder: "e.g., Toast, Square, custom",
-  wizardPhoneLabel: "Your phone number",
-  wizardPhonePlaceholder: "+82 10-1234-5678",
-  wizardEmailLabel: "Your email address (optional)",
-  wizardEmailPlaceholder: "you@company.com",
-  wizardTelegramLabel: "Telegram (optional)",
-  wizardTelegramPlaceholder: "@yourhandle",
-  wizardKakaoLabel: "KakaoTalk (optional)",
-  wizardKakaoPlaceholder: "ID or phone",
-  wizardUsernameLabel: "Preferred username",
-  wizardUsernamePlaceholder: "e.g., alex.kim",
-  wizardPasswordLabel: "Preferred password",
-  wizardPasswordPlaceholder: "At least 8 characters",
-  wizardBack: "Back",
+  wizardNameLabel: "Full Name",
+  wizardNamePlaceholder: "e.g. John Doe",
+  wizardBusinessLabel: "Restaurant Name",
+  wizardBusinessPlaceholder: "e.g. The Burger Joint",
+  wizardLocationsLabel: "Number of Locations",
+  wizardLocationsOption1: "1",
+  wizardLocationsOption2: "2-5",
+  wizardLocationsOption3: "5+",
+  wizardLocationsOption4: "Franchise",
+  wizardCurrentPosLabel: "Current System (if any)",
+  wizardCurrentPosPlaceholder: "e.g. Pen & Paper, Excel, Micros",
+  wizardPhoneLabel: "Phone Number",
+  wizardPhonePlaceholder: "+1 234 567 8900",
+  wizardEmailLabel: "Email Address",
+  wizardEmailPlaceholder: "john@restaurant.com",
+  wizardTelegramLabel: "Telegram Username (Optional)",
+  wizardTelegramPlaceholder: "@username",
+  wizardKakaoLabel: "KakaoTalk ID (Optional)",
+  wizardKakaoPlaceholder: "ID",
+
+  wizardUsernameLabel: "Create Username",
+  wizardUsernamePlaceholder: "username",
+  wizardPasswordLabel: "Create Password",
+  wizardPasswordPlaceholder: "Minimum 8 characters",
+  wizardStartTrial: "Start Instant Trial",
+  wizardCreatingKitchen: "Creating your kitchen...",
+
+  wizardBack: "Previous",
   wizardNext: "Next",
-  wizardSubmit: "Request demo",
-  wizardSuccessMessage: "Thanks — we’ve received your request. A demo account with username and password will be shared via your preferred contact. To continue beyond the demo, you can switch to the Pro plan at any time.",
-  wizardServiceStyleLabel: "What best describes your service style?",
-  wizardServiceStyleOption0: "Select one…",
-  wizardServiceStyleOptionCafe: "Cafe",
-  wizardServiceStyleOptionBistro: "Bistro",
-  wizardServiceStyleOptionQuick: "Quick‑service",
-  wizardServiceStyleOptionFull: "Full‑service",
-  wizardServiceStyleOptionBar: "Bar",
-  wizardServiceStyleOptionMarket: "Market",
+  wizardSubmit: "Submit",
+  wizardSubmitting: "Processing...",
+  wizardClose: "Close",
+  wizardError: "An error occurred. Please try again",
+  wizardErrorTitle: "Submission Failed",
+  wizardErrorBody:
+    "Oops! Something broke on our end. We're working on it, but for a fast fix, please email us directly at support@octopos.uz",
+  wizardSuccessMessage:
+    "Your demo account is being prepared. We’ll reach out shortly with your login details.",
+  wizardSuccessCta: "Done",
+
+  wizardServiceStyleLabel: "Which service style fits you best?",
+  wizardServiceStyleOption0: "Select style...",
+  wizardServiceStyleOptionCafe: "Cafe / Coffee Shop",
+  wizardServiceStyleOptionBistro: "Bistro / Casual",
+  wizardServiceStyleOptionQuick: "Quick Service (Fast Food)",
+  wizardServiceStyleOptionFull: "Full Service (Fine Dining)",
+  wizardServiceStyleOptionBar: "Bar / Nightclub",
+  wizardServiceStyleOptionMarket: "Retail / Market",
   wizardServiceStyleOptionOther: "Other",
-  wizardSubmitting: "Submitting…",
-  wizardError: "Something went wrong. Please try again.",
-  wizardSuccessCta: "Close",
+
   faqBadge: "FAQ",
-  faqHeading: "Answers to common questions",
-  faqBody:
-    "Everything you need to know about getting started, devices, pricing, and support.",
+  faqHeading: "Common Questions",
+  faqBody: "Everything you need to know about get started.",
   faqQ1: "How fast can we go live?",
   faqA1:
-    "Most teams launch over a weekend. We guide setup, device linking, and a quick staff run‑through so you can show results by Monday.",
-  faqQ2: "Can this run on any device?",
+    "Most teams launch over a weekend. We guide setup, device linking, and a short staff run-through so you can show results by Monday.",
+  faqQ2: "Does this run on any device?",
   faqA2:
-    "Yes. KDSX works on modern tablets and smartphones with an internet connection. Use iOS, Android, or the web—no special hardware required.",
+    "Yes — Octopos works on modern tablets and smartphones with an internet connection. iOS, Android, or web — no special hardware required.",
   faqQ3: "What does onboarding include?",
   faqA3:
-    "We help import menus, configure stations, connect printers, and train staff. You’ll get a clear rollout plan tailored to each location.",
+    "We help import menus, configure stations, connect devices, and train staff. You'll get a clear rollout plan for each location.",
   faqQ4: "How is pricing structured?",
   faqA4:
-    "Start with our free month on the Starter plan. Upgrade to Pro for automation and multi‑location controls. Enterprise options are available for complex rollouts.",
+    "Start with a free month on Starter. Upgrade to Pro for automation and multi-location controls. Enterprise is available for advanced rollouts.",
   faqQ5: "What support is available?",
   faqA5:
-    "All customers receive responsive support and rollout guidance. Pro adds priority chat and phone support, and Enterprise includes white‑glove assistance.",
+    "All customers receive responsive support and guidance. Pro adds priority chat and phone support; Enterprise includes white-glove assistance",
+
+  termsBadge: "Legal",
+  termsHeading: "Terms of Service",
+  termsIntro:
+    "These terms outline how Octopos provides access to the platform and what we expect from teams using it. We kept the language plain so operators can review it without a legal dictionary.",
+  termsSection1Title: "1. Accounts & access",
+  termsSection1Body:
+    "Each restaurant is provisioned with unique logins. You are responsible for keeping credentials safe and notifying us if you suspect unauthorized access. Multi-location operators can request SSO or granular role controls by emailing support@octopos.uz.",
+  termsSection2Title: "2. Acceptable use",
+  termsSection2Body:
+    "Use Octopos to operate your venues, not to probe infrastructure, resell access, or send abusive content through our notification channels. We may suspend accounts that put the platform or other customers at risk.",
+  termsSection3Title: "3. Billing",
+  termsSection3Body:
+    "Starter is free for the first month. Paid plans renew monthly and can be cancelled with seven days notice. Hardware purchases are invoiced separately. Contact billing@octopos.uz if you need offline payment options.",
+  termsSection4Title: "4. Data ownership",
+  termsSection4Body:
+    "You retain ownership of menus, inventory, sales data, and guest information you store in Octopos. We act as a processor, only using the data to provide and improve the service. Upon request we will export your data in a portable format within five business days.",
+  termsSection5Title: "5. Updates",
+  termsSection5Body:
+    "We iterate quickly. When we roll out changes that materially affect your use of the platform we will notify the billing contact via email. Your continued use of Octopos after updates constitutes acceptance of the revised terms.",
+
+  privacyBadge: "Privacy",
+  privacyHeading: "Privacy Policy",
+  privacyIntro:
+    "This page summarizes the data we collect, why we collect it, and how restaurant teams can control or remove their information.",
+  privacySection1Title: "1. Information we collect",
+  privacySection1Body:
+    "We gather operator contact details, venue metadata, menu items, inventory counts, orders, and device telemetry. Optional channels like Telegram or KakaoTalk are stored only when you provide them.",
+  privacySection2Title: "2. How we use data",
+  privacySection2Body:
+    "Data powers dashboards, alerts, and automations. We may anonymize usage patterns to improve forecasting and reliability but never sell identifiable information to third parties.",
+  privacySection3Title: "3. Integrations & processors",
+  privacySection3Body:
+    "When you enable payments, delivery, or accounting integrations we send only the minimum fields those partners require. Current sub-processors and regions are listed in our SOC 2 packet — request it at compliance@octopos.uz.",
+  privacySection4Title: "4. Retention & deletion",
+  privacySection4Body:
+    "Operational data stays active while your subscription is live. We retain backups for 30 days after cancellation, then purge them unless regulators require a longer window. You can request deletion at any time and we will confirm once complete.",
+  privacySection5Title: "5. Questions",
+  privacySection5Body:
+    "Email privacy@octopos.uz if you need a signed DPA, want to update contacts, or have compliance questions. We typically respond within one business day.",
+
+  // Theme toggle
+  themeLight: "Light",
+  themeDark: "Dark",
+
+  // Step labels
+  stepLabel: "Step",
+  stepOf: "of",
 } as const;
 
 export type TranslationKey = keyof typeof en;

@@ -1,157 +1,171 @@
 ---
-import WizardForm from './WizardForm.astro';
+import { createT } from '../i18n';
+import ContactWizard from './ContactWizard.astro';
+
+const supportedLangs = ['en', 'ru', 'ko', 'uz'];
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const localeBase = `/${currentLang}`;
+const t = createT(currentLang);
+const currentYear = new Date().getFullYear();
 ---
-<section id="pricing" class="w-full px-2 sm:px-6 py-12 sm:pt-20 sm:pb-16">
-  <div class="max-w-6xl mx-auto section-shell px-4 sm:px-10 py-16">
-    <div class="flex flex-col items-center text-center gap-6">
-  <span class="badge-pill" data-i18n="pricingBadge">Pricing</span>
+<section id="pricing" class="w-full px-2 sm:px-6 py-10 sm:py-16">
+  <div class="max-w-6xl mx-auto section-shell px-4 sm:px-9 py-12 sm:py-14">
+    <div class="flex flex-col items-center text-center gap-5">
+  <span class="badge-pill" data-i18n="pricingBadge">{t('pricingBadge')}</span>
   <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-text dark:text-brand-text-dark" data-i18n="pricingHeading">
-        Flexible plans that scale with every service shift
+        {t('pricingHeading')}
       </h2>
   <p class="max-w-3xl text-base sm:text-lg text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingBody">
-        Start lean and grow when you’re ready. Every plan comes with hands-on onboarding from the KDSX crew.
+        {t('pricingBody')}
       </p>
     </div>
 
-    <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="surface-card p-10 text-center text-brand-text dark:text-brand-text-dark">
-        <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
-          <span data-i18n="pricingStarterLabel">Starter</span>
+    <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="surface-card p-8 text-center text-brand-text dark:text-brand-text-dark">
+        <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">
+          <span data-i18n="pricingStarterLabel">{t('pricingStarterLabel')}</span>
         </div>
-  <div class="mt-6 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">Free</div>
-  <div class="mt-2 text-xs font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">First month on us</div>
-  <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">Everything you need to launch a single location with confidence—your first month is completely free.</p>
-        <ul class="mt-8 space-y-3 text-left text-sm leading-relaxed">
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB1">1 register/station, unlimited logins</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB2">Order, table, and guest tracking</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB3">Core dashboards and nightly summary emails</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB4">Manual inventory counts + alerts</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB5">Keep rolling after month one for only $15/month</span></li>
-          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">Email support with 24-hour response</span></li>
+  <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
+  <div class="mt-2 text-xs font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">{t('pricingStarterSubtitle')}</div>
+  <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">{t('pricingStarterBody')}</p>
+  <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB1">{t('pricingStarterB1')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB2">{t('pricingStarterB2')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB3">{t('pricingStarterB3')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB4">{t('pricingStarterB4')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB5">{t('pricingStarterB5')}</span></li>
+          <li class="flex items-start gap-3"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-brand-cta"></span><span data-i18n="pricingStarterB6">{t('pricingStarterB6')}</span></li>
         </ul>
-        <div class="mt-10">
-          <a href="mailto:info@kdsx.uz?subject=KDSX%20Starter%20Plan%20Inquiry" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/40 bg-white/70 px-8 py-4 text-base font-semibold text-brand-text shadow-[0_20px_40px_-25px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-cta-text">
-            <span data-i18n="pricingStarterCta">Activate Free Month</span>
-          </a>
+        <div class="mt-8">
+          <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full border border-brand-cta/35 bg-white/75 px-8 py-3.5 text-base font-semibold text-brand-text shadow-[0_18px_36px_-24px_rgba(26,77,26,0.45)] transition-transform duration-300 hover:scale-[1.02] dark:bg-white/10 dark:text-brand-text">
+            <span data-i18n="pricingStarterCta">{t('pricingStarterCta')}</span>
+          </button>
         </div>
       </div>
 
       <div class="pro-card">
         <div class="pro-card__inner">
           <div class="flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
-            <span data-i18n="pricingProLabel">Pro</span>
-            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-lg" data-i18n="pricingProRibbon">Most popular</span>
+            <span data-i18n="pricingProLabel">{t('pricingProLabel')}</span>
+            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-lg" data-i18n="pricingProRibbon">{t('pricingProRibbon')}</span>
           </div>
-          <div class="mt-6 text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
-            <span data-i18n="pricingProPrice">$30</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">/mo</span>
+          <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
+            <span id="price-amount" data-base-usd="30" data-i18n="pricingProPrice">{t('pricingProPrice')}</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">{t('pricingProPeriod')}</span>
           </div>
-          <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">Add automation, multi-location controls, and proactive guidance from our team.</p>
-          <ul class="mt-8 space-y-3 text-left text-sm leading-relaxed">
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB1">Unlimited registers with role-based controls</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB2">Automated inventory + supplier syncing</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB3">Advanced analytics & profitability dashboards</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">Priority chat & phone support</span></li>
-            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">Dedicated Customer Success Manager</span></li>
+          <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">{t('pricingProBody')}</p>
+          <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB1">{t('pricingProB1')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB2">{t('pricingProB2')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB3">{t('pricingProB3')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">{t('pricingProB4')}</span></li>
+            <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">{t('pricingProB5')}</span></li>
           </ul>
-          <div class="mt-10">
-            <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Inquiry" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-10 py-4 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_30px_60px_-30px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
-              <span data-i18n="pricingProCta">Get Started — $30/mo</span>
-            </a>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
+              <span data-i18n="pricingProCta">{t('pricingProCta')}</span>
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="surface-card p-4 text-left text-brand-text dark:text-brand-text-dark">
+    <div class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark self-start">
         <div class="flex items-center justify-between">
-          <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">Enterprise</div>
-          <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">Custom</span>
+          <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">{t('pricingEnterpriseTitle')}</div>
+          <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">{t('pricingEnterpriseRibbon')}</span>
         </div>
-    <h3 class="mt-4 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">Scale with confidence across regions</h3>
-  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">Unlock API access, warehouse orchestration, and white-glove launch support for complex rollouts.</p>
-        <a href="mailto:info@kdsx.uz?subject=KDSX%20Enterprise%20Plan%20Inquiry" data-plan-trigger="enterprise" class="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-cta/40 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark">
-          <span data-i18n="pricingEnterpriseCta">Contact Sales</span>
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+  <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">{t('pricingEnterpriseHeading')}</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">{t('pricingEnterpriseBody')}</p>
+    <button type="button" data-contact-trigger="sales" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+      <span data-i18n="pricingEnterpriseCta">{t('pricingEnterpriseCta')}</span>
+          <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
 
-      <div class="surface-card p-4 text-left text-brand-text dark:text-brand-text-dark">
-    <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingImplementTag">Need a tailored roll-out?</div>
-    <h3 class="mt-4 text-2xl font-semibold" data-i18n="pricingImplementHeading">Partner with our implementation team</h3>
-  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingImplementBody">We’ll audit your operations, stage the hardware, and train staff across every location.</p>
-        <ul class="mt-4 space-y-2 text-sm text-brand-text/70 dark:text-brand-text-dark/70">
-          <li>✔ <span data-i18n="pricingImplementB1">Launch playbook customized to each venue</span></li>
-          <li>✔ <span data-i18n="pricingImplementB2">On-site and remote training programs</span></li>
-          <li>✔ <span data-i18n="pricingImplementB3">Seasonal menu + promo support</span></li>
+  <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark">
+    <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingImplementTag">{t('pricingImplementTag')}</div>
+  <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingImplementHeading">{t('pricingImplementHeading')}</h3>
+  <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingImplementBody">{t('pricingImplementBody')}</p>
+  <ul class="mt-3.5 space-y-2 text-sm text-brand-text/70 dark:text-brand-text-dark/70">
+          <li>✔ <span data-i18n="pricingImplementB1">{t('pricingImplementB1')}</span></li>
+          <li>✔ <span data-i18n="pricingImplementB2">{t('pricingImplementB2')}</span></li>
+          <li>✔ <span data-i18n="pricingImplementB3">{t('pricingImplementB3')}</span></li>
         </ul>
+        <div class="mt-4">
+          <button type="button" data-contact-trigger="support" class="group mt-3 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+            <span>{t('contactSupportBtn')}</span>
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="mt-16 text-center">
-  <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-6 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">Ready to run every shift with less stress?</h3>
-  <a href="mailto:info@kdsx.uz?subject=KDSX%20Pro%20Plan%20Free%20Trial" data-plan-trigger="cta" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-10 py-4 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text shadow-[0_30px_60px_-30px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
-  <span data-i18n="pricingFinalCta">Start my rollout</span>
-      </a>
+    <div class="mt-12 text-center">
+  <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-5 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">{t('pricingFinalHeading')}</h3>
+  <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
+  <span data-i18n="pricingFinalCta">{t('pricingFinalCta')}</span>
+      </button>
     </div>
 
     <!-- FAQ placed before footer -->
-    <div class="mt-20">
+    <div class="mt-16">
       <slot name="faq"></slot>
     </div>
 
-    <footer class="mt-16 pt-12 border-t border-white/20 text-brand-text dark:text-brand-text-dark">
+  <footer class="hidden md:block mt-14 pt-10 border-t border-white/18 text-brand-text dark:text-brand-text-dark" aria-label="Site footer">
       <!-- Main Footer Content -->
       <div class="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
         <!-- Brand Section -->
         <div class="flex flex-col items-start">
           <div class="flex items-center gap-2 mb-4">
-            <span class="font-bold text-2xl text-brand-text dark:text-brand-text-dark">KDSX</span>
-            <img src="/logo.png" alt="KDSX Logo" class="w-8 h-8" />
+                        <img src="/logo_dark.png" alt="Octopos Logo" class="w-8 h-8 md:w-8 md:h-8" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
+
+            <span class="hidden md:inline-block font-bold text-2xl text-brand-text dark:text-brand-text-dark">Octopos</span>
           </div>
-          <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">Total restaurant control. Unify your operations with our integrated POS ecosystem.</p>
+          <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">{t('footerBrandDescription')}</p>
         </div>
 
-        <!-- Contact Information -->
-        <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">Contact Info</h4>
+  <!-- Contact Information (hidden on mobile for dedicated pricing page) -->
+  <div class="hidden md:flex flex-col items-start">
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerContactTitle">{t('footerContactTitle')}</h4>
           <div class="space-y-3">
-            <a href="tel:+998941500330" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
+            <a href="tel:+998941500330" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <span class="text-sm">+998941500330</span>
+              <span class="text-sm" data-i18n="footerContactPhone1">{t('footerContactPhone1')}</span>
             </a>
-            <a href="tel:+821079328573" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
+            <a href="tel:+998501886669" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
-              <span class="text-sm">+821079328573</span>
+              <span class="text-sm" data-i18n="footerContactPhone2">{t('footerContactPhone2')}</span>
             </a>
-            <a href="mailto:support@kdsx.uz" class="flex items-center gap-3 text-brand-text hover:text-brand-cta dark:text-brand-text-dark">
+            <a href={`mailto:${t('footerContactEmail')}`} class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
-              <span class="text-sm">support@kdsx.uz</span>
+              <span class="text-sm" data-i18n="footerContactEmail">{t('footerContactEmail')}</span>
             </a>
           </div>
         </div>
 
         <!-- Social Media -->
         <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">Follow Us</h4>
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">{t('footerFollowTitle')}</h4>
           <div class="flex gap-4">
-            <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
+            <a href="https://t.me/octopos_pos_uzbekistan" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
               </svg>
             </a>
-            <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="YouTube">
+            <a href="https://www.youtube.com/@OctoposPOS-RestoranAvtomatlash" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="YouTube">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
-            <a href="#" class="p-2 rounded-lg text-brand-cta hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Instagram">
+            <a href="https://www.instagram.com/octopos.uz" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Instagram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
@@ -159,25 +173,113 @@ import WizardForm from './WizardForm.astro';
           </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="flex flex-col items-start">
-          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">Quick Links</h4>
-          <div class="space-y-2">
-            <a href="#features" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkFeatures">Features</a>
-            <a href="#pricing" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPricing">Pricing</a>
-            <a href="#" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">Terms</a>
-            <a href="#" class="text-sm hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">Privacy</a>
+        <!-- Footer info -->
+        <div class="items-start" aria-label="Footer menu">
+          <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerQuickLinksTitle">{t('footerQuickLinksTitle')}</h4>
+          <div class="flex flex-col space-y-2 text-sm">
+            <a href={`${localeBase}/terms`} class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkTerms">{t('footerQuickLinkTerms')}</a>
+            <a href={`${localeBase}/privacy`} class="hover:text-brand-cta transition-colors" data-i18n="footerQuickLinkPrivacy">{t('footerQuickLinkPrivacy')}</a>
           </div>
         </div>
       </div>
 
       <!-- Bottom Footer -->
       <div class="pt-6 border-t border-brand-cta-text/20 dark:border-brand-cta-text-dark/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-75">
-        <span>&copy; 2025 KDSX. <span data-i18n="footerRightsReserved">All rights reserved.</span></span>
-        <span data-i18n="footerAccessibility">Mobile Responsive &amp; Accessible</span>
+        <span>&copy; {currentYear} Octopos. <span data-i18n="footerRightsReserved">{t('footerRightsReserved')}</span></span>
+        <span data-i18n="footerAccessibility">{t('footerAccessibility')}</span>
       </div>
     </footer>
   </div>
 </section>
 
-<WizardForm />
+<ContactWizard />
+
+<script is:inline>
+  (function () {
+    const priceEl = document.getElementById('price-amount');
+    if (!priceEl) return;
+    const baseUSD = Number(priceEl.dataset.baseUsd || 30);
+      const userLocale = (navigator.languages && navigator.languages[0]) || navigator.language || 'en-US';
+    let lang = (userLocale && userLocale.split('-')[0]) || 'en';
+
+    // Default mapping by language
+    const langToCurrency = { en: 'USD', ko: 'KRW', ru: 'RUB', uz: 'UZS' };
+    let currency = langToCurrency[lang] || 'USD';
+
+    // Fallback rates used if exchange API is unavailable
+    const fallbackRates = { KRW: 1400, UZS: 12175, RUB: 95 };
+
+    // Pretty rounding for large numbers to make amounts look tidy
+    function prettyPrice(v) {
+      if (v >= 1000000) return Math.floor(v / 10000) * 10000;
+      if (v >= 100000) return Math.floor(v / 1000) * 1000;
+      if (v >= 10000) return Math.floor(v / 100) * 100;
+      return Math.round(v);
+    }
+
+    // Locale-aware formatting
+    function setDisplay(val) {
+      try {
+        const formatted = new Intl.NumberFormat(userLocale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(val);
+        priceEl.textContent = formatted;
+      } catch (e) {
+        const fallback = `${Math.round(val).toLocaleString()} ${currency}`;
+        priceEl.textContent = fallback;
+      }
+    }
+
+    // Use timezone detection as a stronger signal than browser language alone.
+    // This ensures visitors in Uzbekistan (Asia/Tashkent) see UZS even if their browser lang is English.
+    try {
+      const tz = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+      const tzLower = String(tz).toLowerCase();
+      if (/tashkent|uzbekistan|asia\/tashkent/.test(tzLower)) {
+        currency = 'UZS';
+        lang = 'uz';
+      } else if (/seoul|korea|asia\/seoul/.test(tzLower)) {
+        currency = 'KRW';
+        lang = 'ko';
+      } else if (/moscow|europe\/moscow|europe\/saint_petersburg|europe\/minsk/.test(tzLower)) {
+        currency = 'RUB';
+        lang = 'ru';
+      }
+    } catch (e) {}
+
+    // If timezone didn't determine the currency, try region subtag from locale (e.g., en-US)
+    if (!currency || currency === 'USD') {
+      try {
+        const parts = userLocale.split('-');
+        const region = parts[1] ? parts[1].toUpperCase() : '';
+        if (region === 'UZ') currency = 'UZS';
+        else if (region === 'KR') currency = 'KRW';
+        else if (region === 'RU' || region === 'BY') currency = 'RUB';
+        // treat several english-speaking regions as USD by default
+        else if (['US', 'GB', 'AU', 'CA', 'NZ'].includes(region)) currency = 'USD';
+      } catch (e) {}
+    }
+
+    // If currency is still USD, just display USD and stop
+    if (currency === 'USD') {
+      setDisplay(baseUSD);
+      return;
+    }
+
+    // Attempt to fetch latest rate, fallback to static rates if API fails
+    const api = `https://api.exchangerate.host/convert?from=USD&to=${currency}&amount=${baseUSD}`;
+    fetch(api, { cache: 'no-store' })
+      .then((r) => r.json())
+      .then((data) => {
+        let converted = data && data.result ? data.result : null;
+        if (!converted) {
+          const rate = fallbackRates[currency] || 1;
+          converted = baseUSD * rate;
+        }
+        setDisplay(prettyPrice(converted));
+      })
+      .catch(() => {
+        const rate = fallbackRates[currency] || 1;
+        const converted = baseUSD * rate;
+        setDisplay(prettyPrice(converted));
+      });
+  })();
+</script>
