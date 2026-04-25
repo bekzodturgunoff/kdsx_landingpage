@@ -7,7 +7,7 @@ export const uz = {
   navThemeToggle: "Mavzuni almashtirish",
 
   heroBadge: "Octopos Platformasi",
-  heroHeading: "Bitta tizim Uch kuchli ilova To‘liq nazorat",
+  heroHeading: "Bitta tizim — uchta kuchli ilova — to‘liq nazorat",
   heroBody:
     "Bosh ofisni Dash bilan, xizmatni POS bilan, oshxonani Kitchen ilova bilan tartibga keltiring. Hammasi avtomatik sinxronlashadi.",
   heroPrimaryCta: "Bepul oyni boshlang",
@@ -33,20 +33,20 @@ export const uz = {
   businessBody:
     "Alohida-alohida vositalarni almashtirishni bas qiling. Octopos boshqaruv, servis va oshxona jarayonlarini yagona tizimga birlashtiradi.",
 
-  businessCard1Title: "Octopos Dash",
+  businessCard1Title: "Amaliy tahlillar",
   businessCard1Heading: "Restoran boshqaruv markazi",
   businessCard1Body:
     "Restoran boshqaruvining markaziy markazi. Kategoriyalar, modifikatorlar va narxlar bilan menyularni yarating va tartibga soling. Avtomatik zaxira ogohlantirishlari bilan inventar darajalarini kuzating. Xodimlar rollari va ruxsatlarini boshqaring. Yetkazib beruvchilar va kelayotgan ta'minotlarni nazorat qiling. Savdo xulosalari, foyda marjasi va kategoriya samaradorligi kabi batafsil moliyaviy hisobotlarga kiring — barchasi bitta kuchli boshqaruv panelida.",
 
-  businessCard2Title: "Octopos POS",
+  businessCard2Title: "Birlashtirilgan boshqaruv",
   businessCard2Heading: "Qulay buyurtma qabul qilish",
   businessCard2Body:
     "Pik soatlar uchun tezlikka qurilgan. Toza panjara tartibi va sozlanadigan modifikatorlar bilan buyurtmalarni qabul qiling. Zal rejasini vizual boshqaring — qaysi stollar band, bron qilingan yoki bo'sh ekanini bir qarashda ko'ring. Buyurtmalarni stollar o'rtasida uzluksiz ko'chiring, hisoblarni element yoki o'rindiq bo'yicha ajrating va turli to'lov usullarini qabul qiling. Zal xizmati, olib ketish va yetkazib berish — barchasi bitta oddiy interfeysda.",
 
-  businessCard3Title: "Octopos Kitchen",
+  businessCard3Title: "Jamoa tajribasi",
   businessCard3Heading: "Tartibli oshxona ishlari",
   businessCard3Body:
-    "Band oshxonalar uchun raqamli tiket boshqaruvi. Buyurtmalar qabul qilinganda darhol ekranda paydo bo'ladi — yo'qolgan qog'oz tiketlar yo'q. Elementlarni avtomatik ravishda to'g'ri stansiyaga yo'naltiring: ichimliklar barga, sovuq taomlar salat bo'limiga, asosiy taomlar grilga. Buyurtma vaqtini kuzating, bir bosishda tayyor deb belgilang va butun liniyani sinxronlashtiring. Rush vaqtida ham hech bir buyurtma o'tkazib yuborilmasligini ta'minlash uchun audio ogohlantirishlar.",
+    "Band oshxonalar uchun raqamli tiket boshqaruvi. Buyurtmalar qabul qilinganda darhol ekranda paydo bo'ladi — yo'qolgan qog'oz tiketlar yo'q. Elementlarni avtomatik ravishda to'g'ri stansiyaga yo'naltiring: ichimliklar barga, sovuq taomlar salat bo'limiga, asosiy taomlar grilga. Buyurtma vaqtini kuzating, bir bosishda tayyor deb belgilang va butun liniyani sinxronlashtiring. Band vaqtida ham hech bir buyurtma o'tkazib yuborilmasligini ta'minlash uchun audio ogohlantirishlar.",
 
   featuresBadge: "Chuquroq ko‘rinish",
   featuresHeading: "Restorandagi har bir rol uchun yaratilgan",
@@ -94,11 +94,11 @@ export const uz = {
   mobileHighlightsFaqTag: "Yordam",
   mobileHighlightsFaqTitle: "Har doim yoningizda",
   mobileHighlightsFaqBody:
-    "Sozlash, menyu importi va birinchi ishga tushirishда yordam beramiz.",
+    "Sozlash, menyu importi va birinchi ishga tushirishda yordam beramiz.",
 
   mobileHighlightsCtaHeading: "Operatsiyalaringizni yangilashga tayyormisiz?",
   mobileHighlightsCtaBody:
-    "Birinchi oyda barcha KDSX ilovalarini riskсиз sinab ko‘ring.",
+    "Birinchi oyda barcha Octopos ilovalarini riskсиз sinab ko‘ring.",
   mobileHighlightsCtaButton: "Boshlash",
 
   mobileContactHeading: "Bog‘lanish",
@@ -106,7 +106,7 @@ export const uz = {
 
   howBadge: "Onboarding",
   howHeading: "Uch qadamda ishga tushiring",
-  howBody: "KDSX’ga o‘tish sodda va yo‘naltirilgan.",
+  howBody: "Octopos’ga o‘tish sodda va yo‘naltirilgan.",
 
   howStep1Tag: "Sozlang",
   howStep1Title: "Dash’ni tayyorlang",
@@ -126,7 +126,7 @@ export const uz = {
   testimonialsBadge: "Foydalanuvchilardan",
   testimonialsHeading: "Restoran egalari nimalar deyishmoqda",
   testimonialsBody:
-    "KDSX’dan har kuni foydalanadigan jamoalarning haqiqiy fikrlari.",
+    "Octopos’dan har kuni foydalanadigan jamoalarning haqiqiy fikrlari.",
 
   testimonialsCard1Tag: "Kafe egasi",
   testimonialsCard1Quote:
@@ -182,7 +182,36 @@ export const uz = {
   pricingProB3: "Kengaytirilgan moliyaviy hisobotlar",
   pricingProB4: "Ko‘p stansiyali oshxona displeyi",
   pricingProB5: "Ustuvor mijozlarga xizmat",
-  pricingProCta: "Obuna bo‘lish — $30/oy",
+  pricingProCta: "Obuna bo‘lish",
+
+  contactSalesBtn: "Sotuv bilan bog‘lanish",
+  contactSupportBtn: "Texnik yordam",
+  contactWizardTitleSales: "Sotuv bilan bog‘lanish",
+  contactWizardSubtitleSales: "Sotuv jamoasiga xabar yuboring — tez orada bog‘lanamiz.",
+  contactWizardTitleSupport: "Texnik yordam",
+  contactWizardSubtitleSupport: "Muammoni yozing — qo‘llab-quvvatlash jamoasi javob beradi.",
+  contactNameLabel: "Ism",
+  contactEmailLabel: "Email",
+  contactMessageLabelSales: "Sotuv jamoasiga xabar",
+  contactMessageLabelSupport: "Yordam jamoasiga xabar",
+  contactSubmitSales: "Sotuv jamoasiga yuborish",
+  contactSubmitSupport: "Yordamga yuborish",
+  contactClose: "Yopish",
+  contactErrorTitle: "Yuborilmadi",
+  contactErrorBody: "Iltimos, formani to‘g‘ri to‘ldiring. Hozircha ma’lumot tashqariga yuborilmaydi.",
+  contactNamePlaceholder: "masalan: John Doe",
+  contactEmailPlaceholder: "you@company.com",
+  contactMessagePlaceholderSales: "Sotuvga oid talab yoki savollaringizni yozing (narx, integratsiya)",
+  contactMessagePlaceholderSupport: "Muammo tafsilotlarini yozing (buyurtma ID, skrinshotlar)",
+  contactImageLabel: "Rasm qo‘shish (ixtiyoriy)",
+  contactImageHelp: "Skrinshot yoki fotosuratni ilova qilishingiz mumkin (ixtiyoriy).",
+  contactImageButton: "Rasmni tanlash",
+  contactImageInvalid: "Tanlangan fayl rasm emas",
+  contactImageTooLarge: "Rasm 5 MB dan katta",
+  contactSuccessTitle: "Xabar yuborildi",
+  contactSuccessBody: "Rahmat — jamoamiz xabaringizni ko‘rib chiqadi va tez orada bog‘lanadi.",
+  contactSuccessCta: "Tugatish",
+  contactImageRemove: "Rasmni olib tashlash",
 
   pricingEnterpriseTitle: "Ko‘p joylar",
   pricingEnterpriseRibbon: "Maxsus",
@@ -200,10 +229,10 @@ export const uz = {
   pricingImplementB3: "Xodimlar uchun treninglar",
 
   pricingFinalHeading: "Restorani zamonaviylashtirishga tayyormisiz?",
-  pricingFinalCta: "Bugun KDSX oling",
+  pricingFinalCta: "Bugun Octopos oling",
 
   featuresPageBadge: "Modullar",
-  featuresPageHeading: "KDSX ekotizimini ko‘ring",
+  featuresPageHeading: "Octopos ekotizimini ko‘ring",
   featuresPageLead:
     "Zal, oshxona va ofisni birlashtiradigan modullarni bir joydan o‘rganing",
 
@@ -213,13 +242,13 @@ export const uz = {
 
   faqPageBadge: "Yordam",
   faqPageHeading: "Ko‘p so‘raladigan savollar",
-  faqPageLead: "KDSX’dan foydalanish bo‘yicha odatiy savollar.",
+  faqPageLead: "Octopos’dan foydalanish bo‘yicha odatiy savollar.",
 
-  footerBrandDescription: "KDSX: POS, boshqaruv va oshxona uchun yagona tizim.",
+  footerBrandDescription: "Octopos: POS, boshqaruv va oshxona uchun yagona tizim.",
   footerContactTitle: "Aloqa",
-  footerContactPhone1: "+998941500330",
-  footerContactPhone2: "+821079328573",
-  footerContactEmail: "support@kdsx.uz",
+  footerContactPhone1: "+998 94 150 03 30",
+  footerContactPhone2: "+998 50 188 66 69",
+  footerContactEmail: "support@octopos.uz",
   footerFollowTitle: "Ijtimoiy tarmoqlar",
   footerQuickLinksTitle: "Ma'lumot",
   footerQuickLinkFeatures: "Xususiyatlar",
@@ -230,10 +259,10 @@ export const uz = {
   footerRightsReserved: "Barcha huquqlar himoyalangan",
   footerAccessibility: "Barcha qurilmalarda qulay",
 
-  wizardTitle: "KDSX akkauntini yarating",
+  wizardTitle: "Octopos akkauntini yarating",
   wizardSubtitle: "Restorangiz haqida ayting — biz shaxsiy demo tayyorlaymiz.",
   wizardTitleStarter: "Bepul sinovni boshlang",
-  wizardTitlePro: "KDSX’ga obuna ($30/oy)",
+  wizardTitlePro: "Octopos’ga obuna ($30/oy)",
   wizardTitleEnterprise: "Sotuv bilan bog‘lanish",
   wizardTitleGeneric: "Boshlash",
   wizardPlanPrefix: "Tanlangan reja:",
@@ -269,10 +298,11 @@ export const uz = {
   wizardNext: "Keyingi",
   wizardSubmit: "So‘rov yuborish",
   wizardSubmitting: "Qayta ishlanmoqda...",
+  wizardClose: "Yopish",
   wizardError: "Xatolik yuz berdi. Qayta urinib ko‘ring",
   wizardErrorTitle: "Yuborishda xatolik",
   wizardErrorBody:
-    "Afsus, bizda nosozlik. Tez yechim uchun support@kdsx.uz manziliga yozing",
+    "Afsus, bizda nosozlik. Tez yechim uchun support@octopos.uz manziliga yozing",
   wizardSuccessMessage:
     "Demo akkauntingiz tayyorlanmoqda. Tez orada kirish ma’lumotlarini yuboramiz.",
   wizardSuccessCta: "Tayyor",
@@ -295,7 +325,7 @@ export const uz = {
     "Ko‘pchilik jamoalar dam olish kunlarida sozlab, dushanba kuni ishni boshlaydi. Biz sozlash, qurilma ulash va qisqa xodim brifingida yo‘l-yo‘riq beramiz.",
   faqQ2: "Bu istalgan qurilmada ishlaydimi?",
   faqA2:
-    "Ha. KDSX internetga ulangan zamonaviy planshet va smartfonlarda ishlaydi. iOS, Android yoki veb — maxsus uskuna kerak emas.",
+    "Ha. Octopos internetga ulangan zamonaviy planshet va smartfonlarda ishlaydi. iOS, Android yoki veb — maxsus uskuna kerak emas.",
   faqQ3: "Onboarding nimalarni o‘z ichiga oladi?",
   faqA3:
     "Menyu importi, stansiyalar sozlamasi, printerlar ulanishi va xodimlarni o‘qitish. Har bir filial uchun aniq rollout rejasi beriladi.",
@@ -309,22 +339,22 @@ export const uz = {
   termsBadge: "Huquqiy",
   termsHeading: "Xizmat ko‘rsatish shartlari",
   termsIntro:
-    "Bu shartlar KDSX platformaga qanday kirish berishini va jamoalardan nimalar kutilishini tushuntiradi. Matn oddiy yozilgan, shuning uchun operatorlar huquqiy lug‘atsiz ham o‘qib chiqishi mumkin.",
+    "Bu shartlar Octopos platformaga qanday kirish berishini va jamoalardan nimalar kutilishini tushuntiradi. Matn oddiy yozilgan, shuning uchun operatorlar huquqiy lug‘atsiz ham o‘qib chiqishi mumkin.",
   termsSection1Title: "1. Akkauntlar va kirish",
   termsSection1Body:
-    "Har bir restoran uchun alohida loginlar yaratiladi. Ularni xavfsiz saqlash va ruxsatsiz kirishdan shubhalansangiz bizga xabar berish sizning zimangizda. Bir nechta lokatsiyani boshqarayotgan bo‘lsangiz, support@kdsx.uz manziliga yozib SSO yoki batafsil rollarni so‘rashingiz mumkin.",
+    "Har bir restoran uchun alohida loginlar yaratiladi. Ularni xavfsiz saqlash va ruxsatsiz kirishdan shubhalansangiz bizga xabar berish sizning zimangizda. Bir nechta lokatsiyani boshqarayotgan bo‘lsangiz, support@octopos.uz manziliga yozib SSO yoki batafsil rollarni so‘rashingiz mumkin.",
   termsSection2Title: "2. To‘g‘ri foydalanish",
   termsSection2Body:
-    "KDSXni joylaringizni boshqarish uchun ishlating. Infratuzilmani sinash, kirishni qayta sotish yoki bildirishnomalar orqali haqoratomuz xabarlar jo‘natish taqiqlanadi. Platformani yoki boshqa mijozlarni xavf ostiga qo‘yadigan akkauntlar vaqtincha to‘xtatilishi mumkin.",
+    "Octoposni joylaringizni boshqarish uchun ishlating. Infratuzilmani sinash, kirishni qayta sotish yoki bildirishnomalar orqali haqoratomuz xabarlar jo‘natish taqiqlanadi. Platformani yoki boshqa mijozlarni xavf ostiga qo‘yadigan akkauntlar vaqtincha to‘xtatilishi mumkin.",
   termsSection3Title: "3. To‘lovlar",
   termsSection3Body:
-    "Starter rejasi birinchi oy bepul. Pullik rejalar har oy yangilanadi va yetti kun oldin bekor qilinishi mumkin. Uskuna xaridlari alohida hisob-faktura bilan yuboriladi. Offline to‘lov kerak bo‘lsa, billing@kdsx.uz ga yozing.",
+     "Starter rejasi birinchi oy bepul. Pullik rejalar har oy yangilanadi va yetti kun oldin bekor qilinishi mumkin. Uskuna xaridlari alohida hisob-faktura bilan yuboriladi. Offline to‘lov kerak bo‘lsa, billing@octopos.uz ga yozing.",
   termsSection4Title: "4. Ma’lumotlar kimga tegishli",
   termsSection4Body:
-    "KDSXda saqlanadigan menyu, inventar, savdo va mehmon ma’lumotlari sizga tegishli. Biz ular ustida faqat xizmatni taqdim etish va yaxshilash uchun ishlaymiz. So‘rovga binoan besh ish kuni ichida ma’lumotlarni ko‘chma formatda yuboramiz.",
+    "Octoposda saqlanadigan menyu, inventar, savdo va mehmon ma’lumotlari sizga tegishli. Biz ular ustida faqat xizmatni taqdim etish va yaxshilash uchun ishlaymiz. So‘rovga binoan besh ish kuni ichida ma’lumotlarni ko‘chma formatda yuboramiz.",
   termsSection5Title: "5. Yangilanishlar",
   termsSection5Body:
-    "Biz tez yangilanamiz. Agar o‘zgarishlar foydalanishingizga sezilarli ta’sir etsa, billing kontaktini email orqali ogohlantiramiz. KDSXdan foydalanishni davom ettirsangiz, yangilangan shartlarni qabul qilgan bo‘lasiz.",
+    "Biz tez yangilanamiz. Agar o‘zgarishlar foydalanishingizga sezilarli ta’sir etsa, billing kontaktini email orqali ogohlantiramiz. Octoposdan foydalanishni davom ettirsangiz, yangilangan shartlarni qabul qilgan bo‘lasiz.",
 
   privacyBadge: "Maxfiylik",
   privacyHeading: "Maxfiylik siyosati",
@@ -338,13 +368,13 @@ export const uz = {
     "Bu ma’lumotlar boshqaruv panellari, ogohlantirishlar va avtomatlashtirishni quvvatlaydi. Prognoz va barqarorlikni yaxshilash uchun foydalanish naqshlarini anonimlashtirishimiz mumkin, lekin shaxsni aniqlovchi ma’lumotlarni uchinchi tomonga sotmaymiz.",
   privacySection3Title: "3. Integratsiyalar va protsessorlar",
   privacySection3Body:
-    "To‘lov, yetkazib berish yoki buxgalteriya integratsiyalarini yoqsangiz, hamkorlarga faqat kerakli minimal maydonlar yuboriladi. Amaldagi sub-protsessorlar va hududlar SOC 2 paketimizda keltirilgan — compliance@kdsx.uz manziliga yozib so‘rashingiz mumkin.",
+    "To‘lov, yetkazib berish yoki buxgalteriya integratsiyalarini yoqsangiz, hamkorlarga faqat kerakli minimal maydonlar yuboriladi. Amaldagi sub-protsessorlar va hududlar SOC 2 paketimizda keltirilgan — compliance@octopos.uz manziliga yozib so‘rashingiz mumkin.",
   privacySection4Title: "4. Saqlash va o‘chirish",
   privacySection4Body:
     "Obuna faol bo‘lganida operatsion ma’lumotlar ham faol qoladi. Bekor qilingach, zaxiralar 30 kun saqlanadi va regulatorlar talab qilmasa, o‘chiriladi. Istalgan payt o‘chirishni so‘rashingiz mumkin — bajarilgach xabar beramiz.",
   privacySection5Title: "5. Savollar",
   privacySection5Body:
-    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@kdsx.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
+    "Imzolangan DPA kerak bo‘lsa, kontaktlarni yangilamoqchi bo‘lsangiz yoki moslik bo‘yicha savollaringiz bo‘lsa, privacy@octopos.uz ga yozing. Odatda bir ish kuni ichida javob beramiz.",
   themeLight: "Yorug‘",
   themeDark: "Qorong‘i",
   stepLabel: "Bosqich",

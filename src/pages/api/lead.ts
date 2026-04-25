@@ -80,7 +80,7 @@ export const POST: APIRoute = async ({ request }) => {
         const resendPayload: Record<string, unknown> = {
           from: FROM_EMAIL,
           to: TO_EMAILS,
-          subject: `KDSX Lead — ${payload.businessName}`,
+          subject: `Octopos Lead — ${payload.businessName}`,
           text: lines.join("\n"),
         };
         if (payload.email) {

@@ -18,13 +18,15 @@ A high-performance, professional marketing site built with Astro 5 and Tailwind 
 
 ### Prerequisites
 
-Make sure you have Node.js installed (Node 22 is recommended to match Vercel's serverless runtime).
+Make sure you have Node.js installed. Node 18+ is supported (Node 22 is also fine and matches some serverless runtimes).
+
+> Recommended package manager: `pnpm` (this repository is tracked with `pnpm-lock.yaml`).
 
 ### Local Development Flow
 
 1. **Install dependencies:**
    ```bash
-   npm install
+   pnpm install
    ```
 2. **Set up environment variables:**
    Copy the example environment file and fill in your credentials.
@@ -33,7 +35,7 @@ Make sure you have Node.js installed (Node 22 is recommended to match Vercel's s
    ```
 3. **Start the development server:**
    ```bash
-   npm run dev
+   pnpm dev
    ```
    *Open [http://localhost:4321](http://localhost:4321) in your browser to view the site.*
 
@@ -41,9 +43,9 @@ Make sure you have Node.js installed (Node 22 is recommended to match Vercel's s
 
 To build the project locally or verify the build step:
 ```bash
-npm run build
+pnpm build
 ```
-*Note: The project uses Vercel adapter (`output: 'server'`), keeping most pages statically prerendered while enabling the serverless API.*
+*Note: The project uses the Vercel adapter (`@astrojs/vercel`) with mostly prerendered pages and a small server output for API routes.*
 
 ## 🏗️ Architecture Flow
 
@@ -95,3 +97,33 @@ curl -s -X POST https://<your-domain>/api/lead \
 
 ---
 *Note: All legacy or archived components have been removed to keep the repository lean.*
+
+## Behavior Notes (what changed recently)
+
+- **Contact wizards show success messages:** All contact/lead modals (the sales/support contact modal) now display a localized success confirmation after submitting the form. The exception is the instant trial `WizardForm.astro` — that component performs an immediate bootstrap + sign-in and redirects the user into the dashboard instead of rendering a local success panel.
+- **Contact image uploader:** The contact modal supports attaching an image (client-side only). Images are previewed in the modal and validated client-side (must be an image and ≤ 5MB). There is no server-side image upload in this component by default.
+- **Enterprise CTA → Contact modal:** The Enterprise/CUSTOM plan CTA opens the contact modal instead of bootstrapping an account.
+- **Default theme:** The site defaults to light theme on first visit; users can toggle and the chosen theme is persisted.
+
+## Localization & Pricing
+
+- **Region-based language & currency:** The landing page infers region/language from the URL segments and the browser environment (where available) and displays localized copy from `src/i18n/*`.
+- **Localized price display:** Prices are stored as a USD base value (e.g. `data-base-usd="30"`) and converted client-side for the visitor using `Intl.NumberFormat` and an exchange-rate fallback map. Pretty rounding and compact formatting are applied so prices render as readable localized strings (for example: `359,000 сум`).
+- **Strings & translations:** All UI strings are externalized into `src/i18n/` (`en.ts`, `ru.ts`, `ko.ts`, `uz.ts`). Add or update keys there to change copy displayed across the site.
+
+## Branding & Fonts
+
+- The repository references licensed fonts (Circular Std) but the `@font-face` `src` entries are commented out by default to avoid build-time errors if you don't have the licensed font files. To re-enable Circular, place the licensed `.woff2` files into `public/fonts/` and uncomment the `@font-face` `src` values in `src/styles/global.css`.
+- Logo assets were standardized: `logo_light.png` / `logo_dark.png` are used depending on theme. Old `/logo.png` references were replaced.
+
+## Testing & Scripts
+
+- **Run tests:** `pnpm test` (Vitest) — unit/integration tests for the landing page. The onboarding wizard tests expect legacy compatibility markers (e.g., `data-step` spans and hidden inputs) which are preserved.
+- **Lint:** `pnpm lint`
+- **Dev server:** `pnpm dev`
+- **Build:** `pnpm build`
+
+## Known Gotchas
+
+- `.vercel` / build artifacts: If you find a committed `.vercel` folder or other build outputs in the repo, remove them from source control. The repo should not contain build artifacts.
+- **Contact wizard image uploads:** Intentional client-only preview; if you want to persist uploads, wire the form to your upload endpoint and handle multipart/form-data on the server.

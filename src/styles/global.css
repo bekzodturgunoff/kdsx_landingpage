@@ -14,7 +14,9 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(/fonts/CircularStd-Medium.woff2) format("woff2");
+  /* Commercial 'Circular Std' not included in repo. To enable, place
+     licensed `CircularStd-Medium.woff2` in `public/fonts/` and restore
+     the `src` URL below. For now we rely on Inter as the primary font. */
 }
 
 @font-face {
@@ -22,7 +24,9 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/fonts/CircularStd-Bold.woff2) format("woff2");
+  /* Commercial 'Circular Std' not included in repo. To enable, place
+     licensed `CircularStd-Bold.woff2` in `public/fonts/` and restore
+     the `src` URL below. For now we rely on Inter as the primary font. */
 }
 
 html {

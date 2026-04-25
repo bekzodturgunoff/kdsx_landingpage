@@ -99,7 +99,7 @@ export const en = {
 
   mobileHighlightsCtaHeading: "Ready to upgrade your operations?",
   mobileHighlightsCtaBody:
-    "Try every KDSX app with no risk during your first month.",
+    "Try every Octopos app with no risk during your first month.",
   mobileHighlightsCtaButton: "Get Started",
 
   mobileContactHeading: "Contact us",
@@ -182,7 +182,36 @@ export const en = {
   pricingProB3: "Advanced Financial Reports",
   pricingProB4: "Multi-station Kitchen Display",
   pricingProB5: "Priority Customer Support",
-  pricingProCta: "Subscribe - $30/mo",
+  pricingProCta: "Subscribe",
+
+  contactSalesBtn: "Contact Sales",
+  contactSupportBtn: "Contact Support",
+  contactWizardTitleSales: "Contact Sales",
+  contactWizardSubtitleSales: "Send a message to our sales team and we'll get back to you.",
+  contactWizardTitleSupport: "Contact Support",
+  contactWizardSubtitleSupport: "Send a message to our support team and we'll follow up.",
+  contactNameLabel: "Name",
+  contactEmailLabel: "Email",
+  contactMessageLabelSales: "Message to sales team",
+  contactMessageLabelSupport: "Message to support team",
+  contactSubmitSales: "Send to Sales",
+  contactSubmitSupport: "Send to Support",
+  contactClose: "Close",
+  contactErrorTitle: "Could not send message",
+  contactErrorBody: "Please complete the form correctly. This message is only stored locally for now.",
+  contactNamePlaceholder: "e.g. John Doe",
+  contactEmailPlaceholder: "you@company.com",
+  contactMessagePlaceholderSales: "Describe your needs (pricing, onboarding, integrations)",
+  contactMessagePlaceholderSupport: "Describe the issue and include any relevant details (order ID, screenshots)",
+  contactImageLabel: "Attach an image (optional)",
+  contactImageHelp: "You can attach a screenshot or photo (optional).",
+  contactImageButton: "Choose image",
+  contactImageInvalid: "Selected file is not an image",
+  contactImageTooLarge: "Image exceeds 5MB",
+  contactSuccessTitle: "Message sent",
+  contactSuccessBody: "Thanks — our team will review your message and get back to you shortly.",
+  contactSuccessCta: "Done",
+  contactImageRemove: "Remove image",
 
   pricingEnterpriseTitle: "Multi-Location",
   pricingEnterpriseRibbon: "Custom",
@@ -218,8 +247,8 @@ export const en = {
   footerBrandDescription:
     "Octopos: The all-in-one POS, management, and kitchen system.",
   footerContactTitle: "Contact Us",
-  footerContactPhone1: "+998941500330",
-  footerContactPhone2: "+821079328573",
+  footerContactPhone1: "+998 94 150 03 30",
+  footerContactPhone2: "+998 50 188 66 69",
   footerContactEmail: "support@octopos.uz",
   footerFollowTitle: "Social",
   footerQuickLinksTitle: "Info",
@@ -271,6 +300,7 @@ export const en = {
   wizardNext: "Next",
   wizardSubmit: "Submit",
   wizardSubmitting: "Processing...",
+  wizardClose: "Close",
   wizardError: "An error occurred. Please try again",
   wizardErrorTitle: "Submission Failed",
   wizardErrorBody:
@@ -297,7 +327,7 @@ export const en = {
     "Most teams launch over a weekend. We guide setup, device linking, and a short staff run-through so you can show results by Monday.",
   faqQ2: "Does this run on any device?",
   faqA2:
-    "Yes — KDSX works on modern tablets and smartphones with an internet connection. iOS, Android, or web — no special hardware required.",
+    "Yes — Octopos works on modern tablets and smartphones with an internet connection. iOS, Android, or web — no special hardware required.",
   faqQ3: "What does onboarding include?",
   faqA3:
     "We help import menus, configure stations, connect devices, and train staff. You'll get a clear rollout plan for each location.",
@@ -317,16 +347,16 @@ export const en = {
     "Each restaurant is provisioned with unique logins. You are responsible for keeping credentials safe and notifying us if you suspect unauthorized access. Multi-location operators can request SSO or granular role controls by emailing support@octopos.uz.",
   termsSection2Title: "2. Acceptable use",
   termsSection2Body:
-    "Use KDSX to operate your venues, not to probe infrastructure, resell access, or send abusive content through our notification channels. We may suspend accounts that put the platform or other customers at risk.",
+    "Use Octopos to operate your venues, not to probe infrastructure, resell access, or send abusive content through our notification channels. We may suspend accounts that put the platform or other customers at risk.",
   termsSection3Title: "3. Billing",
   termsSection3Body:
     "Starter is free for the first month. Paid plans renew monthly and can be cancelled with seven days notice. Hardware purchases are invoiced separately. Contact billing@octopos.uz if you need offline payment options.",
   termsSection4Title: "4. Data ownership",
   termsSection4Body:
-    "You retain ownership of menus, inventory, sales data, and guest information you store in KDSX. We act as a processor, only using the data to provide and improve the service. Upon request we will export your data in a portable format within five business days.",
+    "You retain ownership of menus, inventory, sales data, and guest information you store in Octopos. We act as a processor, only using the data to provide and improve the service. Upon request we will export your data in a portable format within five business days.",
   termsSection5Title: "5. Updates",
   termsSection5Body:
-    "We iterate quickly. When we roll out changes that materially affect your use of the platform we will notify the billing contact via email. Your continued use of KDSX after updates constitutes acceptance of the revised terms.",
+    "We iterate quickly. When we roll out changes that materially affect your use of the platform we will notify the billing contact via email. Your continued use of Octopos after updates constitutes acceptance of the revised terms.",
 
   privacyBadge: "Privacy",
   privacyHeading: "Privacy Policy",

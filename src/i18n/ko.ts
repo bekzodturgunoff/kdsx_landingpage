@@ -7,10 +7,10 @@ export const ko = {
   navThemeToggle: "테마 전환",
 
   heroBadge: "Octopos 플랫폼",
-  heroHeading: "하나의 시스템 세 가지 강력한 앱 완전한 제어",
+  heroHeading: "하나의 시스템, 세 가지 강력한 앱 — 완벽한 제어",
   heroBody:
     "백오피스(Dash), 서비스(POS), 주방(Kitchen 앱)을 하나로 연결하세요. 모든 것이 자동으로 동기화됩니다.",
-  heroPrimaryCta: "무료 한달 시작",
+  heroPrimaryCta: "한 달 무료 체험 시작",
   heroSecondaryCta: "작동 방식 보기",
 
   heroMetricDowntimeTitle: "지연 감소",
@@ -70,7 +70,7 @@ export const ko = {
   featuresCard3Tag: "Kitchen 앱",
   featuresCard3Title: "스마트 스테이션 라우팅",
   featuresCard3Body:
-    "설정에 따라 항목이 자동으로 적절한 조리 스테이션으로 전송됩니다 — 뜻거운 음식은 그릴로, 차가운 요리는 샐러드로, 음료는 바로. 각 스테이션은 자신의 티켓만 볼 수 있습니다. 내장 타이머로 각 주문의 대기 시간을 추적합니다. 새 주문 도착 시 오디오 알림이 직원에게 알립니다.",
+    "설정에 따라 항목이 자동으로 적절한 조리 스테이션으로 전송됩니다 — 뜨거운 음식은 그릴로, 차가운 요리는 샐러드 스테이션으로, 음료는 바(bar)로 전달됩니다. 각 스테이션은 자신에게 배정된 티켓만 보며, 내장 타이머는 각 주문의 대기 시간을 기록합니다. 새 주문이 도착하면 오디오 알림으로 직원에게 알려줍니다.",
 
   featuresCard4Tag: "재고",
   featuresCard4Title: "실시간 재고 관리",
@@ -175,7 +175,36 @@ export const ko = {
   pricingProB3: "고급 재무 리포트",
   pricingProB4: "멀티 스테이션 키친 디스플레이",
   pricingProB5: "우선 고객 지원",
-  pricingProCta: "구독 — $30/월",
+  pricingProCta: "구독",
+
+  contactSalesBtn: "영업 문의",
+  contactSupportBtn: "지원 문의",
+  contactWizardTitleSales: "영업 문의",
+  contactWizardSubtitleSales: "영업팀에 메시지를 보내주시면 연락드리겠습니다.",
+  contactWizardTitleSupport: "지원 문의",
+  contactWizardSubtitleSupport: "지원팀에 메시지를 보내주시면 도와드리겠습니다.",
+  contactNameLabel: "이름",
+  contactEmailLabel: "이메일",
+  contactMessageLabelSales: "영업팀에게 보낼 메시지",
+  contactMessageLabelSupport: "지원팀에게 보낼 메시지",
+  contactSubmitSales: "영업팀에 보내기",
+  contactSubmitSupport: "지원팀에 보내기",
+  contactClose: "닫기",
+  contactErrorTitle: "전송 실패",
+  contactErrorBody: "양식을 올바르게 작성해 주세요. 현재 메시지는 외부로 전송되지 않습니다.",
+  contactNamePlaceholder: "예: 홍길동",
+  contactEmailPlaceholder: "you@company.com",
+  contactMessagePlaceholderSales: "요구 사항을 적어주세요 (가격, 온보딩, 통합)",
+  contactMessagePlaceholderSupport: "문제를 설명하고 관련 정보를 포함하세요 (주문 ID, 스크린샷)",
+  contactImageLabel: "이미지 첨부 (선택)",
+  contactImageHelp: "스크린샷이나 사진을 첨부할 수 있습니다 (선택).",
+  contactImageButton: "이미지 선택",
+  contactImageInvalid: "선택한 파일은 이미지가 아닙니다",
+  contactImageTooLarge: "이미지가 5MB를 초과합니다",
+  contactSuccessTitle: "메시지 전송 완료",
+  contactSuccessBody: "감사합니다 — 팀이 메시지를 확인한 후 곧 연락드릴게요.",
+  contactSuccessCta: "완료",
+  contactImageRemove: "이미지 제거",
 
   pricingEnterpriseTitle: "다점포",
   pricingEnterpriseRibbon: "맞춤",
@@ -209,8 +238,8 @@ export const ko = {
 
   footerBrandDescription: "Octopos: POS·관리·키친 올인원 시스템.",
   footerContactTitle: "문의",
-  footerContactPhone1: "+998941500330",
-  footerContactPhone2: "+821079328573",
+  footerContactPhone1: "+998 94 150 03 30",
+  footerContactPhone2: "+998 50 188 66 69",
   footerContactEmail: "support@octopos.uz",
   footerFollowTitle: "소셜",
   footerQuickLinksTitle: "정보",
@@ -219,7 +248,7 @@ export const ko = {
   footerQuickLinkFaq: "자주 묻는 질문",
   footerQuickLinkTerms: "약관",
   footerQuickLinkPrivacy: "개인정보",
-  footerRightsReserved: "All rights reserved",
+  footerRightsReserved: "모든 권리 보유",
   footerAccessibility: "모든 기기에서 접근 가능",
 
   wizardTitle: "Octopos 계정 만들기",
@@ -253,12 +282,14 @@ export const ko = {
   wizardUsernameLabel: "선호 아이디",
   wizardUsernamePlaceholder: "username",
   wizardPasswordLabel: "선호 비밀번호",
-  wizardPasswordPlaceholder: "8자 이상",  wizardStartTrial: "무료 체험 시작",
+  wizardPasswordPlaceholder: "8자 이상",
+  wizardStartTrial: "무료 체험 시작",
   wizardCreatingKitchen: "계정을 설정 중입니다...",
   wizardBack: "뒤로",
   wizardNext: "다음",
   wizardSubmit: "요청 보내기",
   wizardSubmitting: "처리 중...",
+  wizardClose: "닫기",
   wizardError: "오류가 발생했습니다. 다시 시도해주세요",
   wizardErrorTitle: "제출 실패",
   wizardErrorBody:
@@ -304,17 +335,17 @@ export const ko = {
   termsSection1Body:
     "각 매장은 고유한 로그인 정보를 받습니다. 자격 증명을 안전하게 보관하고 무단 접근이 의심되면 즉시 알려주세요. 다점포 운영자는 support@octopos.uz 로 이메일을 보내 SSO나 세분화된 역할 제어를 요청할 수 있습니다.",
   termsSection2Title: "2. 허용되는 사용",
-  termsSection2Body:
-    "KDSX는 매장을 운영하기 위한 도구입니다. 인프라를 탐색하거나 접근을 재판매하거나 알림 채널로 부적절한 콘텐츠를 보내는 용도로 사용하지 마세요. 플랫폼이나 다른 고객에게 위험이 되는 계정은 중단될 수 있습니다.",
+    termsSection2Body:
+      "Octopos는 매장을 운영하기 위한 도구입니다. 인프라를 탐색하거나 접근을 재판매하거나 알림 채널로 부적절한 콘텐츠를 보내는 용도로 사용하지 마세요. 플랫폼이나 다른 고객에게 위험이 되는 계정은 중단될 수 있습니다.",
   termsSection3Title: "3. 결제",
   termsSection3Body:
     "Starter 플랜은 첫 달 무료입니다. 유료 플랜은 매월 갱신되며 7일 전에 해지할 수 있습니다. 하드웨어 구매는 별도로 청구됩니다. 오프라인 결제가 필요하면 billing@octopos.uz 로 연락하세요.",
   termsSection4Title: "4. 데이터 소유권",
-  termsSection4Body:
-    "KDSX에 저장된 메뉴, 재고, 매출, 고객 정보의 소유권은 모두 여러분에게 있습니다. 우리는 서비스를 제공하고 개선하기 위해서만 데이터를 처리합니다. 요청 시 5영업일 이내에 휴대 가능한 형식으로 내보내 드립니다.",
+    termsSection4Body:
+      "Octopos에 저장된 메뉴, 재고, 매출, 고객 정보의 소유권은 모두 여러분에게 있습니다. 우리는 서비스를 제공하고 개선하기 위해서만 데이터를 처리합니다. 요청 시 5영업일 이내에 휴대 가능한 형식으로 내보내 드립니다.",
   termsSection5Title: "5. 업데이트",
-  termsSection5Body:
-    "우리는 빠르게 제품을 개선합니다. 사용 방식에 중대한 영향을 주는 변경 사항은 청구 담당자에게 이메일로 알립니다. 업데이트 이후에도 KDSX를 계속 사용하면 수정된 약관에 동의한 것으로 간주됩니다.",
+    termsSection5Body:
+      "우리는 빠르게 제품을 개선합니다. 사용 방식에 중대한 영향을 주는 변경 사항은 청구 담당자에게 이메일로 알립니다. 업데이트 이후에도 Octopos를 계속 사용하면 수정된 약관에 동의한 것으로 간주됩니다.",
 
   privacyBadge: "개인정보",
   privacyHeading: "개인정보 처리방침",

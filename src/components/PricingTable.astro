@@ -1,5 +1,6 @@
 ---
 import { createT } from '../i18n';
+import ContactWizard from './ContactWizard.astro';
 
 const supportedLangs = ['en', 'ru', 'ko', 'uz'];
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
@@ -25,7 +26,7 @@ const currentYear = new Date().getFullYear();
         <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">
           <span data-i18n="pricingStarterLabel">{t('pricingStarterLabel')}</span>
         </div>
-  <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
+  <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
   <div class="mt-2 text-xs font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">{t('pricingStarterSubtitle')}</div>
   <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">{t('pricingStarterBody')}</p>
   <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
@@ -49,8 +50,8 @@ const currentYear = new Date().getFullYear();
             <span data-i18n="pricingProLabel">{t('pricingProLabel')}</span>
             <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-lg" data-i18n="pricingProRibbon">{t('pricingProRibbon')}</span>
           </div>
-          <div class="mt-5 text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
-            <span data-i18n="pricingProPrice">{t('pricingProPrice')}</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">{t('pricingProPeriod')}</span>
+          <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
+            <span id="price-amount" data-base-usd="30" data-i18n="pricingProPrice">{t('pricingProPrice')}</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">{t('pricingProPeriod')}</span>
           </div>
           <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">{t('pricingProBody')}</p>
           <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
@@ -60,7 +61,7 @@ const currentYear = new Date().getFullYear();
             <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB4">{t('pricingProB4')}</span></li>
             <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">{t('pricingProB5')}</span></li>
           </ul>
-          <div class="mt-8">
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-[var(--color-green-dark)] shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
               <span data-i18n="pricingProCta">{t('pricingProCta')}</span>
             </button>
@@ -70,15 +71,15 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark">
+      <div class="surface-card p-5 text-left text-brand-text dark:text-brand-text-dark self-start">
         <div class="flex items-center justify-between">
           <div class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingEnterpriseTitle">{t('pricingEnterpriseTitle')}</div>
           <span class="rounded-full bg-brand-cta/20 px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingEnterpriseRibbon">{t('pricingEnterpriseRibbon')}</span>
         </div>
   <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">{t('pricingEnterpriseHeading')}</h3>
   <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">{t('pricingEnterpriseBody')}</p>
-  <button type="button" data-plan-trigger="enterprise" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
-          <span data-i18n="pricingEnterpriseCta">{t('pricingEnterpriseCta')}</span>
+    <button type="button" data-contact-trigger="sales" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+      <span data-i18n="pricingEnterpriseCta">{t('pricingEnterpriseCta')}</span>
           <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
@@ -92,6 +93,11 @@ const currentYear = new Date().getFullYear();
           <li>✔ <span data-i18n="pricingImplementB2">{t('pricingImplementB2')}</span></li>
           <li>✔ <span data-i18n="pricingImplementB3">{t('pricingImplementB3')}</span></li>
         </ul>
+        <div class="mt-4">
+          <button type="button" data-contact-trigger="support" class="group mt-3 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+            <span>{t('contactSupportBtn')}</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -113,7 +119,7 @@ const currentYear = new Date().getFullYear();
         <!-- Brand Section -->
         <div class="flex flex-col items-start">
           <div class="flex items-center gap-2 mb-4">
-                        <img src="/logo.png" alt="Octopos Logo" class="w-8 h-8 md:w-8 md:h-8" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
+                        <img src="/logo_dark.png" alt="Octopos Logo" class="w-8 h-8 md:w-8 md:h-8" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
 
             <span class="hidden md:inline-block font-bold text-2xl text-brand-text dark:text-brand-text-dark">Octopos</span>
           </div>
@@ -130,13 +136,13 @@ const currentYear = new Date().getFullYear();
               </svg>
               <span class="text-sm" data-i18n="footerContactPhone1">{t('footerContactPhone1')}</span>
             </a>
-            <a href="tel:+821079328573" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
+            <a href="tel:+998501886669" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
               <span class="text-sm" data-i18n="footerContactPhone2">{t('footerContactPhone2')}</span>
             </a>
-            <a href="mailto:support@kdsx.uz" class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
+            <a href={`mailto:${t('footerContactEmail')}`} class="flex items-center gap-3 text-brand-text dark:text-brand-text-dark">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
@@ -149,17 +155,17 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col items-start">
           <h4 class="font-semibold text-brand-text dark:text-brand-text-dark mb-4" data-i18n="footerFollowTitle">{t('footerFollowTitle')}</h4>
           <div class="flex gap-4">
-            <a href="https://t.me/kdsx_pos_uzbekistan" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
+            <a href="https://t.me/octopos_pos_uzbekistan" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Telegram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
               </svg>
             </a>
-            <a href="https://www.youtube.com/@KDSXPOS-RestoranAvtomatlash" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="YouTube">
+            <a href="https://www.youtube.com/@OctoposPOS-RestoranAvtomatlash" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="YouTube">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
             </a>
-            <a href="https://www.instagram.com/kdsx.uz?igsh=MXAxMmtmdGJ5MXUybA==" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Instagram">
+            <a href="https://www.instagram.com/octopos.uz" class="p-2 rounded-lg hover:bg-brand-cta hover:text-brand-cta-text transition-all" aria-label="Instagram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
@@ -185,3 +191,95 @@ const currentYear = new Date().getFullYear();
     </footer>
   </div>
 </section>
+
+<ContactWizard />
+
+<script is:inline>
+  (function () {
+    const priceEl = document.getElementById('price-amount');
+    if (!priceEl) return;
+    const baseUSD = Number(priceEl.dataset.baseUsd || 30);
+      const userLocale = (navigator.languages && navigator.languages[0]) || navigator.language || 'en-US';
+    let lang = (userLocale && userLocale.split('-')[0]) || 'en';
+
+    // Default mapping by language
+    const langToCurrency = { en: 'USD', ko: 'KRW', ru: 'RUB', uz: 'UZS' };
+    let currency = langToCurrency[lang] || 'USD';
+
+    // Fallback rates used if exchange API is unavailable
+    const fallbackRates = { KRW: 1400, UZS: 12175, RUB: 95 };
+
+    // Pretty rounding for large numbers to make amounts look tidy
+    function prettyPrice(v) {
+      if (v >= 1000000) return Math.floor(v / 10000) * 10000;
+      if (v >= 100000) return Math.floor(v / 1000) * 1000;
+      if (v >= 10000) return Math.floor(v / 100) * 100;
+      return Math.round(v);
+    }
+
+    // Locale-aware formatting
+    function setDisplay(val) {
+      try {
+        const formatted = new Intl.NumberFormat(userLocale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(val);
+        priceEl.textContent = formatted;
+      } catch (e) {
+        const fallback = `${Math.round(val).toLocaleString()} ${currency}`;
+        priceEl.textContent = fallback;
+      }
+    }
+
+    // Use timezone detection as a stronger signal than browser language alone.
+    // This ensures visitors in Uzbekistan (Asia/Tashkent) see UZS even if their browser lang is English.
+    try {
+      const tz = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '';
+      const tzLower = String(tz).toLowerCase();
+      if (/tashkent|uzbekistan|asia\/tashkent/.test(tzLower)) {
+        currency = 'UZS';
+        lang = 'uz';
+      } else if (/seoul|korea|asia\/seoul/.test(tzLower)) {
+        currency = 'KRW';
+        lang = 'ko';
+      } else if (/moscow|europe\/moscow|europe\/saint_petersburg|europe\/minsk/.test(tzLower)) {
+        currency = 'RUB';
+        lang = 'ru';
+      }
+    } catch (e) {}
+
+    // If timezone didn't determine the currency, try region subtag from locale (e.g., en-US)
+    if (!currency || currency === 'USD') {
+      try {
+        const parts = userLocale.split('-');
+        const region = parts[1] ? parts[1].toUpperCase() : '';
+        if (region === 'UZ') currency = 'UZS';
+        else if (region === 'KR') currency = 'KRW';
+        else if (region === 'RU' || region === 'BY') currency = 'RUB';
+        // treat several english-speaking regions as USD by default
+        else if (['US', 'GB', 'AU', 'CA', 'NZ'].includes(region)) currency = 'USD';
+      } catch (e) {}
+    }
+
+    // If currency is still USD, just display USD and stop
+    if (currency === 'USD') {
+      setDisplay(baseUSD);
+      return;
+    }
+
+    // Attempt to fetch latest rate, fallback to static rates if API fails
+    const api = `https://api.exchangerate.host/convert?from=USD&to=${currency}&amount=${baseUSD}`;
+    fetch(api, { cache: 'no-store' })
+      .then((r) => r.json())
+      .then((data) => {
+        let converted = data && data.result ? data.result : null;
+        if (!converted) {
+          const rate = fallbackRates[currency] || 1;
+          converted = baseUSD * rate;
+        }
+        setDisplay(prettyPrice(converted));
+      })
+      .catch(() => {
+        const rate = fallbackRates[currency] || 1;
+        const converted = baseUSD * rate;
+        setDisplay(prettyPrice(converted));
+      });
+  })();
+</script>
