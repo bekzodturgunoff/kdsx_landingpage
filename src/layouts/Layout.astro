@@ -62,8 +62,15 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
     href={Astro.site ? new URL(localizedPath(DEFAULT_LANGUAGE), Astro.site).toString() : localizedPath(DEFAULT_LANGUAGE)}
   />
     <link rel="icon" href="/logo.png" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="light" />
   <!-- JSON-LD Schema for Software Application -->
+    <script src="//js.honeybadger.io/v6.12/honeybadger.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  Honeybadger.configure({
+    apiKey: "hbp_kHru1VdHCKyAaaYs9VMQ8QgTbVHBz903UJw1",
+    environment: "production"
+  });
+</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
