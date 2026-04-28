@@ -5,7 +5,9 @@
   font-family: "Inter";
   font-style: normal;
   font-display: swap;
-  src: url(/fonts/Inter.var.woff2) format("woff2-variations");
+  /* Avoid loading an empty/broken local font file during development.
+     Prefer local Inter if installed; otherwise fall back to system fonts. */
+  src: local("Inter"), local("Inter var");
   font-weight: 1 1000;
 }
 

@@ -55,16 +55,15 @@ export const POST: APIRoute = async ({ request }) => {
     }
     const payload = validation.payload;
 
-    const lines = [
-      `Business: ${payload.businessName}`,
-      `Email: ${payload.email}`,
-      `Submitted: ${payload.timestamp}`,
-    ];
-
-    // Include plaintext password so operators receive credentials.
-    if (payload.password) {
-      lines.splice(2, 0, `Password (plain): ${payload.password}`);
+    function sanitizeForEmail(input: string) {
+      return String(input || "").replace(/[\r\n]+/g, " ").trim().slice(0, 1000);
     }
+
+    const lines = [
+      `Business: ${sanitizeForEmail(payload.businessName)}`,
+      `Email: ${sanitizeForEmail(payload.email)}`,
+      `Submitted: ${sanitizeForEmail(payload.timestamp)}`,
+    ];
 
     // Delivery options via env vars with runtime validation warnings.
     const config = getDeliveryConfig();
@@ -97,37 +96,30 @@ export const POST: APIRoute = async ({ request }) => {
         });
 
         if (!resendResponse.ok) {
-          const errorText = await resendResponse.text();
-          failureReasons.push(
-            `Resend returned ${resendResponse.status}: ${errorText}`
-          );
+          // Avoid echoing potentially sensitive response bodies back to clients
+          failureReasons.push(`Resend returned ${resendResponse.status}`);
         } else {
           delivered = true;
         }
       } catch (error) {
-        failureReasons.push(
-          `Resend error: ${error instanceof Error ? error.message : String(error)}`
-        );
+        // Capture the error server-side (monitoring) and avoid leaking details to clients
+        failureReasons.push("Resend request failed");
       }
     } else {
       failureReasons.push("Resend API key not configured");
     }
 
     if (!delivered) {
-      const errorMessage =
-        failureReasons.join(" | ") || "No notification channel succeeded.";
-      return new Response(
-        JSON.stringify({ ok: false, delivered, error: errorMessage }),
-        {
-          status: failureReasons.length ? 502 : 501,
-          headers: {
-            "content-type": "application/json",
-            "x-ratelimit-remaining": String(rate.remaining),
-            "x-ratelimit-reset": String(rate.resetAt),
-            "x-config-warnings": warnings.join(" | "),
-          },
-        }
-      );
+      // Do not return internal error details to clients
+      return new Response(JSON.stringify({ ok: false, delivered: false, error: "Notification delivery failed" }), {
+        status: failureReasons.length ? 502 : 501,
+        headers: {
+          "content-type": "application/json",
+          "x-ratelimit-remaining": String(rate.remaining),
+          "x-ratelimit-reset": String(rate.resetAt),
+          "x-config-warnings": warnings.join(" | "),
+        },
+      });
     }
 
     return new Response(JSON.stringify({ ok: true, delivered: true }), {
@@ -139,8 +131,8 @@ export const POST: APIRoute = async ({ request }) => {
       },
     });
   } catch (err) {
-    return new Response(JSON.stringify({ ok: false, error: String(err) }), {
-      status: 400,
+    return new Response(JSON.stringify({ ok: false, error: "Request failed" }), {
+      status: 500,
       headers: { "content-type": "application/json" },
     });
   }

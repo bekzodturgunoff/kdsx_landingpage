@@ -12,6 +12,9 @@ export const translations = {
 
 export type LanguageCode = keyof typeof translations;
 
+export const SUPPORTED_LANGS = ['en', 'ru', 'ko', 'uz'] as const;
+export type SupportedLang = (typeof SUPPORTED_LANGS)[number];
+
 export const LANGUAGE_OPTIONS: Array<{ value: LanguageCode; label: string }> = [
   { value: "en", label: "English" },
   { value: "ru", label: "Русский" },

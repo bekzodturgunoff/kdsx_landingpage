@@ -1,10 +1,11 @@
 ---
-import { createT } from '../i18n';
+import { createT, SUPPORTED_LANGS } from '../i18n';
 import ContactWizard from './ContactWizard.astro';
-
-const supportedLangs = ['en', 'ru', 'ko', 'uz'];
+import { Image } from 'astro:assets';
+import logoDark from '../assets/logo_dark.png';
+import logoLight from '../assets/logo_light.png';
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const currentLang = SUPPORTED_LANGS.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
 const localeBase = `/${currentLang}`;
 const t = createT(currentLang);
 const currentYear = new Date().getFullYear();
@@ -119,7 +120,7 @@ const currentYear = new Date().getFullYear();
         <!-- Brand Section -->
         <div class="flex flex-col items-start">
           <div class="flex items-center gap-2 mb-4">
-                        <img src="/logo_dark.png" alt="Octopos Logo" class="w-8 h-8 md:w-8 md:h-8" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
+                        <Image src={logoDark} alt="Octopos Logo" class="w-8 h-8 md:w-8 md:h-8" loading="lazy" data-logo-for-light={logoDark} data-logo-for-dark={logoLight} width={32} height={32} />
 
             <span class="hidden md:inline-block font-bold text-2xl text-brand-text dark:text-brand-text-dark">Octopos</span>
           </div>

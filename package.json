@@ -21,6 +21,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@astrojs/image": "^0.18.0",
     "@astrojs/vercel": "^9.0.0",
     "@eslint/js": "^9.36.0",
     "@types/react": "^19.1.13",
@@ -33,6 +34,7 @@
     "globals": "^16.4.0",
     "playwright": "^1.59.1",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.14",
     "vite": "^7.1.7",
     "vitest": "^2.1.9"

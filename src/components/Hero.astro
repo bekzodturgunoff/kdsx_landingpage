@@ -1,9 +1,9 @@
 ---
-import { createT } from '../i18n';
+import { createT, SUPPORTED_LANGS } from '../i18n';
+import { Image } from 'astro:assets';
 
-const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const currentLang = supportedLangs.includes((pathSegments[0] || '') as (typeof supportedLangs)[number])
+const currentLang = SUPPORTED_LANGS.includes((pathSegments[0] || '') as (typeof SUPPORTED_LANGS)[number])
   ? pathSegments[0]
   : 'en';
 const t = createT(currentLang);
@@ -15,15 +15,16 @@ const t = createT(currentLang);
     <div class="flex flex-col items-center gap-8 sm:gap-12">
       <div class="relative flex w-full items-center justify-center">
         <div class="absolute inset-0 -z-10 rounded-[36px] bg-gradient-to-br from-brand-cta/12 via-white/25 to-transparent blur-3xl"></div>
-        <img
+        <Image
+          src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png"
+          alt="Immersive tabletop POS experience presenting curated menu pathways"
+          width={2710}
+          height={1920}
+          sizes="(max-width: 640px) 100vw, 1100px"
+          class="relative w-full max-w-[1100px] rounded-[28px] object-cover"
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png"
-          alt="Immersive tabletop POS experience presenting curated menu pathways"
-          width="1100"
-          height="700"
-          class="relative w-full max-w-[1100px] rounded-[28px] object-cover"
         />
       </div>
 

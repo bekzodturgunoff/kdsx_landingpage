@@ -1,10 +1,11 @@
 ---
 import '../styles/global.css';
 import WizardForm from '../components/WizardForm.astro';
-import { translations, DEFAULT_LANGUAGE, createT } from '../i18n';
+import { translations, DEFAULT_LANGUAGE, createT, SUPPORTED_LANGS, SupportedLang } from '../i18n';
+import logoDark from '../assets/logo_dark.png';
+import logoLight from '../assets/logo_light.png';
 
-const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
-type SupportedLang = (typeof supportedLangs)[number];
+const supportedLangs = SUPPORTED_LANGS;
 
 interface Props {
   lang?: string;
@@ -28,6 +29,7 @@ const canonicalPath = localizedPath(activeLang);
 
 const translationsJSON = JSON.stringify(translations);
 const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString() : canonicalPath;
+const HONEYBADGER_KEY = import.meta.env.PUBLIC_HONEYBADGER_API_KEY || '';
 ---
 <html lang={activeLang}>
   <head>
@@ -41,36 +43,36 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
   <meta property="og:title" content="Octopos | Run every shift in sync" />
   <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
   <meta property="og:url" content={canonicalHref} />
-  <meta property="og:image" content="/logo_dark.png" />
+  <meta property="og:image" content={logoDark} />
   <meta property="og:image:alt" content="Octopos logo" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Octopos | Run every shift in sync" />
   <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta name="twitter:image" content="/logo_dark.png" />
+  <meta name="twitter:image" content={logoDark} />
   <link rel="canonical" href={canonicalHref} />
   {supportedLangs.map((langCode) => (
     <link
       rel="alternate"
-      hrefLang={langCode}
+      hreflang={langCode}
       href={Astro.site ? new URL(localizedPath(langCode), Astro.site).toString() : localizedPath(langCode)}
     />
   ))}
   <link
     rel="alternate"
-    hrefLang="x-default"
-    href={Astro.site ? new URL(localizedPath(DEFAULT_LANGUAGE), Astro.site).toString() : localizedPath(DEFAULT_LANGUAGE)}
-  />
-    <link rel="icon" href="/logo.png" />
+    hreflang="x-default"
+    href={Astro.site ? new URL(localizedPath(DEFAULT_LANGUAGE), Astro.site).toString() : localizedPath(DEFAULT_LANGUAGE)}/>
+      <link rel="icon" type="image/png" sizes="32x32" href={logoDark} />
+      <link rel="icon" type="image/png" sizes="32x32" href={logoLight} media="(prefers-color-scheme: dark)" />
+      <link rel="shortcut icon" href={logoDark} />
   <meta name="color-scheme" content="light" />
   <!-- JSON-LD Schema for Software Application -->
-    <script src="//js.honeybadger.io/v6.12/honeybadger.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-  Honeybadger.configure({
-    apiKey: "hbp_kHru1VdHCKyAaaYs9VMQ8QgTbVHBz903UJw1",
-    environment: "production"
-  });
-</script>
+  {HONEYBADGER_KEY && (
+    <>
+      <script src="https://js.honeybadger.io/v6.12/honeybadger.min.js" async></script>
+      <script is:inline>{`if (typeof Honeybadger !== 'undefined') { Honeybadger.configure({ apiKey: "${HONEYBADGER_KEY}", environment: "${import.meta.env.PROD ? 'production' : 'development'}" }); }`}</script>
+    </>
+  )}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -106,12 +108,18 @@ const canonicalHref = Astro.site ? new URL(canonicalPath, Astro.site).toString()
     ]
   }
   </script>
+  <script type="application/json" id="supported-langs" set:html={JSON.stringify(supportedLangs)}></script>
     <script is:inline>
       // Initialize language early.
       (function () {
         try {
           const LANG_KEY = 'preferred-lang';
-          const supported = ['en', 'ru', 'ko', 'uz'];
+          const supportedEl = document.getElementById('supported-langs');
+          const supported = (function () {
+            try {
+              return supportedEl ? JSON.parse(supportedEl.textContent || '[]') : ['en'];
+            } catch (_) { return ['en']; }
+          })();
           const pathLang = (() => {
             const first = window.location.pathname.split('/').filter(Boolean)[0];
             return supported.includes(first) ? first : null;

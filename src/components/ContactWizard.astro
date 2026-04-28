@@ -1,9 +1,8 @@
 ---
-import { createT } from '../i18n';
+import { createT, SUPPORTED_LANGS } from '../i18n';
 
-const supportedLangs = ['en', 'ru', 'ko', 'uz'];
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const currentLang = SUPPORTED_LANGS.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
 const t = createT(currentLang);
 ---
 

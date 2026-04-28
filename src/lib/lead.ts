@@ -21,14 +21,20 @@ const EMAIL_MAX_LEN = 254;
 const WINDOW_MS = 15 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 12;
 
-const rateLimitStore = new Map<string, RateLimitEntry>();
+// Use a global store so repeated imports in the same server instance share state.
+const GLOBAL_RATE_LIMIT_KEY = '__kdsx_rateLimitStore_v1';
+const MAX_STORE_ENTRIES = 5000;
+const ENTRY_TTL_MS = WINDOW_MS * 2;
+const globalAny = globalThis as any;
+const rateLimitStore: Map<string, RateLimitEntry> = globalAny[GLOBAL_RATE_LIMIT_KEY] || new Map<string, RateLimitEntry>();
+if (!globalAny[GLOBAL_RATE_LIMIT_KEY]) globalAny[GLOBAL_RATE_LIMIT_KEY] = rateLimitStore;
 
 function toStringValue(value: unknown, maxLen = MAX_LEN): string {
   return String(value ?? "").trim().slice(0, maxLen);
 }
 
 function isValidEmail(email: string): boolean {
-  if (!email) return true;
+  if (!email) return false;
   if (email.length > EMAIL_MAX_LEN) return false;
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -68,6 +74,23 @@ export function getClientIp(headers: Headers): string {
 
 export function checkRateLimit(ip: string, now = Date.now()): { ok: boolean; remaining: number; resetAt: number } {
   const key = ip || "unknown";
+  // Cleanup expired entries to avoid unbounded growth
+  try {
+    for (const [k, entry] of rateLimitStore) {
+      if (entry.resetAt + ENTRY_TTL_MS < now) rateLimitStore.delete(k);
+    }
+    // If store is unexpectedly large, prune oldest entries
+    if (rateLimitStore.size > MAX_STORE_ENTRIES) {
+      const toRemove = rateLimitStore.size - MAX_STORE_ENTRIES;
+      let removed = 0;
+      for (const k of rateLimitStore.keys()) {
+        rateLimitStore.delete(k);
+        removed += 1;
+        if (removed >= toRemove) break;
+      }
+    }
+  } catch (_) {}
+
   const existing = rateLimitStore.get(key);
 
   if (!existing || now >= existing.resetAt) {

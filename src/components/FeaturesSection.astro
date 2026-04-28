@@ -1,9 +1,9 @@
 ---
-import { createT } from '../i18n';
+import { createT, SUPPORTED_LANGS } from '../i18n';
+import { Image } from 'astro:assets';
 
-const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const currentLang = supportedLangs.includes((pathSegments[0] || '') as (typeof supportedLangs)[number])
+const currentLang = SUPPORTED_LANGS.includes((pathSegments[0] || '') as (typeof SUPPORTED_LANGS)[number])
   ? pathSegments[0]
   : 'en';
 const t = createT(currentLang);
@@ -20,7 +20,16 @@ const t = createT(currentLang);
       <div class="feature-panel overflow-hidden text-brand-text dark:text-brand-text-dark">
         <div class="relative">
           <div class="absolute -top-12 right-12 h-36 w-36 rounded-full bg-brand-cta/25 blur-3xl"></div>
-          <img loading="lazy" decoding="async" src="/app_images/PC_MOCKUP_DASH_VIEW.png" alt="Operations dashboard displaying revenue, prep, and guest sentiment metrics" class="block w-full object-cover" />
+          <Image
+            src="/app_images/PC_MOCKUP_DASH_VIEW.png"
+            alt="Operations dashboard displaying revenue, prep, and guest sentiment metrics"
+            width={5620}
+            height={4684}
+            sizes="(max-width: 640px) 100vw, 1200px"
+            class="block w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
   <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-7 md:pt-8">
           <div class="enterprise-ribbon" data-i18n="featuresCard1Tag">{t('featuresCard1Tag')}</div>
@@ -41,7 +50,16 @@ const t = createT(currentLang);
       </div>
 
             <div class="feature-panel overflow-hidden text-left text-brand-text dark:text-brand-text-dark">
-        <img loading="lazy" decoding="async" src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png" alt="Table-side POS tablet presenting menu and modifiers" width="1100" height="700" class="block w-full object-cover" />
+        <Image
+          src="/app_images/TABLE_MOCKUP_POS_MENU_VIEW.png"
+          alt="Table-side POS tablet presenting menu and modifiers"
+          width={2710}
+          height={1920}
+          sizes="(max-width: 640px) 100vw, 1100px"
+          class="block w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
   <div class="px-4 sm:px-6 pt-4 sm:pt-6 pb-6 sm:pb-8 md:pt-8">
             <div class="enterprise-ribbon" data-i18n="featuresCard2Tag">{t('featuresCard2Tag')}</div>
           <h3 class="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold" data-i18n="featuresCard2Title">{t('featuresCard2Title')}</h3>
@@ -51,7 +69,16 @@ const t = createT(currentLang);
 
   
       <div class="feature-panel overflow-hidden text-left text-brand-text dark:text-brand-text-dark">
-        <img loading="lazy" decoding="async" src="/app_images/TABLE_MOCKUP_KITCHEN_ORDER_VIEW.png" alt="Kitchen display tablet showing synchronized order queues" class="block w-full object-cover" />
+        <Image
+          src="/app_images/TABLE_MOCKUP_KITCHEN_ORDER_VIEW.png"
+          alt="Kitchen display tablet showing synchronized order queues"
+          width={2710}
+          height={1920}
+          sizes="(max-width: 640px) 100vw, 1100px"
+          class="block w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
         <div class="px-6 pt-6 pb-8">
           <div class="enterprise-ribbon" data-i18n="featuresCard3Tag">{t('featuresCard3Tag')}</div>
           <h3 class="mt-4 text-2xl font-semibold" data-i18n="featuresCard3Title">{t('featuresCard3Title')}</h3>

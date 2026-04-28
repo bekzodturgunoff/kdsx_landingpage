@@ -1,11 +1,13 @@
 ---
-import { createT, LANGUAGE_OPTIONS } from "../i18n";
+import { createT, LANGUAGE_OPTIONS, SUPPORTED_LANGS } from "../i18n";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
+import { Image } from "astro:assets";
+import logoDark from '../assets/logo_dark.png';
+import logoLight from '../assets/logo_light.png';
 
 const languageOptions = LANGUAGE_OPTIONS;
-const supportedLangs = ['en', 'ru', 'ko', 'uz'];
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const currentLang = supportedLangs.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
+const currentLang = SUPPORTED_LANGS.includes(pathSegments[0] || '') ? pathSegments[0] : 'en';
 const t = createT(currentLang);
 const localeBase = `/${currentLang}`;
 const homeHref = localeBase;
@@ -21,7 +23,7 @@ const faqPageHref = `${localeBase}/faq`;
     <div class="mt-6 relative flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
         <a href={homeHref} aria-label="Octopos Home" class="flex items-center  sm:text-sm tracking-[0.15em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60">
-          <img src="/logo_dark.png" alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="lazy" data-logo-for-light="/logo_dark.png" data-logo-for-dark="/logo_light.png" />
+          <Image src={logoDark} alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="eager" fetchpriority="high" data-logo-for-light={logoDark} data-logo-for-dark={logoLight} width={32} height={32} />
           <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text dark:text-white">Octopos</span>
         </a>
       </div>
@@ -136,7 +138,10 @@ const faqPageHref = `${localeBase}/faq`;
     const LANGUAGE_STORAGE_KEY = "preferred-lang";
     const TRANSLATION_FALLBACK = "en";
 
-    const supported = ["en", "ru", "ko", "uz"];
+    const supportedEl = document.getElementById('supported-langs');
+    const supported = (function () {
+      try { return supportedEl ? JSON.parse(supportedEl.textContent || '[]') : []; } catch (_) { return []; }
+    })();
 
     const getPathLang = () => {
       const first = window.location.pathname.split("/").filter(Boolean)[0];
@@ -219,7 +224,7 @@ const faqPageHref = `${localeBase}/faq`;
           const cookieValue = getCookieTheme();
           if (cookieValue) return cookieValue;
         }
-        return (value === 'dark' || value === 'light') ? value : 'dark';
+        return (value === 'dark' || value === 'light') ? value : 'light';
       };
 
       const setStoredTheme = (value) => {

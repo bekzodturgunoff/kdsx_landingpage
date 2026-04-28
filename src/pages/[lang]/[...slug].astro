@@ -9,9 +9,9 @@ import HowItWorks from '../../components/HowItWorks.astro';
 import Testimonials from '../../components/Testimonials.astro';
 import PricingTable from '../../components/PricingTable.astro';
 import FAQ from '../../components/FAQ.astro';
-import { createT } from '../../i18n';
+import { createT, SUPPORTED_LANGS, SupportedLang } from '../../i18n';
 
-const supportedLangs = ['en', 'ru', 'ko', 'uz'] as const;
+const supportedLangs = SUPPORTED_LANGS;
 const validPages = ['home', 'features', 'pricing', 'faq', 'privacy', 'terms'] as const;
 
 type SupportedLang = (typeof supportedLangs)[number];
