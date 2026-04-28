@@ -3,6 +3,7 @@ import { createT, LANGUAGE_OPTIONS, SUPPORTED_LANGS } from "../i18n";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
 import logoDark from '../assets/logo_dark.png';
 import logoLight from '../assets/logo_light.png';
+import { Image } from 'astro:assets';
 
 const languageOptions = LANGUAGE_OPTIONS;
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
@@ -19,10 +20,10 @@ const faqPageHref = `${localeBase}/faq`;
 ---
 <header class="sticky top-0 z-50 px-2 sm:px-6">
   <div class="max-w-6xl mx-auto">
-    <div class="mt-6 relative flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
+    <div class="mt-6 relative flex items-center justify-between rounded-full surface-navbar px-4 py-3">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
         <a href={homeHref} aria-label="Octopos Home" class="flex items-center  sm:text-sm tracking-[0.15em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60">
-          <img src={logoDark} alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="eager" fetchpriority="high" data-logo-for-light={logoDark} data-logo-for-dark={logoLight} width={32} height={32} />
+          <Image src={logoDark} alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="eager" fetchpriority="high" data-logo-for-light={logoDark?.src ?? logoDark} data-logo-for-dark={logoLight?.src ?? logoLight} width={32} height={32} />
           <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text dark:text-white">Octopos</span>
         </a>
       </div>
@@ -110,7 +111,7 @@ const faqPageHref = `${localeBase}/faq`;
 
   <!-- Mobile dropdown -->
   <div id="mobile-menu" class="md:hidden hidden px-4 sm:px-6">
-    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-2 rounded-3xl border border-brand-cta-text/15 bg-brand-bg/95 px-4 py-5 text-base font-medium text-brand-text shadow-lg dark:border-brand-cta-text-dark/20 dark:bg-brand-bg-dark/90 dark:text-brand-text-dark">
+    <nav class="mx-auto mt-3 flex max-w-6xl flex-col gap-2 rounded-3xl surface-surface px-4 py-5 text-base font-medium text-brand-text shadow-lg">
     <!-- Mobile nav: full pages (sections not all present inline on mobile) -->
   <a href={featuresPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navFeatures">{t('navFeatures')}</a>
   <a href={pricingPageHref} class="flex items-center justify-between rounded-2xl px-5 py-4 uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-brand-cta/10 active:bg-brand-cta/20" data-i18n="navPricing">{t('navPricing')}</a>
@@ -386,7 +387,17 @@ const faqPageHref = `${localeBase}/faq`;
           e.preventDefault();
           const target = document.getElementById(id);
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Account for sticky header height so the target is not obscured
+            // and to avoid layout shifts when scrolled into view.
+            try {
+              const header = document.querySelector('header');
+              const headerHeight = header ? header.getBoundingClientRect().height : 0;
+              const offset = Math.max(0, Math.round(headerHeight + 8));
+              const top = window.scrollY + target.getBoundingClientRect().top - offset;
+              window.scrollTo({ top, behavior: 'smooth' });
+            } catch (e) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           }
         });
         (a)._boundScroll = true;
