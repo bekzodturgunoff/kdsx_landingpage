@@ -23,17 +23,19 @@ const faqPageHref = `${localeBase}/faq`;
     <div class="mt-6 relative flex items-center justify-between rounded-full surface-navbar px-4 py-3">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
         <a href={homeHref} aria-label="Octopos Home" class="flex items-center  sm:text-sm tracking-[0.15em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60">
-          <Image
-            src={logoDark}
-            alt="Octopos logo"
-            class="w-8 h-8 md:w-8 md:h-8 mr-2"
-            loading="eager"
-            fetchpriority="high"
-            data-logo-for-light={logoDark?.src ?? logoDark}
-            data-logo-for-dark={logoLight?.src ?? logoLight}
-            width={32}
-            height={32}
-          />
+          <span class="mr-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white p-1 overflow-hidden dark:bg-transparent">
+            <Image
+              src={logoDark}
+              alt="Octopos logo"
+              class="w-full h-full block"
+              loading="eager"
+              fetchpriority="high"
+              data-logo-for-light={logoDark?.src ?? logoDark}
+              data-logo-for-dark={logoLight?.src ?? logoLight}
+              width={32}
+              height={32}
+            />
+          </span>
           <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text dark:text-white">Octopos</span>
         </a>
       </div>

@@ -12,7 +12,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
 <div id="plan-wizard" class="fixed inset-0 z-[60] hidden" data-api-base={trialAPIBaseURL} data-dash-url={dashAppURL}>
   <div class="absolute inset-0 bg-black/40 backdrop-blur-sm dark:bg-black/70"></div>
   <div class="relative mx-auto my-10 max-w-lg px-4">
-    <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" class="rounded-3xl border bg-[var(--color-brand-bg)] p-6 sm:p-7 md:p-8 shadow-2xl dark:border-white/20">
+    <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" class="rounded-3xl border bg-white dark:bg-[var(--color-surface-soft)] p-6 sm:p-7 md:p-8 shadow-2xl dark:border-white/20">
       <div class="flex items-start justify-between gap-4">
         <div class="min-w-0">
           <h3 id="wizard-title" class="text-xl font-semibold text-[var(--color-brand-text)]">{t("wizardTitle") || "Start your instant trial"}</h3>
@@ -60,7 +60,7 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
         <button id="wizard-submit" type="submit" class="btn-solid mt-2 w-full px-6 py-3 text-sm" data-submit-text={t("wizardStartTrial") || "Start Instant Trial"} data-loading-text={t("wizardSubmitting") || "Creating account..."}>{t("wizardStartTrial") || "Start Instant Trial"}</button>
       </form>
 
-      <div id="wizard-loading" class="mt-6 hidden rounded-xl border bg-[var(--color-brand-bg)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
+      <div id="wizard-loading" class="mt-6 hidden rounded-xl border bg-white dark:bg-[var(--color-surface-soft)] p-4 text-sm text-[var(--color-brand-text)] shadow-sm dark:border-white/20">
         <div class="flex items-center gap-3">
           <span class="h-4 w-4 animate-spin rounded-full border-2 border-brand-cta border-t-transparent"></span>
           <p>{t("wizardCreatingKitchen") || "Creating your kitchen..."}</p>
@@ -155,91 +155,92 @@ const dashAppURL = process.env.PUBLIC_DASH_APP_URL || "http://localhost:3000";
     });
 
       form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      hideError();
+        e.preventDefault();
+        hideError();
 
-      const businessName = String(form.businessName?.value || "").trim();
-      const email = String(form.email?.value || "").trim().toLowerCase();
-      const password = String(form.password?.value || "");
+        const businessName = String(form.businessName?.value || "").trim();
+        const email = String(form.email?.value || "").trim().toLowerCase();
+        const password = String(form.password?.value || "");
 
-      if (!businessName || !email || password.length < 8) {
-        showError();
-        return;
-      }
-      
-      	submitBtn.disabled = true;
-      	submitBtn.textContent = submitBtn.getAttribute("data-loading-text") || loadingFallback;
-      loadingState?.classList.remove("hidden");
-
-      const firstName = businessName;
-      const lastName = "Owner";
-      const lang = (document.documentElement.getAttribute("lang") || "en").slice(0, 2);
-      const defaultLang = ["en", "ru", "uz", "ko"].includes(lang) ? lang : "en";
-
-      const bootstrapPayload = {
-        user: {
-          login: email,
-          firstName,
-          lastName,
-          password,
-        },
-        setting: {
-          currency: "USD",
-          businessType: "restaurant",
-          defaultLang,
-        },
-        location: {
-          name: businessName,
-          description: "",
-          addressLine1: "",
-          addressLine2: "",
-          email,
-          phone: "",
-          websiteURL: "",
-          instagramURL: "",
-          logoURL: "",
-          timeZone: "Asia/Seoul",
-          workingFrom: "09:00",
-          workingTo: "22:00",
-        },
-      };
-
-      try {
-        const bootstrapRes = await fetch(`${apiBaseURL}/bootstrap`, {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(bootstrapPayload),
-        });
-
-        if (!bootstrapRes.ok) {
-          throw new Error("bootstrap failed");
+        if (!businessName || !email || password.length < 8) {
+          showError();
+          return;
         }
 
-        const signInRes = await fetch(`${apiBaseURL}/auth.signInWithPassword`, {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({login: email, password}),
-        });
+        submitBtn.disabled = true;
+        submitBtn.textContent = submitBtn.getAttribute("data-loading-text") || loadingFallback;
+        loadingState?.classList.remove("hidden");
 
-        if (!signInRes.ok) {
-          throw new Error("sign in failed");
+        // Try the full bootstrap + sign-in flow when a trial API is configured,
+        // but gracefully fall back to the local lead endpoint (data-endpoint)
+        // so the wizard still works when the external service isn't available.
+        const firstName = businessName;
+        const lastName = "Owner";
+
+        const bootstrapPayload = {
+          user: { login: email, firstName, lastName, password },
+          setting: { currency: "USD", businessType: "restaurant", defaultLang: (document.documentElement.getAttribute("lang") || "en").slice(0,2) },
+          location: { name: businessName, email },
+        };
+
+        let handled = false;
+
+        try {
+          const bootstrapRes = await fetch(`${apiBaseURL}/bootstrap`, {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify(bootstrapPayload),
+          });
+
+          if (bootstrapRes.ok) {
+            const signInRes = await fetch(`${apiBaseURL}/auth.signInWithPassword`, {
+              method: "POST",
+              credentials: "include",
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+              body: JSON.stringify({ login: email, password }),
+            });
+
+            if (signInRes.ok) {
+              // Successfully created account and signed in — redirect to dashboard.
+              window.location.href = dashURL;
+              handled = true;
+              return;
+            }
+          }
+        } catch (_) {
+          // ignore and continue to fallback
         }
 
-        window.location.href = dashURL;
-      } catch (_) {
+        if (!handled) {
+          try {
+            const endpoint = form.getAttribute('data-endpoint') || '/api/lead';
+            const leadPayload = { businessName, email, password, timestamp: new Date().toISOString() };
+            const leadRes = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+              body: JSON.stringify(leadPayload),
+            });
+
+            if (leadRes.ok) {
+              // If a real dashboard URL is configured (non-localhost) redirect there,
+              // otherwise just close the wizard to show a local success behaviour.
+              if (dashURL && !dashURL.includes('localhost')) {
+                window.location.href = dashURL;
+              } else {
+                try { close(); } catch (_) {}
+              }
+              return;
+            }
+          } catch (_) {
+            // fall through to show error
+          }
+        }
+
         loadingState?.classList.add("hidden");
         submitBtn.disabled = false;
         submitBtn.textContent = submitBtn.getAttribute("data-submit-text") || submitFallback;
         showError();
-      }
-    });
+      });
   })();
 </script>

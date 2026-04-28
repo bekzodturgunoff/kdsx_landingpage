@@ -185,7 +185,9 @@ const localeBase = `/${activeLang}`;
       <div class="flex flex-col lg:flex-row justify-between items-start gap-6 mb-6">
         <div class="flex flex-col items-start">
           <div class="flex items-center gap-2 mb-2">
-            <Image src={logoDark} alt="Octopos Logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="lazy" data-logo-for-light={logoDark?.src ?? logoDark} data-logo-for-dark={logoLight?.src ?? logoLight} width={32} height={32} />
+            <span class="mr-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-white p-1 overflow-hidden dark:bg-transparent">
+              <Image src={logoDark} alt="Octopos Logo" class="w-full h-full block" loading="lazy" data-logo-for-light={logoDark?.src ?? logoDark} data-logo-for-dark={logoLight?.src ?? logoLight} width={32} height={32} />
+            </span>
             <span class="hidden md:inline-block font-bold text-2xl text-brand-text dark:text-brand-text-dark">Octopos</span>
           </div>
           <p class="text-sm opacity-75 max-w-xs" data-i18n="footerBrandDescription">{t('footerBrandDescription')}</p>
