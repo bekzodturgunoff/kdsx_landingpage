@@ -119,6 +119,9 @@ html {
   --motion-speed-fast: 45ms;
   --motion-speed-review: 600ms;
   --motion-speed-instant: 0ms;
+  /* Offset used for in-page anchor scrolling to account for sticky header */
+  --scroll-offset-desktop: 96px;
+  --scroll-offset-mobile: 72px;
 }
 
 /* Theme switching should be instant - no transitions during theme change */
@@ -398,6 +401,58 @@ body {
     background: rgba(var(--color-white-rgb) / 1);
   }
 
+  /* Translucent surface used by header and panels to mimic previous look
+     Provides a subtle backdrop-blur + thin border that works in light/dark. */
+  .surface-surface {
+    /* Slightly stronger/translucent surface for header and panels */
+    background: rgba(var(--color-white-rgb) / 0.98);
+    backdrop-filter: blur(26px);
+    -webkit-backdrop-filter: blur(26px);
+    border: 1px solid rgba(var(--color-grey-border-3-rgb) / 0.22);
+    box-shadow: 0 24px 88px -52px rgba(var(--color-green-dark-rgb) / 0.8);
+    color: var(--color-brand-text);
+  }
+
+  .dark .surface-surface {
+    background: rgba(var(--color-black-soft-2-rgb) / 0.9);
+    border-color: rgba(var(--color-white-rgb) / 0.08);
+    box-shadow: 0 24px 88px -52px rgba(0 0 0 / 0.85);
+    color: var(--color-brand-text-dark);
+  }
+
+  /* Navbar-specific surface: premium glassmorphism — subtle layered gradient,
+     higher saturation, refined blur and a softer, multi-layer shadow. */
+  .surface-navbar {
+    background: linear-gradient(
+      180deg,
+      rgba(var(--color-white-rgb) / 0.80) 0%,
+      rgba(var(--color-white-rgb) / 0.62) 100%
+    );
+    backdrop-filter: blur(12px) saturate(140%) contrast(102%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%) contrast(102%);
+    border: 1px solid rgba(var(--color-white-rgb) / 0.10);
+    box-shadow:
+      0 6px 18px rgba(2 6 2 / 0.06),
+      inset 0 1px 0 rgba(var(--color-white-rgb) / 0.03);
+    color: var(--color-brand-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .dark .surface-navbar {
+    background: linear-gradient(
+      180deg,
+      rgba(var(--color-black-soft-2-rgb) / 0.62) 0%,
+      rgba(var(--color-black-soft-2-rgb) / 0.38) 100%
+    );
+    backdrop-filter: blur(14px) saturate(125%) contrast(104%);
+    -webkit-backdrop-filter: blur(14px) saturate(125%) contrast(104%);
+    border: 1px solid rgba(var(--color-white-rgb) / 0.06);
+    box-shadow:
+      0 8px 30px rgba(0 0 0 / 0.48),
+      inset 0 1px 0 rgba(var(--color-white-rgb) / 0.02);
+    color: var(--color-brand-text-dark);
+  }
+
   .dark .lang-select {
     background: var(--color-surface-muted);
     border: 1px solid var(--color-border-soft);
@@ -653,6 +708,19 @@ body {
     border-color: var(--color-border-soft);
     background: var(--color-neutral);
     color: var(--color-text-secondary);
+  }
+
+  /* Ensure in-page anchor targets (e.g., #faq) account for sticky header
+     and don't cause unexpected layout shifts when scrolled into view. */
+  section[id] {
+    scroll-margin-top: var(--scroll-offset-desktop);
+    scroll-behavior: smooth;
+  }
+
+  @media (max-width: 767px) {
+    section[id] {
+      scroll-margin-top: var(--scroll-offset-mobile);
+    }
   }
 
   .suite-chip {
