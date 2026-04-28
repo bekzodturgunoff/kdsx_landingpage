@@ -1,4 +1,4 @@
-# KDSX Landing
+# Octopos Landing
 
 ![Astro](https://img.shields.io/badge/Astro-5.0-FF5D01?style=for-the-badge&logo=astro&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -67,8 +67,8 @@ To configure the serverless API, external service integration, and email notific
 
 | Variable | Description | Where to get it |
 | :--- | :--- | :--- |
-| `PUBLIC_TRIAL_API_BASE_URL` | The external REST API base URL used for the bootstrap and sign-in processes (e.g. `https://api.kdsx.com`). | Developer configuration |
-| `PUBLIC_DASH_APP_URL` | The URL structure where the dashboard frontend is hosted, used for post-signup redirection (e.g. `https://dash.kdsx.com`). | Developer configuration |
+| `PUBLIC_TRIAL_API_BASE_URL` | The external REST API base URL used for the bootstrap and sign-in processes (e.g. `https://api.Octopos.com`). | Developer configuration |
+| `PUBLIC_DASH_APP_URL` | The URL structure where the dashboard frontend is hosted, used for post-signup redirection (e.g. `https://dash.Octopos.com`). | Developer configuration |
 | `RESEND_API_KEY` | API Key used to authenticate with Resend for legacy/standalone lead emails. **(Keep secure)** | [Resend Dashboard](https://resend.com) → API Keys |
 | `FROM_EMAIL` | The verified sender email address configured in your Resend account (e.g., `leads@yourdomain.com`). | [Resend Dashboard](https://resend.com) → Domains |
 | `TO_EMAIL` | The designated recipient(s) for lead notifications. Can be a single email or a comma-separated list. | Your choice (e.g., `bekzodturgunoff@gmail.com`) |
