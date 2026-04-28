@@ -8,7 +8,15 @@ const {
 
 const defaultTitle = 'Octopos — POS system for restaurants';
 const pageTitle = title ? `${title} | Octopos` : defaultTitle;
-const ogImage = image || '/og.png';
+// Resolve the image prop: accept either a string URL or an imported asset object
+// (Astro bundled asset with a `src` property). Prefer an absolute URL when
+// `Astro.site` is configured so crawlers (Telegram, Twitter) can fetch it.
+let ogImageRaw = '/og.png';
+if (image) {
+  ogImageRaw = typeof image === 'string' ? image : (image && image.src) ? image.src : '/og.png';
+}
+const siteOrigin = typeof Astro !== 'undefined' && Astro.site ? String(Astro.site) : '';
+const ogImage = ogImageRaw && siteOrigin && ogImageRaw.startsWith('/') ? new URL(ogImageRaw, siteOrigin).toString() : ogImageRaw;
 ---
 
 <title>{pageTitle}</title>
