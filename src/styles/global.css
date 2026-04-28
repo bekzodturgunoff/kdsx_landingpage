@@ -604,6 +604,51 @@ body {
     /* backdrop-filter: blur(18px); */
   }
 
+  /* Pro ribbon & CTA: explicit, high-contrast defaults for light theme with muted dark-mode variants.
+     These styles prefer the raw CTA tokens (hex fallbacks) to avoid over-muting on light backgrounds. */
+  .pro-ribbon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background-color: var(--cta-primary, #9fe870);
+    color: var(--cta-text-strong, #1a4d1a);
+    border-radius: 999px;
+    border: 1px solid rgba(var(--color-white-rgb) / 0.06);
+    padding: 0.125rem 0.75rem; /* safe fallback if markup misses px/py */
+    z-index: 5;
+  }
+
+  .dark .pro-ribbon {
+    background: color-mix(in oklch, var(--cta-primary, #9fe870) 28%, var(--color-surface) 72%);
+    color: var(--cta-text-inverse, #f1fff0);
+    border-color: rgba(var(--color-white-rgb) / 0.06);
+  }
+
+  .pro-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    background-color: var(--cta-primary, #9fe870);
+    color: var(--cta-text-strong, #1a4d1a);
+    border: 1px solid rgba(var(--color-dark-green-rgb) / 0.08);
+    box-shadow: 0 18px 44px -24px rgba(var(--color-dark-green-rgb) / 0.35);
+    padding: 0.6rem 1.9rem; /* keep similar footprint to existing utility classes */
+  }
+
+  .pro-cta:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+
+  .dark .pro-cta {
+    background: color-mix(in oklch, var(--cta-primary, #9fe870) 28%, var(--color-surface) 72%);
+    color: var(--cta-text-inverse, #f1fff0);
+    box-shadow: 0 22px 56px -28px color-mix(in oklch, var(--color-bright-green) 32%, transparent);
+    border-color: rgba(var(--color-white-rgb) / 0.06);
+  }
+
   .section-shell {
     position: relative;
     overflow: hidden;

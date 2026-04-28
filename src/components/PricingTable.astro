@@ -27,7 +27,7 @@ const currentYear = new Date().getFullYear();
         <div class="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.35em] text-brand-cta-text dark:text-brand-cta-text-dark">
           <span data-i18n="pricingStarterLabel">{t('pricingStarterLabel')}</span>
         </div>
-  <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
+  <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterPrice">{t('pricingStarterPrice')}</div>
   <div class="mt-2 text-xs font-semibold uppercase tracking-[0.32em] text-brand-cta-text dark:text-brand-cta-text-dark" data-i18n="pricingStarterSubtitle">{t('pricingStarterSubtitle')}</div>
   <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingStarterBody">{t('pricingStarterBody')}</p>
   <ul class="mt-7 space-y-3 text-left text-sm leading-relaxed">
@@ -49,9 +49,9 @@ const currentYear = new Date().getFullYear();
         <div class="pro-card__inner">
           <div class="flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-brand-cta-text dark:text-brand-cta-text-dark">
             <span data-i18n="pricingProLabel">{t('pricingProLabel')}</span>
-            <span class="rounded-full bg-brand-cta px-3 py-1 text-xs font-semibold text-brand-cta-text dark:text-brand-cta-text-dark shadow-lg" data-i18n="pricingProRibbon">{t('pricingProRibbon')}</span>
+            <span class="rounded-full pro-ribbon px-3 py-1 text-xs font-semibold shadow-lg" data-i18n="pricingProRibbon">{t('pricingProRibbon')}</span>
           </div>
-          <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-cta">
+          <div class="mt-5 text-3xl sm:text-5xl font-bold text-brand-cta-text dark:text-brand-text-dark">
             <span id="price-amount" data-base-usd="30" data-i18n="pricingProPrice">{t('pricingProPrice')}</span><span class="ml-1 align-top text-base font-normal text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProPeriod">{t('pricingProPeriod')}</span>
           </div>
           <p class="mt-4 text-base text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingProBody">{t('pricingProBody')}</p>
@@ -63,7 +63,7 @@ const currentYear = new Date().getFullYear();
             <li class="flex items-start gap-3"><svg class="mt-1 h-4 w-4 text-brand-cta" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pricingProB5">{t('pricingProB5')}</span></li>
           </ul>
           <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text-dark shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
+            <button type="button" data-plan-trigger="pro" class="inline-flex items-center justify-center rounded-full pro-cta px-9 py-3.5 text-lg font-semibold shadow-[0_28px_56px_-28px_rgba(26,77,26,0.55)] transition-transform duration-300 hover:scale-[1.03]">
               <span data-i18n="pricingProCta">{t('pricingProCta')}</span>
             </button>
           </div>
@@ -79,7 +79,7 @@ const currentYear = new Date().getFullYear();
         </div>
   <h3 class="mt-3.5 text-2xl font-semibold" data-i18n="pricingEnterpriseHeading">{t('pricingEnterpriseHeading')}</h3>
   <p class="mt-3 text-sm sm:text-base leading-relaxed text-brand-text/70 dark:text-brand-text-dark/70" data-i18n="pricingEnterpriseBody">{t('pricingEnterpriseBody')}</p>
-    <button type="button" data-contact-trigger="sales" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+    <button type="button" data-contact-trigger="sales" class="group mt-7 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 bg-white/75 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:bg-white/10 dark:text-brand-text-dark">
       <span data-i18n="pricingEnterpriseCta">{t('pricingEnterpriseCta')}</span>
           <svg class="h-4 w-4 dark:group-hover:text-brand-cta-text-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
@@ -95,7 +95,7 @@ const currentYear = new Date().getFullYear();
           <li>✔ <span data-i18n="pricingImplementB3">{t('pricingImplementB3')}</span></li>
         </ul>
         <div class="mt-4">
-          <button type="button" data-contact-trigger="support" class="group mt-3 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:text-brand-text-dark/70">
+          <button type="button" data-contact-trigger="support" class="group mt-3 inline-flex items-center gap-2 rounded-full border border-brand-cta/35 bg-white/75 px-6 py-3 text-sm font-semibold text-brand-text transition-colors duration-300 hover:bg-brand-cta/10 dark:bg-white/10 dark:text-brand-text-dark">
             <span>{t('contactSupportBtn')}</span>
           </button>
         </div>
@@ -104,15 +104,17 @@ const currentYear = new Date().getFullYear();
 
     <div class="mt-12 text-center">
   <h3 class="text-2xl md:text-3xl font-semibold text-brand-text dark:text-brand-text-dark mb-5 max-w-3xl mx-auto leading-relaxed" data-i18n="pricingFinalHeading">{t('pricingFinalHeading')}</h3>
-    <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full bg-brand-cta px-9 py-3.5 text-lg font-semibold text-brand-cta-text dark:text-brand-cta-text-dark shadow-[0_28px_56px_-28px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
+    <button type="button" data-plan-trigger="starter" class="inline-flex items-center justify-center rounded-full pro-cta px-9 py-3.5 text-lg font-semibold shadow-[0_28px_56px_-28px_rgba(26,77,26,0.6)] transition-transform duration-300 hover:scale-[1.03]">
     <span data-i18n="pricingFinalCta">{t('pricingFinalCta')}</span>
       </button>
     </div>
 
-    <!-- FAQ placed before footer -->
-    <div class="mt-16">
-      <slot name="faq"></slot>
-    </div>
+    <!-- FAQ placed before footer - render only when a named `faq` slot is provided -->
+    {Astro.slots && Astro.slots.faq ? (
+      <div class="mt-16">
+        <slot name="faq" />
+      </div>
+    ) : null}
 
     
   </div>
