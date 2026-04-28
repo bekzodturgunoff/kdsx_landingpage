@@ -3,7 +3,9 @@ import '../styles/global.css';
 import WizardForm from '../components/WizardForm.astro';
 import { translations, DEFAULT_LANGUAGE, createT, SUPPORTED_LANGS, SupportedLang } from '../i18n';
 import logoDark from '../assets/logo_dark.png';
+import DefaultSEO from '../components/DefaultSEO.astro';
 import logoLight from '../assets/logo_light.png';
+
 
 const supportedLangs = SUPPORTED_LANGS;
 
@@ -38,18 +40,6 @@ const HONEYBADGER_KEY = import.meta.env.PUBLIC_HONEYBADGER_API_KEY || '';
   <meta name="theme-color" content="#ffffff" id="theme-color-meta" />
   <title>Octopos | Run every shift in sync</title>
   <meta name="description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Octopos | Run every shift in sync" />
-  <meta property="og:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta property="og:url" content={canonicalHref} />
-  <meta property="og:image" content={logoDark} />
-  <meta property="og:image:alt" content="Octopos logo" />
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Octopos | Run every shift in sync" />
-  <meta name="twitter:description" content="All‑in‑one POS for modern restaurants. Automate orders, track spend in real time, and keep the floor and kitchen moving together—every shift." />
-  <meta name="twitter:image" content={logoDark} />
   <link rel="canonical" href={canonicalHref} />
   {supportedLangs.map((langCode) => (
     <link
@@ -62,10 +52,10 @@ const HONEYBADGER_KEY = import.meta.env.PUBLIC_HONEYBADGER_API_KEY || '';
     rel="alternate"
     hreflang="x-default"
     href={Astro.site ? new URL(localizedPath(DEFAULT_LANGUAGE), Astro.site).toString() : localizedPath(DEFAULT_LANGUAGE)}/>
-      <link rel="icon" type="image/png" sizes="32x32" href={logoDark} />
-      <link rel="icon" type="image/png" sizes="32x32" href={logoLight} media="(prefers-color-scheme: dark)" />
-      <link rel="shortcut icon" href={logoDark} />
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.ico" />
   <meta name="color-scheme" content="light" />
+  <DefaultSEO canonical={canonicalHref} image={logoDark} />
   <!-- JSON-LD Schema for Software Application -->
   {HONEYBADGER_KEY && (
     <>

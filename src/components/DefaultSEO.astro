@@ -1,0 +1,31 @@
+---
+const {
+  canonical = '',
+  title = '',
+  description = 'Fast POS system for restaurants, cafes, and retail in Uzbekistan.',
+  image = '',
+} = Astro.props;
+
+const defaultTitle = 'Octopos — POS system for restaurants';
+const pageTitle = title ? `${title} | Octopos` : defaultTitle;
+const ogImage = image || '/og.png';
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+{canonical ? <link rel="canonical" href={canonical} /> : null}
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+{canonical ? <meta property="og:url" content={canonical} /> : null}
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content="Octopos" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+

@@ -1,7 +1,6 @@
 ---
 import { createT, LANGUAGE_OPTIONS, SUPPORTED_LANGS } from "../i18n";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
-import { Image } from "astro:assets";
 import logoDark from '../assets/logo_dark.png';
 import logoLight from '../assets/logo_light.png';
 
@@ -23,7 +22,7 @@ const faqPageHref = `${localeBase}/faq`;
     <div class="mt-6 relative flex items-center justify-between rounded-full border border-brand-cta-text/15 dark:border-brand-cta-text-dark/20 bg-brand-bg/85 dark:bg-brand-bg-dark/50 px-4 py-3 backdrop-blur-2xl shadow-[0_20px_80px_-60px_rgba(26,77,26,0.65)]">
       <div class="flex items-center gap-3 text-base sm:text-lg font-semibold text-brand-text dark:text-brand-text-dark">
         <a href={homeHref} aria-label="Octopos Home" class="flex items-center  sm:text-sm tracking-[0.15em] text-brand-cta-text transition-transform duration-200 hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta/60">
-          <Image src={logoDark} alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="eager" fetchpriority="high" data-logo-for-light={logoDark} data-logo-for-dark={logoLight} width={32} height={32} />
+          <img src={logoDark} alt="Octopos logo" class="w-8 h-8 md:w-8 md:h-8 mr-2" loading="eager" fetchpriority="high" data-logo-for-light={logoDark} data-logo-for-dark={logoLight} width={32} height={32} />
           <span class="hidden md:inline-block font-circular font-bold text-xl text-brand-text dark:text-white">Octopos</span>
         </a>
       </div>
@@ -251,11 +250,29 @@ const faqPageHref = `${localeBase}/faq`;
 
         // Update any theme-aware logos: use the provided light/dark sources
         try {
-          document.querySelectorAll('img[data-logo-for-light]').forEach((img) => {
-            const lightSrc = img.getAttribute('data-logo-for-light');
-            const darkSrc = img.getAttribute('data-logo-for-dark');
-            const chosen = effective === 'dark' ? (darkSrc || img.getAttribute('src')) : (lightSrc || img.getAttribute('src'));
-            if (chosen && img.getAttribute('src') !== chosen) img.setAttribute('src', chosen);
+          // Support both plain <img> and Astro's <picture><source/><img/></picture> output.
+          document.querySelectorAll('[data-logo-for-light]').forEach((node) => {
+            const isImg = node.tagName && node.tagName.toLowerCase() === 'img';
+            const img = isImg ? node : node.querySelector && node.querySelector('img');
+            const lightSrc = node.getAttribute('data-logo-for-light') || (img && img.getAttribute('data-logo-for-light'));
+            const darkSrc = node.getAttribute('data-logo-for-dark') || (img && img.getAttribute('data-logo-for-dark'));
+            const chosen = effective === 'dark' ? (darkSrc || (img && img.getAttribute('src'))) : (lightSrc || (img && img.getAttribute('src')));
+            if (!img || !chosen) return;
+
+            // If the image is wrapped in a <picture>, update its <source> elements' srcset too
+            try {
+              const picture = img.closest && img.closest('picture');
+              if (picture) {
+                picture.querySelectorAll('source').forEach((s) => {
+                  try { s.setAttribute('srcset', chosen); } catch (_) {}
+                });
+              }
+            } catch (_) {}
+
+            try {
+              if (img.getAttribute('src') !== chosen) img.setAttribute('src', chosen);
+              if (img.hasAttribute('srcset')) img.removeAttribute('srcset');
+            } catch (_) {}
           });
         } catch (_) {}
       };
